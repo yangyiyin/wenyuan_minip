@@ -1,0 +1,22 @@
+/**app.wxss**/
+page{
+  height:100%;
+  background: #eeeeee;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 28rpx;
+
+}
+
+.main_color{
+  color: #0CD400;
+}
+.bg_color{
+  color: #cdcdcd;
+}
