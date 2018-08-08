@@ -1,0 +1,100 @@
+<view class="top-container" >
+    <swiper indicator-dots="{{false}}"
+            autoplay="{{true}}" interval="{{3000}}" bindchange="swiper_change" duration="{{500}}" style="width: 750rpx;height: 400rpx;">
+        <swiper-item wx:for="{{news_list}}" wx:key="index" bindtap="goto_news_detail" data-id="{{item.id}}" data-link="{{item.link}}">
+            <image mode="aspectFill" src="{{item.img}}" class="slide-image" style="width: 750rpx;height:400rpx"/>
+        </swiper-item>
+
+    </swiper>
+
+    <view class="top-container-text-box">
+        <view class="top-container-text-info" >{{swiper_info}}</view>
+        <view class="top-container-points-box">
+            <view class="top-container-point" wx:for="{{news_list}}" wx:key="index" style="background: {{item.active ? '#48D27D' : '#fff'}};"></view>
+            <view style="clear: both"></view>
+        </view>
+        <view style="clear: both"></view>
+    </view>
+</view>
+
+<view class="container" style="height: auto">
+    <view class="news-bar" wx:if="{{news_text_list.length}}">
+        <image class="news-bar-icon" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_123.png" />
+        <view class="news-bar-title">新闻动态</view>
+        <view class="news-bar-line"></view>
+        <view class="news-bar-more" bindtap="goto_news">更多</view>
+        <view style="clear: both"></view>
+    </view>
+    <view class="news-list" >
+        <view wx:for="{{news_text_list}}" wx:key="index" style="margin-bottom: 20rpx;"  bindtap="goto_news_detail" data-id="{{item.id}}" data-link="{{item.link}}">
+            <view class="news-list-point"></view>
+            <view class="news-list-title">{{item.title}}</view>
+            <view class="news-list-right" >{{item.create_time}}</view>
+        </view>
+    </view>
+
+    <view class="container" style="margin-bottom: 20rpx;box-shadow: 0px 0px 15px #ddd;width: 710rpx;margin-top: 20rpx;border-radius: 10rpx;overflow: hidden;height: auto">
+
+        <view style="position: relative;height: 140rpx;">
+            <image style="width: 710rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_143-2.png" />
+            <view hidden="{{student_list}}">
+                <image class="empty-avatar" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_204.png" />
+                <view class="empty-info" >暂无信息</view>
+            </view>
+            <view hidden="{{!student_list}}">
+                <image class="avatar" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_204.png" />
+                <view class="name">王小明</view>
+                <view class="studentid" >学号:201800078</view>
+            </view>
+            <view bindtap="goto_change_student" class="edit-icon" >
+                <image style="width: 40rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_182.png" />
+            </view>
+        </view>
+        <view class="empty-box" hidden="{{student_list}}" >
+            <view class="empty-desc" >暂无学生信息。如果您有学生已在文远参加培训,可点击下方按钮设置信息绑定。</view>
+            <view bindtap="goto_change_student" class="empty-set" ><image style="width: 30rpx;position:relative;top:-3rpx;display: inline-block;vertical-align: middle" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_161-2.png" /> 设置</view>
+        </view>
+        <view class="student-info-box" hidden="{{!student_list}}">
+            <view class="student-info-item" wx:for="{{student_list}}" wx:key="index" >
+                <view>
+                    <view class="student-info-item-l" >
+                        <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_145.png" />
+                        <view class="student-info-item-text">{{item.school}}</view>
+                    </view>
+                    <view class="student-info-item-r">
+                        <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_147.png" />
+                        <view class="student-info-item-text" >{{item.lession}}</view>
+                    </view>
+                </view>
+                <view style="margin-top: 20rpx;">
+                    <view class="student-info-item-l" >
+                        <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_149.png" />
+                        <view class="student-info-item-text" >{{item.classroom}}</view>
+                    </view>
+                    <view class="student-info-item-r" >
+                        <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_151.png" />
+                        <view class="student-info-item-text" >{{item.teacher}}</view>
+                    </view>
+                </view>
+                <view style="margin-top: 20rpx;">
+                    <view class="student-info-item-l" >
+                        <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_153.png" />
+                        <view class="student-info-item-text" >{{item.start}}</view>
+                    </view>
+                    <view class="student-info-item-r" >
+                        <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_155.png" />
+                        <view class="student-info-item-text" >{{item.guilv}}</view>
+                    </view>
+                </view>
+                <view style="margin-top: 20rpx;">
+                    <view style="line-height: 40rpx;display: inline-block;">
+                        <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_157.png" />
+                        <view class="student-info-item-text" >{{item.address}}</view>
+                    </view>
+
+                </view>
+            </view>
+
+        </view>
+    </view>
+</view>

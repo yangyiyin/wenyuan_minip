@@ -1,0 +1,18 @@
+.item{
+    height: 80rpx;
+    width: 750rpx;
+    line-height: 80rpx;
+}
+.icon{
+    width: 50rpx;
+    vertical-align: middle;
+    margin-left: 30rpx;
+}
+.title{
+    margin-left: 30rpx;
+    font-size: 32rpx;
+
+}
+.icon,.title{
+    display: inline-block;
+}

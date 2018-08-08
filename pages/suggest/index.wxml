@@ -1,0 +1,8 @@
+<view class="container" style="background: #F4FFF2">
+    <view style="font-size: 36rpx;line-height: 100rpx;color: #333">您的意见对我们非常珍贵,期待您的反馈。</view>
+    <view style="width: 710rpx;position: relative">
+        <image style="width: 710rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/me_feedback_bg.png" />
+        <textarea placeholder="在这里填写反馈哦" placeholder-style="color:#69B894" style="font-size: 32rpx;position: absolute;top:0rpx;left:0;padding: 30rpx;width: 650rpx;height: 800rpx;color: #ffffff" />
+    </view>
+    <view class="btn" style="background: #41CA84;border: 6rpx solid #178E71;width: 710rpx;margin-top: 30rpx;font-size: 32rpx;">提 交 反 馈</view>
+</view>

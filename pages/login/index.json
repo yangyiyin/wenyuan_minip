@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#FACD47",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "",
+  "disableScroll":true,
+  "usingComponents": {
+    "yxs_input":"../../yixsu_component/yxs_input/index"
+  }
+}

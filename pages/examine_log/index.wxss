@@ -1,0 +1,14 @@
+.item{
+    position: relative;
+    margin-top: 50rpx;
+}
+.body{
+    width: 610rpx;
+    padding: 50rpx;
+    padding-bottom: 20rpx;
+}
+
+.title{
+    text-align: center;
+    font-size: 36rpx;
+}

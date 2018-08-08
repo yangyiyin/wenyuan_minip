@@ -1,0 +1,51 @@
+.item{
+    width: 710rpx;
+    padding: 20rpx;
+
+}
+.title,.label,.icon{
+    display: inline-block;
+}
+.header{
+    position: relative;
+    height:80rpx;
+}
+.title{
+    left: 20rpx;
+    color: #fff;
+    font-size: 30rpx;
+}
+.label{
+    font-size: 20rpx;
+    padding: 3rpx;
+    border-radius: 20rpx;
+    background: #F09645;
+    color: #fff;
+    margin-top: 5rpx;
+    margin-left: 20rpx;
+}
+.icon{
+    float: right;
+    margin-top: 5rpx;
+}
+.header-content{
+    position: absolute;top:20rpx;left: 0rpx;width: 670rpx;padding: 0 20rpx;
+}
+.content{
+
+    padding: 20rpx;
+    border-bottom-left-radius: 10rpx;
+    border-bottom-right-radius: 10rpx;
+    border-left: 4rpx solid #DCE8F0;
+    border-right: 4rpx solid #DCE8F0;
+    border-bottom: 4rpx solid #DCE8F0;
+}
+
+.content-item{
+    margin-top: 10rpx;
+}
+.time,.desc{
+    display: inline-block;
+    margin-left: 20rpx;
+    font-size: 30rpx;
+}

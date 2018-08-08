@@ -11,6 +11,7 @@ page{
   align-items: center;
   box-sizing: border-box;
   font-size: 28rpx;
+  color: #333;
 
 }
 
@@ -19,4 +20,15 @@ page{
 }
 .bg_color{
   color: #cdcdcd;
+}
+.btn{
+
+  background: #41CA84;
+  color: #fff;
+  border-radius: 50rpx;
+  width: 100%;
+  text-align: center;
+  padding: 25rpx 0;
+
+
 }

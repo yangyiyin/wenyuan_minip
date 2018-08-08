@@ -1,0 +1,11 @@
+<view class="container" style="background: #F4FFF2">
+    <view class="item" wx:for="{{list}}" wx:key="index">
+        <image style="width: 600rpx;position: absolute;left: 75rpx;top:-45rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_28.png" />
+        <image style="width: 710rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_36.png" />
+        <view class="body" style="background: url('http://pbw56w09g.bkt.clouddn.com/切图_39.png') repeat-y;background-size: 710rpx auto;margin-top: -10rpx;">
+            <view class="title">{{item.title}}</view>
+            <view style="margin-top: 20rpx;font-size: 30rpx;" wx:for="{{item.result}}" wx:key="index">{{item.key}}:{{item.value}}</view>
+        </view>
+        <image style="width: 710rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_42.png" />
+    </view>
+</view>

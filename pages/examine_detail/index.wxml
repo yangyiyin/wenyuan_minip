@@ -1,0 +1,188 @@
+<view class="container" style="background: #F4FEF2">
+    <view class="header">
+        <image class="top" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_33.png" />
+        <image class="bottom" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_45.png" />
+        <view class="header-in">
+            <view class="title">{{info.title}}</view>
+            <image hidden="{{info.signs.length}}" class="logo" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_70.png" />
+            <view hidden="{{!info.signs.length}}" class="sign-item" wx:for="{{info.signs}}" wx:key="index">
+                <view class="name"><view class="name-in">{{item.name}}</view></view>
+                <view class="result">
+                    <view wx:for="{{item.result}}" wx:key="index2" class="item-i">
+                        <view class="item-i-key">{{item.key}}:</view>
+                        <view class="item-i-value">{{item.value}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="body">
+        <view class="item">
+            <view class="label">
+                <image style="width: 150rpx" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_78.png" />
+                <view class="lable-title">考试时间</view>
+            </view>
+            <view class="info">{{info.time}}</view>
+        </view>
+
+        <view class="item">
+            <view class="label">
+                <image style="width: 150rpx" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_78.png" />
+                <view class="lable-title">报名截止</view>
+            </view>
+            <view class="info">{{info.sign_over_time}}</view>
+        </view>
+
+
+        <view class="item">
+            <view class="label">
+                <image style="width: 150rpx" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_78.png" />
+                <view class="lable-title">考试简介</view>
+            </view>
+            <text class="info">{{info.desc}}</text>
+        </view>
+
+    </view>
+
+    <view class="btn btn_" bindtap="show_sign"> <image style="width: 30rpx;margin-right: 10rpx;margin-bottom:10rpx;vertical-align: middle" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_180.png" />我 要 报 名</view>
+
+    <yxs_modal visible="{{visible}}" success_btn="{{false}}" >
+
+        <view slot="content" style="width: 600rpx;">
+            <!--入学-->
+            <view hidden="{{info.type != 1}}">
+                <view style="position: relative;border-top: 1rpx solid #ddd;" class="input-item">
+                    <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_167.png" placeholder="学生姓名" bindchange="bindinputname" error_info="{{inputname_error}}"></yxs_input>
+                </view>
+                <view style="position: relative;" class="input-item">
+                    <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_174.png" placeholder="所属学校" bindchange="bindinputschool" error_info="{{inputschool_error}}"></yxs_input>
+                </view>
+                <view style="position: relative;" class="input-item">
+                    <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" icon="http://pbw56w09g.bkt.clouddn.com/切图_174.png" placeholder="曾经就读学校" bindchange="bindinputschool_before" error_info="{{inputschool_before_error}}"></yxs_input>
+                </view>
+                <view style="position: relative;" class="input-item">
+                    <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" icon="http://pbw56w09g.bkt.clouddn.com/切图_169.png" placeholder="曾获得奖项" bindchange="bindinputprise_before" error_info="{{inputprise_before_error}}"></yxs_input>
+                </view>
+                <view style="position: relative;" class="input-item">
+                    <yxs_select no_border="{{true}}" placeholder="下学期年级" options="{{options_grade}}" select_options="{{select_options_grade}}" bindchange="select_grade" width="600" height="80"  must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_172.png" error_info="{{inputgrade_error}}"></yxs_select>
+
+                </view>
+                <view style="position: relative;" class="input-item">
+                    <yxs_select no_border="{{true}}" placeholder="需要培训课程" multi="{{true}}" options="{{options_lession}}" select_options="{{select_options_lession}}" bindchange="select_lession" width="600" height="80"  must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_171.png" error_info="{{inputlession_error}}"></yxs_select>
+
+                </view>
+                <view style="position: relative;" class="input-item">
+                    <yxs_select no_border="{{true}}" placeholder="培训地点" options="{{options_address}}" select_options="{{select_options_address}}" bindchange="select_address" width="600" height="80"  must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_170.png" error_info="{{inputaddress_error}}"></yxs_select>
+
+                </view>
+                <view style="position: relative;" class="input-item">
+                    <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_168.png" placeholder="父亲联系电话" bindchange="bindinputphone1" error_info="{{inputphone1_error}}"></yxs_input>
+                </view>
+                <view style="position: relative;" class="input-item">
+                    <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_168.png" placeholder="母亲联系电话" bindchange="bindinputphone2" error_info="{{inputphone2_error}}"></yxs_input>
+                </view>
+                <view style="position: relative; padding: 0rpx 10rpx;height: auto;" class="input-item {{inputupload_error ? 'input-error' : ''}}">
+                    <view style="width: 60rpx;height: 80rpx;float: left;vertical-align:middle;line-height:80rpx;text-align: center;margin-right: 10rpx">
+                        <image style="width: 60%;vertical-align:middle;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_166.png"></image>
+                    </view>
+                    <view style="height: 80rpx;float: left;line-height:80rpx;text-align: center;margin-right: 10rpx;color: red">*</view>
+                    <view style="float: left;height: 80rpx;line-height: 80rpx;width: 300rpx;color: #999">上传学生正面照</view>
+                    <view style="float: right;margin: 20rpx;width: 120rpx">
+                        <yxs_upload currentcutimg="{{current_cut_img}}"></yxs_upload>
+                    </view>
+                    <view style="clear: both"></view>
+                </view>
+                <view class="error-info">{{inputupload_error}}</view>
+            </view>
+            <!--综合实验班-->
+            <view hidden="{{info.type != 2}}">
+                <view hidden="{{step!=1}}">
+                    <view style="margin-bottom: 20rpx">选择需要报考的学生</view>
+                    <yxs_select placeholder="请选择学生" options="{{options_student}}" select_options="{{select_options_student}}" bindchange="select_student" width="600" height="80"  must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_167.png" error_info="{{inputname_error}}"></yxs_select>
+                    <view style="width: 600rpx;margin-top: 60rpx;" class="btn" bindtap="next_step">下 一 步</view>
+                </view>
+                <view hidden="{{step!=2}}">
+                    <view wx:if="{{info.pay_sum}}"style="margin-bottom: 20rpx">本考试报名费用{{pay_sum}}元</view>
+                    <view style="position: relative;height: 250rpx;">
+                        <image style="width: 600rpx;position: absolute;left: 0;top:0;z-index:-1" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_214.png" />
+
+                        <view style="display: inline-block;padding: 50rpx;width: 120rpx;">
+                            <yxs_upload currentcutimg="{{current_cut_img}}"></yxs_upload>
+                            <view class="error-info">{{inputupload_error}}</view>
+                        </view>
+                        <view style="display: inline-block;padding: 20rpx;position: relative;top:30rpx;">
+                             <view>{{current_student.name}}</view>
+                             <view style="margin-top: 10rpx;">{{current_student.studentid}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view hidden="{{step!=3}}">
+                    <view style="position: relative;border-top: 1rpx solid #ddd;" class="input-item">
+                        <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_167.png" placeholder="学生姓名" bindchange="bindinputname" error_info="{{inputname_error}}"></yxs_input>
+                    </view>
+                    <view style="position: relative;" class="input-item">
+                        <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_174.png" placeholder="所属学校" bindchange="bindinputschool" error_info="{{inputschool_error}}"></yxs_input>
+                    </view>
+                    <view style="position: relative;" class="input-item">
+                        <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" icon="http://pbw56w09g.bkt.clouddn.com/切图_174.png" placeholder="曾经就读学校" bindchange="bindinputschool_before" error_info="{{inputschool_before_error}}"></yxs_input>
+                    </view>
+                    <view style="position: relative;" class="input-item">
+                        <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" icon="http://pbw56w09g.bkt.clouddn.com/切图_169.png" placeholder="曾获得奖项" bindchange="bindinputprise" error_info="{{inputprise_error}}"></yxs_input>
+                    </view>
+                    <view style="position: relative;" class="input-item">
+                        <yxs_select no_border="{{true}}" placeholder="下学期年级" options="{{options_grade}}" select_options="{{select_options_grade}}" bindchange="select_grade" width="600" height="80"  must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_172.png" error_info="{{inputgrade_error}}"></yxs_select>
+
+                    </view>
+                    <view style="position: relative;" class="input-item">
+                        <yxs_select no_border="{{true}}" placeholder="培训地点" options="{{options_address}}" select_options="{{select_options_address}}" bindchange="select_address" width="600" height="80"  must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_170.png" error_info="{{inputaddress_error}}"></yxs_select>
+
+                    </view>
+                    <view style="position: relative;" class="input-item">
+                        <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_168.png" placeholder="父亲联系电话" bindchange="bindinputphone1" error_info="{{inputphone1_error}}"></yxs_input>
+                    </view>
+                    <view style="position: relative;" class="input-item">
+                        <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_168.png" placeholder="母亲联系电话" bindchange="bindinputphone2" error_info="{{inputphone2_error}}"></yxs_input>
+                    </view>
+                    <view style="position: relative; padding: 0rpx 10rpx;height: auto;" class="input-item {{inputupload_error ? 'input-error' : ''}}">
+                        <view style="width: 60rpx;height: 80rpx;float: left;vertical-align:middle;line-height:80rpx;text-align: center;margin-right: 10rpx">
+                            <image style="width: 60%;vertical-align:middle;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_166.png"></image>
+                        </view>
+                        <view style="height: 80rpx;float: left;line-height:80rpx;text-align: center;margin-right: 10rpx;color: red">*</view>
+                        <view style="float: left;height: 80rpx;line-height: 80rpx;width: 300rpx;color: #999">上传学生正面照</view>
+                        <view style="float: right;margin: 20rpx;width: 120rpx">
+                            <yxs_upload currentcutimg="{{current_cut_img}}"></yxs_upload>
+                        </view>
+                        <view style="clear: both"></view>
+                    </view>
+                    <view class="error-info">{{inputupload_error}}</view>
+                </view>
+            </view>
+            <!--晋级-->
+            <view hidden="{{info.type != 3}}">
+                <view wx:if="{{info.pay_sum}}"style="margin-bottom: 20rpx">本考试报名费用{{pay_sum}}元</view>
+                <view style="position: relative;height: 250rpx;">
+                    <image style="width: 600rpx;position: absolute;left: 0;top:0;z-index:-1" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_214.png" />
+
+                    <view style="display: inline-block;padding: 50rpx;width: 120rpx;">
+                        <yxs_upload currentcutimg="{{current_cut_img}}"></yxs_upload>
+                        <view class="error-info">{{inputupload_error}}</view>
+                    </view>
+                    <view style="display: inline-block;padding: 20rpx;position: relative;top:30rpx;">
+                        <view>{{current_student.name}}</view>
+                        <view style="margin-top: 10rpx;">{{current_student.studentid}}</view>
+                    </view>
+                </view>
+            </view>
+            <view hidden="{{info.type == 2 && step == 1}}">
+                <view wx:if="{{!info.pay_sum}}" style="width: 600rpx;margin-top: 60rpx;" class="btn" bindtap="submit">确     定</view>
+                <view wx:if="{{info.pay_sum}}" style="width: 600rpx;margin-top: 60rpx;" class="btn" bindtap="to_pay">确 定 并 支 付</view>
+            </view>
+
+
+        </view>
+
+    </yxs_modal>
+
+
+</view>

@@ -1,0 +1,42 @@
+<view wx:if="{{ title }}" class="input-title">{{ title }}</view>
+<view bindtap="open_close_options" style="width: {{width - 20}}rpx;height: {{height}}rpx;display:table-cell;vertical-align:middle; {{no_border ? '' : 'border: 1rpx solid #ddd;'}}"
+       class="input {{ error_info ? 'input-error' : '' }}">
+    <view wx:if="{{icon}}" style="width: {{width * 0.1}}rpx;height: {{height}}rpx;float: left;vertical-align:middle;line-height:{{height}}rpx;text-align: center;margin-right: 10rpx">
+        <image style="width: 60%;vertical-align:middle;" mode="widthFix" src="{{icon}}"></image>
+    </view>
+    <view style="height: {{height}}rpx;float: left;line-height:{{height}}rpx;text-align: center;margin-right: 10rpx;color: red">*</view>
+    <view hidden="{{multi}}" style="height: {{height}}rpx;float:left;line-height:{{height}}rpx;overflow-x: scroll;">
+        <view hidden="{{select_options[0]}}" style="color: #999">{{placeholder}}</view>
+        <view hidden="{{!select_options[0]}}">{{select_options[0].name}}</view>
+    </view>
+    <view hidden="{{!multi}}" style="height: {{height}}rpx;float:left;line-height:{{height}}rpx;overflow-x: scroll;">
+        <view hidden="{{select_options[0]}}" style="color: #999">{{placeholder}}</view>
+        <block hidden="{{!select_options[0]}}" wx:for="{{select_options}}" wx:key="index2">{{item.name}};</block>
+    </view>
+    <view style="width: {{width * 0.1}}rpx;height: {{height}}rpx;float: right;vertical-align:middle;line-height:{{height}}rpx;text-align: center;">
+        <image hidden="{{show_list}}" style="width: 40%;vertical-align:middle;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_185.png"></image>
+        <image hidden="{{!show_list}}" style="width: 40%;vertical-align:middle;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_187.png"></image>
+    </view>
+
+    <view style="clear: both"></view>
+
+</view>
+<view class="error-info" wx:if="{{ error_info }}">{{ error_info }}</view>
+
+<view style="position: relative;width: {{width - 3}}rpx;top:-5rpx;" hidden="{{!show_list}}">
+    <view hidden="{{multi}}" class="list">
+        <view wx:for="{{options}}" wx:key="index" class="item" bindtap="select_one" data-item="{{item}}">
+            {{item.name}}
+        </view>
+    </view>
+
+    <view hidden="{{!multi}}" class="list">
+        <view wx:for="{{options}}" wx:key="index" class="item" bindtap="select" data-index="{{index}}">
+            {{item.name}}
+            <image hidden="{{!item.selected}}" style="width: 40rpx;float: right;margin-top: 15rpx;margin-right: 20rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/下拉框选择_03.png"></image>
+            <image hidden="{{item.selected}}" style="width: 40rpx;float: right;margin-top: 15rpx;margin-right: 20rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/下拉框选择_06.png"></image>
+        </view>
+        <view bindtap="open_close_options" class="item" style="color: #999;font-size: 20rpx;">关闭</view>
+    </view>
+
+</view>

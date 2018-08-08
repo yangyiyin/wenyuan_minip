@@ -1,0 +1,9 @@
+.item{
+    padding: 30rpx;border-top: 1rpx solid #eee;width: 710rpx;background: #fff
+}
+.left{
+    display: inline-block;font-size: 30rpx;
+}
+.right{
+    display: inline-block;float: right;color: #999
+}

@@ -1,0 +1,11 @@
+<view class="container" style="background: #fff">
+
+    <image style="width: 100%;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/img_login_topbg.png"></image>
+    <view style="height:40rpx;"></view>
+    <yxs_input icon="http://pbw56w09g.bkt.clouddn.com/切图_207.png" width="600" height="100" maxlength="20" placeholder="家长手机号码" bindchange="bindinputtel" error_info="{{inputtel_error}}"></yxs_input>
+    <view style="position: relative;top:-1rpx">
+        <yxs_input can_send_code="{{isPoneAvailable}}" bindsendcode="send_code" icon="http://pbw56w09g.bkt.clouddn.com/切图_219.png" type="verify_code" width="600" height="100" maxlength="20" placeholder="验证码" bindchange="bindinputcode" error_info="{{inputcode_error}}"></yxs_input>
+    </view>
+    <view style="width: 600rpx;margin-top: 40rpx" class="btn" bindtap="submit">确     定</view>
+
+</view>

@@ -1,0 +1,9 @@
+<view class="container" style="background: #F4FFF2">
+    <view class="item" style="width: 710rpx;margin-top: 20rpx;" wx:for="{{list}}" wx:key="index">
+        <image style="width: 710rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_44.png" />
+        <view class="body" style="background: url('http://pbw56w09g.bkt.clouddn.com/切图_48.png') repeat-y;background-size: 710rpx auto;margin-top: -10rpx;">
+            <view  style="610rpx;padding: 20rpx 50rpx;font-size: 30rpx;">{{item.content}}</view>
+        </view>
+        <image style="width: 710rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_72.png" />
+    </view>
+</view>

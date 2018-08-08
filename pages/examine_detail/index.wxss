@@ -1,0 +1,102 @@
+.header{
+    position: relative;
+    background: #428D8E;
+    width: 750rpx;
+}
+.header-in{
+    width: 690rpx;
+    background: #F6FFF9;
+    margin: 30rpx;
+}
+.top{
+    position: absolute;
+    width: 750rpx;
+    top:0;
+    left: 0;
+}
+
+.bottom{
+    position: absolute;
+    width: 750rpx;
+    bottom:0;
+    left: 0;
+}
+.title{
+    width: 690rpx;
+    text-align: center;
+    padding-top: 40rpx;
+    font-size: 36rpx;
+}
+
+.logo{
+    width: 300rpx;
+    margin: 30rpx auto;
+    padding-bottom: 30rpx;
+    display: block;
+}
+.body{
+    width: 750rpx;
+    padding-bottom: 130rpx;
+    background: #F4FEF2
+}
+.item{
+    width: 690rpx;
+    padding: 30rpx;
+    padding-bottom: 0rpx;
+
+}
+.label{
+    position: relative;
+}
+.lable-title{
+    color: #ffffff;
+    position: absolute;
+    left: 40rpx;top: 0rpx;
+    font-size: 24rpx;
+}
+.btn_ {
+    position: fixed;
+    bottom: 20rpx;
+    width: 710rpx;
+    left: 20rpx;
+}
+.name,.result,.item-i-key,.item-i-value{
+    display: inline-block;
+}
+.name{
+    width: 150rpx;
+    text-align: center;
+
+}
+.name-in{
+    position: absolute;
+    left: 30rpx;
+    top:20rpx;
+}
+.result{
+    border-left: 1rpx solid #eee;
+    padding-left: 30rpx;
+
+}
+
+.sign-item {
+    margin-top: 40rpx;
+    padding-bottom: 20rpx;
+    position: relative;
+}
+.input-item{
+    height: 80rpx;
+    border: 1rpx solid #ddd;
+    border-top: none;
+}
+.input-error{
+    border: 1rpx solid red;
+}
+
+.error-info{
+    color: red;
+    font-size: 24rpx;
+}
+.info{
+    font-size: 30rpx;
+}

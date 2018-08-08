@@ -1,0 +1,88 @@
+.top-container{
+    position: relative;width: 750rpx;overflow: hidden
+}
+.top-container-text-box{
+    position: absolute;bottom: 0;left: 0;font-size: 28rpx;padding: 0 20rpx;background: rgba(0,0,0,0.5);height: 50rpx;width:720rpx;line-height:50rpx;color: #fff
+}
+.top-container-text-info{
+    overflow: hidden;min-width:60rpx;float: left;
+}
+.top-container-points-box{
+    float: right;max-width: 140rpx;height: 50rpx;vertical-align: middle;overflow: hidden;
+}
+.top-container-point{
+    width: 15rpx;height: 15rpx;border-radius: 15rpx;margin-top: 20rpx;float:left;margin-right: 10rpx
+}
+.news-bar{
+    line-height: 50rpx;height: 50rpx;background: #fff;width: 710rpx;padding: 20rpx
+}
+.news-bar-icon{
+    width: 40rpx;display: inline-block;vertical-align: middle;
+}
+.news-bar-title{
+    display: inline-block;margin-left: 10rpx;font-size: 30rpx;position: relative;top:5rpx;
+}
+.news-bar-line{
+    display: inline-block;height: 1rpx;border-top: 1rpx dashed #DBDCDC;width: 400rpx;vertical-align: middle;margin-left: 20rpx
+}
+.news-bar-more{
+    display: inline-block;border-radius: 40rpx;height: 40rpx;width: 70rpx;border: 1px solid #48D27D;text-align: center;line-height: 40rpx;color: #48D27D;float: right;position: relative;top: 5rpx;
+}
+.news-list{
+    background: #fff;width: 710rpx;padding: 20rpx
+}
+.news-list-point{
+    width: 10rpx;height: 10rpx;border-radius: 10rpx;background: #bbb;display:inline-block;margin-right: 20rpx;vertical-align: middle;margin-left: 20rpx;
+}
+.news-list-title{
+    display: inline-block;color: #666;
+}
+.news-list-right{
+    float: right;color: #bbb;
+}
+.empty-avatar{
+    width: 100rpx;position: absolute;left: 20rpx;top:20rpx;border-radius: 100rpx;
+}
+.empty-info{
+    position: absolute;left: 140rpx;top:50rpx;color: #fff;
+}
+
+.avatar{
+    width: 100rpx;position: absolute;left: 20rpx;top:20rpx;border-radius: 100rpx;
+}
+.name{
+    position: absolute;left: 140rpx;top:30rpx;color: #fff;font-size: 34rpx;
+}
+.studentid{
+    position: absolute;left: 140rpx;top:75rpx;color: #fff;
+}
+.edit-icon{
+    padding: 20rpx;position: absolute;right: 0rpx;top:0rpx;
+}
+.empty-box{
+    width:710rpx;margin: 0rpx 20rpx;background: #FFFCF2
+}
+.empty-desc{
+    padding: 50rpx 30rpx;color: #666
+}
+.empty-set{
+    height:80rpx;line-height: 80rpx;width: 200rpx;border-radius:80rpx;margin:0 auto;margin-bottom:50rpx;text-align: center;background: #49D17E;color: #fff
+}
+.student-info-box{
+    width:710rpx;margin: 0rpx 20rpx;background: #FFFCF2
+}
+.student-info-item{
+    border: 1rpx dashed #ccc;margin: 20rpx;width: 630rpx;padding: 20rpx
+}
+.student-info-item-l{
+    line-height: 40rpx;display: inline-block;width: 300rpx
+}
+.student-info-item-r{
+    line-height: 40rpx;display: inline-block;
+}
+.student-info-item-icon{
+    width: 40rpx;display: inline-block;vertical-align: middle
+}
+.student-info-item-text{
+    display: inline-block;margin-left: 20rpx;color: #666;position: relative;top:5rpx;
+}

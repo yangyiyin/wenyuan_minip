@@ -1,0 +1,5 @@
+<view>
+    <image hidden="{{src}}" bindtap="choose_img" style="width: 100%;vertical-align:middle;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_74.png"></image>
+    <image hidden="{{!src}}" bindtap="choose_img" style="width: 100%;vertical-align:middle;" mode="widthFix" src="{{src}}"></image>
+
+</view>

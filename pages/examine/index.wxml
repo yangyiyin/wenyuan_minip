@@ -1,0 +1,27 @@
+<view class="container" style="background: #fff">
+
+    <view bindtap="goto_detail" class="item" wx:for="{{list}}" wx:key="index">
+        <view class="header">
+            <image hidden="{{item.cate!=1 || item.is_over}}" style="width: 710rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_81.png" />
+            <image hidden="{{item.cate!=2 || item.is_over}}" style="width: 710rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_85.png" />
+            <image hidden="{{!item.is_over}}" style="width: 710rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_101.png" />
+
+            <view class="header-content">
+                <view class="title">{{item.title}}</view>
+                <view class="label" hidden="{{!item.label}}">{{item.label}}</view>
+                <view class="icon"> <image style="width: 20rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_57.png" /></view>
+            </view>
+        </view>
+        <view class="content">
+            <view class="content-item">
+                <image style="width: 30rpx;display: inline-block;vertical-align: middle;margin-bottom: 5rpx" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_129.png" />
+                <view class="time">{{item.time}}</view>
+            </view>
+            <view class="content-item">
+                <image style="width: 30rpx;display: inline-block;vertical-align: middle;margin-bottom: 5rpx" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_131.png" />
+                <view class="desc">{{item.desc}}</view>
+            </view>
+        </view>
+    </view>
+
+</view>

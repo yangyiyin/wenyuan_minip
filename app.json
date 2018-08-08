@@ -1,7 +1,19 @@
 {
   "pages":[
-    "pages/index/index_pre",
-    "pages/index/index"
+    "pages/index_pre/index",
+    "pages/login/index",
+    "pages/index/index",
+    "pages/change_student/index",
+    "pages/examine/index",
+    "pages/examine_detail/index",
+    "pages/examine_log/index",
+    "pages/mine/index",
+    "pages/news/index",
+    "pages/webview/index",
+    "pages/suggest/index",
+    "pages/timetable/index",
+    "pages/words/index",
+    "pages/cutInside/cutInside"
   ],
   "window":{
     "navigationBarBackgroundColor": "#ffffff",
@@ -9,5 +21,31 @@
     "navigationBarTitleText": "文远教育",
     "backgroundTextStyle":"dark",
     "backgroundColor":"#eeeeee"
+  },
+  "tabBar": {
+    "color":"#000000",
+    "selectedColor":"#3DC370",
+    "backgroundColor":"#ffffff",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath":"./assets/切图_87-2.png",
+      "selectedIconPath":"./assets/切图_103-2.png"
+    }, {
+      "pagePath": "pages/timetable/index",
+      "text": "课表",
+      "iconPath":"./assets/切图_95-2.png",
+      "selectedIconPath":"./assets/切图_106-2.png"
+    }, {
+      "pagePath": "pages/examine/index",
+      "text": "考试",
+      "iconPath":"./assets/切图_90-2.png",
+      "selectedIconPath":"./assets/切图_104-2.png"
+    }, {
+      "pagePath": "pages/mine/index",
+      "text": "我的",
+      "iconPath":"./assets/切图_92-2.png",
+      "selectedIconPath":"./assets/切图_105-2.png"
+    }]
   }
 }

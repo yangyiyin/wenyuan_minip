@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "考试",
+  "usingComponents": {
+    "yxs_input":"../../yixsu_component/yxs_input/index",
+    "yxs_modal":"../../yixsu_component/yxs_modal/index",
+    "yxs_select":"../../yixsu_component/yxs_select/index",
+    "yxs_upload":"../../yixsu_component/yxs_upload/index"
+  }
+}

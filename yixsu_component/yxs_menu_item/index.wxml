@@ -1,0 +1,6 @@
+<view class="item" style="width: {{width}}rpx;height: {{height}}rpx;line-height: {{height}}rpx;">
+    <view class="icon">
+        <image style="width: 100%;vertical-align:middle;margin-top: -5rpx;" mode="widthFix" src="{{icon}}"></image>
+    </view>
+    <view class="title">{{title}}</view>
+</view>

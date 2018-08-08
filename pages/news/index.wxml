@@ -1,0 +1,9 @@
+<view class="container">
+
+    <view class="item" wx:for="{{news_list}}" wx:key="index">
+        <view class="left">{{item.title}}</view>
+        <view class="right">{{item.date}}</view>
+    </view>
+
+
+</view>

@@ -1,0 +1,58 @@
+.item{
+    width: 650rpx;
+    padding: 40rpx;
+    box-shadow: 0 5rpx 5rpx #ddd;
+    margin-bottom: 20rpx;
+    border-radius: 15rpx;
+    position: relative;
+}
+.weekday1{
+    background: linear-gradient(to right, #B2F170 , #9BD54E);
+}
+.weekday2{
+    background: linear-gradient(to right, #F4C16A , #F7AF5F);
+}
+.weekday3{
+    background: linear-gradient(to right, #F59B67 , #F78E5F);
+}
+.weekday4{
+    background: linear-gradient(to right, #65CCF6 , #50ADF5);
+}
+.weekday5{
+    background: linear-gradient(to right, #92A2ED , #888BEE);
+}
+.weekday6{
+    background: linear-gradient(to right, #F794E8 , #E38BF0);
+}
+.weekday7{
+    background: linear-gradient(to right, #FD889B , #FB74AA);
+}
+
+.date{
+    font-size: 34rpx;
+}
+.time,.subject,.teacher{
+    display: inline-block;
+}
+.inside-item{
+    margin-top: 20rpx;
+}
+.time {
+    font-size: 26rpx;
+}
+.teacher{
+    font-size: 24rpx;
+    color: #333;
+}
+.subject{
+    float: right;
+    color: #fff;
+    font-size: 30rpx;
+}
+.logo{
+    position: absolute;
+    top:20rpx;
+    right: 20rpx;
+    width: 220rpx;
+
+}
