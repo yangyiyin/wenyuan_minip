@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "教师评语"
+  "navigationBarTitleText": "教师评语",
+  "usingComponents": {
+    "yxs_loading":"../../yixsu_component/yxs_loading/index"
+  }
 }

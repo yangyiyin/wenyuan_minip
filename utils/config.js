@@ -24,6 +24,7 @@ var urls = {
     examination_sign:base_url+'/wenyuanjiaoyu/examination_signs/edit',
     get_current_student_examine_log:base_url+'/wenyuanjiaoyu/examination/get_current_student_examine_log',
     suggest_edit:base_url+'/wenyuanjiaoyu/suggest/edit',
+    get_my_words:base_url+'/wenyuanjiaoyu/words/get_my_words',
 }
 
 module.exports = {
