@@ -1,5 +1,5 @@
 const app = getApp()
-// const common = require('../../utils/common.js');
+const common = require('../../utils/common.js');
 // const config = require('../../utils/config.js');
 Page({
     data:{
@@ -17,8 +17,8 @@ Page({
                         this.goto_login();
                     }
 
-                }.bind(this),function(){
-
+                }.bind(this),function(msg){
+                    common.show_modal(msg)
                 })
             } else {
                 app.get_userinfo().then(function(has_reg){
@@ -30,7 +30,9 @@ Page({
                         })
                     }
 
-                }.bind(this))
+                }.bind(this),function(msg){
+                    common.show_modal(msg)
+                })
             }
 
         }.bind(this));

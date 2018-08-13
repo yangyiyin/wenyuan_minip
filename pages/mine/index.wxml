@@ -1,30 +1,39 @@
 <view class="container" style="background: #fff">
     <view class="header">
-
         <image class="bg" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_03.png"></image>
-        <image bindtap="show_change_avatar"  class="avatar" src="{{info.avatar}}"></image>
-        <view class="name" style="color: #B07F27;font-size: 36rpx;">{{info.name}}</view>
-        <view class="studentid" style="color: #B07F27;}">学号:{{info.studentid}}</view>
+        <block  wx:if="{{info.id}}" >
+            <image bindtap="show_change_avatar"  class="avatar" src="{{info.avatar}}"></image>
+            <view class="name" style="color: #B07F27;font-size: 36rpx;">{{info.name}}</view>
+            <view class="studentid" style="color: #B07F27;}">学号:{{info.studentid}}</view>
+        </block>
+        <block wx:if="{{!info.id}}">
+            <image class="bg" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_03.png"></image>
+            <image class="avatar" src="http://pbw56w09g.bkt.clouddn.com/切图_204.png"></image>
+            <view class="name" style="color: #B07F27;font-size: 36rpx;">您还没有绑定学生</view>
+        </block>
+
 
     </view>
 
-    <view style="border-bottom: 1rpx solid #eee" bindtap="goto_examine_log">
+
+    <view wx:if="{{info.id}}" style="border-bottom: 1rpx solid #eee" bindtap="goto_examine_log">
         <yxs_menu_item height="120" icon="http://pbw56w09g.bkt.clouddn.com/切图_115.png" title="考试成绩"></yxs_menu_item>
     </view>
-    <view style="border-bottom: 1rpx solid #eee" bindtap="goto_suggest">
+    <view wx:if="{{info.id}}" style="border-bottom: 1rpx solid #eee" bindtap="goto_suggest">
         <yxs_menu_item height="120" icon="http://pbw56w09g.bkt.clouddn.com/切图_120.png" title="家长反馈"></yxs_menu_item>
     </view>
-    <view style="border-bottom: 1rpx solid #eee" bindtap="goto_words">
+    <view wx:if="{{info.id}}" style="border-bottom: 1rpx solid #eee" bindtap="goto_words">
         <yxs_menu_item height="120" icon="http://pbw56w09g.bkt.clouddn.com/切图_117.png" title="教师评语"></yxs_menu_item>
     </view>
     <yxs_modal visible="{{visible}}" success_btn="{{false}}" >
 
         <view slot="content" style="width: 400rpx;">
             <view style="text-align: center">上传头像</view>
-            <view style="margin: 20rpx auto;width: 120rpx;display: block">
+            <view style="margin: 20rpx auto;width: 120rpx;height:120rpx;display: block">
                 <yxs_upload currentcutimg="{{current_cut_img}}" src="{{info.avatar}}"></yxs_upload>
             </view>
-            <view class="btn">确 定</view>
+            <view class="btn" bindtap="change_avatar">确 定</view>
         </view>
     </yxs_modal>
 </view>
+<yxs_loading ready="{{ready}}"></yxs_loading>

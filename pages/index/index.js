@@ -1,5 +1,6 @@
 const common = require('../../utils/common.js');
 const config = require('../../utils/config.js');
+const app = getApp()
 Page({
     data:{
         news_list:[
@@ -14,9 +15,9 @@ Page({
 
 
         ],
-        news_has_more:false,
         swiper_info:'',
-        student_list:null
+        // student_list:null,
+        student_info:null
     },
     onLoad(){
         this.get_news_list(true).then(function(){
@@ -25,35 +26,44 @@ Page({
             this.setData({
                 news_list:this.data.list.news_list.list.slice(0,5),
                 news_text_list:this.data.list.news_list.list.slice(5,8),
-                swiper_info:this.data.list.news_list.list[0].title,
+                swiper_info:this.data.list.news_list.list[0].title
             })
-        }.bind(this));
-        //this.data.news_list[0].active = true;
-        var student_list = [
-            {
-                school:'观海卫校区',
-                lession:'18暑初一数学培优2班',
-                classroom:'礼诚306号教师',
-                teacher:'林丹丹老师',
-                start:'2018.07.05开课',
-                guilv:'二四六08:30~10:30',
-                address:'慈溪市开发大道658号农业银行4楼',
-            },
-            {
-                school:'观海卫校区',
-                lession:'18暑初一数学培优2班',
-                classroom:'礼诚306号教师',
-                teacher:'林丹丹老师',
-                start:'2018.07.05开课',
-                guilv:'二四六08:30~10:30',
-                address:'慈溪市开发大道658号农业银行4楼',
-            }
-        ];
-         //var student_list = null;
+        }.bind(this)).catch(function(){});
         this.setData({
-            student_list:student_list
-        })
+            student_info:wx.getStorageSync('student_info')
+        });
 
+    },
+    onShow(){
+        if (app.globalData.to_refresh.index) {
+            this.setData({
+                ready:false
+            })
+            this.get_student_class_info();
+            app.globalData.to_refresh.index = false;
+        }
+
+    },
+    get_student_class_info(){
+        common.request('post','get_student_class_info',{},function (res) {
+            if (res.data.code == common.constant.return_code_success) {
+                if (res.data.data.avatar) {
+                    res.data.data.avatar += '&i='+Math.random()
+                }
+                this.setData({
+                    student_info:res.data.data.id ? res.data.data : ''
+                });
+                setTimeout(function(){
+                    this.setData({
+                        ready:true
+                    })
+                }.bind(this), 100)
+                wx.setStorageSync('student_info', res.data.data);
+
+            } else {
+                common.show_modal(res.data.msg);
+            }
+        }.bind(this));
     },
     get_news_list(init){
       return common.getlist('news_list', {status:1}, 8, this, init);

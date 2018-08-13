@@ -11,7 +11,15 @@ App({
   globalData: {
     userInfo: null,
     user_session:null,
-    current_cut_img:''
+    current_cut_img:'',
+    bind_students:[],
+    current_student:{},
+    to_refresh:{
+      index:true,
+      timetable:true,
+      examine:true,
+      mine:true,
+    }
   },
   get_common_request_data:function () {
     return {
@@ -30,6 +38,8 @@ App({
             resolve()
           }
 
+        }else {
+          reject(res.data.msg)
         }
       }.bind(this));
     }.bind(this));
@@ -51,6 +61,8 @@ App({
                     this.globalData.user_session = res.data.data;
                     wx.setStorageSync('user_session', res.data.data);
                     resolve()
+                  } else {
+                    reject(res.data.msg);
                   }
                 }.bind(this))
 

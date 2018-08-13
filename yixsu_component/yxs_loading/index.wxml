@@ -1,0 +1,1 @@
+<view hidden="{{ready}}" class="loading"><image style="width: 30rpx;height:30rpx;position: absolute;left: 360rpx;top:50%" src="http://pbw56w09g.bkt.clouddn.com/5-1503130Q911.gif"></image></view>

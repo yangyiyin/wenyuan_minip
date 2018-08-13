@@ -20,7 +20,7 @@ Component({
         src:{
             type:String,
             value:''
-        }
+        },
     },
     data: {
     },

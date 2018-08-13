@@ -72,24 +72,30 @@ var request = function (method,url,user_data,callback) {
     });
 }
 
-var getlist = function(url,param,page_size,_this,init){
-    if (init) {
-        _this.setData({
-            page:1
-        });
-    } else {
-        this.data.page = this.data.page ? this.data.page : 1;
-        _this.setData({
-            page:(this.data.page+1)
-        });
-    }
-    if (!_this.data.list) {
-        _this.setData({
-            list:{}
-        });
-    }
-    var page_size = page_size ? page_size : 10;
+var getlist = function(url,param, _page_size,_this,init){
+
     return new Promise(function(resolve, reject){
+        if (init) {
+            _this.setData({
+                page:1
+            });
+        } else {
+            if (_this.data.list[url] && !_this.data.list[url].has_more) {
+                show_modal('没有更多了~')
+                reject();
+            }
+            _this.data.page = _this.data.page ? _this.data.page : 1;
+            _this.setData({
+                page:(_this.data.page+1)
+            });
+        }
+        if (!_this.data.list) {
+            _this.setData({
+                list:{}
+            });
+        }
+        var page_size = _page_size ? _page_size : 10;
+
         var app = getApp();
         var data = app.get_common_request_data();
         data.page = _this.data.page;
@@ -101,9 +107,9 @@ var getlist = function(url,param,page_size,_this,init){
             check_session();
             if (res.data.code == constant.return_code_success) {
 
-                _this.data.list[url] = {};
+                _this.data.list[url] = _this.data.list[url] ? _this.data.list[url] : {};
 
-                _this.data.list[url].list = res.data.data.list;
+                _this.data.list[url].list = (_this.data.list[url].list && !init) ? _this.data.list[url].list.concat(res.data.data.list) : res.data.data.list;
                 _this.data.list[url].count = res.data.data.count;
                 _this.data.list[url].has_more = res.data.data.has_more;
                 _this.setData({

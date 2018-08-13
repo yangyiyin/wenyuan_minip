@@ -1,6 +1,6 @@
 <view class="container" style="background: #fff">
 
-    <view bindtap="goto_detail" class="item" wx:for="{{list}}" wx:key="index">
+    <view wx:if="{{examinations.length}}" bindtap="goto_detail" data-id="{{item.id}}" class="item" wx:for="{{examinations}}" wx:key="index">
         <view class="header">
             <image hidden="{{item.cate!=1 || item.is_over}}" style="width: 710rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_81.png" />
             <image hidden="{{item.cate!=2 || item.is_over}}" style="width: 710rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_85.png" />
@@ -24,4 +24,15 @@
         </view>
     </view>
 
+    <view wx:if="{{!examinations.length}}" class="container" style="background: #fff">
+
+        <image mode="widthFix" style="width: 300rpx;margin-top: 200rpx;margin-left: 30rpx;" src="http://pbw56w09g.bkt.clouddn.com/切图_209.png"></image>
+        <view style="text-align: center;margin-top: 50rpx;">暂无考试信息~</view>
+
+    </view>
+
+
 </view>
+<yxs_loading ready="{{ready}}"></yxs_loading>
+
+<include src="../../common/bottom_pull_info.wxml"/>

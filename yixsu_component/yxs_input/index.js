@@ -59,6 +59,10 @@ Component({
         icon:{
             type: String,
             value:''
+        },
+        must:{
+            type: Boolean,
+            value:false
         }
     },
     data:{

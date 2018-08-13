@@ -1,0 +1,1 @@
+<view style="z-index:-1;position: fixed;bottom: 10rpx;width: 200rpx;text-align: center;left: 275rpx;font-size: 24rpx;color: #666">{{list_pull_info}}</view>

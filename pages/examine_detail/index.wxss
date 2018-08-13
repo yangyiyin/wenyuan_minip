@@ -83,6 +83,7 @@
     margin-top: 40rpx;
     padding-bottom: 20rpx;
     position: relative;
+    left: 50rpx;
 }
 .input-item{
     height: 80rpx;

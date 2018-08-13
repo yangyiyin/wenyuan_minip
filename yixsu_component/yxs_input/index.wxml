@@ -20,7 +20,7 @@
         <view wx:if="{{icon}}" style="width: {{width * 0.1}}rpx;height: {{height}}rpx;float: left;vertical-align:middle;line-height:{{height}}rpx;text-align: center;margin-right: 10rpx">
             <image style="width: 60%;vertical-align:middle;" mode="widthFix" src="{{icon}}"></image>
         </view>
-        <view style="height: {{height}}rpx;float: left;line-height:{{height}}rpx;text-align: center;margin-right: 10rpx;color: red">*</view>
+        <view wx:if="{{must}}" style="height: {{height}}rpx;float: left;line-height:{{height}}rpx;text-align: center;margin-right: 10rpx;color: red">*</view>
         <input
                 type="{{ type }}"
                 disabled="{{ disabled }}"
@@ -45,13 +45,13 @@
 </view>
 <view wx:else>
     <view wx:if="{{ title }}" class="input-title">{{ title }}</view>
-    <view  style="width: {{width}}rpx;height: {{height}}rpx;display:table-cell;vertical-align:middle;{{no_border ? '' : 'border: 1rpx solid #ddd;'}}"
+    <view  style="width: {{width}}rpx;height: {{height}}rpx;display:table-cell;vertical-align:middle;{{no_border  ? '' : (error_info ? '' : 'border: 1rpx solid #ddd;')}}"
            class="input {{ error_info ? 'input-error' : '' }}">
 
         <view wx:if="{{icon}}" style="width: {{width * 0.1}}rpx;height: {{height}}rpx;float: left;vertical-align:middle;line-height:{{height}}rpx;text-align: center;margin-right: 10rpx">
             <image style="width: 60%;vertical-align:middle;" mode="widthFix" src="{{icon}}"></image>
         </view>
-        <view style="height: {{height}}rpx;float: left;line-height:{{height}}rpx;text-align: center;margin-right: 10rpx;color: red">*</view>
+        <view wx:if="{{must}}" style="height: {{height}}rpx;float: left;line-height:{{height}}rpx;text-align: center;margin-right: 10rpx;color: red">*</view>
         <input
                 type="{{ type }}"
                 disabled="{{ disabled }}"

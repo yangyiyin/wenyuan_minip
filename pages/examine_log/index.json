@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "我的考试"
+  "navigationBarTitleText": "我的考试",
+  "usingComponents": {
+    "yxs_loading":"../../yixsu_component/yxs_loading/index"
+  }
 }

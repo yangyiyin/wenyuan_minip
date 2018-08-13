@@ -1,3 +1,4 @@
+
 <view class="top-container" >
     <swiper indicator-dots="{{false}}"
             autoplay="{{true}}" interval="{{3000}}" bindchange="swiper_change" duration="{{500}}" style="width: 750rpx;height: 400rpx;">
@@ -22,7 +23,7 @@
         <image class="news-bar-icon" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_123.png" />
         <view class="news-bar-title">新闻动态</view>
         <view class="news-bar-line"></view>
-        <view class="news-bar-more" bindtap="goto_news">更多</view>
+        <view class="news-bar-more" bindtap="goto_news"><view class="news-bar-more-in">更多</view></view>
         <view style="clear: both"></view>
     </view>
     <view class="news-list" >
@@ -37,59 +38,59 @@
 
         <view style="position: relative;height: 140rpx;">
             <image style="width: 710rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_143-2.png" />
-            <view hidden="{{student_list}}">
+            <view wx:if="{{!student_info}}">
                 <image class="empty-avatar" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_204.png" />
                 <view class="empty-info" >暂无信息</view>
             </view>
-            <view hidden="{{!student_list}}">
-                <image class="avatar" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_204.png" />
-                <view class="name">王小明</view>
-                <view class="studentid" >学号:201800078</view>
+            <view wx:if="{{student_info}}">
+                <image class="avatar" mode="aspectFill" src="{{student_info.avatar}}" />
+                <view class="name">{{student_info.name}}</view>
+                <view class="studentid" >学号:{{student_info.studentid}}</view>
             </view>
             <view bindtap="goto_change_student" class="edit-icon" >
                 <image style="width: 40rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_182.png" />
             </view>
         </view>
-        <view class="empty-box" hidden="{{student_list}}" >
+        <view class="empty-box" wx:if="{{!student_info}}" >
             <view class="empty-desc" >暂无学生信息。如果您有学生已在文远参加培训,可点击下方按钮设置信息绑定。</view>
             <view bindtap="goto_change_student" class="empty-set" ><image style="width: 30rpx;position:relative;top:-3rpx;display: inline-block;vertical-align: middle" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_161-2.png" /> 设置</view>
         </view>
-        <view class="student-info-box" hidden="{{!student_list}}">
-            <view class="student-info-item" wx:for="{{student_list}}" wx:key="index" >
+        <view class="student-info-box" wx:if="{{student_info && student_info.detail && student_info.detail.length}}">
+            <view class="student-info-item" wx:for="{{student_info.detail}}" wx:key="index" >
                 <view>
                     <view class="student-info-item-l" >
                         <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_145.png" />
-                        <view class="student-info-item-text">{{item.school}}</view>
+                        <view class="student-info-item-text">{{item.schoolname}}</view>
                     </view>
                     <view class="student-info-item-r">
                         <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_147.png" />
-                        <view class="student-info-item-text" >{{item.lession}}</view>
+                        <view class="student-info-item-text" >{{item.classname}}</view>
                     </view>
                 </view>
                 <view style="margin-top: 20rpx;">
                     <view class="student-info-item-l" >
                         <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_149.png" />
-                        <view class="student-info-item-text" >{{item.classroom}}</view>
+                        <view class="student-info-item-text" >{{item.classroomname}}</view>
                     </view>
                     <view class="student-info-item-r" >
                         <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_151.png" />
-                        <view class="student-info-item-text" >{{item.teacher}}</view>
+                        <view class="student-info-item-text" >{{item.teachername}}</view>
                     </view>
                 </view>
                 <view style="margin-top: 20rpx;">
                     <view class="student-info-item-l" >
                         <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_153.png" />
-                        <view class="student-info-item-text" >{{item.start}}</view>
+                        <view class="student-info-item-text" >{{item.startdate}}</view>
                     </view>
                     <view class="student-info-item-r" >
                         <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_155.png" />
-                        <view class="student-info-item-text" >{{item.guilv}}</view>
+                        <view class="student-info-item-text" >{{item.timerule}}</view>
                     </view>
                 </view>
                 <view style="margin-top: 20rpx;">
                     <view style="line-height: 40rpx;display: inline-block;">
                         <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_157.png" />
-                        <view class="student-info-item-text" >{{item.address}}</view>
+                        <view class="student-info-item-text" >{{item.school_address}}</view>
                     </view>
 
                 </view>
@@ -98,3 +99,5 @@
         </view>
     </view>
 </view>
+
+<yxs_loading ready="{{ready}}"></yxs_loading>

@@ -4,6 +4,7 @@
   "usingComponents": {
     "yxs_menu_item":"../../yixsu_component/yxs_menu_item/index",
     "yxs_modal":"../../yixsu_component/yxs_modal/index",
+    "yxs_loading":"../../yixsu_component/yxs_loading/index",
     "yxs_upload":"../../yixsu_component/yxs_upload/index"
   }
 }

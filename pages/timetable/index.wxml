@@ -1,8 +1,8 @@
-<view hidden="{{!lession_list}}" class="container" style="background: #fff">
+<view wx:if="{{lession_list.length}}" class="container" style="background: #fff">
 
-    <view class="header" style="width: 710rpx;padding: 20rpx">
-        <image mode="widthFix" style="width: 80rpx;display: inline-block;vertical-align: middle;border-radius: 80rpx;" src="http://pbw56w09g.bkt.clouddn.com/切图_204.png"></image>
-        <view style="display: inline-block;margin-left: 20rpx">王小明的课表</view>
+    <view  class="header" style="width: 710rpx;padding: 20rpx">
+        <image mode="widthFix" style="width: 80rpx;display: inline-block;vertical-align: middle;border-radius: 80rpx;" src="{{student_info.avatar}}"></image>
+        <view style="display: inline-block;margin-left: 20rpx">{{student_info.name}}的课表(最近一月)</view>
     </view>
     <view class="body">
         <view wx:for="{{lession_list}}" wx:key="index" class="item weekday{{item.weekday_index}}">
@@ -27,9 +27,10 @@
     </view>
 </view>
 
-<view hidden="{{lession_list}}" class="container" style="background: #fff">
+<view wx:if="{{!lession_list.length}}" class="container" style="background: #fff">
 
     <image mode="widthFix" style="width: 300rpx;margin-top: 200rpx;margin-left: 30rpx;" src="http://pbw56w09g.bkt.clouddn.com/切图_209.png"></image>
     <view style="text-align: center;margin-top: 50rpx;">暂无课表信息~</view>
 
 </view>
+<yxs_loading ready="{{ready}}"></yxs_loading>

@@ -12,6 +12,26 @@ Component({
             type:Array,
             value:[]
         },
+        init_select_options:{
+            type:Array,
+            value:[],
+            observer: function(newVal, oldVal, changedPath) {
+                this.data.options.forEach(function(e){
+                    newVal.forEach(function(e1){
+                        if (e.id == e1.id) {
+                            e.selected = true;
+                        } else {
+                            e.selected = false;
+                        }
+                    })
+                }.bind(this));
+                this.setData({
+                    options:this.data.options,
+                    select_options:newVal,
+
+                })
+            }
+        },
         error_info: {
             type: String,
             value: ''

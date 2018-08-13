@@ -9,9 +9,9 @@
 
     <view hidden="{{!students.length}}" class="item" wx:for="{{students}}" wx:key="index">
         <image class="bg" mode="widthFix" src="{{item.active ? 'http://pbw56w09g.bkt.clouddn.com/切图_14.png' : 'http://pbw56w09g.bkt.clouddn.com/切图_21.png'}}"></image>
-        <image class="avatar" src="{{item.avatar}}"></image>
-        <image mode="widthFix" hidden="{{!item.active}}" class="label_current" src="http://pbw56w09g.bkt.clouddn.com/切图_50.png"></image>
-        <image mode="widthFix" hidden="{{item.active}}" class="label" src="http://pbw56w09g.bkt.clouddn.com/切图_53.png"></image>
+        <image bindtap="show_change_avatar" data-index="{{index}}" data-item="{{item}}" class="avatar" mode="aspectFill" src="{{item.avatar}}"></image>
+        <image  mode="widthFix" hidden="{{!item.active}}" class="label_current" src="http://pbw56w09g.bkt.clouddn.com/切图_50.png"></image>
+        <image style="padding: 20rpx;right: 0rpx;top:10rpx" bindtap="change_active_student" data-item="{{item}}" mode="widthFix" hidden="{{item.active}}" class="label" src="http://pbw56w09g.bkt.clouddn.com/切图_53.png"></image>
         <view class="name" style="color: {{item.active ? '#B07F27;':'#A6BEF1;'}}">{{item.name}}</view>
         <view class="studentid" style="color: {{item.active ? '#B07F27;':'#A6BEF1;'}}">学号:{{item.studentid}}</view>
     </view>
@@ -28,4 +28,17 @@
 
     </yxs_modal>
 
+    <yxs_modal visible="{{visible}}" success_btn="{{false}}" >
+
+        <view slot="content" style="width: 400rpx;">
+            <view style="text-align: center">上传头像</view>
+            <view style="margin: 20rpx auto;width: 120rpx;height:120rpx;display: block">
+                <yxs_upload currentcutimg="{{current_cut_img}}" src="{{info.avatar}}"></yxs_upload>
+            </view>
+            <view class="btn" bindtap="change_avatar">确 定</view>
+        </view>
+    </yxs_modal>
+
 </view>
+
+<yxs_loading ready="{{ready}}"></yxs_loading>

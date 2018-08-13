@@ -14,6 +14,7 @@
     position: absolute;
     left: 295rpx;
     top:40rpx;
+    border: 1rpx dashed #eee;
 }
 .name{
     width: 710rpx;

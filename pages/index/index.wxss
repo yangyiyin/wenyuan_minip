@@ -26,7 +26,10 @@
     display: inline-block;height: 1rpx;border-top: 1rpx dashed #DBDCDC;width: 400rpx;vertical-align: middle;margin-left: 20rpx
 }
 .news-bar-more{
-    display: inline-block;border-radius: 40rpx;height: 40rpx;width: 70rpx;border: 1px solid #48D27D;text-align: center;line-height: 40rpx;color: #48D27D;float: right;position: relative;top: 5rpx;
+    display: inline-block;border-radius: 40rpx;float: right;position: relative;top: -15rpx;right:-20rpx;padding: 20rpx;
+}
+.news-bar-more-in{
+    border-radius: 40rpx;height: 40rpx;width: 70rpx;border: 1px solid #48D27D;text-align: center;line-height: 40rpx;color: #48D27D;
 }
 .news-list{
     background: #fff;width: 710rpx;padding: 20rpx
@@ -48,7 +51,7 @@
 }
 
 .avatar{
-    width: 100rpx;position: absolute;left: 20rpx;top:20rpx;border-radius: 100rpx;
+    width: 100rpx;height:100rpx;position: absolute;left: 20rpx;top:20rpx;border-radius: 100rpx;  border: 1rpx dashed #eee;
 }
 .name{
     position: absolute;left: 140rpx;top:30rpx;color: #fff;font-size: 34rpx;
@@ -75,7 +78,7 @@
     border: 1rpx dashed #ccc;margin: 20rpx;width: 630rpx;padding: 20rpx
 }
 .student-info-item-l{
-    line-height: 40rpx;display: inline-block;width: 300rpx
+    line-height: 40rpx;display: inline-block;width: 270rpx
 }
 .student-info-item-r{
     line-height: 40rpx;display: inline-block;
@@ -84,5 +87,5 @@
     width: 40rpx;display: inline-block;vertical-align: middle
 }
 .student-info-item-text{
-    display: inline-block;margin-left: 20rpx;color: #666;position: relative;top:5rpx;
+    display: inline-block;margin-left: 20rpx;color: #666;position: relative;top:5rpx;font-size: 26rpx;
 }

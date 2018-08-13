@@ -1,126 +1,46 @@
+const app = getApp()
+const common = require('../../utils/common.js');
 Page({
     data:{
-        lession_list:[
-            {
-                date:'2018/07/02',
-                weekday:'周一',
-                weekday_index:1,
-                items:[
-                    {
-                        time:'08:00~11:00',
-                        subject:'趣味数学',
-                        teacher:"田雨"
-                    },
-                    {
-                        time:'08:00~12:00',
-                        subject:'趣味数学2',
-                        teacher:"田雨2"
-                    }
-                ]
-            },
-            {
-                date:'2018/07/03',
-                weekday:'周二',
-                weekday_index:2,
-                items:[
-                    {
-                        time:'08:00~11:00',
-                        subject:'趣味数学',
-                        teacher:"田雨"
-                    }
-                ]
-            },
-            {
-                date:'2018/07/04',
-                weekday:'周三',
-                weekday_index:3,
-                items:[
-                    {
-                        time:'08:00~11:00',
-                        subject:'趣味数学',
-                        teacher:"田雨"
-                    },
-                    {
-                        time:'08:00~12:00',
-                        subject:'趣味数学2',
-                        teacher:"田雨2"
-                    },
-                    {
-                        time:'08:00~11:00',
-                        subject:'趣味数学',
-                        teacher:"田雨"
-                    },
-                ]
-            },
-            {
-                date:'2018/07/02',
-                weekday:'周四',
-                weekday_index:4,
-                items:[
-                    {
-                        time:'08:00~11:00',
-                        subject:'趣味数学',
-                        teacher:"田雨"
-                    },
-                    {
-                        time:'08:00~12:00',
-                        subject:'趣味数学2',
-                        teacher:"田雨2"
-                    }
-                ]
-            },
-            {
-                date:'2018/07/02',
-                weekday:'周五',
-                weekday_index:5,
-                items:[
-                    {
-                        time:'08:00~11:00',
-                        subject:'趣味数学',
-                        teacher:"田雨"
-                    },
-                    {
-                        time:'08:00~12:00',
-                        subject:'趣味数学2',
-                        teacher:"田雨2"
-                    }
-                ]
-            },
-            {
-                date:'2018/07/02',
-                weekday:'周六',
-                weekday_index:6,
-                items:[
-                    {
-                        time:'08:00~11:00',
-                        subject:'趣味数学',
-                        teacher:"田雨"
-                    },
-                    {
-                        time:'08:00~12:00',
-                        subject:'趣味数学2',
-                        teacher:"田雨2"
-                    }
-                ]
-            },
-            {
-                date:'2018/07/02',
-                weekday:'周日',
-                weekday_index:7,
-                items:[
-                    {
-                        time:'08:00~11:00',
-                        subject:'趣味数学',
-                        teacher:"田雨"
-                    },
-                    {
-                        time:'08:00~12:00',
-                        subject:'趣味数学2',
-                        teacher:"田雨2"
-                    }
-                ]
-            }
-        ]
+        lession_list:[]
     },
+
+    onLoad(){
+        this.setData({
+            lession_list: wx.getStorageSync('lession_list'),
+            student_info:wx.getStorageSync('student_info')
+        })
+    },
+    onShow(){
+        if (app.globalData.to_refresh.timetable) {
+            this.setData({
+                ready: false
+            })
+            this.get_lession_time_list();
+            app.globalData.to_refresh.timetable = false;
+        }
+    },
+    get_lession_time_list(){
+        common.request('post','get_lession_time_list',{},function (res) {
+            if (res.data.code == common.constant.return_code_success) {
+                if (res.data.data.student_info.avatar) {
+                    res.data.data.student_info.avatar += '&i='+Math.random()
+                }
+                this.setData({
+                    lession_list:res.data.data.lession_time,
+                    student_info:res.data.data.student_info
+                })
+                setTimeout(function(){
+                    this.setData({
+                        ready:true
+                    })
+                }.bind(this), 100)
+                wx.setStorageSync('lession_list', res.data.data.lession_time);
+                wx.setStorageSync('student_info', res.data.data.student_info);
+            } else {
+                common.show_modal(res.data.msg);
+            }
+        }.bind(this));
+    }
     
 });

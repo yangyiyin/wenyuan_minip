@@ -1,9 +1,10 @@
-<view class="container">
+<view class="container" style="background: #fff">
 
-    <view class="item" wx:for="{{news_list}}" wx:key="index">
+    <view class="item" wx:for="{{news_list}}" wx:key="index" bindtap="goto_news_detail" data-id="{{item.id}}" data-link="{{item.link}}">
         <view class="left">{{item.title}}</view>
-        <view class="right">{{item.date}}</view>
+        <view class="right">{{item.create_time}}</view>
     </view>
 
 
 </view>
+<include src="../../common/bottom_pull_info.wxml"/>
