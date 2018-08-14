@@ -1,15 +1,16 @@
 <view class="container" style="background: #fff">
     <view class="header">
-        <image class="bg" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_03.png"></image>
         <block  wx:if="{{info.id}}" >
+            <image class="bg" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_03.png"></image>
             <image bindtap="show_change_avatar"  class="avatar" src="{{info.avatar}}"></image>
             <view class="name" style="color: #B07F27;font-size: 36rpx;">{{info.name}}</view>
             <view class="studentid" style="color: #B07F27;}">学号:{{info.studentid}}</view>
         </block>
         <block wx:if="{{!info.id}}">
-            <image class="bg" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_03.png"></image>
-            <image class="avatar" src="http://pbw56w09g.bkt.clouddn.com/切图_204.png"></image>
-            <view class="name" style="color: #B07F27;font-size: 36rpx;">您还没有绑定学生</view>
+
+            <image class="avatar" style="top:300rpx;z-index: 11;border: 1rpx solid #ddd" src="http://pbw56w09g.bkt.clouddn.com/切图_204.png"></image>
+            <view class="name" style="color: #999;font-size: 36rpx;top:460rpx;z-index: 11">您还没有绑定学生,到首页下方可设置</view>
+            <view style="width: 750rpx;height: 2000rpx;position: relative;top:0rpx"></view>
         </block>
 
 

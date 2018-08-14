@@ -24,6 +24,7 @@
     border-radius: 50rpx;
     vertical-align: middle;
     float: right;
+    font-size: 24rpx;
 }
 .send-code-disable {
     background: #ccc;

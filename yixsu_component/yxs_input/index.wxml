@@ -35,7 +35,7 @@
                 bindblur="handleInputBlur"
                 style="height: {{height}}rpx;float: left;"
         />
-        <view style="width: {{width * 0.4}}rpx;height: {{height}}rpx;display:table-cell;vertical-align:middle;">
+        <view style="width: {{width * 0.5}}rpx;height: {{height}}rpx;display:table-cell;vertical-align:middle;">
             <view class="send-code {{(can_send_code && !sending) ? '' : 'send-code-disable'}}" bindtap="sendcode">{{send_code_str}}</view>
         </view>
         <view style="clear: both"></view>

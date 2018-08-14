@@ -20,6 +20,11 @@ Page({
         student_info:null
     },
     onLoad(){
+        app.globalData.to_refresh.index = true;
+        app.globalData.to_refresh.examine = true;
+        app.globalData.to_refresh.timetable = true;
+        app.globalData.to_refresh.mine = true;
+
         this.get_news_list(true).then(function(){
             this.data.list.news_list.list[0].active = true;
 

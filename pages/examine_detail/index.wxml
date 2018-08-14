@@ -7,7 +7,8 @@
             <image hidden="{{info.signs.length}}" class="logo" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_70.png" />
             <view hidden="{{!info.signs.length}}" class="sign-item" wx:for="{{info.signs}}" wx:key="index">
                 <view class="name">
-                    <view class="name-in">{{item.name}}</view>
+                    <view wx:if="{{!item.can_edit_avatar}}" class="name-in">{{item.name}}</view>
+                    <view wx:if="{{item.can_edit_avatar}}" class="name-in" style="text-decoration: underline;color: orange" bindtap="show_edit_avatar" data-id="{{item.id}}">{{item.name}}</view>
                     <view wx:if="{{item.ticket}}" data-ticket="{{item.ticket}}" style="padding: 20rpx 0;position:relative;top:20rpx;color: green;text-decoration:underline" bindtap='show_ticket'>查看准考证</view>
 
                 </view>
@@ -210,7 +211,16 @@
         </view>
 
     </yxs_modal>
+    <yxs_modal visible="{{edit_avatar_visible}}" success_btn="{{false}}" >
 
+        <view slot="content" style="width: 400rpx;">
+            <view style="text-align: center">上传头像</view>
+            <view style="margin: 20rpx auto;width: 120rpx;height:120rpx;display: block">
+                <yxs_upload currentcutimg="{{current_cut_img}}" src="{{current_cut_img}}"></yxs_upload>
+            </view>
+            <view class="btn" bindtap="edit_avatar">确 定</view>
+        </view>
+    </yxs_modal>
 
 </view>
 

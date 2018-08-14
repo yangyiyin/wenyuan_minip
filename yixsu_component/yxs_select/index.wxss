@@ -25,7 +25,7 @@
     z-index: 999;
     max-height: 500rpx;
     overflow-y: scroll;
-    border: 1rpx solid #eee;
+    border: 1rpx solid #ccc;
     border-bottom: none;
 }
 .item{
@@ -33,7 +33,7 @@
     height:70rpx;
     line-height: 70rpx;
     text-align: center;
-    border-bottom: 1rpx solid #eee;
+    border-bottom: 1rpx solid #ccc;
 
 
 }

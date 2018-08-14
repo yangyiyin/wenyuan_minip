@@ -55,10 +55,10 @@ Page({
             });
             this.setData({
                 inputupload_error:''
-            })
+            });
         }
 
-        if (this.data.current_cut_img && (this.data.info.type == 3 || (this.data.info.type == 2 && this.data.step == 2))) {
+        if (app.globalData.current_cut_img && this.data.current_cut_img && (this.data.info.type == 3 || (this.data.info.type == 2 && this.data.step == 2))) {
             wx.showModal({
                 title: '提示',
                 content: '该照片是否用于头像?',
@@ -69,7 +69,8 @@ Page({
 
                     }
                 }.bind(this)
-            })
+            });
+            app.globalData.current_cut_img = '';
         }
     },
     init(){
@@ -539,6 +540,46 @@ Page({
             common.show_modal('图片不存在,请联系官方客服');
         }
 
+    },
+    show_edit_avatar(event){
+        this.setData({
+            edit_avatar_visible:true,
+            current_cut_img:'',
+            current_edit_avatar_id :event.currentTarget.dataset.id
+        })
+    },
+    edit_avatar(){
+        wx.showLoading({
+            title: '上传照片中。。。',
+        })
+        wx.uploadFile({
+            url: config.urls.upload+'?bucket=wenyuanjiaoyu',
+            filePath: this.data.current_cut_img,
+            name: 'img',
+            formData:{
+                'user_session':app.globalData.user_session
+            },
+            success: function(res){
+                wx.hideLoading()
+                res.data = JSON.parse(res.data);
+                var avatar = res.data.data[0];
+                var id = this.data.current_edit_avatar_id;
+
+                common.request('post','edit_avatar',{id:id,avatar:avatar},function (res) {
+                    if (res.data.code == common.constant.return_code_success) {
+                        common.show_toast('更改照片成功');
+                        this.setData({
+                            edit_avatar_visible:false,
+                            current_cut_img:''
+                        })
+                    } else {
+                        common.show_modal(res.data.msg);
+                    }
+                }.bind(this));
+
+
+            }.bind(this)
+        });
     }
 
 });

@@ -12,6 +12,7 @@ Page({
                 this.goto_index();
             }
         }.bind(this));
+
     },
     goto_index() {
         wx.switchTab({
