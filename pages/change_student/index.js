@@ -53,6 +53,12 @@ Page({
 
                 common.show_toast('恭喜你,添加成功!');
                 this.get_bind_students();
+                this.setData({
+                    add_show:false
+                });
+                app.globalData.to_refresh.index = true;
+                app.globalData.to_refresh.timetable = true;
+                app.globalData.to_refresh.mine = true;
 
             } else {
                 common.show_modal(res.data.msg);
