@@ -31,7 +31,7 @@
     <yxs_modal visible="{{visible}}" success_btn="{{false}}" >
 
         <view slot="content" style="width: 400rpx;">
-            <view style="text-align: center">上传头像</view>
+            <view style="text-align: center">上传学员照片</view>
             <view style="margin: 20rpx auto;width: 120rpx;height:120rpx;display: block">
                 <yxs_upload currentcutimg="{{current_cut_img}}" src="{{info.avatar}}"></yxs_upload>
             </view>

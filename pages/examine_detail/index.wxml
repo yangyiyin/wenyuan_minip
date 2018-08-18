@@ -9,7 +9,7 @@
                 <view class="name">
                     <view wx:if="{{!item.can_edit_avatar}}" class="name-in">{{item.name}}</view>
                     <view wx:if="{{item.can_edit_avatar}}" class="name-in" style="text-decoration: underline;color: orange" bindtap="show_edit_avatar" data-id="{{item.id}}">{{item.name}}</view>
-                    <view wx:if="{{item.ticket}}" data-ticket="{{item.ticket}}" style="padding: 20rpx 0;position:relative;top:20rpx;color: green;text-decoration:underline" bindtap='show_ticket'>查看准考证</view>
+                    <view wx:if="{{item.ticket}}" data-ticket="{{item.ticket}}" style="padding: 20rpx 0;position:absolute;left:0rpx;top:40rpx;color: green;text-decoration:underline" bindtap='show_ticket'>查看准考证</view>
 
                 </view>
                 <view class="result" wx:if="{{item.result.length}}">
@@ -214,7 +214,7 @@
     <yxs_modal visible="{{edit_avatar_visible}}" success_btn="{{false}}" >
 
         <view slot="content" style="width: 400rpx;">
-            <view style="text-align: center">上传头像</view>
+            <view style="text-align: center">上传学员照片</view>
             <view style="margin: 20rpx auto;width: 120rpx;height:120rpx;display: block">
                 <yxs_upload currentcutimg="{{current_cut_img}}" src="{{current_cut_img}}"></yxs_upload>
             </view>
