@@ -298,6 +298,7 @@ Page({
             out_id:this.data.id,
             student_name:'',
             email:this.data.inputemail,
+            studentid:'',
             content:{
                 name:'',
                 school:this.data.inputschool,
@@ -327,20 +328,24 @@ Page({
             data.is_new = 1;
             data.student_name = this.data.inputname;
             data.content.avatar = this.data.current_cut_img;
+            data.studentid = '';
         } else if (this.data.info.type == 2) {
             if (this.data.step == 2) {
                 data.is_new = 0;
                 data.student_name = this.data.current_student.name;
                 data.content.avatar = this.data.current_student.avatar;
+                data.studentid = this.data.current_student.studentid;
             } else if (this.data.step == 3) {
                 data.is_new = 1;
                 data.student_name = this.data.inputname;
                 data.content.avatar = this.data.current_cut_img;
+                data.studentid = '';
             }
         } else if (this.data.info.type == 3) {
             data.is_new = 0;
             data.student_name = this.data.current_student.name;
             data.content.avatar = this.data.current_student.avatar;
+            data.studentid = this.data.current_student.studentid;
         }
         data.content.name = data.student_name;
         //检测

@@ -93,10 +93,10 @@
 
                 </view>
                 <view style="position: relative;" class="input-item">
-                    <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_168.png" placeholder="父亲联系电话" bindchange="bindinputphone1" error_info="{{inputphone1_error}}"></yxs_input>
+                    <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_168.png" placeholder="主要联系电话" bindchange="bindinputphone1" error_info="{{inputphone1_error}}"></yxs_input>
                 </view>
                 <view style="position: relative;" class="input-item">
-                    <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_168.png" placeholder="母亲联系电话" bindchange="bindinputphone2" error_info="{{inputphone2_error}}"></yxs_input>
+                    <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_168.png" placeholder="备用联系电话" bindchange="bindinputphone2" error_info="{{inputphone2_error}}"></yxs_input>
                 </view>
                 <view style="position: relative; padding: 0rpx 10rpx;height: auto;" class="input-item {{inputupload_error ? 'input-error' : ''}}">
                     <view style="width: 60rpx;height: 80rpx;float: left;vertical-align:middle;line-height:80rpx;text-align: center;margin-right: 10rpx">
@@ -126,9 +126,10 @@
                     <view style="position: relative;height: 250rpx;">
                         <image style="width: 600rpx;position: absolute;left: 0;top:0;z-index:-1" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_214.png" />
 
-                        <view style="display: inline-block;padding: 50rpx;width: 120rpx;height:120rpx;">
+                        <view style="display: inline-block;padding: 50rpx;width: 120rpx;height:120rpx;position: relative">
                             <yxs_upload currentcutimg="{{current_cut_img}}" src="{{current_cut_img}}"></yxs_upload>
-                            <view class="error-info">{{inputupload_error}}</view>
+                            <view style="position: absolute;bottom: 10rpx;left: 50%;width: 100rpx;margin-left: -50rpx;font-size: 20rpx;color:#DFA33D;text-align: center;">学员正面照</view>
+
                         </view>
                         <view style="display: inline-block;padding: 20rpx;position: relative;top:30rpx;">
                              <view>{{current_student.name}}</view>
@@ -161,10 +162,10 @@
 
                     </view>
                     <view style="position: relative;" class="input-item">
-                        <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_168.png" placeholder="父亲联系电话" bindchange="bindinputphone1" error_info="{{inputphone1_error}}"></yxs_input>
+                        <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_168.png" placeholder="主要联系电话" bindchange="bindinputphone1" error_info="{{inputphone1_error}}"></yxs_input>
                     </view>
                     <view style="position: relative;" class="input-item">
-                        <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_168.png" placeholder="母亲联系电话" bindchange="bindinputphone2" error_info="{{inputphone2_error}}"></yxs_input>
+                        <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://pbw56w09g.bkt.clouddn.com/切图_168.png" placeholder="备用联系电话" bindchange="bindinputphone2" error_info="{{inputphone2_error}}"></yxs_input>
                     </view>
                     <view style="position: relative; padding: 0rpx 10rpx;height: auto;" class="input-item {{inputupload_error ? 'input-error' : ''}}">
                         <view style="width: 60rpx;height: 80rpx;float: left;vertical-align:middle;line-height:80rpx;text-align: center;margin-right: 10rpx">
@@ -195,14 +196,15 @@
                     <view style="position: relative;height: 250rpx;">
                         <image style="width: 600rpx;position: absolute;left: 0;top:0;z-index:-1" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_214.png" />
 
-                        <view style="display: inline-block;padding: 50rpx;width: 120rpx;height:120rpx;">
+                        <view style="display: inline-block;padding: 50rpx;width: 120rpx;height:120rpx;position: relative">
                             <yxs_upload currentcutimg="{{current_cut_img}}" src="{{current_student.avatar}}"></yxs_upload>
-                            <view class="error-info">{{inputupload_error}}</view>
+                            <view style="position: absolute;bottom: 10rpx;left: 50%;width: 100rpx;margin-left: -50rpx;font-size: 20rpx;color:#DFA33D;text-align: center;">学员正面照</view>
                         </view>
                         <view style="display: inline-block;padding: 20rpx;position: relative;top:30rpx;">
                             <view>{{current_student.name}}</view>
                             <view style="margin-top: 10rpx;">{{current_student.studentid}}</view>
                         </view>
+
                     </view>
                     <view style="position: relative;">
                         <yxs_input  width="600" height="80" maxlength="20" icon="http://pbw56w09g.bkt.clouddn.com/email_171.png" placeholder="电子邮箱地址" bindchange="bindinputemail" error_info="{{inputemail_error}}"></yxs_input>
