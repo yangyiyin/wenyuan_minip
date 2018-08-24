@@ -1,4 +1,5 @@
 {
+  "enablePullDownRefresh":true,
   "usingComponents": {
     "yxs_loading":"../../yixsu_component/yxs_loading/index"
   }

@@ -64,18 +64,20 @@
     display: inline-block;
 }
 .name{
-    width: 150rpx;
+    width: 120rpx;
     text-align: center;
 
 }
+
 .name-in{
     position: absolute;
-    left: 30rpx;
+    left: 10rpx;
     top:20rpx;
 }
 .result{
     border-left: 1rpx solid #eee;
     padding-left: 30rpx;
+    width: 490rpx;
 
 }
 
@@ -100,4 +102,11 @@
 }
 .info{
     font-size: 30rpx;
+}
+.item-i-key{
+    font-size: 26rpx;
+    color: #999;
+}
+.item-i-value{
+    color: #000;
 }

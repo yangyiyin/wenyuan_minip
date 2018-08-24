@@ -274,8 +274,11 @@ Page({
                 'studentid' : this.data.current_student.studentid
             },
             success: function(res){
+                res.data = JSON.parse(res.data);
+                var avatar = res.data.data;
+
                 app.globalData.current_cut_img = '';
-                this.data.current_student.avatar = this.data.current_cut_img;
+                this.data.current_student.avatar = avatar;
                 this.setData({
                     current_student:this.data.current_student
                 });
@@ -520,7 +523,10 @@ Page({
     get_bind_students() {
         common.request('post','get_bind_students',{},function (res) {
             if (res.data.code == common.constant.return_code_success) {
-                res.data.data.push({id:-1,name:'新增学生'});
+                if(this.data.info.type != 3) {
+                    res.data.data.push({id:-1,name:'新增学生'});
+                }
+
                 this.setData({
                     options_student:res.data.data
                 });
