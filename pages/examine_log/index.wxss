@@ -1,6 +1,7 @@
 .item{
     position: relative;
     margin-top: 50rpx;
+    min-height: 100rpx;
 }
 .body{
     width: 610rpx;

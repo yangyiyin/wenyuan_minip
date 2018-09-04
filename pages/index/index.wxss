@@ -1,3 +1,7 @@
+.container{
+    height: auto;
+    min-height: auto;
+}
 .top-container{
     position: relative;width: 750rpx;overflow: hidden
 }
@@ -44,7 +48,7 @@
     float: right;color: #bbb;
 }
 .empty-avatar{
-    width: 100rpx;position: absolute;left: 20rpx;top:20rpx;border-radius: 100rpx;
+    width: 100rpx;height:100rpx;position: absolute;left: 20rpx;top:20rpx;border-radius: 100rpx;
 }
 .empty-info{
     position: absolute;left: 140rpx;top:50rpx;color: #fff;
@@ -84,7 +88,7 @@
     line-height: 40rpx;display: inline-block;
 }
 .student-info-item-icon{
-    width: 40rpx;display: inline-block;vertical-align: middle
+    width: 40rpx;height:40rpx;display: inline-block;vertical-align: middle
 }
 .student-info-item-text{
     display: inline-block;margin-left: 20rpx;color: #666;position: relative;top:5rpx;font-size: 26rpx;

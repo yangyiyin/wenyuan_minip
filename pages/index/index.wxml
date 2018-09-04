@@ -72,25 +72,36 @@
                         <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_149.png" />
                         <view class="student-info-item-text" >{{item.classroomname}}</view>
                     </view>
-                    <view class="student-info-item-r" >
-                        <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_151.png" />
-                        <view class="student-info-item-text" >{{item.teachername}}</view>
-                    </view>
-                </view>
-                <view style="margin-top: 20rpx;">
+                    <!--<view class="student-info-item-r" >-->
+                        <!--<image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_151.png" />-->
+                        <!--<view class="student-info-item-text" >{{item.teachername}}</view>-->
+                    <!--</view>-->
                     <view class="student-info-item-l" >
                         <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_153.png" />
                         <view class="student-info-item-text" >{{item.startdate}}</view>
                     </view>
+                </view>
+                <!--<view style="margin-top: 20rpx;">-->
+                    <!--<view class="student-info-item-l" >-->
+                        <!--<image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_153.png" />-->
+                        <!--<view class="student-info-item-text" >{{item.startdate}}</view>-->
+                    <!--</view>-->
+                    <!--<view class="student-info-item-r" >-->
+                        <!--<image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_155.png" />-->
+                        <!--<view class="student-info-item-text" >{{item.timerule}}</view>-->
+                    <!--</view>-->
+                <!--</view>-->
+                <view style="margin-top: 20rpx;">
                     <view class="student-info-item-r" >
                         <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_155.png" />
                         <view class="student-info-item-text" >{{item.timerule}}</view>
                     </view>
+
                 </view>
                 <view style="margin-top: 20rpx;">
                     <view style="line-height: 40rpx;display: inline-block;">
                         <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_157.png" />
-                        <view class="student-info-item-text" >{{item.school_address}}</view>
+                        <view class="student-info-item-text" style="width: 550rpx;vertical-align:middle;" >{{item.school_address}}</view>
                     </view>
 
                 </view>
