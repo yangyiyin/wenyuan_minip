@@ -38,7 +38,8 @@ Page({
         select_options_address:[],
         select_options_student:[],
         current_student:{},
-        step:1
+        step:1,
+        is_need_upload_avatar:false
     },
     onLoad(option){
         this.setData({
@@ -66,7 +67,11 @@ Page({
                     if (res.confirm) {
                         this.change_avatar();
                     } else if (res.cancel) {
-
+                        this.data.current_student.avatar = this.data.current_cut_img;
+                        this.setData({
+                            current_student:this.data.current_student,
+                            is_need_upload_avatar:true
+                        });
                     }
                 }.bind(this)
             });
@@ -264,6 +269,9 @@ Page({
         if (!this.data.current_cut_img || !this.data.current_student.studentid) {
             return;
         }
+        wx.showLoading({
+            title: '上传照片中。。。',
+        })
         //上传
         wx.uploadFile({
             url: config.urls.change_avatar,
@@ -274,13 +282,15 @@ Page({
                 'studentid' : this.data.current_student.studentid
             },
             success: function(res){
+                wx.hideLoading();
                 res.data = JSON.parse(res.data);
                 var avatar = res.data.data;
 
                 app.globalData.current_cut_img = '';
                 this.data.current_student.avatar = avatar;
                 this.setData({
-                    current_student:this.data.current_student
+                    current_student:this.data.current_student,
+                    is_need_upload_avatar:false
                 });
                 this.get_bind_students();
 
@@ -418,7 +428,7 @@ Page({
         if (pay_no) {
             data.pay_no = pay_no;
         }
-        if (data.is_new) {
+        if (data.is_new || this.data.is_need_upload_avatar) {
             wx.showLoading({
                 title: '上传照片中。。。',
             })
