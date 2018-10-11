@@ -8,10 +8,14 @@ Page({
             name:'王小明',
             studentid:'201845265'
         },
+        userinfo:app.globalData.userInfo,
         visible:false,
         current_cut_img:''
     },
     onShow: function() {
+        this.setData({
+            userinfo:app.globalData.userInfo
+        })
         this.setData({
             current_cut_img:app.globalData.current_cut_img
         });
