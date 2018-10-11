@@ -18,7 +18,7 @@
                 <view class="time">{{item.time}}</view>
             </view>
             <view class="content-item">
-                <image style="width: 30rpx;display: inline-block;vertical-align: middle;margin-bottom: 5rpx" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_131.png" />
+                <image style="width: 30rpx;display: inline-block;vertical-align: top;margin-top: 5rpx" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_131.png" />
                 <view class="desc">{{item.desc}}</view>
             </view>
         </view>

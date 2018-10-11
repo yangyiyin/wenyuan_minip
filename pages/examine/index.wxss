@@ -48,4 +48,5 @@
     display: inline-block;
     margin-left: 20rpx;
     font-size: 30rpx;
+    width: 610rpx;
 }
