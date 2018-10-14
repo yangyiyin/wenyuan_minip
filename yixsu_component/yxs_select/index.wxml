@@ -14,8 +14,8 @@
         <block hidden="{{!select_options[0]}}" wx:for="{{select_options}}" wx:key="index2">{{item.name}};</block>
     </view>
     <view style="width: {{width * 0.1}}rpx;height: {{height}}rpx;float: right;vertical-align:middle;line-height:{{height}}rpx;text-align: center;">
-        <image hidden="{{show_list}}" style="width: 40%;vertical-align:middle;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_185.png"></image>
-        <image hidden="{{!show_list}}" style="width: 40%;vertical-align:middle;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_187.png"></image>
+        <image hidden="{{show_list}}" style="width: 40%;vertical-align:middle;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_185.png"></image>
+        <image hidden="{{!show_list}}" style="width: 40%;vertical-align:middle;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_187.png"></image>
     </view>
 
     <view style="clear: both"></view>
@@ -33,8 +33,8 @@
     <view hidden="{{!multi}}" class="list">
         <view wx:for="{{options}}" wx:key="index" class="item" bindtap="select" data-index="{{index}}">
             {{item.name}}
-            <image hidden="{{!item.selected}}" style="width: 40rpx;float: right;margin-top: 15rpx;margin-right: 20rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/下拉框选择_03.png"></image>
-            <image hidden="{{item.selected}}" style="width: 40rpx;float: right;margin-top: 15rpx;margin-right: 20rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/下拉框选择_06.png"></image>
+            <image hidden="{{!item.selected}}" style="width: 40rpx;float: right;margin-top: 15rpx;margin-right: 20rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/下拉框选择_03.png"></image>
+            <image hidden="{{item.selected}}" style="width: 40rpx;float: right;margin-top: 15rpx;margin-right: 20rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/下拉框选择_06.png"></image>
         </view>
         <view bindtap="open_close_options" class="item" style="color: #999;font-size: 20rpx;">关闭</view>
     </view>

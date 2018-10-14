@@ -1,27 +1,27 @@
 <view class="container">
     <view style="height: 20rpx"></view>
     <view hidden="{{students.length}}" class="item">
-        <image class="bg" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_14.png"></image>
-        <image class="avatar" src="http://pbw56w09g.bkt.clouddn.com/切图_204.png"></image>
+        <image class="bg" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_14.png"></image>
+        <image class="avatar" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_204.png"></image>
         <view class="name">暂无学生信息</view>
         <view class="tips">您还未绑定学生,点击下方按钮进行设置</view>
     </view>
 
     <view hidden="{{!students.length}}" class="item" wx:for="{{students}}" wx:key="index">
-        <image class="bg" mode="widthFix" src="{{item.active ? 'http://pbw56w09g.bkt.clouddn.com/切图_14.png' : 'http://pbw56w09g.bkt.clouddn.com/切图_21.png'}}"></image>
+        <image class="bg" mode="widthFix" src="{{item.active ? 'http://wenyuanjiaoyu-qiniu.yixsu.com/切图_14.png' : 'http://wenyuanjiaoyu-qiniu.yixsu.com/切图_21.png'}}"></image>
         <image bindtap="show_change_avatar" data-index="{{index}}" data-item="{{item}}" class="avatar" mode="aspectFill" src="{{item.avatar}}"></image>
-        <image  mode="widthFix" hidden="{{!item.active}}" class="label_current" src="http://pbw56w09g.bkt.clouddn.com/切图_50.png"></image>
-        <image style="padding: 20rpx;right: 0rpx;top:10rpx" bindtap="change_active_student" data-item="{{item}}" mode="widthFix" hidden="{{item.active}}" class="label" src="http://pbw56w09g.bkt.clouddn.com/切图_53.png"></image>
+        <image  mode="widthFix" hidden="{{!item.active}}" class="label_current" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_50.png"></image>
+        <image style="padding: 20rpx;right: 0rpx;top:10rpx" bindtap="change_active_student" data-item="{{item}}" mode="widthFix" hidden="{{item.active}}" class="label" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_53.png"></image>
         <view class="name" style="color: {{item.active ? '#B07F27;':'#A6BEF1;'}}">{{item.name}}</view>
         <view class="studentid" style="color: {{item.active ? '#B07F27;':'#A6BEF1;'}}">学号:{{item.studentid}}</view>
     </view>
 
-    <view bindtap="change_student" style="width: 710rpx;" class="btn" ><image style="width: 30rpx;position:relative;top:-3rpx;display: inline-block;vertical-align: middle" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_161-2.png" /> 添加学生</view>
+    <view bindtap="change_student" style="width: 710rpx;" class="btn" ><image style="width: 30rpx;position:relative;top:-3rpx;display: inline-block;vertical-align: middle" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_161-2.png" /> 添加学生</view>
 
 
     <yxs_modal visible="{{add_show}}" success_btn="{{false}}" >
         <view hidden="{{verify_code_show_info}}" slot="content" style="width: 600rpx;">
-            <yxs_input width="600" height="80" maxlength="20" icon="http://pbw56w09g.bkt.clouddn.com/切图_167.png" placeholder="学生姓名" bindchange="bindinputname" error_info="{{inputname_error}}"></yxs_input>
+            <yxs_input width="600" height="80" maxlength="20" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_167.png" placeholder="学生姓名" bindchange="bindinputname" error_info="{{inputname_error}}"></yxs_input>
             <view style="width: 600rpx;margin-top: 60rpx;" class="btn" bindtap="submit">确     定</view>
         </view>
 

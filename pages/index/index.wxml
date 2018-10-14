@@ -20,7 +20,7 @@
 
 <view class="container" style="height: auto">
     <view class="news-bar" wx:if="{{news_text_list.length}}">
-        <image class="news-bar-icon" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_123.png" />
+        <image class="news-bar-icon" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_123.png" />
         <view class="news-bar-title">新闻动态</view>
         <view class="news-bar-line"></view>
         <view class="news-bar-more" bindtap="goto_news"><view class="news-bar-more-in">更多</view></view>
@@ -37,9 +37,9 @@
     <view class="container" style="margin-bottom: 20rpx;box-shadow: 0px 0px 15px #ddd;width: 710rpx;margin-top: 20rpx;border-radius: 10rpx;overflow: hidden;height: auto">
 
         <view style="position: relative;height: 140rpx;">
-            <image style="width: 710rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_143-2.png" />
+            <image style="width: 710rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_143-2.png" />
             <view wx:if="{{!student_info}}">
-                <image class="empty-avatar" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_204.png" />
+                <image class="empty-avatar" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_204.png" />
                 <view class="empty-info" >暂无信息</view>
             </view>
             <view wx:if="{{student_info}}">
@@ -48,59 +48,59 @@
                 <view class="studentid" >学号:{{student_info.studentid}}</view>
             </view>
             <view bindtap="goto_change_student" class="edit-icon" >
-                <image style="width: 40rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_182.png" />
+                <image style="width: 40rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_182.png" />
             </view>
         </view>
         <view class="empty-box" wx:if="{{!student_info}}" >
             <view class="empty-desc" >暂无学生信息。如果您有学生已在文远参加培训,可点击下方按钮设置信息绑定。</view>
-            <view bindtap="goto_change_student" class="empty-set" ><image style="width: 30rpx;position:relative;top:-3rpx;display: inline-block;vertical-align: middle" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_161-2.png" /> 设置</view>
+            <view bindtap="goto_change_student" class="empty-set" ><image style="width: 30rpx;position:relative;top:-3rpx;display: inline-block;vertical-align: middle" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_161-2.png" /> 设置</view>
         </view>
         <view class="student-info-box" wx:if="{{student_info && student_info.detail && student_info.detail.length}}">
             <view class="student-info-item" wx:for="{{student_info.detail}}" wx:key="index" >
                 <view>
                     <view class="student-info-item-l" >
-                        <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_145.png" />
+                        <image class="student-info-item-icon"  mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_145.png" />
                         <view class="student-info-item-text">{{item.schoolname}}</view>
                     </view>
                     <view class="student-info-item-r">
-                        <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_147.png" />
+                        <image class="student-info-item-icon"  mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_147.png" />
                         <view class="student-info-item-text" >{{item.classname}}</view>
                     </view>
                 </view>
                 <view style="margin-top: 20rpx;">
                     <view class="student-info-item-l" >
-                        <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_149.png" />
+                        <image class="student-info-item-icon"  mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_149.png" />
                         <view class="student-info-item-text" >{{item.classroomname}}</view>
                     </view>
                     <!--<view class="student-info-item-r" >-->
-                        <!--<image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_151.png" />-->
+                        <!--<image class="student-info-item-icon"  mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_151.png" />-->
                         <!--<view class="student-info-item-text" >{{item.teachername}}</view>-->
                     <!--</view>-->
                     <view class="student-info-item-l" >
-                        <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_153.png" />
+                        <image class="student-info-item-icon"  mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_153.png" />
                         <view class="student-info-item-text" >{{item.startdate}}</view>
                     </view>
                 </view>
                 <!--<view style="margin-top: 20rpx;">-->
                     <!--<view class="student-info-item-l" >-->
-                        <!--<image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_153.png" />-->
+                        <!--<image class="student-info-item-icon"  mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_153.png" />-->
                         <!--<view class="student-info-item-text" >{{item.startdate}}</view>-->
                     <!--</view>-->
                     <!--<view class="student-info-item-r" >-->
-                        <!--<image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_155.png" />-->
+                        <!--<image class="student-info-item-icon"  mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_155.png" />-->
                         <!--<view class="student-info-item-text" >{{item.timerule}}</view>-->
                     <!--</view>-->
                 <!--</view>-->
                 <view style="margin-top: 20rpx;">
                     <view class="student-info-item-r" >
-                        <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_155.png" />
+                        <image class="student-info-item-icon"  mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_155.png" />
                         <view class="student-info-item-text" >{{item.timerule}}</view>
                     </view>
 
                 </view>
                 <view style="margin-top: 20rpx;">
                     <view style="line-height: 40rpx;display: inline-block;">
-                        <image class="student-info-item-icon"  mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_157.png" />
+                        <image class="student-info-item-icon"  mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_157.png" />
                         <view class="student-info-item-text" style="width: 550rpx;vertical-align:middle;" >{{item.school_address}}</view>
                     </view>
 

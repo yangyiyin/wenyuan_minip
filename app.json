@@ -13,7 +13,11 @@
     "pages/suggest/index",
     "pages/timetable/index",
     "pages/words/index",
-    "pages/cutInside/cutInside"
+    "pages/cutInside/cutInside",
+    "pages/sign/index",
+    "pages/course_detail/index",
+    "pages/order_detail/index",
+    "pages/my_orders/index"
   ],
   "window":{
     "navigationBarBackgroundColor": "#ffffff",
@@ -32,10 +36,10 @@
       "iconPath":"./assets/切图_87-2.png",
       "selectedIconPath":"./assets/切图_103-2.png"
     }, {
-      "pagePath": "pages/timetable/index",
-      "text": "课表",
-      "iconPath":"./assets/切图_95-2.png",
-      "selectedIconPath":"./assets/切图_106-2.png"
+      "pagePath": "pages/sign/index",
+      "text": "报名",
+      "iconPath":"./assets/报名.png",
+      "selectedIconPath":"./assets/报名选中.png"
     }, {
       "pagePath": "pages/examine/index",
       "text": "考试",

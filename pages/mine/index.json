@@ -1,7 +1,7 @@
 {
 
   "navigationBarTitleText": "我的",
-  "disableScroll":true,
+  "disableScroll":false,
   "usingComponents": {
     "yxs_menu_item":"../../yixsu_component/yxs_menu_item/index",
     "yxs_modal":"../../yixsu_component/yxs_modal/index",

@@ -1,14 +1,14 @@
 <view class="container" style="background: #fff">
     <view class="header">
         <block  wx:if="{{info.id}}" >
-            <image class="bg" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_03.png"></image>
+            <image class="bg" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_03.png"></image>
             <image bindtap="show_change_avatar"  class="avatar" src="{{info.avatar}}"></image>
             <view class="name" style="color: #B07F27;font-size: 36rpx;">{{info.name}}</view>
             <view class="studentid" style="color: #B07F27;}">学号:{{info.studentid}}</view>
         </block>
         <block wx:if="{{!info.id}}">
 
-            <image class="avatar" style="top:300rpx;z-index: 11;border: 1rpx solid #ddd" src="http://pbw56w09g.bkt.clouddn.com/切图_204.png"></image>
+            <image class="avatar" style="top:300rpx;z-index: 11;border: 1rpx solid #ddd" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_204.png"></image>
             <view class="name" style="color: #999;font-size: 36rpx;top:460rpx;z-index: 11">您还没有绑定学生,到首页下方可设置</view>
             <view style="width: 750rpx;height: 2000rpx;position: relative;top:0rpx"></view>
         </block>
@@ -17,14 +17,20 @@
     </view>
 
 
+    <view wx:if="{{info.id}}" style="border-bottom: 1rpx solid #eee" bindtap="goto_timetable">
+        <yxs_menu_item height="120" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/%E8%AF%BE%E8%A1%A8%E5%AE%89%E6%8E%92@3x.png" title="我的课表"></yxs_menu_item>
+    </view>
+    <view wx:if="{{info.id}}" style="border-bottom: 1rpx solid #eee" bindtap="goto_my_orders">
+        <yxs_menu_item height="120" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/%E8%AE%A2%E5%8D%95@3x.png" title="我报名的课程"></yxs_menu_item>
+    </view>
     <view wx:if="{{info.id}}" style="border-bottom: 1rpx solid #eee" bindtap="goto_examine_log">
-        <yxs_menu_item height="120" icon="http://pbw56w09g.bkt.clouddn.com/切图_115.png" title="考试成绩"></yxs_menu_item>
+        <yxs_menu_item height="120" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_115.png" title="考试成绩"></yxs_menu_item>
     </view>
     <view wx:if="{{info.id}}" style="border-bottom: 1rpx solid #eee" bindtap="goto_suggest">
-        <yxs_menu_item height="120" icon="http://pbw56w09g.bkt.clouddn.com/切图_120.png" title="家长反馈"></yxs_menu_item>
+        <yxs_menu_item height="120" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_120.png" title="家长反馈"></yxs_menu_item>
     </view>
     <view wx:if="{{info.id}}" style="border-bottom: 1rpx solid #eee" bindtap="goto_words">
-        <yxs_menu_item height="120" icon="http://pbw56w09g.bkt.clouddn.com/切图_117.png" title="教师评语"></yxs_menu_item>
+        <yxs_menu_item height="120" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_117.png" title="教师评语"></yxs_menu_item>
     </view>
     <view style="color: #999;text-align: left;width: 690rpx;margin: 0 auto;margin-top: 20rpx;font-size: 24rpx;">
         当前注册手机号:{{userinfo.user_tel}}

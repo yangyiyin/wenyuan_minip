@@ -1,0 +1,4 @@
+<view animation="{{animationData}}" class="box" style="bottom: -{{height}}rpx;height:{{height}}rpx" >
+    <slot name="content"></slot>
+</view>
+<view hidden="{{!visible}}" class="shade"  bindtap="close" catchtouchmove="none"></view>

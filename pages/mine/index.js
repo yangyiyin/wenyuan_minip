@@ -4,7 +4,7 @@ const config = require('../../utils/config.js');
 Page({
     data:{
         info:{
-            avatar:'http://pbw56w09g.bkt.clouddn.com/切图_204.png',
+            avatar:'http://wenyuanjiaoyu-qiniu.yixsu.com/切图_204.png',
             name:'王小明',
             studentid:'201845265'
         },
@@ -23,6 +23,16 @@ Page({
             this.get_current_student();
             app.globalData.to_refresh.mine = false;
         }
+    },
+    goto_timetable(){
+        wx.navigateTo({
+            url: '/pages/timetable/index'
+        })
+    },
+    goto_my_orders(){
+        wx.navigateTo({
+            url: '/pages/my_orders/index'
+        })
     },
     goto_examine_log(){
         wx.navigateTo({

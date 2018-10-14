@@ -4,11 +4,11 @@ const app = getApp()
 Page({
     data:{
         news_list:[
-            // {src:'http://pbw56w09g.bkt.clouddn.com/img_loading_bg2.png','info':'速度快发货的时刻发挥第三方客户1'},
-            // {src:'http://pbw56w09g.bkt.clouddn.com/img_loading_bg2.png','info':'速度快发货的时刻发挥第三方客户2'},
-            // {src:'http://pbw56w09g.bkt.clouddn.com/img_loading_bg2.png','info':'速度快发货的时刻发挥第三方客户3'},
-            // {src:'http://pbw56w09g.bkt.clouddn.com/img_loading_bg2.png','info':'速度快发货的时刻发挥第三方客户4'},
-            // {src:'http://pbw56w09g.bkt.clouddn.com/img_loading_bg2.png','info':'速度快发货的时刻发挥第三方客户5'},
+            // {src:'http://wenyuanjiaoyu-qiniu.yixsu.com/img_loading_bg2.png','info':'速度快发货的时刻发挥第三方客户1'},
+            // {src:'http://wenyuanjiaoyu-qiniu.yixsu.com/img_loading_bg2.png','info':'速度快发货的时刻发挥第三方客户2'},
+            // {src:'http://wenyuanjiaoyu-qiniu.yixsu.com/img_loading_bg2.png','info':'速度快发货的时刻发挥第三方客户3'},
+            // {src:'http://wenyuanjiaoyu-qiniu.yixsu.com/img_loading_bg2.png','info':'速度快发货的时刻发挥第三方客户4'},
+            // {src:'http://wenyuanjiaoyu-qiniu.yixsu.com/img_loading_bg2.png','info':'速度快发货的时刻发挥第三方客户5'},
 
         ],
         news_text_list:[

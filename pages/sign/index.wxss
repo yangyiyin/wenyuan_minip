@@ -1,0 +1,38 @@
+page{
+    background: #fff;
+}
+.container{
+    height: auto;
+    min-height: auto;
+    background: #fff;
+}
+.top-container{
+    position: relative;width: 690rpx;margin: 0 auto;border-radius: 10rpx;overflow: hidden;
+}
+.top-container-text-box{
+    position: absolute;bottom: 0;left: 0;font-size: 28rpx;padding: 0 20rpx;background: none;height: 50rpx;width:650rpx;line-height:50rpx;color: #fff
+}
+.top-container-text-info{
+    overflow: hidden;min-width:60rpx;float: left;
+}
+.top-container-points-box{
+    float: right;max-width: 140rpx;height: 50rpx;vertical-align: middle;overflow: hidden;
+}
+.top-container-point{
+    width: 15rpx;height: 15rpx;border-radius: 15rpx;margin-top: 20rpx;float:left;margin-right: 10rpx
+}
+.item{
+    width: 690rpx;padding: 30rpx;border-bottom: 1rpx solid #eee;line-height: 46rpx;
+}
+.left, .right{
+    display: inline-block;
+}
+.left{
+    width: 210rpx;height: 130rpx;overflow: hidden;
+}
+.right{
+    width: 450rpx;margin-left: 30rpx;height: 130rpx;vertical-align: top;
+}
+.title {
+    font-size: 34rpx;
+}

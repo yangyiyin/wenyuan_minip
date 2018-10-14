@@ -1,0 +1,61 @@
+
+<view class="container">
+
+
+    <view class="item" bindtap="goto_detail">
+        <view class="title">订单编号：wyjpk255661 <view style="float: right;font-size: 30rpx;">待付款</view></view>
+        <view class="content" style="padding: 20rpx;">
+            <view style="display: inline-block">
+                <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/926b524950ad56137f2dbaab89f4ed24" class="slide-image" style="width: 210rpx;height:130rpx"/>
+            </view>
+            <view style="display: inline-block;width: 430rpx;margin-left: 30rpx;vertical-align: top;">
+                <view style="font-size: 32rpx;margin-bottom: 5rpx;">小学五年级英语精品课程</view>
+                <view style="font-size: 24rpx;margin-bottom: 5rpx;">
+                    <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/926b524950ad56137f2dbaab89f4ed24" class="slide-image" style="width: 40rpx;height:40rpx;border-radius: 40rpx;vertical-align: middle"/>
+                    <view style="margin-left: 10rpx;height:40rpx;line-height:40rpx;vertical-align:top;display: inline-block">林丹丹 </view>
+                </view>
+                <view style="font-size: 32rpx;color: red">￥268.00</view>
+            </view>
+        </view>
+        <view style="padding: 20rpx;padding-top: 0">
+            <view style="background: #F7F7F7;padding: 20rpx;">
+                <view style="margin-bottom: 15rpx;">
+                    <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E6%97%B6%E9%97%B4@3x.png" class="slide-image" style="width: 22rpx;height:22rpx;"/>
+                    <view style="margin-left: 10rpx;height:22rpx;line-height:22rpx;display: inline-block">2018-07-12 18：30</view>
+                </view>
+
+                <view style="">
+                    <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E5%9C%B0%E7%82%B9@3x.png" class="slide-image" style="width: 22rpx;height:26rpx;"/>
+                    <view style="margin-left: 10rpx;height:26rpx;line-height:26rpx;display: inline-block">慈溪开发大道658号农业银行四楼1号教室 </view>
+                </view>
+            </view>
+        </view>
+
+        <view style="width: 690rpx;margin: 0 auto">
+            <view class="buy-btn" style="float: right">
+                <view class="_btn" style="border: 1rpx solid #ddd;background: none;color: #333" bindtap="cancel_order">取消订单</view>
+                <!--<view  class="_btn" bindtap="pay">立即支付</view>-->
+                <view  class="_btn" catchtap="comment">评价课程</view>
+            </view>
+            <view style="clear: both"></view>
+        </view>
+
+    </view>
+
+
+
+    <yxs_modal visible="{{show_comment}}" success_btn="{{false}}" >
+
+        <view slot="content" style="width: 600rpx;">
+            <view style="margin-bottom: 30rpx;">说说本课程对你的帮助</view>
+            <textarea bindinput="tapInput" placeholder="请输入10-100字内容" style="border: 1px solid #ddd;height:250rpx;padding: 4px;width: 100%;border-radius: 2px;" value=""></textarea>
+
+            <view class="btn" style="margin-top: 30rpx;">提交</view>
+        </view>
+    </yxs_modal>
+</view>
+
+
+
+<yxs_loading ready="{{ready}}"></yxs_loading>
+<include src="../../common/bottom_pull_info.wxml"/>

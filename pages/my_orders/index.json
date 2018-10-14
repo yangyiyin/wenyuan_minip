@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "yxs_loading":"../../yixsu_component/yxs_loading/index",
+    "yxs_modal":"../../yixsu_component/yxs_modal/index"
+  }
+}

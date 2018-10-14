@@ -6,13 +6,13 @@
     </view>
     <view class="body">
         <view wx:for="{{lession_list}}" wx:key="index" class="item weekday{{item.weekday_index}}">
-            <image hidden="{{item.weekday_index != 1}}" mode="widthFix" class="logo" src="http://pbw56w09g.bkt.clouddn.com/切图_06.png"></image>
-            <image hidden="{{item.weekday_index != 2}}" mode="widthFix" class="logo" src="http://pbw56w09g.bkt.clouddn.com/切图_09.png"></image>
-            <image hidden="{{item.weekday_index != 3}}" mode="widthFix" class="logo" src="http://pbw56w09g.bkt.clouddn.com/切图_12.png"></image>
-            <image hidden="{{item.weekday_index != 4}}" mode="widthFix" class="logo" src="http://pbw56w09g.bkt.clouddn.com/切图_17.png"></image>
-            <image hidden="{{item.weekday_index != 5}}" mode="widthFix" class="logo" src="http://pbw56w09g.bkt.clouddn.com/切图_19.png"></image>
-            <image hidden="{{item.weekday_index != 6}}" mode="widthFix" class="logo" src="http://pbw56w09g.bkt.clouddn.com/切图_23.png"></image>
-            <image hidden="{{item.weekday_index != 7}}" mode="widthFix" class="logo" src="http://pbw56w09g.bkt.clouddn.com/切图_25.png"></image>
+            <image hidden="{{item.weekday_index != 1}}" mode="widthFix" class="logo" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_06.png"></image>
+            <image hidden="{{item.weekday_index != 2}}" mode="widthFix" class="logo" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_09.png"></image>
+            <image hidden="{{item.weekday_index != 3}}" mode="widthFix" class="logo" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_12.png"></image>
+            <image hidden="{{item.weekday_index != 4}}" mode="widthFix" class="logo" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_17.png"></image>
+            <image hidden="{{item.weekday_index != 5}}" mode="widthFix" class="logo" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_19.png"></image>
+            <image hidden="{{item.weekday_index != 6}}" mode="widthFix" class="logo" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_23.png"></image>
+            <image hidden="{{item.weekday_index != 7}}" mode="widthFix" class="logo" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_25.png"></image>
 
             <view class="date">{{item.date}}<view style="display: inline-block;margin-left: 20rpx">{{item.weekday}}</view></view>
 
@@ -31,7 +31,7 @@
 
 <view wx:if="{{!lession_list.length}}" class="container" style="background: #fff">
 
-    <image mode="widthFix" style="width: 300rpx;margin-top: 200rpx;margin-left: 30rpx;" src="http://pbw56w09g.bkt.clouddn.com/切图_209.png"></image>
+    <image mode="widthFix" style="width: 300rpx;margin-top: 200rpx;margin-left: 30rpx;" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_209.png"></image>
     <view style="text-align: center;margin-top: 50rpx;">暂无课表信息~</view>
 
 </view>

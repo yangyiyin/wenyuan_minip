@@ -1,18 +1,18 @@
 <view class="container" style="background: #F4FFF2">
     <view wx:if="{{list && list.length}}" class="item" style="width: 710rpx;margin-top: 20rpx; min-height: 100rpx;" wx:for="{{list}}" wx:key="index">
-        <image style="width: 710rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_44.png" />
-        <view class="body" style="background: url('http://pbw56w09g.bkt.clouddn.com/切图_48.png') repeat-y;background-size: 710rpx auto;margin-top: -10rpx;">
+        <image style="width: 710rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_44.png" />
+        <view class="body" style="background: url('http://wenyuanjiaoyu-qiniu.yixsu.com/切图_48.png') repeat-y;background-size: 710rpx auto;margin-top: -10rpx;">
             <view  style="610rpx;padding: 20rpx 50rpx;font-size: 30rpx;">{{item.content}}
 
             </view>
             <view  style="610rpx;padding: 20rpx 50rpx;font-size: 30rpx;text-align: right;font-size: 24rpx;">{{item.auth}}</view>
 
         </view>
-        <image style="width: 710rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_72.png" />
+        <image style="width: 710rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_72.png" />
     </view>
 
     <view wx:if="{{!list || !list.length}}">
-        <image mode="widthFix" style="width: 300rpx;margin-top: 200rpx;margin-left: 30rpx;" src="http://pbw56w09g.bkt.clouddn.com/切图_209.png"></image>
+        <image mode="widthFix" style="width: 300rpx;margin-top: 200rpx;margin-left: 30rpx;" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_209.png"></image>
         <view style="text-align: center;margin-top: 50rpx;">您还没有评语~</view>
     </view>
 </view>

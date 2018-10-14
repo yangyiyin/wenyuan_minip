@@ -1,0 +1,73 @@
+
+<view class="container">
+    <view style="width: 690rpx;padding:40rpx 30rpx;height: 180rpx;background: linear-gradient(to right, #F4943E , #F4AD3B)">
+        <view style="display: inline-block;width: 450rpx;">
+            <view style="font-size: 44rpx;color: #fff">等待付款</view>
+            <view style="color: #fff;margin-top: 20rpx;">订单已经提交，请在01时59分内完成支付，超时订单将自动取消。</view>
+        </view>
+        <view style="display: inline-block;width: 128rpx;margin-left:70rpx;margin-top: 20rpx;">
+            <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E9%92%B1%E5%8C%85@3x.png" class="slide-image" style="width: 128rpx;height:142rpx"/>
+        </view>
+    </view>
+
+    <view class="item">
+        <view class="title">课程信息</view>
+        <view class="content" style="padding: 30rpx;">
+            <view style="display: inline-block">
+                <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/926b524950ad56137f2dbaab89f4ed24" class="slide-image" style="width: 210rpx;height:130rpx"/>
+            </view>
+            <view style="display: inline-block;width: 450rpx;margin-left: 30rpx;vertical-align: top;">
+                <view style="font-size: 32rpx;margin-bottom: 10rpx;">小学五年级英语精品课程</view>
+                <view style="font-size: 24rpx;"><text class="info">时间:</text><text>2018-07-12 18：30</text></view>
+                <view style="font-size: 24rpx;"><text class="info">地点:</text><text>慈溪开发大道658号农业银行四楼1号教室</text></view>
+                <view style="font-size: 24rpx;"><text class="info">老师:</text><text>林丹丹 </text></view>
+            </view>
+        </view>
+    </view>
+
+    <view class="item">
+        <view class="title">签到码</view>
+        <view class="content" style="padding: 30rpx;padding-top: 0">
+            <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/926b524950ad56137f2dbaab89f4ed24" class="slide-image" style="width: 260rpx;height:260rpx;margin: 20rpx auto;display: block"/>
+
+            <view>请于2018-07-12  18：30之前到上课地点扫码签到，逾期将作废。如需要退订，请联系官方客服。</view>
+        </view>
+    </view>
+
+    <view class="item">
+        <view class="title">订单详情</view>
+        <view class="content" style="padding: 30rpx;line-height: 50rpx;">
+            <view><text class="info">订单编号:</text><text>wyjpk255661</text></view>
+            <view><text class="info">下单时间:</text><text>2018-07-08 12:45:11</text></view>
+            <view><text class="info">订单金额:</text><text>268.00 元</text></view>
+            <view><text class="info">订单状态:</text><text>待付款</text></view>
+        </view>
+    </view>
+    <view style="height: 120rpx;"></view>
+    <view class="buy" style="border-top:1rpx solid #eee;position: fixed;bottom: 0;left: 0;width: 750rpx;height: 120rpx;background: #fff;">
+
+        <view class="price" style="padding: 0 30rpx;float: left">
+            <view style="color: red;font-size: 40rpx;margin-top: 30rpx;">￥268.00 </view>
+        </view>
+        <view class="buy-btn" style="float: right">
+            <view class="_btn" style="border: 1rpx solid #ddd;background: none;color: #333" bindtap="cancel_order">取消订单</view>
+            <!--<view  class="_btn" bindtap="pay">立即支付</view>-->
+            <view  class="_btn" bindtap="comment">评价课程</view>
+        </view>
+
+    </view>
+    <yxs_modal visible="{{show_comment}}" success_btn="{{false}}" >
+
+        <view slot="content" style="width: 600rpx;">
+            <view style="margin-bottom: 30rpx;">说说本课程对你的帮助</view>
+            <textarea bindinput="tapInput" placeholder="请输入10-100字内容" style="border: 1px solid #ddd;height:250rpx;padding: 4px;width: 100%;border-radius: 2px;" value=""></textarea>
+
+            <view class="btn" style="margin-top: 30rpx;">提交</view>
+        </view>
+    </yxs_modal>
+</view>
+
+
+
+<yxs_loading ready="{{ready}}"></yxs_loading>
+<include src="../../common/bottom_pull_info.wxml"/>

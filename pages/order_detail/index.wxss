@@ -1,0 +1,39 @@
+page{
+    background: #eee;
+}
+.container{
+    height: auto;
+    min-height: auto;
+    background: #eee;
+}
+.info{
+    color: #999;
+}
+.item{
+    width: 750rpx;
+    background: #fff;
+    margin-top:20rpx;
+
+}
+.title{
+    padding: 30rpx 0;
+    width: 690rpx;
+    margin: 0 auto;
+    border-bottom: 1rpx solid #eee;
+    font-size: 34rpx;
+}
+
+.buy-btn-btn{
+    height: 120rpx;
+    width: 300rpx;
+    text-align: center;
+    line-height: 120rpx;
+    margin: 0;
+    font-size: 36rpx;
+    border-radius: 0;
+    background: #FE9F39;
+    color: #fff;
+}
+._btn{
+    width: 210rpx;height:70rpx;line-height:70rpx;margin:25rpx 10rpx;border-radius:100rpx;text-align:center;display:inline-block;background: #41CA84;color: #fff
+}

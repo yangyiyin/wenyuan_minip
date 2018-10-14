@@ -1,17 +1,17 @@
 <view class="container" style="background: #F4FFF2">
     <view wx:if="{{list && list.length}}" class="item" wx:for="{{list}}" wx:key="index">
-        <image style="width: 600rpx;position: absolute;left: 75rpx;top:-45rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_28.png" />
-        <image style="width: 710rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_36.png" />
-        <view class="body" style="background: url('http://pbw56w09g.bkt.clouddn.com/切图_39.png') repeat-y;background-size: 710rpx auto;margin-top: -10rpx;">
+        <image style="width: 600rpx;position: absolute;left: 75rpx;top:-45rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_28.png" />
+        <image style="width: 710rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_36.png" />
+        <view class="body" style="background: url('http://wenyuanjiaoyu-qiniu.yixsu.com/切图_39.png') repeat-y;background-size: 710rpx auto;margin-top: -10rpx;">
             <view class="title">{{item.title}}</view>
             <view style="margin-top: 20rpx;font-size: 30rpx;" wx:for="{{item.result}}" wx:key="index">{{item.key}}:{{item.value}}</view>
         </view>
-        <image style="width: 710rpx;" mode="widthFix" src="http://pbw56w09g.bkt.clouddn.com/切图_42.png" />
+        <image style="width: 710rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_42.png" />
     </view>
 
     <view wx:if="{{!list || !list.length}}" class="container" >
 
-        <image mode="widthFix" style="width: 300rpx;margin-top: 200rpx;margin-left: 30rpx;" src="http://pbw56w09g.bkt.clouddn.com/切图_209.png"></image>
+        <image mode="widthFix" style="width: 300rpx;margin-top: 200rpx;margin-left: 30rpx;" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_209.png"></image>
         <view style="text-align: center;margin-top: 50rpx;">暂无考试信息~</view>
 
     </view>

@@ -1,0 +1,50 @@
+page{
+    background: #fff;
+}
+.container{
+    height: auto;
+    min-height: auto;
+    background: #fff;
+}
+.info{
+    color: #999;
+}
+.item{
+    width: 170rpx;
+    text-align: center;
+    padding: 30rpx 40rpx;
+    font-size: 32rpx;
+    display: inline-block;
+}
+.middle-title{
+    width: 690rpx;padding: 30rpx;font-size: 32rpx;
+}
+.left, .right{
+    display: inline-block;
+}
+.left{
+    width: 80rpx;
+}
+.right{
+    width: 580rpx;margin-left: 30rpx;vertical-align: top;line-height: 40rpx;
+}
+.comment-item{
+    width: 690rpx;padding: 40rpx 30rpx;
+}
+.line{
+    border-bottom: 1rpx dashed #eee;width: 690rpx;height: 1rpx;position: relative;bottom: -30rpx;
+}
+.buy-btn-btn{
+    height: 120rpx;
+    width: 300rpx;
+    text-align: center;
+    line-height: 120rpx;
+    margin: 0;
+    font-size: 36rpx;
+    border-radius: 0;
+    background: #FE9F39;
+    color: #fff;
+}
+.buy-item{
+    width: 670rpx;padding: 20rpx 30rpx;margin: 10rpx;border-radius: 5rpx;border: 1rpx solid #eee;
+}

@@ -1,0 +1,86 @@
+
+<view class="container" style="background: #12CE87;height:400rpx;position: absolute;width: 750rpx;">
+    <view style="font-size: 44rpx;color: #fff;width: 690rpx;margin: 20rpx 0;padding: 0 30rpx;">精品课程</view>
+    <view style="font-size:24rpx;color: #fff;width: 690rpx;margin-bottom: 20rpx;padding: 0 30rpx;">全新打造可预约式精品课程，根据需求可选上课时间，更人性化体验。</view>
+</view>
+<image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E7%9F%A9%E5%BD%A2%20782@3x.png" class="slide-image" style="width: 750rpx;height: 100rpx;position: absolute;top: 400rpx;"/>
+
+<view style="height: 200rpx;"></view>
+<!--<view style="position: absolute;top: 200rpx;left:30rpx;width: 690rpx;height: 428rpx;box-shadow: 0 10rpx 20rpx #35D384;border-radius: 10rpx;overflow: hidden"></view>-->
+
+<view class="top-container" style="box-shadow: 0 10rpx 20rpx #35D384;">
+    <swiper indicator-dots="{{false}}"
+            autoplay="{{true}}" interval="{{3000}}" bindchange="swiper_change" duration="{{500}}" style="width: 690rpx;height: 428rpx;position: relative;border-radius: 10rpx;overflow: hidden;">
+        <swiper-item wx:for="{{news_list}}" wx:key="index" bindtap="goto_news_detail" data-id="{{item.id}}" data-link="{{item.link}}" style="border-radius: 10rpx;">
+            <image mode="aspectFill" src="{{item.img}}" class="slide-image" style="width: 690rpx;height:428rpx;border-radius: 10rpx;"/>
+        </swiper-item>
+
+    </swiper>
+
+    <view class="top-container-text-box">
+        <view class="top-container-points-box">
+            <view class="top-container-point" wx:for="{{news_list}}" wx:key="index" style="background: {{item.active ? '#48D27D' : '#fff'}};"></view>
+            <view style="clear: both"></view>
+        </view>
+        <view style="clear: both"></view>
+    </view>
+
+</view>
+
+<view class="container" style="height: auto;margin-top: 20rpx;">
+    <view class="item" bindtap="goto_detail" data-id="1">
+        <view class="left">
+            <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/926b524950ad56137f2dbaab89f4ed24" class="slide-image" style="width: 100%;height:100%"/>
+
+        </view>
+        <view class="right">
+            <view class="title">小学三年级暑期数学精品课程</view>
+            <view class="desc">
+                <text style="font-size: 26rpx;">林丹丹</text><text style="font-size: 24rpx;color: #999">/ 58人已预订</text>
+            </view>
+            <view class="price">
+                <text style="color: red;font-size: 30rpx">￥268.00 </text>
+                <text style="float: right;font-size: 24rpx;">可预订</text>
+            </view>
+        </view>
+    </view>
+
+
+    <view class="item">
+        <view class="left">
+            <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/926b524950ad56137f2dbaab89f4ed24" class="slide-image" style="width: 100%;height:100%"/>
+
+        </view>
+        <view class="right">
+            <view class="title">小学三年级暑期数学精品课程</view>
+            <view class="desc">
+                <text>林丹丹</text><text style="font-size: 24rpx;color: #999">/ 58人已预订</text>
+            </view>
+            <view class="price">
+                <text style="color: red;font-size: 32rpx">￥268.00 </text>
+                <text style="float: right;font-size: 24rpx;">可预订</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="item">
+        <view class="left">
+            <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/926b524950ad56137f2dbaab89f4ed24" class="slide-image" style="width: 100%;height:100%"/>
+
+        </view>
+        <view class="right">
+            <view class="title">小学三年级暑期数学精品课程</view>
+            <view class="desc">
+                <text>林丹丹</text><text style="font-size: 24rpx;color: #999">/ 58人已预订</text>
+            </view>
+            <view class="price">
+                <text style="color: red;font-size: 32rpx">￥268.00 </text>
+                <text style="float: right;font-size: 24rpx;">可预订</text>
+            </view>
+        </view>
+    </view>
+
+</view>
+
+<yxs_loading ready="{{ready}}"></yxs_loading>
+<include src="../../common/bottom_pull_info.wxml"/>

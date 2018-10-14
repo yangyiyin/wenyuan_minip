@@ -29,6 +29,7 @@ page{
   width: 100%;
   text-align: center;
   padding: 25rpx 0;
-
-
+}
+.cut-off-block{
+  width: 750rpx;height: 20rpx;background: #eee;
 }

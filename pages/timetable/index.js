@@ -10,6 +10,7 @@ Page({
             lession_list: wx.getStorageSync('lession_list'),
             student_info:wx.getStorageSync('student_info')
         })
+        app.globalData.to_refresh.timetable = true;
     },
     onShow(){
         if (app.globalData.to_refresh.timetable) {
