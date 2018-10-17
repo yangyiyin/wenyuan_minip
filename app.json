@@ -17,6 +17,7 @@
     "pages/sign/index",
     "pages/course_detail/index",
     "pages/order_detail/index",
+    "pages/pay_success/index",
     "pages/my_orders/index"
   ],
   "window":{

@@ -11,7 +11,7 @@
 <view class="top-container" style="box-shadow: 0 10rpx 20rpx #35D384;">
     <swiper indicator-dots="{{false}}"
             autoplay="{{true}}" interval="{{3000}}" bindchange="swiper_change" duration="{{500}}" style="width: 690rpx;height: 428rpx;position: relative;border-radius: 10rpx;overflow: hidden;">
-        <swiper-item wx:for="{{news_list}}" wx:key="index" bindtap="goto_news_detail" data-id="{{item.id}}" data-link="{{item.link}}" style="border-radius: 10rpx;">
+        <swiper-item wx:for="{{top_course_list}}" wx:key="index" style="border-radius: 10rpx;" bindtap="goto_detail" data-id="{{item.id}}">
             <image mode="aspectFill" src="{{item.img}}" class="slide-image" style="width: 690rpx;height:428rpx;border-radius: 10rpx;"/>
         </swiper-item>
 
@@ -19,7 +19,7 @@
 
     <view class="top-container-text-box">
         <view class="top-container-points-box">
-            <view class="top-container-point" wx:for="{{news_list}}" wx:key="index" style="background: {{item.active ? '#48D27D' : '#fff'}};"></view>
+            <view class="top-container-point" wx:for="{{top_course_list}}" wx:key="index" style="background: {{item.active ? '#48D27D' : '#fff'}};"></view>
             <view style="clear: both"></view>
         </view>
         <view style="clear: both"></view>
@@ -28,57 +28,26 @@
 </view>
 
 <view class="container" style="height: auto;margin-top: 20rpx;">
-    <view class="item" bindtap="goto_detail" data-id="1">
+    <view wx:for="{{list.course_list.list}}" wx:key="index" class="item" bindtap="goto_detail" data-id="{{item.id}}">
         <view class="left">
-            <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/926b524950ad56137f2dbaab89f4ed24" class="slide-image" style="width: 100%;height:100%"/>
+            <image mode="aspectFill" src="{{item.img}}" class="slide-image" style="width: 100%;height:100%"/>
 
         </view>
         <view class="right">
-            <view class="title">小学三年级暑期数学精品课程</view>
+            <view class="title">{{item.title}}</view>
             <view class="desc">
-                <text style="font-size: 26rpx;">林丹丹</text><text style="font-size: 24rpx;color: #999">/ 58人已预订</text>
+                <text style="font-size: 26rpx;">{{item.teacher}}</text><text style="font-size: 24rpx;color: #999">/ {{item.buy_sum}}人已预订</text>
             </view>
             <view class="price">
-                <text style="color: red;font-size: 30rpx">￥268.00 </text>
-                <text style="float: right;font-size: 24rpx;">可预订</text>
+                <text style="color: red;font-size: 30rpx">￥{{item.price}} </text>
+                <text wx:if="{{item.can_order}}" style="float: right;font-size: 24rpx;color: #2BBD73">可预订</text>
+                <text wx:if="{{!item.can_order}}" style="float: right;font-size: 24rpx;color: #999">已满/过期</text>
             </view>
         </view>
     </view>
 
 
-    <view class="item">
-        <view class="left">
-            <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/926b524950ad56137f2dbaab89f4ed24" class="slide-image" style="width: 100%;height:100%"/>
 
-        </view>
-        <view class="right">
-            <view class="title">小学三年级暑期数学精品课程</view>
-            <view class="desc">
-                <text>林丹丹</text><text style="font-size: 24rpx;color: #999">/ 58人已预订</text>
-            </view>
-            <view class="price">
-                <text style="color: red;font-size: 32rpx">￥268.00 </text>
-                <text style="float: right;font-size: 24rpx;">可预订</text>
-            </view>
-        </view>
-    </view>
-
-    <view class="item">
-        <view class="left">
-            <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/926b524950ad56137f2dbaab89f4ed24" class="slide-image" style="width: 100%;height:100%"/>
-
-        </view>
-        <view class="right">
-            <view class="title">小学三年级暑期数学精品课程</view>
-            <view class="desc">
-                <text>林丹丹</text><text style="font-size: 24rpx;color: #999">/ 58人已预订</text>
-            </view>
-            <view class="price">
-                <text style="color: red;font-size: 32rpx">￥268.00 </text>
-                <text style="float: right;font-size: 24rpx;">可预订</text>
-            </view>
-        </view>
-    </view>
 
 </view>
 

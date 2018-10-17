@@ -10,136 +10,183 @@ Page({
         action:1
     },
     onLoad(){
-        app.globalData.to_refresh.index = true;
-        app.globalData.to_refresh.examine = true;
-        app.globalData.to_refresh.timetable = true;
-        app.globalData.to_refresh.mine = true;
 
-        this.get_news_list(true).then(function(){
-            this.data.list.news_list.list[0].active = true;
-
-            this.setData({
-                news_list:this.data.list.news_list.list.slice(0,5),
-                news_text_list:this.data.list.news_list.list.slice(5,8),
-                swiper_info:this.data.list.news_list.list[0].title
-            })
-        }.bind(this)).catch(function(){});
-        this.setData({
-            student_info:wx.getStorageSync('student_info')
-        });
 
     },
     onShow(){
-        if (app.globalData.to_refresh.index) {
+        this.setData({
+            ready:false
+        })
+        this.get_my_order_list(true).then(function(){
             this.setData({
-                ready:false
+                ready:true
             })
-            this.get_student_class_info();
-            app.globalData.to_refresh.index = false;
-        }
-
+        }.bind(this)).catch(function(){});
     },
-    get_student_class_info(){
-        common.request('post','get_student_class_info',{},function (res) {
+
+    get_my_order_list(init){
+      return common.getlist('my_order_list', {}, 10, this, init);
+    },
+
+    goto_detail(event){
+        var id = event.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: '/pages/order_detail/index?id='+id
+        })
+    },
+    pay(event){
+        var id = event.currentTarget.dataset.id;
+        var index = event.currentTarget.dataset.index;
+        var data = {
+            id:id
+        };
+        common.request('post','pay_create_course_order',data,function (res) {
             if (res.data.code == common.constant.return_code_success) {
-                if (res.data.data.avatar) {
-                    res.data.data.avatar += '&i='+Math.random()
-                }
-                this.setData({
-                    student_info:res.data.data.id ? res.data.data : ''
-                });
-                setTimeout(function(){
-                    this.setData({
-                        ready:true
-                    })
-                }.bind(this), 100)
-                wx.setStorageSync('student_info', res.data.data);
+                //调起支付
+                var _this = this;
+                wx.requestPayment({
+                    'timeStamp': String(res.data.data.timeStamp),
+                    'nonceStr': res.data.data.nonceStr,
+                    'package': res.data.data.package,
+                    'signType':res.data.data.signType,
+                    'paySign': res.data.data.sign,
+                    'success':function(ret){
+                        common.show_toast('支付成功');
+                         // _this.get_order_detail();
+                        if(_this.data.list.my_order_list.list[index]) {
+                            _this.data.list.my_order_list.list[index].status = 2;
+                            _this.data.list.my_order_list.list[index].status_desc = '已付款,等待签到';
+                            _this.setData({
+                                list:_this.data.list
+                            })
+                        }
+
+                    },
+                    'fail':function(ret){
+                    }
+                })
 
             } else {
                 common.show_modal(res.data.msg);
             }
         }.bind(this));
     },
-    goto_info(){
+    cancel_order(event){
+        wx.showModal({
+            title: '提示',
+            content: '确认取消订单?',
+            success: function(res) {
+                if (res.confirm) {
+                    var id = event.currentTarget.dataset.id;
+                    var index = event.currentTarget.dataset.index;
+                    var data = {
+                        id:id
+                    };
+                    common.request('post','cancel_order',data,function (res) {
+                        if (res.data.code == common.constant.return_code_success) {
+                            common.show_toast('取消成功!');
+                            if(this.data.list.my_order_list.list[index]) {
+                                this.data.list.my_order_list.list[index].status = 9;
+                                this.data.list.my_order_list.list[index].status_desc = '已关闭';
+                                this.setData({
+                                    list:this.data.list
+                                })
+                            }
 
-        this.setData({
-            current_tab:1,
-            anchor:'info'
-        })
-    },
-    goto_teacher(){
-
-      this.setData({
-          current_tab:2,
-          anchor:'teacher'
-      })
-    },
-    goto_comment(){
-        this.setData({
-            current_tab:3,
-            anchor:'comment'
-        })
-    },
-    get_news_list(init){
-      return common.getlist('news_list', {status:1}, 8, this, init);
-    },
-    swiper_change(e){
-        this.data.news_list.forEach(function (ele) {
-            ele.active = false;
-        })
-        this.data.news_list[e.detail.current].active = true;
-        this.setData({
-            news_list:this.data.news_list,
-            swiper_info:this.data.news_list[e.detail.current].title,
-        })
-    },
-    goto_detail(){
-        wx.navigateTo({
-            url: '/pages/order_detail/index'
-        })
-    },
-    goto_news(){
-        wx.navigateTo({
-            url: '/pages/news/index'
-        })
-    },
-    goto_change_student(){
-        wx.navigateTo({
-            url: '/pages/change_student/index'
-        })
-    },
-    goto_news_detail(event){
-        if (event.currentTarget.dataset.link) {
-            var link = event.currentTarget.dataset.link;
-        } else {
-            var link = config.base_url_h5+'/apps/wenyuanjiaoyu/h5/news_info.php?id='+event.currentTarget.dataset.id;
-        }
-
-        wx.navigateTo({
-            url: '/pages/webview/index?link='+encodeURIComponent(link)
-        })
-    },
-
-    buy(){
-        this.setData({
-            action:2,
-            show_buy_items:true
+                        } else {
+                            common.show_modal(res.data.msg);
+                        }
+                    }.bind(this));
+                }
+            }.bind(this)
         });
+
+
+
     },
-    close_buy(){
+    comment(event){
+        var goods_id = event.currentTarget.dataset.goods_id;
+        var order_id = event.currentTarget.dataset.order_id;
+        var index = event.currentTarget.dataset.index;
         this.setData({
-            action:1
-        });
-    },
-    order(){
-        wx.navigateTo({
-            url: '/pages/change_student/index'
-        })
-    },
-    comment(){
-        this.setData({
+            current_comment_goods_id:goods_id,
+            current_comment_order_id:order_id,
+            current_comment_index:index,
             show_comment:true
         });
-    }
+    },
+    tapInputComment(e){
+        this.setData({
+            inputcomment: e.detail.value
+        });
+
+    },
+    submit_comment(){
+        if (!this.data.current_comment_goods_id) {
+            common.show_modal('页面失效,请刷新页面');
+            return;
+        }
+        if (!this.data.current_comment_order_id) {
+            common.show_modal('页面失效,请刷新页面');
+            return;
+        }
+        if (this.data.current_comment_index || this.data.current_comment_index===0) {
+
+        } else {
+            common.show_modal('页面失效,请刷新页面');
+            return;
+        }
+        if (!this.data.inputcomment) {
+            common.show_modal('请输入内容');
+            return;
+        }
+
+        var data = {
+            goods_id:this.data.current_comment_goods_id,
+            order_id:this.data.current_comment_order_id,
+            content:this.data.inputcomment
+        };
+        common.request('post','comment_goods',data,function (res) {
+            if (res.data.code == common.constant.return_code_success) {
+                common.show_toast('评价成功!');
+                if(this.data.list.my_order_list.list[this.data.current_comment_index]) {
+                    this.data.list.my_order_list.list[this.data.current_comment_index].status = 4;
+                    this.data.list.my_order_list.list[this.data.current_comment_index].status_desc = '已完成';
+                    this.setData({
+                        list:this.data.list
+                    });
+                }
+                this.setData({
+                    show_comment:false
+                });
+
+            } else {
+                common.show_modal(res.data.msg);
+            }
+        }.bind(this));
+
+    },
+
+    onPullDownRefresh(){
+        this.get_my_order_list(true).then(function(){
+            this.setData({
+                ready:true
+            })
+            wx.stopPullDownRefresh()
+
+            this.setData({
+                list_pull_info:this.data.list.course_list.has_more ? '上拉加载更多' : '没有更多了'
+
+            })
+
+        }.bind(this)).catch(function(){})
+    },
+    onReachBottom(){
+        this.get_my_order_list().then(function(){
+            this.setData({
+                list_pull_info:this.data.list.course_list.has_more ? '上拉加载更多' : '没有更多了'
+            });
+        }.bind(this)).catch(function(){});
+    },
     
 });

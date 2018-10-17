@@ -2,12 +2,12 @@
 <view class="container" style="height: 100%">
     <scroll-view scroll-into-view="{{anchor}}" scroll-with-animation scroll-y bindscrolltolower="scrolltolower" bindscroll="bindscroll" style="height: 100%;">
         <view>
-            <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/926b524950ad56137f2dbaab89f4ed24" class="slide-image" style="width: 750rpx;height:466rpx"/>
+            <image mode="aspectFill" src="{{detail.img}}" class="slide-image" style="width: 750rpx;height:466rpx"/>
         </view>
         <view style="line-height: 50rpx;width: 690rpx;padding: 30rpx;">
-            <view style="font-size: 42rpx;margin-bottom: 10rpx;">小学五年级英语精品课程</view>
-            <view><text class="info">开课时间:</text><text>2018-07-12 18：30开课（可预订其他日期)</text></view>
-            <view><text class="info">授课老师:</text><text>林丹丹</text></view>
+            <view style="font-size: 42rpx;margin-bottom: 10rpx;">{{detail.title}}</view>
+            <view><text class="info">开课时间:</text><text>{{detail.start_time}}开课（可预订其他日期)</text></view>
+            <view><text class="info">授课老师:</text><text>{{detail.teacher}}</text></view>
         </view>
         <view class="cut-off-block"></view>
         <view style="background: #fff;{{fix_tabs?'position:fixed;top:0;left:0;':''}}">
@@ -16,82 +16,60 @@
             <view class="item" style="{{current_tab==3?'color: #F07B2D':''}}" bindtap="goto_comment">课程评价</view>
         </view>
         <view id="info">
-            <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/926b524950ad56137f2dbaab89f4ed24" class="slide-image" style="width: 750rpx;min-height: 1rpx;"/>
-            <text style="padding: 30rpx;display: block">授课老师:
-            待收款金刚狼
-                时代峰峻
-                删掉了附近
-            </text>
+            <block wx:for="{{detail.content.img_text}}" wx:key="index">
+
+                <image wx:if="{{item.type=='img'}}" mode="widthFix" src="{{item.val}}" class="slide-image" style="width: 750rpx;min-height: 1rpx;"/>
+                <text wx:if="{{item.type=='text'}}" style="padding: 30rpx;display: block">{{item.val}}</text>
+            </block>
+
         </view>
         <view class="middle-title" id="teacher">授课老师</view>
 
         <view style="width: 690rpx; padding: 30rpx;">
             <view class="left">
-                <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/926b524950ad56137f2dbaab89f4ed24" class="slide-image" style="width: 80rpx;height:80rpx;border-radius: 80rpx;"/>
+                <image mode="aspectFill" src="{{detail.content.teacher.info.img}}" class="slide-image" style="width: 80rpx;height:80rpx;border-radius: 80rpx;"/>
             </view>
             <view class="right">
-                <view>林丹丹</view>
-                <view style="color: #999;font-size: 24rpx;">2018年获得“金牌教师”称号</view>
+                <view>{{detail.content.teacher.info.name}}</view>
+                <view style="color: #999;font-size: 24rpx;">{{detail.content.teacher.info.desc}}</view>
             </view>
         </view>
 
         <view>
-            <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/926b524950ad56137f2dbaab89f4ed24" class="slide-image" style="width: 750rpx;min-height: 1rpx;"/>
-            <text style="padding: 30rpx;display: block">授课老师:
-                待收款金刚狼
-                时代峰峻
-                删掉了附近
-            </text>
+            <block wx:if="{{detail.content.teacher.img_text && detail.content.teacher.img_text.length}}">
+                <block wx:for="{{detail.content.teacher.img_text}}" wx:key="index">
+                    <image wx:if="{{item.type=='img'}}" mode="widthFix" src="{{item.val}}" class="slide-image" style="width: 750rpx;min-height: 1rpx;"/>
+                    <text wx:if="{{item.type=='text'}}" style="padding: 30rpx;display: block">{{item.val}}</text>
+                </block>
+            </block>
         </view>
 
-        <view class="middle-title" id="comment">课程评价<text style="color: #999">(58条)</text></view>
-        <view class="comment-item">
+        <view class="middle-title" id="comment">课程评价<text style="color: #999">({{list.goods_comment_list.count}}条)</text></view>
+        <view class="comment-item" wx:for="{{list.goods_comment_list.list}}" wx:key="index">
             <view class="user" style="margin-bottom: 10rpx;">
-                <view class="phone" style="font-size: 30rpx;float: left">136****7040</view>
-                <view class="date" style="float: right;color: #999;font-size: 24rpx;text-align: right;">2018-11-11 12:00:12</view>
+                <view class="phone" style="font-size: 30rpx;float: left">{{item.tel}}</view>
+                <view class="date" style="float: right;color: #999;font-size: 24rpx;text-align: right;">{{item.create_time}}</view>
                 <view style="clear: both"></view>
             </view>
             <view class="content">
-                儿子说老师特别有耐心，英语发音也很好，上的课对自己很有帮助，值得推荐呢。
+                {{item.content}}
 
             </view>
             <view class="line"></view>
         </view>
-        <view class="comment-item">
-            <view class="user" style="margin-bottom: 10rpx;">
-                <view class="phone" style="font-size: 30rpx;float: left">136****7040</view>
-                <view class="date" style="float: right;color: #999;font-size: 24rpx;text-align: right;">2018-11-11 12:00:12</view>
-                <view style="clear: both"></view>
-            </view>
-            <view class="content">
-                儿子说老师特别有耐心，英语发音也很好，上的课对自己很有帮助，值得推荐呢。
 
-            </view>
-            <view class="line"></view>
-        </view>
-        <view class="comment-item">
-            <view class="user" style="margin-bottom: 10rpx;">
-                <view class="phone" style="font-size: 30rpx;float: left">136****7040</view>
-                <view class="date" style="float: right;color: #999;font-size: 24rpx;text-align: right;">2018-11-11 12:00:12</view>
-                <view style="clear: both"></view>
-            </view>
-            <view class="content">
-                儿子说老师特别有耐心，英语发音也很好，上的课对自己很有帮助，值得推荐呢。
-
-            </view>
-            <view class="line"></view>
-        </view>
         <view style="height: 120rpx;"></view>
 
         <view class="buy" style="border-top:1rpx solid #eee;position: fixed;bottom: 0;left: 0;width: 750rpx;height: 120rpx;background: #fff;z-index: 9999999">
 
             <view class="price" style="padding: 0 30rpx;float: left">
-                <view style="color: red;font-size: 40rpx;margin-top: 10rpx;">￥268.00 </view>
-                <view style="color: #999;font-size: 26rpx;padding-left: 10rpx;">56人已预订 </view>
+                <view style="color: red;font-size: 40rpx;margin-top: 10rpx;">￥{{detail.price}} </view>
+                <view wx:if="{{detail.can_order}}" style="color: #999;font-size: 26rpx;padding-left: 10rpx;">{{detail.buy_sum}}人已预订 </view>
+                <view wx:if="{{!detail.can_order}}" style="color: #999;font-size: 26rpx;padding-left: 10rpx;">已满/过期 </view>
             </view>
             <view class="buy-btn" style="float: right">
-                <view class="buy-btn-btn" wx:if="{{action==1}}" bindtap="buy">立即购买</view>
-                <view class="buy-btn-btn" wx:if="{{action==2}}" bindtap="order">确认下单</view>
+                <view class="buy-btn-btn" wx:if="{{action==1}}" bindtap="buy">选择时间</view>
+                <view class="buy-btn-btn" wx:if="{{action==2}}" bindtap="order">立即下单</view>
             </view>
 
         </view>
@@ -99,26 +77,19 @@
         <yxs_bottom_modal visible="{{show_buy_items}}" height="1000" bindclose="close_buy">
             <view slot="content" style="width: 750rpx;">
                 <view style="padding: 10rpx 30rpx;padding-top:30rpx;font-size: 30rpx;">选择时间</view>
-                <view class="buy-item" style="border-color:#FE9F39">
-                    <view>2018-07-12  18：30</view>
-                    <view style="color: #999;font-size: 26rpx;">慈溪开发大道658号农业银行四楼1号教室</view>
-                </view>
-                <view class="buy-item">
-                    <view>2018-07-12  18：30</view>
-                    <view style="color: #999;font-size: 26rpx;">慈溪开发大道658号农业银行四楼1号教室</view>
-                </view>
-                <view class="buy-item">
-                    <view>2018-07-12  18：30</view>
-                    <view style="color: #999;font-size: 26rpx;">慈溪开发大道658号农业银行四楼1号教室</view>
-                </view>
-                <view class="buy-item">
-                    <view>2018-07-12  18：30</view>
-                    <view style="color: #999;font-size: 26rpx;">慈溪开发大道658号农业银行四楼1号教室</view>
-                </view>
-                <view class="buy-item">
-                    <view>2018-07-12  18：30</view>
-                    <view style="color: #999;font-size: 26rpx;">慈溪开发大道658号农业银行四楼1号教室</view>
-                </view>
+                <block wx:for="{{detail.content.options}}" wx:key="index">
+                    <view wx:if="{{!item.disable}}" class="buy-item" style="position:relative;{{item.active?'border-color:#FE9F39;':''}}" bindtap="choose_option" data-index="{{index}}">
+                        <view>{{item.time}}</view>
+                        <view style="color: #999;font-size: 26rpx;">{{item.place}}</view>
+                        <view style="position: absolute;right: 10rpx;top:20rpx;color: #999">{{item.sale_num}}/{{item.stock}}</view>
+                    </view>
+                    <view wx:if="{{item.disable}}" class="buy-item" style="position:relative;background: #ddd" >
+                        <view>{{item.time}}</view>
+                        <view style="color: #999;font-size: 26rpx;">{{item.place}}</view>
+                        <view style="position: absolute;right: 10rpx;top:20rpx;color: #999">{{item.sale_num}}/{{item.stock}}</view>
+                    </view>
+                </block>
+
                 <view style="height: 120rpx;"></view>
             </view>
         </yxs_bottom_modal>
@@ -128,4 +99,3 @@
 </view>
 
 <yxs_loading ready="{{ready}}"></yxs_loading>
-<include src="../../common/bottom_pull_info.wxml"/>

@@ -60,6 +60,7 @@ var request = function (method,url,user_data,callback) {
         data:data,
         method:method,
         success: function(res) {
+            wx.hideNavigationBarLoading();
             //request_callback(res, app);
             callback(res);
         },
@@ -81,7 +82,7 @@ var getlist = function(url,param, _page_size,_this,init){
             });
         } else {
             if (_this.data.list[url] && !_this.data.list[url].has_more) {
-                show_modal('没有更多了~')
+                show_toast('没有更多了~')
                 reject();
             }
             _this.data.page = _this.data.page ? _this.data.page : 1;
