@@ -1,6 +1,9 @@
 
 <view class="container">
-
+    <view wx:if="{{!list.my_order_list.list || !list.my_order_list.list.length}}">
+        <image mode="widthFix" style="width: 300rpx;margin-top: 200rpx;margin-left: 30rpx;" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_209.png"></image>
+        <view style="text-align: center;margin-top: 50rpx;">您还没有报名的课程哦~</view>
+    </view>
 
     <view wx:for="{{list.my_order_list.list}}" wx:key="index" class="item" bindtap="goto_detail" data-id="{{item.id}}">
         <view class="title">订单编号：{{item.order_no}}
@@ -16,20 +19,22 @@
                     <image mode="aspectFill" src="{{item.order_sub.goods.teacher_avatar}}" class="slide-image" style="width: 40rpx;height:40rpx;border-radius: 40rpx;vertical-align: middle"/>
                     <view style="margin-left: 10rpx;height:40rpx;line-height:40rpx;vertical-align:top;display: inline-block">{{item.order_sub.goods.teacher}} </view>
                 </view>
-                <view style="font-size: 32rpx;color: red">￥{{item.price}}</view>
+                <view wx:if="{{item.price_type==1}}"style="font-size: 32rpx;color: red">￥{{item.deposit}}<text wx:if="{{item.price-item.payed_money > 0}}">(未付:￥{{item.price-item.payed_money}})</text></view>
+                <view wx:if="{{item.price_type==2}}"style="font-size: 32rpx;color: red">￥{{item.price}}</view>
             </view>
         </view>
         <view style="padding: 20rpx;padding-top: 0">
             <view style="background: #F7F7F7;padding: 20rpx;">
                 <view style="margin-bottom: 15rpx;">
-                    <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E6%97%B6%E9%97%B4@3x.png" class="slide-image" style="width: 22rpx;height:22rpx;"/>
-                    <view style="margin-left: 10rpx;height:22rpx;line-height:22rpx;display: inline-block">{{item.order_sub.goods.option.time}}</view>
+                    <view style="margin-left: 10rpx;height:22rpx;line-height:40rpx;display: inline-block;font-size: 28rpx;">
+                        <text class="info" wx:for="{{item.order_sub.goods.option.list}}" wx:key="index">[{{item.name ? item.name : item.time+'('+item.place+')'}}]</text>
+                    </view>
                 </view>
 
-                <view style="">
-                    <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E5%9C%B0%E7%82%B9@3x.png" class="slide-image" style="width: 22rpx;height:26rpx;"/>
-                    <view style="margin-left: 10rpx;height:26rpx;line-height:26rpx;display: inline-block">{{item.order_sub.goods.option.place}} </view>
-                </view>
+                <!--<view style="">-->
+                    <!--<image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E5%9C%B0%E7%82%B9@3x.png" class="slide-image" style="width: 22rpx;height:26rpx;"/>-->
+                    <!--<view style="margin-left: 10rpx;height:26rpx;line-height:26rpx;display: inline-block">{{item.order_sub.goods.option.place}} </view>-->
+                <!--</view>-->
             </view>
         </view>
 

@@ -3,6 +3,10 @@
   "navigationBarTextStyle": "black",
   "usingComponents": {
     "yxs_loading":"../../yixsu_component/yxs_loading/index",
-    "yxs_bottom_modal":"../../yixsu_component/yxs_bottom_modal/index"
+    "yxs_bottom_modal":"../../yixsu_component/yxs_bottom_modal/index",
+    "yxs_modal":"../../yixsu_component/yxs_modal/index",
+    "yxs_input":"../../yixsu_component/yxs_input/index",
+    "yxs_upload":"../../yixsu_component/yxs_upload/index",
+    "yxs_select":"../../yixsu_component/yxs_select/index"
   }
 }

@@ -24,8 +24,23 @@ function isPoneAvailable(str) {
   }
 }
 
+function deepCopy(obj){
+  if(typeof obj != 'object'){
+    return obj;
+  }
+  if (obj instanceof Array) {
+    var newobj = [];
+  } else {
+    var newobj = {};
+  }
+  for ( var attr in obj) {
+    newobj[attr] = deepCopy(obj[attr]);
+  }
+  return newobj;
+}
 
 module.exports = {
   formatTime: formatTime,
-  isPoneAvailable:isPoneAvailable
+  isPoneAvailable:isPoneAvailable,
+  deepCopy:deepCopy
 }

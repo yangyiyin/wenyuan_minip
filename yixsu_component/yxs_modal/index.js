@@ -19,6 +19,14 @@ Component({
         success_btn:{
             type:Boolean,
             value:true
+        },
+        border:{
+            type:Boolean,
+            value:false
+        },
+        zindex:{
+            type:Number,
+            value:0
         }
     },
     data: {

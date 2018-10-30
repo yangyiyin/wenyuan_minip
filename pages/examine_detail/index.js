@@ -96,7 +96,8 @@ Page({
             inputphone1:'',
             inputphone2:'',
             options_lession:this.data.options_lession,
-            step:1
+            step:1,
+            is_need_upload_avatar:false
         })
         app.globalData.current_cut_img='';
         if (this.data.info.type == 3) {
@@ -395,16 +396,16 @@ Page({
             return false;
         }
         if (!data.content.father_tel && data.is_new) {
-            common.show_modal('父亲手机号不能为空');
+            common.show_modal('主要手机号不能为空');
             this.setData({
-                inputphone1_error:'父亲手机号不能为空'
+                inputphone1_error:'主要手机号不能为空'
             })
             return false;
         }
         if (!data.content.mother_tel && data.is_new) {
-            common.show_modal('母亲手机号不能为空');
+            common.show_modal('备用手机号不能为空');
             this.setData({
-                inputphone2_error:'母亲手机号不能为空'
+                inputphone2_error:'备用手机号不能为空'
             })
             return false;
         }

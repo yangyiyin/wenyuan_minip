@@ -149,6 +149,7 @@ var show_toast = function (msg, icon) {
     });
 }
 
+
 module.exports = {
     request_callback: request_callback,
     check_session:check_session,

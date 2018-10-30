@@ -28,8 +28,8 @@
             </view>
             <view style="display: inline-block;width: 450rpx;margin-left: 30rpx;vertical-align: top;">
                 <view style="font-size: 28rpx;margin-bottom: 5rpx;">{{detail.order_sub.goods.title}}</view>
-                <view style="font-size: 22rpx;"><text class="info">时间:</text><text>{{detail.order_sub.goods.option.time}}</text></view>
-                <view style="font-size: 22rpx;"><text class="info">地点:</text><text>{{detail.order_sub.goods.option.place}}</text></view>
+                <view style="font-size: 22rpx;"><text class="info" wx:for="{{detail.order_sub.goods.option.list}}" wx:key="index">[{{item.name ? item.name : item.time+'('+item.place+')'}}]</text></view>
+                <!--<view style="font-size: 22rpx;"><text class="info">地点:</text><text>{{detail.order_sub.goods.option.place}}</text></view>-->
                 <view style="font-size: 22rpx;"><text class="info">老师:</text><text>{{detail.order_sub.goods.teacher}} </text></view>
             </view>
         </view>
@@ -49,7 +49,8 @@
         <view class="content" style="padding: 30rpx;line-height: 50rpx;">
             <view><text class="info">订单编号:</text><text>{{detail.order_no}}</text></view>
             <view><text class="info">下单时间:</text><text>{{detail.create_time}}</text></view>
-            <view><text class="info">订单金额:</text><text>{{detail.price}} 元</text></view>
+            <view><text class="info">订单金额:</text><text>{{detail.price}} 元</text><text wx:if="{{detail.price_type==1}}">(已付款{{detail.payed_money}}元)</text></view>
+            <view wx:if="{{detail.price_type==1}}"><text class="info">订单押金:</text><text >{{detail.deposit}} 元</text></view>
             <view><text class="info">订单状态:</text><text>{{detail.status_desc}}</text></view>
         </view>
     </view>
@@ -57,7 +58,8 @@
     <view class="buy" style="border-top:1rpx solid #eee;position: fixed;bottom: 0;left: 0;width: 750rpx;height: 120rpx;background: #fff;">
 
         <view wx:if="{{detail.status == 1}}" class="price" style="padding: 0 30rpx;float: left">
-            <view style="color: red;font-size: 40rpx;margin-top: 30rpx;">￥{{detail.price}} </view>
+            <view wx:if="{{detail.price_type==1}}" style="color: red;font-size: 40rpx;margin-top: 30rpx;">￥{{detail.deposit}} </view>
+            <view wx:if="{{detail.price_type==2}}" style="color: red;font-size: 40rpx;margin-top: 30rpx;">￥{{detail.price}} </view>
         </view>
         <view class="buy-btn" style="float: right">
             <view wx:if="{{detail.status == 1}}" class="_btn" style="border: 1rpx solid #ddd;background: none;color: #333" bindtap="cancel_order">取消订单</view>

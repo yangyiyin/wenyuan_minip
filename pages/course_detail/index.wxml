@@ -6,8 +6,12 @@
         </view>
         <view style="line-height: 50rpx;width: 690rpx;padding: 30rpx;">
             <view style="font-size: 42rpx;margin-bottom: 10rpx;">{{detail.title}}</view>
-            <view><text class="info">开课时间:</text><text>{{detail.start_time}}开课（可预订其他日期)</text></view>
-            <view><text class="info">授课老师:</text><text>{{detail.teacher}}</text></view>
+            <view>
+                <text class="info">开课时间:</text>
+                <text wx:if="{{!detail.start_time}}">购买后可线下约定</text>
+                <text wx:if="{{detail.start_time}}">{{detail.start_time}}开课（可预订其他日期)</text>
+            </view>
+            <!--<view><text class="info">授课老师:</text><text>{{detail.teacher}}</text></view>-->
         </view>
         <view class="cut-off-block"></view>
         <view style="background: #fff;{{fix_tabs?'position:fixed;top:0;left:0;':''}}">
@@ -25,14 +29,16 @@
         </view>
         <view class="middle-title" id="teacher">授课老师</view>
 
-        <view style="width: 690rpx; padding: 30rpx;">
-            <view class="left">
-                <image mode="aspectFill" src="{{detail.content.teacher.info.img}}" class="slide-image" style="width: 80rpx;height:80rpx;border-radius: 80rpx;"/>
-            </view>
-            <view class="right">
-                <view>{{detail.content.teacher.info.name}}</view>
-                <view style="color: #999;font-size: 24rpx;">{{detail.content.teacher.info.desc}}</view>
-            </view>
+        <view wx:for="{{detail.content.teacher.infos}}" wx:key="index" style="width: 690rpx; padding: 30rpx;">
+           <block >
+               <view class="left">
+                   <image mode="aspectFill" src="{{item.img}}" class="slide-image" style="width: 80rpx;height:80rpx;border-radius: 80rpx;"/>
+               </view>
+               <view class="right">
+                   <view>{{item.name}}</view>
+                   <view style="color: #999;font-size: 24rpx;">{{item.desc}}</view>
+               </view>
+           </block>
         </view>
 
         <view>
@@ -63,37 +69,122 @@
         <view class="buy" style="border-top:1rpx solid #eee;position: fixed;bottom: 0;left: 0;width: 750rpx;height: 120rpx;background: #fff;z-index: 9999999">
 
             <view class="price" style="padding: 0 30rpx;float: left">
-                <view style="color: red;font-size: 40rpx;margin-top: 10rpx;">￥{{detail.price}} </view>
-                <view wx:if="{{detail.can_order}}" style="color: #999;font-size: 26rpx;padding-left: 10rpx;">{{detail.buy_sum}}人已预订 </view>
+                <view wx:if="{{active_sku && active_sku.price_type == 1}}" style="color: red;font-size: 40rpx;margin-top: 10rpx;">押金￥{{active_sku.deposit}} <span style="font-size: 26rpx;">{{'(全款￥'+active_sku.price+')'}} </span></view>
+                <view wx:if="{{active_sku && active_sku.price_type == 2}}" style="color: red;font-size: 40rpx;margin-top: 10rpx;">￥{{active_sku.price}} </view>
+                <view wx:if="{{!active_sku }}" style="color: red;font-size: 40rpx;margin-top: 10rpx;">￥-- </view>
+                <view wx:if="{{detail.can_order}}" style="color: #999;font-size: 26rpx;padding-left: 10rpx;">{{active_sku ? active_sku.sale_num : '--'}}人已预订 </view>
                 <view wx:if="{{!detail.can_order}}" style="color: #999;font-size: 26rpx;padding-left: 10rpx;">已满/过期 </view>
             </view>
             <view class="buy-btn" style="float: right">
-                <view class="buy-btn-btn" wx:if="{{action==1}}" bindtap="buy">选择时间</view>
-                <view class="buy-btn-btn" wx:if="{{action==2}}" bindtap="order">立即下单</view>
+                <view class="buy-btn-btn" wx:if="{{action==1}}" bindtap="buy">选择课程</view>
+                <view class="buy-btn-btn" wx:if="{{action==2}}" bindtap="show_add_info">确认(下一步)</view>
             </view>
 
         </view>
 
         <yxs_bottom_modal visible="{{show_buy_items}}" height="1000" bindclose="close_buy">
             <view slot="content" style="width: 750rpx;">
-                <view style="padding: 10rpx 30rpx;padding-top:30rpx;font-size: 30rpx;">选择时间</view>
-                <block wx:for="{{detail.content.options}}" wx:key="index">
-                    <view wx:if="{{!item.disable}}" class="buy-item" style="position:relative;{{item.active?'border-color:#FE9F39;':''}}" bindtap="choose_option" data-index="{{index}}">
-                        <view>{{item.time}}</view>
-                        <view style="color: #999;font-size: 26rpx;">{{item.place}}</view>
-                        <view style="position: absolute;right: 10rpx;top:20rpx;color: #999">{{item.sale_num}}/{{item.stock}}</view>
-                    </view>
-                    <view wx:if="{{item.disable}}" class="buy-item" style="position:relative;background: #ddd" >
-                        <view>{{item.time}}</view>
-                        <view style="color: #999;font-size: 26rpx;">{{item.place}}</view>
-                        <view style="position: absolute;right: 10rpx;top:20rpx;color: #999">{{item.sale_num}}/{{item.stock}}</view>
-                    </view>
+                <block wx:for="{{detail.content.checked_options}}"  wx:key="index" wx:for-index="index">
+                    <div>
+                        <view style="padding: 10rpx 30rpx;padding-top:30rpx;font-size: 30rpx;">{{item.name}}</view>
+                        <div style="width: 690rpx;display: block;margin: 0 auto;border-bottom: 1rpx solid #eee;padding-bottom: 20rpx;">
+                            <block wx:for="{{item.children}}" wx:key="index" wx:for-index="index2">
+
+                                <view wx:if="{{!item.disable}}" class="buy-item" style="position:relative;{{item.active?'border-color:#FE9F39;':''}}" bindtap="choose_option" data-index="{{index}}" data-index2="{{index2}}">
+                                    <view wx:if="{{item.time && item.place}}">{{item.time}}({{item.place}})</view>
+                                    <view wx:else>{{item.name}}</view>
+                                </view>
+                                <view wx:if="{{item.disable}}" class="buy-item" style="position:relative;border-color: none" >
+                                    <view style="color: #ccc" wx:if="{{item.time && item.place}}">{{item.time}}({{item.place}})</view>
+                                    <view style="color: #ccc" wx:else>{{item.name}}</view>
+                                </view>
+
+
+
+                            </block>
+                        </div>
+                    </div>
+
                 </block>
 
                 <view style="height: 120rpx;"></view>
             </view>
         </yxs_bottom_modal>
 
+
+        <yxs_modal visible="{{student_add_info_visible}}" success_btn="{{false}}" zindex="999999999">
+
+            <view slot="content" style="width: 600rpx;">
+                <view >
+                    <view hidden="{{step!=1}}">
+                        <view style="margin-bottom: 20rpx">选择需要报考的学生</view>
+                        <yxs_select placeholder="请选择学生" options="{{options_student}}" select_options="{{select_options_student}}" bindchange="select_student" width="600" height="80"  must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_167.png" error_info="{{inputstudent_error}}"></yxs_select>
+                        <view style="width: 600rpx;margin-top: 60rpx;" class="btn" bindtap="next_step">下 一 步</view>
+                    </view>
+                    <view hidden="{{step!=2}}">
+
+                        <view style="position: relative;height: 250rpx;">
+                            <image style="width: 600rpx;position: absolute;left: 0;top:0;z-index:-1" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_214.png" />
+
+                            <view style="display: inline-block;padding: 50rpx;width: 120rpx;height:120rpx;position: relative">
+                                <yxs_upload currentcutimg="{{current_cut_img}}" src="{{current_cut_img}}"></yxs_upload>
+                                <view style="position: absolute;bottom: 10rpx;left: 50%;width: 100rpx;margin-left: -50rpx;font-size: 20rpx;color:#DFA33D;text-align: center;">学员正面照</view>
+
+                            </view>
+                            <view style="display: inline-block;padding: 20rpx;position: relative;top:30rpx;">
+                                <view>{{current_student.name}}</view>
+                                <view style="margin-top: 10rpx;">{{current_student.studentid}}</view>
+                            </view>
+                        </view>
+                        <view style="position: relative;">
+                            <yxs_input  width="600" height="80" maxlength="20" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_169.png" placeholder="订单备注" bindchange="bindinputremark" error_info="{{inputremark_error}}"></yxs_input>
+                        </view>
+                    </view>
+                    <view hidden="{{step!=3}}">
+                        <view style="position: relative;" class="input-item">
+                            <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_167.png" placeholder="学生姓名" bindchange="bindinputname" error_info="{{inputname_error}}"></yxs_input>
+                        </view>
+                        <view style="position: relative;" class="input-item">
+                            <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_174.png" placeholder="所属学校" bindchange="bindinputschool" error_info="{{inputschool_error}}"></yxs_input>
+                        </view>
+                        <view style="position: relative;" class="input-item">
+                            <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_169.png" placeholder="年级" bindchange="bindinputgrade" error_info="{{inputgrade_error}}"></yxs_input>
+
+                        </view>
+                        <view style="position: relative;" class="input-item">
+                            <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_168.png" placeholder="主要联系电话" bindchange="bindinputphone1" error_info="{{inputphone1_error}}"></yxs_input>
+                        </view>
+                        <view style="position: relative;" class="input-item">
+                            <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_168.png" placeholder="备用联系电话" bindchange="bindinputphone2" error_info="{{inputphone2_error}}"></yxs_input>
+                        </view>
+                        <view style="position: relative; padding: 0rpx 10rpx;height: auto;" class="input-item {{inputupload_error ? 'input-error' : ''}}">
+                            <view style="width: 60rpx;height: 80rpx;float: left;vertical-align:middle;line-height:80rpx;text-align: center;margin-right: 10rpx">
+                                <image style="width: 60%;vertical-align:middle;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_166.png"></image>
+                            </view>
+                            <view style="height: 80rpx;float: left;line-height:80rpx;text-align: center;margin-right: 10rpx;color: red">*</view>
+                            <view style="height: 80rpx;line-height: 80rpx;width: 300rpx;color: #999">上传学生正面照</view>
+                            <view style="margin: 20rpx;width: 120rpx;height: 120rpx;">
+                                <yxs_upload currentcutimg="{{current_cut_img}}" src="{{current_cut_img}}"></yxs_upload>
+                            </view>
+                            <view style="clear: both"></view>
+                        </view>
+                        <view class="error-info">{{inputupload_error}}</view>
+                        <!--<view style="position: relative;" class="input-item">-->
+                            <!--<yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_174.png" placeholder="曾经就读培训学校" bindchange="bindinputschool_before" error_info="{{inputschool_before_error}}"></yxs_input>-->
+                        <!--</view>-->
+                        <!--<view style="position: relative;" class="input-item">-->
+                            <!--<yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_169.png" placeholder="曾获得奖项" bindchange="bindinputprise" error_info="{{inputprise_error}}"></yxs_input>-->
+                        <!--</view>-->
+                        <view style="position: relative;" class="input-item">
+                            <yxs_input no_border="{{true}}" width="600" height="80" maxlength="200" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_169.png" placeholder="订单备注(150字以内)" bindchange="bindinputremark" error_info="{{inputremark_error}}"></yxs_input>
+                        </view>
+                    </view>
+                    <view hidden="{{step == 1}}">
+                        <view style="width: 600rpx;margin-top: 60rpx;" class="btn" bindtap="order">立即下单</view>
+                    </view>
+                </view>
+            </view>
+        </yxs_modal>
     </scroll-view>
 
 </view>

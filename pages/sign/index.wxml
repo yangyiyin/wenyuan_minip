@@ -39,7 +39,7 @@
                 <text style="font-size: 26rpx;">{{item.teacher}}</text><text style="font-size: 24rpx;color: #999">/ {{item.buy_sum}}人已预订</text>
             </view>
             <view class="price">
-                <text style="color: red;font-size: 30rpx">￥{{item.price}} </text>
+                <text style="color: red;font-size: 30rpx">￥{{item.price}}<text style="color: #999;font-size: 26rpx;margin-left: 5rpx;">起</text></text>
                 <text wx:if="{{item.can_order}}" style="float: right;font-size: 24rpx;color: #2BBD73">可预订</text>
                 <text wx:if="{{!item.can_order}}" style="float: right;font-size: 24rpx;color: #999">已满/过期</text>
             </view>
