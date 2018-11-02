@@ -3,7 +3,7 @@
 
 
     <view style="font-size: 40rpx;margin-top:50rpx;">支付成功!</view>
-    <view style="margin-top: 10rpx;">恭喜你订单已完成付款，请按时上课哦</view>
+    <view style="margin-top: 10rpx;">恭喜你订单已完成付款，我们会在24小时内与您取得联系，请保持手机畅通</view>
     <view style="margin-top: 10rpx;">签到码可在"我的>我报名的课程"中查看</view>
 
     <view style="margin-top: 50rpx;">

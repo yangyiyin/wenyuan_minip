@@ -36,7 +36,7 @@
         <view class="right">
             <view class="title">{{item.title}}</view>
             <view class="desc">
-                <text style="font-size: 26rpx;">{{item.teacher}}</text><text style="font-size: 24rpx;color: #999">/ {{item.buy_sum}}人已预订</text>
+                <text style="font-size: 26rpx;">{{item.teacher_short}}</text><text style="font-size: 24rpx;color: #999">/ {{item.buy_sum}}人已预订</text>
             </view>
             <view class="price">
                 <text style="color: red;font-size: 30rpx">￥{{item.price}}<text style="color: #999;font-size: 26rpx;margin-left: 5rpx;">起</text></text>

@@ -33,6 +33,12 @@
         <yxs_menu_item height="120" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_117.png" title="教师评语"></yxs_menu_item>
     </view>
     <view style="color: #999;text-align: left;width: 690rpx;margin: 0 auto;margin-top: 20rpx;font-size: 24rpx;">
+        官方电话:63930922
+    </view>
+    <view style="color: #999;text-align: left;width: 690rpx;margin: 0 auto;margin-top: 20rpx;font-size: 24rpx;">
+        官方微信号:wy63930922
+    </view>
+    <view style="color: #999;text-align: left;width: 690rpx;margin: 0 auto;margin-top: 20rpx;font-size: 24rpx;">
         当前注册手机号:{{userinfo.user_tel}}
     </view>
     <yxs_modal visible="{{visible}}" success_btn="{{false}}" >
