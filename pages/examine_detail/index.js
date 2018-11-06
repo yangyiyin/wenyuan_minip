@@ -453,72 +453,125 @@ Page({
 
     },
     to_pay(){
+        // var _data = this.check_submit_data();
+        // if (!_data) {
+        //     return;
+        // }
+        //
+        // var data = {
+        //     id:this.data.id,
+        //     student_name: _data.student_name
+        // };
+        // common.request('post','pay_create',data,function (res) {
+        //     if (res.data.code == common.constant.return_code_success) {
+        //         //调起支付
+        //         var _this = this;
+        //         wx.requestPayment({
+        //             'timeStamp': String(res.data.data.timeStamp),
+        //             'nonceStr': res.data.data.nonceStr,
+        //             'package': res.data.data.package,
+        //             'signType':res.data.data.signType,
+        //             'paySign': res.data.data.sign,
+        //             'success':function(ret){
+        //                 _this.submit(null, res.data.data.pay_no, _this);
+        //             },
+        //             'fail':function(ret){
+        //             }
+        //         })
+        //
+        //     } else {
+        //         common.show_modal(res.data.msg);
+        //     }
+        // }.bind(this));
+
         var _data = this.check_submit_data();
         if (!_data) {
             return;
         }
 
-        var data = {
-            id:this.data.id,
-            student_name: _data.student_name
-        };
-        common.request('post','pay_create',data,function (res) {
-            if (res.data.code == common.constant.return_code_success) {
-                //调起支付
-                var _this = this;
-                wx.requestPayment({
-                    'timeStamp': String(res.data.data.timeStamp),
-                    'nonceStr': res.data.data.nonceStr,
-                    'package': res.data.data.package,
-                    'signType':res.data.data.signType,
-                    'paySign': res.data.data.sign,
-                    'success':function(ret){
-                        _this.submit(null, res.data.data.pay_no, _this);
-                    },
-                    'fail':function(ret){
-                    }
-                })
-
-            } else {
-                common.show_modal(res.data.msg);
-            }
-        }.bind(this));
+        this.submit(null, 'pay_no', this);
 
     },
     _submit(data,_this){
 
-        if (data.pay_no) {
-            var time = 20;
+        if (data.pay_no) {//支付的
+            // var time = 20;
+            // wx.showLoading({
+            //     title: '支付中。。。',
+            // })
+            // //轮询回调支付状态,创建订单
+            // var int_ins = setInterval(function(){
+            //     if (time <= 0) {
+            //         wx.hideLoading()
+            //         clearInterval(int_ins);
+            //         common.show_modal('系统异常,支付失败,请联系官方客服~');
+            //         return ;
+            //     }
+            //
+            //     common.request('post','examination_sign',data,function (res) {
+            //         if (res.data.code == common.constant.return_code_success) {
+            //             wx.hideLoading();
+            //             clearInterval(int_ins);
+            //             common.show_toast('恭喜你,报名成功!');
+            //             _this.get_examination_detail();
+            //             _this.setData({
+            //                 visible:false
+            //             })
+            //
+            //         } else {
+            //             //common.show_modal(res.data.msg);
+            //         }
+            //     });
+            //
+            //     time --;
+            // }, 500);
+
+
             wx.showLoading({
-                title: '支付中。。。',
+                title: '创建报名信息。。。',
             })
-            //轮询回调支付状态,创建订单
-            var int_ins = setInterval(function(){
-                if (time <= 0) {
-                    wx.hideLoading()
-                    clearInterval(int_ins);
-                    common.show_modal('系统异常,支付失败,请联系官方客服~');
-                    return ;
+
+            //生成草稿
+            common.request('post','examination_signs_draft',data,function (res) {
+                wx.hideLoading();
+                if (res.data.code == common.constant.return_code_success) {
+                    //创建支付
+                    var _data = {
+                        id:this.data.id,
+                        examine_draft_id:res.data.data,
+                        student_name: data.student_name
+                    };
+                    common.request('post','pay_create',_data,function (res) {
+                        if (res.data.code == common.constant.return_code_success) {
+                            //调起支付
+                            var _this = this;
+                            wx.requestPayment({
+                                'timeStamp': String(res.data.data.timeStamp),
+                                'nonceStr': res.data.data.nonceStr,
+                                'package': res.data.data.package,
+                                'signType':res.data.data.signType,
+                                'paySign': res.data.data.sign,
+                                'success':function(ret){
+                                    // _this.submit(null, res.data.data.pay_no, _this);
+                                    //轮询支付状态
+                                    _this.check_pay_status(res.data.data.pay_no,_this);
+                                },
+                                'fail':function(ret){
+                                }
+                            })
+
+                        } else {
+                            common.show_modal(res.data.msg);
+                        }
+                    }.bind(this));
+
+                } else {
+                    common.show_modal(res.data.msg);
                 }
+            }.bind(this));
 
-                common.request('post','examination_sign',data,function (res) {
-                    if (res.data.code == common.constant.return_code_success) {
-                        wx.hideLoading();
-                        clearInterval(int_ins);
-                        common.show_toast('恭喜你,报名成功!');
-                        _this.get_examination_detail();
-                        _this.setData({
-                            visible:false
-                        })
 
-                    } else {
-                        //common.show_modal(res.data.msg);
-                    }
-                });
-
-                time --;
-            }, 500);
-        } else {
+        } else {//直接报名,不支付的
             common.request('post','examination_sign',data,function (res) {
                 if (res.data.code == common.constant.return_code_success) {
                     common.show_toast('恭喜你,报名成功!');
@@ -535,6 +588,38 @@ Page({
         }
 
 
+    },
+    check_pay_status(pay_no,_this){
+        var time = 20;
+        wx.showLoading({
+            title: '支付中。。。',
+        })
+        //轮询回调支付状态
+        var int_ins = setInterval(function(){
+            if (time <= 0) {
+                wx.hideLoading()
+                clearInterval(int_ins);
+                common.show_modal('系统异常,支付失败,请联系官方客服~');
+                return ;
+            }
+
+            common.request('post','check_pay_status',{pay_no:pay_no},function (res) {
+                if (res.data.code == common.constant.return_code_success) {
+                    wx.hideLoading();
+                    clearInterval(int_ins);
+                    common.show_toast('恭喜你,报名成功!');
+                    _this.get_examination_detail();
+                    _this.setData({
+                        visible:false
+                    })
+
+                } else {
+                    //common.show_modal(res.data.msg);
+                }
+            });
+
+            time --;
+        }, 500);
     },
     get_bind_students() {
         common.request('post','get_bind_students',{},function (res) {

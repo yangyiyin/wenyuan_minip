@@ -1,7 +1,7 @@
-var base_url = 'https://api.yixsu.com/index.php';
-var base_url_h5 = 'https://api.yixsu.com';
-// var base_url = 'http://www.myweb.com/git-res/earth_php/index.php';
-// var base_url_h5 = 'http://www.myweb.com/git-res/earth_php';
+// var base_url = 'https://api.yixsu.com/index.php';
+// var base_url_h5 = 'https://api.yixsu.com';
+var base_url = 'http://www.myweb.com/git-res/earth_php/index.php';
+var base_url_h5 = 'http://www.myweb.com/git-res/earth_php';
 
 var urls = {
     login:base_url+'/wenyuanjiaoyu/auth/login',
@@ -23,6 +23,8 @@ var urls = {
     get_student_examinations:base_url+'/wenyuanjiaoyu/examination/get_student_examinations',
     get_examination_detail:base_url+'/wenyuanjiaoyu/examination/get_examination_detail',
     examination_sign:base_url+'/wenyuanjiaoyu/examination_signs/edit',
+    examination_signs_draft:base_url+'/wenyuanjiaoyu/examination_signs/sign_draft',
+    check_pay_status:base_url+'/wenyuanjiaoyu/examination_signs/check_pay_status',
     edit_avatar:base_url+'/wenyuanjiaoyu/examination_signs/edit_avatar',
     get_current_student_examine_log:base_url+'/wenyuanjiaoyu/examination/get_current_student_examine_log',
     suggest_edit:base_url+'/wenyuanjiaoyu/suggest/edit',
