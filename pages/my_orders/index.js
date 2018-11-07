@@ -7,7 +7,9 @@ Page({
         fix_tabs:false,
         current_tab:1,
         show_comment:false,
-        action:1
+        show_arrange:false,
+        action:1,
+        current:{}
     },
     onLoad(){
 
@@ -188,5 +190,13 @@ Page({
             });
         }.bind(this)).catch(function(){});
     },
+
+    show_course_arrange(e){
+        var current = e.currentTarget.dataset.item;
+        this.setData({
+            current:current,
+            show_arrange:true
+        })
+    }
     
 });

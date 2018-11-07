@@ -30,6 +30,8 @@
                         <text class="info" wx:for="{{item.order_sub.goods.option.list}}" wx:key="index">[{{item.name ? item.name : item.time+'('+item.place+')'}}]</text>
                     </view>
                 </view>
+                <view wx:if="{{item.course_arrange_test}}" class="btn_arrange" catchtap="show_course_arrange" data-item="{{item.course_arrange_test}}" data-index="{{index}}">查看试听课安排</view>
+                <view wx:if="{{item.course_arrange_official}}" class="btn_arrange" catchtap="show_course_arrange" data-item="{{item.course_arrange_official}}" data-index="{{index}}">查看正式课安排</view>
 
                 <!--<view style="">-->
                     <!--<image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E5%9C%B0%E7%82%B9@3x.png" class="slide-image" style="width: 22rpx;height:26rpx;"/>-->
@@ -58,6 +60,23 @@
             <textarea maxlength="150" bindinput="tapInputComment" placeholder="请输入10-150字内容" style="border: 1px solid #ddd;height:250rpx;padding: 4px;width: 100%;border-radius: 2px;" value=""></textarea>
 
             <view bindtap="submit_comment" class="btn" style="margin-top: 30rpx;">提交</view>
+        </view>
+    </yxs_modal>
+
+    <yxs_modal visible="{{show_arrange}}" success_btn="{{false}}">
+
+        <view slot="content" style="width: 600rpx;">
+            <view wx:if="{{current.time}}" style="margin-bottom: 10rpx;font-size: 30rpx;">上课时间：{{current.time}}</view>
+            <view wx:if="{{current.place}}" style="margin-bottom: 10rpx;font-size: 30rpx;">上课地点：{{current.place}}</view>
+            <view wx:if="{{current.arrange}}" style="margin-bottom: 10rpx;font-size: 30rpx;">上课规律：{{current.arrange}}</view>
+            <view wx:if="{{current.end_time}}" style="margin-bottom: 10rpx;font-size: 30rpx;">预期结束时间：{{current.end_time}}</view>
+            <view wx:if="{{current.teacher}}" style="margin-bottom: 10rpx;font-size: 30rpx;">上课老师：{{current.teacher}}</view>
+            <view wx:if="{{current.adviser}}" style="margin-bottom: 10rpx;font-size: 30rpx;">教学顾问：{{current.adviser}}</view>
+            <view wx:if="{{current.remark}}" style="margin-bottom: 10rpx;font-size: 30rpx;">备注：{{current.remark}}</view>
+
+
+
+
         </view>
     </yxs_modal>
 </view>

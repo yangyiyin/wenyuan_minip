@@ -39,3 +39,8 @@ page{
 ._btn{
     width: 150rpx;height:50rpx;line-height:50rpx;margin:25rpx 10rpx;border-radius:100rpx;text-align:center;display:inline-block;background: #41CA84;color: #fff
 }
+
+.btn_arrange{
+    width: 250rpx;height:50rpx;line-height:50rpx;margin:10rpx 20rpx;border-radius: 100rpx;text-align:center;font-size: 26rpx;display:inline-block;color: #fff;background: #e6a23c;
+
+}
