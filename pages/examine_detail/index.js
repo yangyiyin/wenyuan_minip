@@ -39,7 +39,8 @@ Page({
         select_options_student:[],
         current_student:{},
         step:1,
-        is_need_upload_avatar:false
+        is_need_upload_avatar:false,
+        has_base:0
     },
     onLoad(option){
         this.setData({
@@ -97,7 +98,8 @@ Page({
             inputphone2:'',
             options_lession:this.data.options_lession,
             step:1,
-            is_need_upload_avatar:false
+            is_need_upload_avatar:false,
+            has_base:false
         })
         app.globalData.current_cut_img='';
         if (this.data.info.type == 3) {
@@ -106,7 +108,17 @@ Page({
             })
         }
     },
-
+    change_has_base(e){
+        if (e.detail.value.length) {
+            this.setData({
+                has_base:true
+            })
+        } else {
+            this.setData({
+                has_base:false
+            })
+        }
+    },
     get_examination_detail(){
         var id = this.data.id;
         common.request('post','get_examination_detail',{id:id},function (res) {
@@ -320,7 +332,8 @@ Page({
                 address:'',
                 father_tel:this.data.inputphone1,
                 mother_tel:this.data.inputphone2,
-                avatar:''
+                avatar:'',
+                has_base:this.data.has_base?1:0
             }
         }
 

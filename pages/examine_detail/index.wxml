@@ -86,7 +86,19 @@
                 </view>
                 <view style="position: relative;" class="input-item">
                     <yxs_select no_border="{{true}}" placeholder="需要培训课程" multi="{{true}}" options="{{options_lession}}" select_options="{{select_options_lession}}" bindchange="select_lession" width="600" height="80"  must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_171.png" error_info="{{inputlession_error}}"></yxs_select>
+                </view>
+                <view style="position: relative;line-height: 80rpx;color: #999;padding-left: 10rpx;" class="input-item">
 
+                    <view style="width: 30px;height: 40px;float: left;vertical-align:middle;line-height:40px;text-align: center;margin-right: 5px">
+                        <image mode="widthFix"src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_169.png"style="width: 60%; vertical-align: middle; height: 18px;"></image>
+                    </view>
+                    <view style="height: 40px;float: left;line-height:40px;text-align: center;margin-right: 5px;color: red">*</view>
+
+                    是否有基础
+                    <checkbox-group bindchange="change_has_base" style="vertical-align: middle;float: right" >
+                        <checkbox  value="1" checked="{{has_base}}"/>
+                    </checkbox-group>
+                    <!--<i-checkbox i-class="checkbox_base" checked="{{has_base}}"></i-checkbox>-->
                 </view>
                 <view style="position: relative;" class="input-item">
                     <yxs_select no_border="{{true}}" placeholder="培训地点" options="{{options_address}}" select_options="{{select_options_address}}" bindchange="select_address" width="600" height="80"  must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_170.png" error_info="{{inputaddress_error}}"></yxs_select>

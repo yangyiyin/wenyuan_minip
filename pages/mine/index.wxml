@@ -8,9 +8,13 @@
         </block>
         <block wx:if="{{!info.id}}">
 
-            <image class="avatar" style="top:300rpx;z-index: 11;border: 1rpx solid #ddd" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_204.png"></image>
-            <view class="name" style="color: #999;font-size: 36rpx;top:460rpx;z-index: 11">您还没有绑定学生,到首页下方可设置</view>
-            <view style="width: 750rpx;height: 2000rpx;position: relative;top:0rpx"></view>
+            <image class="bg" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_03.png"></image>
+            <image bindtap="show_change_avatar"  class="avatar" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_204.png"></image>
+            <view class="name" style="color: #B07F27;font-size: 26rpx;">您还没有绑定学生,到首页下方可设置</view>
+
+            <!--<image class="avatar" style="top:300rpx;z-index: 11;border: 1rpx solid #ddd" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_204.png"></image>-->
+            <!--<view class="name" style="color: #999;font-size: 36rpx;top:460rpx;z-index: 11">您还没有绑定学生,到首页下方可设置</view>-->
+            <!--<view style="width: 750rpx;height: 2000rpx;position: relative;top:0rpx"></view>-->
         </block>
 
 
@@ -20,7 +24,7 @@
     <view wx:if="{{info.id}}" style="border-bottom: 1rpx solid #eee" bindtap="goto_timetable">
         <yxs_menu_item height="120" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/%E8%AF%BE%E8%A1%A8%E5%AE%89%E6%8E%92@3x.png" title="我的课表"></yxs_menu_item>
     </view>
-    <view wx:if="{{info.id}}" style="border-bottom: 1rpx solid #eee" bindtap="goto_my_orders">
+    <view style="border-bottom: 1rpx solid #eee" bindtap="goto_my_orders">
         <yxs_menu_item height="120" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/%E8%AE%A2%E5%8D%95@3x.png" title="我报名的课程"></yxs_menu_item>
     </view>
     <view wx:if="{{info.id}}" style="border-bottom: 1rpx solid #eee" bindtap="goto_examine_log">

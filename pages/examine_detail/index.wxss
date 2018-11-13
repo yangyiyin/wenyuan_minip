@@ -110,3 +110,6 @@
 .item-i-value{
     color: #000;
 }
+.checkbox_base{
+    vertical-align: middle;float: right
+}
