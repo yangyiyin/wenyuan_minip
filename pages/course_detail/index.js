@@ -349,12 +349,13 @@ Page({
                 attr.push('');
             }
         });
-
+        //console.log(attr);
         var attr_str = attr.join('-');
+        //console.log(attr_str);
         if (indexx) {
-            attr_str = attr_str ? (attr_str+'-'+indexx) : indexx;
+            attr_str = (attr_str || attr.length) ? (attr_str+'-'+indexx) : indexx;
         }
-        console.log(attr_str);
+       // console.log(attr_str);
         return attr_str;
     },
     set_disable_options(attr_str){
@@ -365,7 +366,6 @@ Page({
                     var attr = util.deepCopy(attr_origin);
                     if (val2.id || val2.index) {
                         attr[i1] = val2.id ? val2.id : 'x'+val2.index;
-
                         var sku = this.get_current_sku(attr.join('-'));
                         if (sku) {
                             val2.disable = sku.disable;
@@ -398,7 +398,7 @@ Page({
     },
     set_current_sku(attr_str){
         var sku = this.get_current_sku(attr_str);
-        console.log(sku);
+        // console.log(sku);
         this.setData({
             active_sku:sku
         })

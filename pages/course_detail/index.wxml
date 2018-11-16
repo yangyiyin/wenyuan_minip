@@ -117,7 +117,7 @@
             <view slot="content" style="width: 600rpx;">
                 <view >
                     <view hidden="{{step!=1}}">
-                        <view style="margin-bottom: 20rpx">选择需要报考的学生</view>
+                        <view style="margin-bottom: 20rpx">选择需要报名的学生</view>
                         <yxs_select placeholder="请选择学生" options="{{options_student}}" select_options="{{select_options_student}}" bindchange="select_student" width="600" height="80"  must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_167.png" error_info="{{inputstudent_error}}"></yxs_select>
                         <view style="width: 600rpx;margin-top: 60rpx;" class="btn" bindtap="next_step">下 一 步</view>
                     </view>
