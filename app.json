@@ -18,7 +18,9 @@
     "pages/course_detail/index",
     "pages/order_detail/index",
     "pages/pay_success/index",
-    "pages/my_orders/index"
+    "pages/my_orders/index",
+    "pages/sign_course/index",
+    "pages/sign_course_detail/index"
   ],
   "window":{
     "navigationBarBackgroundColor": "#ffffff",

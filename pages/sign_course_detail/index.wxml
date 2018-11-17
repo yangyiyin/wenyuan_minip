@@ -1,0 +1,13 @@
+
+
+
+<view class="container" style="height: auto;background: #35D385">
+    <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/bg@3x%20%281%29.png" style="width: 750rpx;heighht:1206rpx;position: absolute;top:0;left:0;z-index: 0;"/>
+    <view style="position: relative;z-index: 1">
+        <view style="font-size: 60rpx;font-weight: bold;color: #fff;margin-top: 62rpx;text-align: center;text-shadow: 0 0 10rpx rgba(0,0,0,0.5)">2018文远秋季招生</view>
+
+    </view>
+
+</view>
+
+<yxs_loading ready="{{ready}}"></yxs_loading>

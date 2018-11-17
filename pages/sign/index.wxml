@@ -46,9 +46,6 @@
         </view>
     </view>
 
-
-
-
 </view>
 
 <yxs_loading ready="{{ready}}"></yxs_loading>

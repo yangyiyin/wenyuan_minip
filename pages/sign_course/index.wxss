@@ -1,0 +1,89 @@
+page{
+    background: #fff;
+}
+.container{
+    height: auto;
+    min-height: auto;
+    background: #fff;
+}
+.block-box{
+    background: #fff;
+    margin-top: 42rpx;
+    border-radius: 10rpx;
+    width: 650rpx;
+    padding: 30rpx;
+}
+.avatar-li{
+    width: 110rpx;
+    height:80rpx;
+    margin-left: 76rpx;
+    border-radius: 110rpx;
+    display: inline-block;
+    position: relative;
+}
+
+.avatar-li.avatar-active{
+    width: 110rpx;
+    height:110rpx;
+    border: 4rpx solid #F6AD42;
+}
+.gou{
+    border-radius: 28rpx;position: absolute;right: 5rpx;bottom: 5rpx;
+}
+
+.avatar-li .gou{
+    display: none;
+}
+.avatar-active .gou{
+    display: block;
+}
+.name-bg-active,.name-bg{
+    position: absolute;
+    bottom: -50rpx;
+
+}
+.name-active,.name{
+    position: absolute;
+    bottom: -52rpx;
+    left: 10rpx;
+}
+.name-active{
+    color: #fff;
+}
+
+.avatar-li .name-bg-active, .avatar-li .name-active{
+    display: none;
+}
+
+.avatar-active .name-bg-active, .avatar-active .name-active{
+    display: block;
+}
+
+.avatar-li .name-bg, .avatar-li .name{
+    display: block;
+}
+
+.avatar-active .name-bg, .avatar-active .name{
+    display: none;
+}
+.class-li{
+    padding:40rpx 0;
+    border-bottom: 1rpx solid #ddd;
+    position: relative;
+}
+.info-li{
+    margin-top: 10rpx;
+    color: #666;
+    font-size: 28rpx;
+}
+.btn-sign{
+    width: 120rpx;
+    padding: 5rpx;
+    position: absolute;
+    right: 0;
+    bottom: 40rpx;
+    background: #39CB82;
+    color: #fff;
+    border-radius: 100rpx;
+    text-align: center;
+}

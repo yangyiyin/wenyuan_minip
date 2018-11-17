@@ -103,6 +103,10 @@ Page({
         wx.navigateTo({
             url: '/pages/webview/index?link='+encodeURIComponent(link)
         })
-    }
-    
+    },
+    goto_sign_course(){
+        wx.navigateTo({
+            url: '/pages/sign_course/index'
+        })
+    },
 });

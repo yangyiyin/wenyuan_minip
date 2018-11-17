@@ -1,0 +1,15 @@
+page{
+    background: #fff;
+}
+.container{
+    height: auto;
+    min-height: auto;
+    background: #fff;
+}
+.block-box{
+    background: #fff;
+    margin-top: 42rpx;
+    border-radius: 10rpx;
+    width: 650rpx;
+    padding: 30rpx;
+}
