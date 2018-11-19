@@ -1,7 +1,7 @@
-var base_url = 'https://api.yixsu.com/index.php';
-var base_url_h5 = 'https://api.yixsu.com';
-// var base_url = 'http://www.myweb.com/git-res/earth_php/index.php';
-// var base_url_h5 = 'http://www.myweb.com/git-res/earth_php';
+//var base_url = 'https://api.yixsu.com/index.php';
+//var base_url_h5 = 'https://api.yixsu.com';
+var base_url = 'http://www.myweb.com/git-res/earth_php/index.php';
+var base_url_h5 = 'http://www.myweb.com/git-res/earth_php';
 
 var urls = {
     login:base_url+'/wenyuanjiaoyu/auth/login',
@@ -37,6 +37,8 @@ var urls = {
     cancel_order:base_url+'/wenyuanjiaoyu/order/cancel',
     my_order_list:base_url+'/wenyuanjiaoyu/order/my_order_list',
     comment_goods:base_url+'/wenyuanjiaoyu/goods/comment_goods',
+    get_sign_course_student_list:base_url+'/wenyuanjiaoyu/student/get_sign_course_student_list',
+    get_sign_course_list:base_url+'/wenyuanjiaoyu/sign_course/get_sign_course_list',
 }
 
 module.exports = {

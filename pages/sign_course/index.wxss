@@ -37,6 +37,15 @@ page{
 .avatar-active .gou{
     display: block;
 }
+.avatar-li .avatar{
+    width: 80rpx;
+    height:80rpx;
+}
+.avatar-active .avatar{
+    width: 110rpx;
+    height:110rpx;
+}
+
 .name-bg-active,.name-bg{
     position: absolute;
     bottom: -50rpx;
@@ -44,7 +53,7 @@ page{
 }
 .name-active,.name{
     position: absolute;
-    bottom: -52rpx;
+    bottom: -50rpx;
     left: 10rpx;
 }
 .name-active{

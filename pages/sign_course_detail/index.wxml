@@ -3,8 +3,123 @@
 
 <view class="container" style="height: auto;background: #35D385">
     <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/bg@3x%20%281%29.png" style="width: 750rpx;heighht:1206rpx;position: absolute;top:0;left:0;z-index: 0;"/>
-    <view style="position: relative;z-index: 1">
-        <view style="font-size: 60rpx;font-weight: bold;color: #fff;margin-top: 62rpx;text-align: center;text-shadow: 0 0 10rpx rgba(0,0,0,0.5)">2018文远秋季招生</view>
+    <view style="position: relative;z-index: 1;width: 610rpx;padding: 50rpx;margin: 20rpx;margin-top: 30rpx;background: #fff;border-radius: 10rpx;">
+        <view style="font-size: 50rpx;text-align: center;">G18秋基础三年级2班</view>
+
+        <view style="margin-top: 82rpx;padding-bottom: 40rpx;border-bottom: 1rpx dashed #ddd">
+            <view class="line-li">
+                <view class="item-li" style="float: left">
+                    <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E8%80%81%E5%B8%88@3x.png" style="width:64rpx;height: 64rpx;"/>
+                    <view class="text-info">
+                        <view class="mini-info">老师：</view>
+                        <view class="normal-info">林丹丹</view>
+                    </view>
+                </view>
+                <view class="item-li" style="float: right">
+                    <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/已报@3x.png" style="width:64rpx;height: 64rpx;"/>
+                    <view class="text-info">
+                        <view class="mini-info">已报：</view>
+                        <view class="normal-info">20/40</view>
+                    </view>
+                </view>
+                <view style="clear: both"></view>
+            </view>
+
+            <view class="line-li">
+                <view class="item-li" style="float: left">
+                    <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/学校@3x.png" style="width:64rpx;height: 64rpx;"/>
+                    <view class="text-info">
+                        <view class="mini-info">校区：</view>
+                        <view class="normal-info">观城校区</view>
+                    </view>
+                </view>
+                <view class="item-li" style="float: right">
+                    <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/缴费@3x.png" style="width:64rpx;height: 64rpx;"/>
+                    <view class="text-info">
+                        <view class="mini-info">缴费：</view>
+                        <view class="normal-info">押金：500元</view>
+                    </view>
+                </view>
+                <view style="clear: both"></view>
+            </view>
+
+            <view class="line-li">
+                <view class="item-li" style="float: left;width: 484rpx;">
+                    <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/状态@3x.png" style="width:64rpx;height: 64rpx;"/>
+                    <view class="text-info">
+                        <view class="mini-info">状态：</view>
+                        <view class="normal-info" style="width: 384rpx;">当前系统提交报名信息中...预计10分钟以后处理完</view>
+                    </view>
+                </view>
+                <view style="clear: both"></view>
+            </view>
+        </view>
+        <block wx:if="{{false}}">
+            <view style="margin-top: 36rpx;">当前选择报名学生：</view>
+            <view style="margin-top: 20rpx;position: relative;min-height:400rpx;">
+                <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E7%9F%A9%E5%BD%A2%201071@3x.png" style="width:610rpx;height: 290rpx;position: absolute;top:0;left:0"/>
+                <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E5%9B%BE%E5%B1%82%20630@2x.png" style="width:110rpx;height: 110rpx;position: absolute;top:40rpx;left:250rpx"/>
+                <view style="position: absolute;top:180rpx;text-align: center;width: 610rpx;">李春华</view>
+                <view style="position: absolute;top:220rpx;text-align: center;width: 610rpx;">学号：2018091225</view>
+
+            </view>
+        </block>
+        <block wx:else>
+            <view style="margin-top: 36rpx;">填写新生报名信息：</view>
+            <view style="margin-top: 20rpx;position: relative;min-height:400rpx;">
+
+                <view slot="content" style="width: 600rpx;padding-bottom: 80rpx;">
+                    <view>
+                        <view style="position: relative;" class="input-item">
+                            <yxs_input  width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_167.png" placeholder="学生姓名" bindchange="bindinputname" error_info="{{inputname_error}}"></yxs_input>
+                        </view>
+                        <view style="position: relative;" class="input-item">
+                            <yxs_input width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_174.png" placeholder="所属学校" bindchange="bindinputschool" error_info="{{inputschool_error}}"></yxs_input>
+                        </view>
+                        <view style="position: relative;" class="input-item">
+                            <yxs_input width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_169.png" placeholder="年级" bindchange="bindinputgrade" error_info="{{inputgrade_error}}"></yxs_input>
+
+                        </view>
+                        <view style="position: relative;" class="input-item">
+                            <yxs_input  width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_168.png" placeholder="主要联系电话" bindchange="bindinputphone1" error_info="{{inputphone1_error}}"></yxs_input>
+                        </view>
+                        <view style="position: relative;" class="input-item">
+                            <yxs_input  width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_168.png" placeholder="备用联系电话" bindchange="bindinputphone2" error_info="{{inputphone2_error}}"></yxs_input>
+                        </view>
+                        <view style="position: relative; padding: 0rpx 10rpx;height: auto;border: 1rpx solid #ddd" class="input-item {{inputupload_error ? 'input-error' : ''}}">
+                            <view style="float: left;">
+                                <view style="width: 60rpx;height: 80rpx;float: left;vertical-align:middle;line-height:80rpx;text-align: center;margin-right: 10rpx">
+                                    <image style="width: 60%;vertical-align:middle;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_166.png"></image>
+                                </view>
+                                <view style="height: 80rpx;float: left;line-height:80rpx;text-align: center;margin-right: 10rpx;color: red">*</view>
+                                <view style="height: 80rpx;line-height: 80rpx;width: 300rpx;color: #999">上传学生正面照</view>
+                            </view>
+                            <view style="margin: 20rpx;width: 120rpx;height: 120rpx;float: right">
+                                <yxs_upload currentcutimg="{{current_cut_img}}" src="{{current_cut_img}}"></yxs_upload>
+                            </view>
+                            <view style="clear: both"></view>
+                        </view>
+                        <view class="error-info">{{inputupload_error}}</view>
+
+                        <view style="position: relative;" class="input-item">
+                            <yxs_input  width="600" height="80" maxlength="200" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_169.png" placeholder="备注(150字以内)" bindchange="bindinputremark" error_info="{{inputremark_error}}"></yxs_input>
+                        </view>
+                    </view>
+                </view>
+
+
+            </view>
+        </block>
+
+    </view>
+    <view class="buy" style="border-top:1rpx solid #eee;position: fixed;bottom: 0;left: 0;width: 750rpx;height: 120rpx;background: #fff;z-index: 9999999">
+
+        <view class="price" style="padding: 0 30rpx;float: left">
+            <view style="color: red;font-size: 40rpx;margin-top: 30rpx;">押金￥{{active_sku.deposit}} <span style="font-size: 26rpx;">{{'(全款￥'+active_sku.price+')'}} </span></view>
+        </view>
+        <view class="buy-btn" style="float: right">
+            <view class="buy-btn-btn"  bindtap="buy">立即报名</view>
+        </view>
 
     </view>
 

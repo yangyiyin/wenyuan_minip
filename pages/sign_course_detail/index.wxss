@@ -13,3 +13,39 @@ page{
     width: 650rpx;
     padding: 30rpx;
 }
+.item-li{
+    width: 284rpx;
+}
+.line-li{
+    margin-top: 44rpx;
+}
+.text-info{
+    display: inline-block;
+    margin-left: 20rpx;
+    vertical-align: top;
+}
+.mini-info{
+    font-size: 20rpx;
+    color: #999;
+}
+.normal-info{
+    font-size: 26rpx;
+}
+
+.buy-btn-btn{
+    height: 120rpx;
+    width: 300rpx;
+    text-align: center;
+    line-height: 120rpx;
+    margin: 0;
+    font-size: 36rpx;
+    border-radius: 0;
+    background: #FE9F39;
+    color: #fff;
+}
+.buy-item{
+    width:auto;display:inline-block;padding: 20rpx 30rpx;margin: 10rpx;border-radius: 5rpx;border: 1rpx solid #eee;
+}
+.input-item{
+    margin-top: 20rpx;
+}

@@ -2,6 +2,7 @@
   "backgroundColor":"#12CE87",
   "enablePullDownRefresh":true,
   "usingComponents": {
-    "yxs_loading":"../../yixsu_component/yxs_loading/index"
+    "yxs_loading":"../../yixsu_component/yxs_loading/index",
+    "i-spin": "../../dist/spin/index"
   }
 }
