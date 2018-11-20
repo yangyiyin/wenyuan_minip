@@ -4,7 +4,7 @@
 <view class="container" style="height: auto;background: #35D385">
     <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/bg@3x%20%281%29.png" style="width: 750rpx;heighht:1206rpx;position: absolute;top:0;left:0;z-index: 0;"/>
     <view style="position: relative;z-index: 1">
-        <view style="font-size: 60rpx;font-weight: bold;color: #fff;margin-top: 62rpx;text-align: center;text-shadow: 0 0 10rpx rgba(0,0,0,0.5)">2018文远秋季招生</view>
+        <view style="font-size: 60rpx;font-weight: bold;color: #fff;margin-top: 62rpx;text-align: center;text-shadow: 0 0 10rpx rgba(0,0,0,0.5)">{{stage.title}}</view>
         <view class="block-box" style="position: relative">
             <i-spin fix wx:if="{{loading_student_list}}"></i-spin>
             <view class="title-box">
@@ -14,7 +14,7 @@
 
             </view>
             <view class="avatars" style="margin-top:30rpx;margin-bottom: 50rpx;">
-                <view wx:for="{{student_list.binds}}" wx:key="index" class="avatar-li {{item.active ? 'avatar-active':''}}" style="margin-left: 10rpx;">
+                <view bindtap="choose_student" data-li="binds" data-student="{{item}}" data-index="{{index}}" wx:for="{{student_list.binds}}" wx:key="index" class="avatar-li {{item.active ? 'avatar-active':''}}" style="margin-left: 10rpx;">
                     <image class="avatar" mode="aspectFill" src="{{item.student_info.avatar?item.student_info.avatar:'http://wenyuanjiaoyu-qiniu.yixsu.com/%E6%96%B0%E7%94%9F@2x.png'}}"/>
                     <image class="gou" mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E9%80%89%E6%8B%A9@3x.png" style="width: 28rpx;height:28rpx"/>
                     <image class="name-bg-active" mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E7%9F%A9%E5%BD%A2%201066%20%E6%8B%B7%E8%B4%9D%2022@3x.png" style="width: 120rpx;height:38rpx;"/>
@@ -23,7 +23,7 @@
                     <view class="name">{{item.student_info.name}}</view>
                 </view>
 
-                <view wx:for="{{student_list.news}}" class="avatar-li {{item.active ? 'avatar-active':''}}">
+                <view bindtap="choose_student" data-li="news" data-student="{{item}}" data-index="{{index}}" wx:for="{{student_list.news}}" wx:key="index" class="avatar-li {{item.active ? 'avatar-active':''}}">
                     <image class="avatar" mode="aspectFill" src="{{item.avatar?item.avatar:'http://wenyuanjiaoyu-qiniu.yixsu.com/%E6%96%B0%E7%94%9F@2x.png'}}"/>
                     <image class="gou" mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E9%80%89%E6%8B%A9@3x.png" style="width: 28rpx;height:28rpx"/>
                     <image class="name-bg-active" mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E7%9F%A9%E5%BD%A2%201066%20%E6%8B%B7%E8%B4%9D%2022@3x.png" style="width: 120rpx;height:38rpx;"/>
@@ -34,26 +34,28 @@
             </view>
         </view>
 
-        <view class="block-box">
+        <view class="block-box" style="position: relative">
+            <i-spin fix wx:if="{{loading_course_list}}"></i-spin>
             <view class="title-box">
                 <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/02@3x.png" style="width: 64rpx;height:42rpx;"/>
                 <text style="margin-left: 20rpx;">选择可选班级</text>
                 <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E5%8F%AF%E9%80%89%E7%8F%AD%E7%BA%A7@3x.png" style="width: 160rpx;height:74rpx;float: right;margin-right: -50rpx;"/>
 
 
-                <view class="class-li">
+                <view class="class-li" wx:for="{{course_list}}" wx:key="index" >
                     <view>
-                        <text style="font-size: 36rpx;">G18秋基础三年级2班</text>
+                        <text style="font-size: 36rpx;">{{item.content.classname}}</text>
                         <view style="float: right">
-                            <view style="color: red">20/40</view>
-                            <view style="color: #999;font-size: 24rpx;">押金:500元</view>
+                            <view style="color: red">{{item.content.stucount}}/{{item.content.plancount}}</view>
+                            <view style="color: #999;font-size: 24rpx;">押金:{{item.course_info.deposit}}元</view>
                         </view>
                         <view style="clear: both"></view>
                     </view>
-                    <view class="info-li">老师：林丹丹</view>
-                    <view class="info-li">校区：观城校区 </view>
-                    <view class="info-li">状态：当前可报名</view>
-                    <view class="btn-sign" bindtap="goto_detail" data-id="1">去报名</view>
+                    <view class="info-li">老师：{{item.content.teachername}}</view>
+                    <view class="info-li">校区：{{item.content.schoolname}} </view>
+                    <view class="info-li">状态：{{item.status_desc}}</view>
+                    <view wx:if="{{item.can_sign}}" class="btn-sign" bindtap="goto_detail" data-id="{{item.id}}">去报名</view>
+                    <view wx:if="{{!item.can_sign}}" class="btn-sign" style="background: #ccc">去报名</view>
                 </view>
 
 

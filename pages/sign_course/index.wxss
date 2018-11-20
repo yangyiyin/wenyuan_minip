@@ -40,10 +40,12 @@ page{
 .avatar-li .avatar{
     width: 80rpx;
     height:80rpx;
+    border-radius: 110rpx;
 }
 .avatar-active .avatar{
     width: 110rpx;
     height:110rpx;
+    border-radius: 110rpx;
 }
 
 .name-bg-active,.name-bg{

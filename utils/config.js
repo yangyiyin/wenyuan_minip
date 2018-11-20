@@ -38,7 +38,8 @@ var urls = {
     my_order_list:base_url+'/wenyuanjiaoyu/order/my_order_list',
     comment_goods:base_url+'/wenyuanjiaoyu/goods/comment_goods',
     get_sign_course_student_list:base_url+'/wenyuanjiaoyu/student/get_sign_course_student_list',
-    get_sign_course_list:base_url+'/wenyuanjiaoyu/sign_course/get_sign_course_list',
+    get_sign_class_list:base_url+'/wenyuanjiaoyu/sign_course/get_sign_class_list',
+    get_class_info:base_url+'/wenyuanjiaoyu/sign_course/get_class_info',
 }
 
 module.exports = {

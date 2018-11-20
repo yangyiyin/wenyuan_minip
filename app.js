@@ -9,17 +9,19 @@ App({
 
   },
   globalData: {
-    userInfo: null,
-    user_session:null,
-    current_cut_img:'',
-    bind_students:[],
-    current_student:{},
-    to_refresh:{
-      index:true,
-      timetable:true,
-      examine:true,
-      mine:true,
-    }
+      userInfo: null,
+      user_session:null,
+      current_cut_img:'',
+      bind_students:[],
+      current_student:{},
+      to_refresh:{
+          index:true,
+          timetable:true,
+          examine:true,
+          mine:true,
+      },
+      sign_course_current_student:{}
+
   },
   get_common_request_data:function () {
     return {

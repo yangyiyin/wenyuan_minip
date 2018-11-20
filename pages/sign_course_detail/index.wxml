@@ -4,7 +4,7 @@
 <view class="container" style="height: auto;background: #35D385">
     <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/bg@3x%20%281%29.png" style="width: 750rpx;heighht:1206rpx;position: absolute;top:0;left:0;z-index: 0;"/>
     <view style="position: relative;z-index: 1;width: 610rpx;padding: 50rpx;margin: 20rpx;margin-top: 30rpx;background: #fff;border-radius: 10rpx;">
-        <view style="font-size: 50rpx;text-align: center;">G18秋基础三年级2班</view>
+        <view style="font-size: 50rpx;text-align: center;">{{class_info.classname}}</view>
 
         <view style="margin-top: 82rpx;padding-bottom: 40rpx;border-bottom: 1rpx dashed #ddd">
             <view class="line-li">
@@ -12,14 +12,14 @@
                     <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E8%80%81%E5%B8%88@3x.png" style="width:64rpx;height: 64rpx;"/>
                     <view class="text-info">
                         <view class="mini-info">老师：</view>
-                        <view class="normal-info">林丹丹</view>
+                        <view class="normal-info">{{class_info.teachername}}</view>
                     </view>
                 </view>
                 <view class="item-li" style="float: right">
                     <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/已报@3x.png" style="width:64rpx;height: 64rpx;"/>
                     <view class="text-info">
                         <view class="mini-info">已报：</view>
-                        <view class="normal-info">20/40</view>
+                        <view class="normal-info">{{class_info.stucount}}/{{class_info.plancount}}</view>
                     </view>
                 </view>
                 <view style="clear: both"></view>
@@ -30,14 +30,14 @@
                     <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/学校@3x.png" style="width:64rpx;height: 64rpx;"/>
                     <view class="text-info">
                         <view class="mini-info">校区：</view>
-                        <view class="normal-info">观城校区</view>
+                        <view class="normal-info">{{class_info.schoolname}}</view>
                     </view>
                 </view>
                 <view class="item-li" style="float: right">
                     <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/缴费@3x.png" style="width:64rpx;height: 64rpx;"/>
                     <view class="text-info">
                         <view class="mini-info">缴费：</view>
-                        <view class="normal-info">押金：500元</view>
+                        <view class="normal-info">押金：{{class_info.deposit}}元</view>
                     </view>
                 </view>
                 <view style="clear: both"></view>
@@ -48,19 +48,19 @@
                     <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/状态@3x.png" style="width:64rpx;height: 64rpx;"/>
                     <view class="text-info">
                         <view class="mini-info">状态：</view>
-                        <view class="normal-info" style="width: 384rpx;">当前系统提交报名信息中...预计10分钟以后处理完</view>
+                        <view class="normal-info" style="width: 384rpx;">{{class_info.status_desc}}</view>
                     </view>
                 </view>
                 <view style="clear: both"></view>
             </view>
         </view>
-        <block wx:if="{{false}}">
+        <block wx:if="{{student.student_info}}">
             <view style="margin-top: 36rpx;">当前选择报名学生：</view>
             <view style="margin-top: 20rpx;position: relative;min-height:400rpx;">
                 <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E7%9F%A9%E5%BD%A2%201071@3x.png" style="width:610rpx;height: 290rpx;position: absolute;top:0;left:0"/>
-                <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E5%9B%BE%E5%B1%82%20630@2x.png" style="width:110rpx;height: 110rpx;position: absolute;top:40rpx;left:250rpx"/>
-                <view style="position: absolute;top:180rpx;text-align: center;width: 610rpx;">李春华</view>
-                <view style="position: absolute;top:220rpx;text-align: center;width: 610rpx;">学号：2018091225</view>
+                <image mode="widthFix" src="{{student.student_info.avatar}}" style="width:110rpx;height: 110rpx;position: absolute;top:40rpx;left:250rpx;border-radius: 110rpx;"/>
+                <view style="position: absolute;top:180rpx;text-align: center;width: 610rpx;">{{student.student_info.name}}</view>
+                <view style="position: absolute;top:220rpx;text-align: center;width: 610rpx;">学号：{{student.student_info.studentid}}</view>
 
             </view>
         </block>
@@ -115,7 +115,7 @@
     <view class="buy" style="border-top:1rpx solid #eee;position: fixed;bottom: 0;left: 0;width: 750rpx;height: 120rpx;background: #fff;z-index: 9999999">
 
         <view class="price" style="padding: 0 30rpx;float: left">
-            <view style="color: red;font-size: 40rpx;margin-top: 30rpx;">押金￥{{active_sku.deposit}} <span style="font-size: 26rpx;">{{'(全款￥'+active_sku.price+')'}} </span></view>
+            <view style="color: red;font-size: 40rpx;margin-top: 20rpx;">押金￥{{class_info.deposit}} <view style="font-size: 26rpx;">{{'(全款￥'+class_info.unitprice+')'}} </view></view>
         </view>
         <view class="buy-btn" style="float: right">
             <view class="buy-btn-btn"  bindtap="buy">立即报名</view>
