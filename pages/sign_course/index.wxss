@@ -16,10 +16,10 @@ page{
 .avatar-li{
     width: 110rpx;
     height:80rpx;
-    margin-left: 76rpx;
     border-radius: 110rpx;
     display: inline-block;
     position: relative;
+    margin: 30rpx;
 }
 
 .avatar-li.avatar-active{

@@ -13,8 +13,8 @@
                 <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E4%B8%8A%E8%AF%BE%E5%AD%A6%E7%94%9F@3x.png" style="width: 160rpx;height:74rpx;float: right;margin-right: -50rpx;"/>
 
             </view>
-            <view class="avatars" style="margin-top:30rpx;margin-bottom: 50rpx;">
-                <view bindtap="choose_student" data-li="binds" data-student="{{item}}" data-index="{{index}}" wx:for="{{student_list.binds}}" wx:key="index" class="avatar-li {{item.active ? 'avatar-active':''}}" style="margin-left: 10rpx;">
+            <view class="avatars" style="margin-bottom: 50rpx;">
+                <view bindtap="choose_student" data-li="binds" data-student="{{item}}" data-index="{{index}}" wx:for="{{student_list.binds}}" wx:key="index" class="avatar-li {{item.active ? 'avatar-active':''}}">
                     <image class="avatar" mode="aspectFill" src="{{item.student_info.avatar?item.student_info.avatar:'http://wenyuanjiaoyu-qiniu.yixsu.com/%E6%96%B0%E7%94%9F@2x.png'}}"/>
                     <image class="gou" mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E9%80%89%E6%8B%A9@3x.png" style="width: 28rpx;height:28rpx"/>
                     <image class="name-bg-active" mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E7%9F%A9%E5%BD%A2%201066%20%E6%8B%B7%E8%B4%9D%2022@3x.png" style="width: 120rpx;height:38rpx;"/>
@@ -51,9 +51,10 @@
                         </view>
                         <view style="clear: both"></view>
                     </view>
-                    <view class="info-li">老师：{{item.content.teachername}}</view>
-                    <view class="info-li">校区：{{item.content.schoolname}} </view>
-                    <view class="info-li">状态：{{item.status_desc}}</view>
+                    <view class="info-li"><text style="color: #999">老师：</text>{{item.content.teachername}}</view>
+                    <view class="info-li"><text style="color: #999">校区：</text>{{item.content.schoolname}} </view>
+                    <view class="info-li"><text style="color: #999">状态：</text>{{item.status_desc}}</view>
+                    <view class="info-li"><text style="color: #999">时间：</text><view style="display:inline-block;vertical-align:top;font-size: 24rpx;width: 400rpx;">{{item.time_info}}</view> </view>
                     <view wx:if="{{item.can_sign}}" class="btn-sign" bindtap="goto_detail" data-id="{{item.id}}">去报名</view>
                     <view wx:if="{{!item.can_sign}}" class="btn-sign" style="background: #ccc">去报名</view>
                 </view>

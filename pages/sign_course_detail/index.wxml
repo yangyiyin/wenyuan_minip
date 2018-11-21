@@ -71,20 +71,22 @@
                 <view slot="content" style="width: 600rpx;padding-bottom: 80rpx;">
                     <view>
                         <view style="position: relative;" class="input-item">
-                            <yxs_input  width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_167.png" placeholder="学生姓名" bindchange="bindinputname" error_info="{{inputname_error}}"></yxs_input>
+                            <yxs_input value="{{student.name == '*新生*' ? '' : student.name}}" disabled="{{student.name != '*新生*'}}"  width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_167.png" placeholder="学生姓名" bindchange="bindinputname" error_info="{{inputname_error}}"></yxs_input>
                         </view>
                         <view style="position: relative;" class="input-item">
-                            <yxs_input width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_174.png" placeholder="所属学校" bindchange="bindinputschool" error_info="{{inputschool_error}}"></yxs_input>
-                        </view>
-                        <view style="position: relative;" class="input-item">
-                            <yxs_input width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_169.png" placeholder="年级" bindchange="bindinputgrade" error_info="{{inputgrade_error}}"></yxs_input>
+                            <yxs_select  placeholder="性别" options="{{options_sex}}" select_options="{{select_options_sex}}" bindchange="select_sex" width="600" height="80"  must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_167.png" error_info="{{inputsex_error}}"></yxs_select>
 
                         </view>
                         <view style="position: relative;" class="input-item">
-                            <yxs_input  width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_168.png" placeholder="主要联系电话" bindchange="bindinputphone1" error_info="{{inputphone1_error}}"></yxs_input>
+                            <view class="input"style="width: 300px;height: 40px;display:table-cell;vertical-align:middle;border: 0.5px solid #ddd;">
+                                <view style="width: 30px;height: 40px;float: left;vertical-align:middle;line-height:40px;text-align: center;margin-right: 5px"><image mode="widthFix"src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_167.png"style="width: 60%; vertical-align: middle; height: 18px;"></image></view>
+                                <view style="height: 40px;float: left;line-height:40px;text-align: center;margin-right: 5px;color: red">*</view>
+                                <picker style="width:460rpx;height:80rpx;float:left;line-height: 80rpx;" mode="date" value="{{birthday}}" start="2000-09-01" end="2020-09-01" bindchange="bindDateChange"><view style="width: 460rpx;height: 80rpx;">{{birthday}}</view></picker>
+                                <view style="clear: both"></view>
+                            </view>
                         </view>
                         <view style="position: relative;" class="input-item">
-                            <yxs_input  width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_168.png" placeholder="备用联系电话" bindchange="bindinputphone2" error_info="{{inputphone2_error}}"></yxs_input>
+                            <yxs_input value="{{student.mother_tel}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_168.png" placeholder="备用联系电话" bindchange="bindinputphone2" error_info="{{inputphone2_error}}"></yxs_input>
                         </view>
                         <view style="position: relative; padding: 0rpx 10rpx;height: auto;border: 1rpx solid #ddd" class="input-item {{inputupload_error ? 'input-error' : ''}}">
                             <view style="float: left;">
@@ -95,11 +97,23 @@
                                 <view style="height: 80rpx;line-height: 80rpx;width: 300rpx;color: #999">上传学生正面照</view>
                             </view>
                             <view style="margin: 20rpx;width: 120rpx;height: 120rpx;float: right">
-                                <yxs_upload currentcutimg="{{current_cut_img}}" src="{{current_cut_img}}"></yxs_upload>
+                                <yxs_upload  currentcutimg="{{current_cut_img}}" src="{{current_cut_img}}"></yxs_upload>
                             </view>
                             <view style="clear: both"></view>
                         </view>
-                        <view class="error-info">{{inputupload_error}}</view>
+                        <view class="error-info">{{inputavatar_error}}</view>
+
+                        <view style="position: relative;" class="input-item">
+                            <yxs_input value="{{student.school}}" width="600" height="80" maxlength="20"  icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_174.png" placeholder="原学校" bindchange="bindinputschool" error_info="{{inputschool_error}}"></yxs_input>
+                        </view>
+                        <view style="position: relative;" class="input-item">
+                            <yxs_input value="{{student.grade}}" width="600" height="80" maxlength="20" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_174.png" placeholder="原年级" bindchange="bindinputgrade" error_info="{{inputgrade_error}}"></yxs_input>
+
+                        </view>
+                        <view style="position: relative;" class="input-item">
+                            <yxs_input width="600" height="80" maxlength="20"  icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_174.png" placeholder="原班级" bindchange="bindinputclass" error_info="{{inputclass_error}}"></yxs_input>
+
+                        </view>
 
                         <view style="position: relative;" class="input-item">
                             <yxs_input  width="600" height="80" maxlength="200" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_169.png" placeholder="备注(150字以内)" bindchange="bindinputremark" error_info="{{inputremark_error}}"></yxs_input>
@@ -115,7 +129,7 @@
     <view class="buy" style="border-top:1rpx solid #eee;position: fixed;bottom: 0;left: 0;width: 750rpx;height: 120rpx;background: #fff;z-index: 9999999">
 
         <view class="price" style="padding: 0 30rpx;float: left">
-            <view style="color: red;font-size: 40rpx;margin-top: 20rpx;">押金￥{{class_info.deposit}} <view style="font-size: 26rpx;">{{'(全款￥'+class_info.unitprice+')'}} </view></view>
+            <view style="color: red;font-size: 40rpx;margin-top: 20rpx;">押金￥{{class_info.deposit}} <view style="font-size: 26rpx;">{{'(全款￥'+(class_info.unitprice?class_info.unitprice:'--')+')'}} </view></view>
         </view>
         <view class="buy-btn" style="float: right">
             <view class="buy-btn-btn"  bindtap="buy">立即报名</view>
