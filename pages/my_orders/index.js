@@ -32,9 +32,17 @@ Page({
 
     goto_detail(event){
         var id = event.currentTarget.dataset.id;
-        wx.navigateTo({
-            url: '/pages/order_detail/index?id='+id
-        })
+        var type = event.currentTarget.dataset.type;
+        if (type == 1) {
+            wx.navigateTo({
+                url: '/pages/order_detail/index?id='+id
+            })
+        } else if(type==2) {
+            wx.navigateTo({
+                url: '/pages/sign_course_detail/index?order_id='+id
+            })
+        }
+
     },
     pay(event){
         var id = event.currentTarget.dataset.id;
@@ -58,6 +66,43 @@ Page({
                         if(_this.data.list.my_order_list.list[index]) {
                             _this.data.list.my_order_list.list[index].status = 2;
                             _this.data.list.my_order_list.list[index].status_desc = '已付款,等待签到';
+                            _this.setData({
+                                list:_this.data.list
+                            })
+                        }
+
+                    },
+                    'fail':function(ret){
+                    }
+                })
+
+            } else {
+                common.show_modal(res.data.msg);
+            }
+        }.bind(this));
+    },
+    pay_sign_course(event){
+        var id = event.currentTarget.dataset.id;
+        var index = event.currentTarget.dataset.index;
+        var data = {
+            id:id
+        };
+        common.request('post','pay_create_sign_course_order',data,function (res) {
+            if (res.data.code == common.constant.return_code_success) {
+                //调起支付
+                var _this = this;
+                wx.requestPayment({
+                    'timeStamp': String(res.data.data.timeStamp),
+                    'nonceStr': res.data.data.nonceStr,
+                    'package': res.data.data.package,
+                    'signType':res.data.data.signType,
+                    'paySign': res.data.data.sign,
+                    'success':function(ret){
+                        common.show_toast('支付成功');
+                        // _this.get_order_detail();
+                        if(_this.data.list.my_order_list.list[index]) {
+                            _this.data.list.my_order_list.list[index].status = 2;
+                            _this.data.list.my_order_list.list[index].status_desc = '等待报名结果';
                             _this.setData({
                                 list:_this.data.list
                             })
@@ -106,6 +151,41 @@ Page({
 
 
     },
+
+    cancel_order_simple(event){
+        wx.showModal({
+            title: '提示',
+            content: '确认取消订单?',
+            success: function(res) {
+                if (res.confirm) {
+                    var id = event.currentTarget.dataset.id;
+                    var index = event.currentTarget.dataset.index;
+                    var data = {
+                        id:id
+                    };
+                    common.request('post','cancel_sign_course',data,function (res) {
+                        if (res.data.code == common.constant.return_code_success) {
+                            common.show_toast('取消成功!');
+                            if(this.data.list.my_order_list.list[index]) {
+                                this.data.list.my_order_list.list[index].status = 9;
+                                this.data.list.my_order_list.list[index].status_desc = '已关闭';
+                                this.setData({
+                                    list:this.data.list
+                                })
+                            }
+
+                        } else {
+                            common.show_modal(res.data.msg);
+                        }
+                    }.bind(this));
+                }
+            }.bind(this)
+        });
+
+
+
+    },
+
     comment(event){
         var goods_id = event.currentTarget.dataset.goods_id;
         var order_id = event.currentTarget.dataset.order_id;

@@ -19,7 +19,8 @@
                     <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/已报@3x.png" style="width:64rpx;height: 64rpx;"/>
                     <view class="text-info">
                         <view class="mini-info">已报：</view>
-                        <view class="normal-info">{{class_info.stucount}}/{{class_info.plancount}}</view>
+                        <view class="normal-info"  wx:if="{{!from}}">{{class_info.stucount}}/{{class_info.plancount}}</view>
+                        <view class="normal-info"  wx:if="{{from=='order'}}">请关注报名页</view>
                     </view>
                 </view>
                 <view style="clear: both"></view>
@@ -48,7 +49,7 @@
                     <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/状态@3x.png" style="width:64rpx;height: 64rpx;"/>
                     <view class="text-info">
                         <view class="mini-info">状态：</view>
-                        <view class="normal-info" style="width: 384rpx;">{{class_info.status_desc}}</view>
+                        <view class="normal-info" style="width: 384rpx;">{{class_info.member_status ? class_info.member_status : class_info.status_desc}}</view>
                     </view>
                 </view>
                 <view style="clear: both"></view>
@@ -60,7 +61,7 @@
                 <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E7%9F%A9%E5%BD%A2%201071@3x.png" style="width:610rpx;height: 290rpx;position: absolute;top:0;left:0"/>
                 <image mode="widthFix" src="{{student.student_info.avatar}}" style="width:110rpx;height: 110rpx;position: absolute;top:40rpx;left:250rpx;border-radius: 110rpx;"/>
                 <view style="position: absolute;top:180rpx;text-align: center;width: 610rpx;">{{student.student_info.name}}</view>
-                <view style="position: absolute;top:220rpx;text-align: center;width: 610rpx;">学号：{{student.student_info.studentid}}</view>
+                <view wx:if="{{student.student_info.studentid}}"style="position: absolute;top:220rpx;text-align: center;width: 610rpx;">学号：{{student.student_info.studentid}}</view>
 
             </view>
         </block>
@@ -131,8 +132,12 @@
         <view class="price" style="padding: 0 30rpx;float: left">
             <view style="color: red;font-size: 40rpx;margin-top: 20rpx;">押金￥{{class_info.deposit}} <view style="font-size: 26rpx;">{{'(全款￥'+(class_info.unitprice?class_info.unitprice:'--')+')'}} </view></view>
         </view>
-        <view class="buy-btn" style="float: right">
+        <view class="buy-btn" style="float: right" wx:if="{{!from}}">
             <view class="buy-btn-btn"  bindtap="buy">立即报名</view>
+        </view>
+
+        <view class="buy-btn" style="float: right" wx:if="{{class_info.order_status == 1}}">
+            <view class="buy-btn-btn"  bindtap="pay">立即支付</view>
         </view>
 
     </view>

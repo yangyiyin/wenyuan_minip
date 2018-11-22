@@ -5,25 +5,30 @@
         <view style="text-align: center;margin-top: 50rpx;">您还没有报名的课程哦~</view>
     </view>
 
-    <view wx:for="{{list.my_order_list.list}}" wx:key="index" class="item" bindtap="goto_detail" data-id="{{item.id}}">
+    <view wx:for="{{list.my_order_list.list}}" wx:key="index" class="item" bindtap="goto_detail" data-id="{{item.id}}" data-type="{{item.type}}">
         <view class="title">订单编号：{{item.order_no}}
             <view style="float: right;font-size: 30rpx;{{item.status==1 ? 'color:#F67324':''}}">{{item.status_desc}}</view>
         </view>
         <view class="content" style="padding: 20rpx;">
-            <view style="display: inline-block">
+            <view style="display: inline-block" wx:if="{{item.type==1}}">
                 <image mode="aspectFill" src="{{item.order_sub.goods.img}}" class="slide-image" style="width: 210rpx;height:130rpx"/>
             </view>
+            <view style="display: inline-block" wx:if="{{item.type==2}}">
+                <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E9%80%89%E8%AF%BE@3x.png" class="slide-image" style="width: 210rpx;height:130rpx"/>
+            </view>
             <view style="display: inline-block;width: 430rpx;margin-left: 30rpx;vertical-align: top;">
-                <view style="font-size: 32rpx;margin-bottom: 5rpx;">{{item.order_sub.goods.title}}</view>
-                <view style="font-size: 24rpx;margin-bottom: 5rpx;">
+                <view style="font-size: 32rpx;margin-bottom: 5rpx;" wx:if="{{item.type==1}}">{{item.order_sub.goods.title}}</view>
+                <view style="font-size: 32rpx;margin-bottom: 5rpx;" wx:if="{{item.type==2}}">{{item.goods_title}}</view>
+                <view style="font-size: 24rpx;margin-bottom: 5rpx;"  wx:if="{{item.type==1}}">
                     <image mode="aspectFill" src="{{item.order_sub.goods.teacher_avatar}}" class="slide-image" style="width: 40rpx;height:40rpx;border-radius: 40rpx;vertical-align: middle"/>
                     <view style="margin-left: 10rpx;height:40rpx;line-height:40rpx;vertical-align:top;display: inline-block">{{item.order_sub.goods.teacher}} </view>
                 </view>
+
                 <view wx:if="{{item.price_type==1}}"style="font-size: 32rpx;color: red">￥{{item.deposit}}<text wx:if="{{item.price-item.payed_money > 0}}">(未付:￥{{item.price-item.payed_money}})</text></view>
                 <view wx:if="{{item.price_type==2}}"style="font-size: 32rpx;color: red">￥{{item.price}}</view>
             </view>
         </view>
-        <view style="padding: 20rpx;padding-top: 0">
+        <view style="padding: 20rpx;padding-top: 0" wx:if="{{item.type==1}}">
             <view style="background: #F7F7F7;padding: 20rpx;">
                 <view style="margin-bottom: 15rpx;">
                     <view style="margin-left: 10rpx;height:22rpx;line-height:40rpx;display: inline-block;font-size: 28rpx;">
@@ -42,9 +47,11 @@
 
         <view style="width: 690rpx;margin: 0 auto">
             <view class="buy-btn" style="float: right">
-                <view wx:if="{{item.status==1}}" class="_btn" style="border: 1rpx solid #ddd;background: none;color: #333" catchtap="cancel_order" data-id="{{item.id}}" data-index="{{index}}">取消订单</view>
-                <view wx:if="{{item.status==1}}" class="_btn" catchtap="pay" data-id="{{item.id}}" data-index="{{index}}">立即支付</view>
-                <view wx:if="{{item.status==3}}" class="_btn" catchtap="comment" data-goods_id="{{item.order_sub.goods.id}}" data-order_id="{{item.id}}" data-index="{{index}}">评价课程</view>
+                <view wx:if="{{item.status==1 && item.type==1}}" class="_btn" style="border: 1rpx solid #ddd;background: none;color: #333" catchtap="cancel_order" data-id="{{item.id}}" data-index="{{index}}">取消订单</view>
+                <view wx:if="{{item.status==1 && item.type==2}}" class="_btn" style="border: 1rpx solid #ddd;background: none;color: #333" catchtap="cancel_order_simple" data-id="{{item.id}}" data-index="{{index}}">取消订单</view>
+                <view wx:if="{{item.status==1 && item.type==1}}" class="_btn" catchtap="pay" data-id="{{item.id}}" data-index="{{index}}">立即支付</view>
+                <view wx:if="{{item.status==1 && item.type==2}}" class="_btn" catchtap="pay_sign_course" data-id="{{item.id}}" data-index="{{index}}">立即支付</view>
+                <view wx:if="{{item.status==3 && item.type==1}}" class="_btn" catchtap="comment" data-goods_id="{{item.order_sub.goods.id}}" data-order_id="{{item.id}}" data-index="{{index}}">评价课程</view>
             </view>
             <view style="clear: both"></view>
         </view>

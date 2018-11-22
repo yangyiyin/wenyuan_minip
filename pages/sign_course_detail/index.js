@@ -5,6 +5,7 @@ const app = getApp()
 Page({
     data:{
         id:0,
+        order_id:0,
         student:{},
         class_info:{},
         from:'',
@@ -23,12 +24,17 @@ Page({
         //console.log(option.student);
         this.setData({
             ready:false,
-            id:option.id,
-            from:option.from ? option.from : '',
-            student:app.globalData.sign_course_current_student,
+            id:option.id ? option.id : '',
+            order_id:option.order_id ? option.order_id : '',
+            from:option.from ? option.from : (option.order_id ? 'order':''),
             is_new:app.globalData.sign_course_current_student.student_info ? false : true
         });
-        if (this.data.is_new) {//如果是新生，则设置头像显示
+        if (!this.data.from) {
+            this.setData({
+                student: app.globalData.sign_course_current_student
+            });
+        }
+        if (!this.data.from && this.data.is_new) {//如果是新生，则设置头像显示
             this.setData({
                 current_cut_img:this.data.student.avatar ? this.data.student.avatar : ''
             });
@@ -62,6 +68,8 @@ Page({
         return new Promise(function(resolve,reject){
             var data = {
                 id:this.data.id,
+                order_id:this.data.order_id,
+                from:this.data.from,
                 student:this.data.student
             }
             //console.log(data);
@@ -70,6 +78,21 @@ Page({
                     this.setData({
                         class_info:res.data.data
                     });
+                    if (this.data.from == 'order') {
+                        if (res.data.data.is_new_student == 1){
+                            this.setData({
+                                student:{
+                                    student_info:res.data.data.student
+                                }
+                            })
+                        } else {
+                            this.setData({
+                                student:res.data.data.student
+                            })
+                        }
+
+
+                    }
                 } else {
                     common.show_modal(res.data.msg);
 
@@ -234,7 +257,7 @@ Page({
             return;
         }
         console.log(data);
-        return;
+        //return;
         //上传图片
         if (this.data.is_need_upload_avatar) {
             wx.showLoading({
@@ -263,18 +286,47 @@ Page({
         wx.showLoading({
             title: '提交订单中。。。',
         });
-        common.request('post','add_order_sign_course',{data:data},function (res) {
+        common.request('post','add_order_sign_course',data,function (res) {
             wx.hideLoading();
             if (res.data.code == common.constant.return_code_success) {
-
+                this.setData({
+                    order_id:res.data.data
+                })
                 //创建支付
-
+                this.pay();
             } else {
                 common.show_modal(res.data.msg);
             }
         }.bind(this));
     },
 
+    pay(){
+        var order_id = this.data.order_id
+        var data = {
+            id:order_id
+        };
+        common.request('post','pay_create_sign_course_order',data,function (res) {
+            if (res.data.code == common.constant.return_code_success) {
+                //调起支付
+                var _this = this;
+                wx.requestPayment({
+                    'timeStamp': String(res.data.data.timeStamp),
+                    'nonceStr': res.data.data.nonceStr,
+                    'package': res.data.data.package,
+                    'signType':res.data.data.signType,
+                    'paySign': res.data.data.sign,
+                    'success':function(ret){
+                        common.show_toast('支付成功');
+                    },
+                    'fail':function(ret){
+                    }
+                })
+
+            } else {
+                common.show_modal(res.data.msg);
+            }
+        }.bind(this));
+    }
 
 
 });
