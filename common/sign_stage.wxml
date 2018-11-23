@@ -1,0 +1,4 @@
+
+<navigator wx:if="{{app && app.globalData.sign_course_stage}}" url="/pages/sign_course/index?id={{app.globalData.sign_course_stage.id}}">
+    <image mode="widthFix" src="{{app.globalData.sign_course_stage.img}}" style="width: 184rpx;height:184px;position: fixed;bottom: 30rpx;right: 30rpx;"/>
+</navigator>

@@ -17,7 +17,8 @@ Page({
         ],
         swiper_info:'',
         // student_list:null,
-        student_info:null
+        student_info:null,
+        app:app
     },
     onLoad(){
         app.globalData.to_refresh.index = true;
@@ -33,6 +34,7 @@ Page({
                 news_text_list:this.data.list.news_list.list.slice(5,8),
                 swiper_info:this.data.list.news_list.list[0].title
             })
+            this.get_sign_course_stage();
         }.bind(this)).catch(function(){});
         this.setData({
             student_info:wx.getStorageSync('student_info')
@@ -48,6 +50,21 @@ Page({
             app.globalData.to_refresh.index = false;
         }
 
+    },
+    get_sign_course_stage(){
+        common.request('post','get_sign_course_stage',{},function (res) {
+            if (res.data.code == common.constant.return_code_success) {
+
+                app.globalData.sign_course_stage = res.data.data;
+                this.setData({
+                    app:app
+                })
+
+
+            } else {
+                //common.show_modal(res.data.msg);
+            }
+        }.bind(this));
     },
     get_student_class_info(){
         common.request('post','get_student_class_info',{},function (res) {

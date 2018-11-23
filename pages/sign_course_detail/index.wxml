@@ -72,7 +72,7 @@
                 <view slot="content" style="width: 600rpx;padding-bottom: 80rpx;">
                     <view>
                         <view style="position: relative;" class="input-item">
-                            <yxs_input value="{{student.name == '*新生*' ? '' : student.name}}" disabled="{{student.name != '*新生*'}}"  width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_167.png" placeholder="学生姓名" bindchange="bindinputname" error_info="{{inputname_error}}"></yxs_input>
+                            <yxs_input value="{{student.name == '*新生*' ? '' : student.name}}" disabled="{{disabled_name}}"  width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_167.png" placeholder="学生姓名" bindchange="bindinputname" error_info="{{inputname_error}}"></yxs_input>
                         </view>
                         <view style="position: relative;" class="input-item">
                             <yxs_select  placeholder="性别" options="{{options_sex}}" select_options="{{select_options_sex}}" bindchange="select_sex" width="600" height="80"  must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_167.png" error_info="{{inputsex_error}}"></yxs_select>
@@ -132,7 +132,7 @@
         <view class="price" style="padding: 0 30rpx;float: left">
             <view style="color: red;font-size: 40rpx;margin-top: 20rpx;">押金￥{{class_info.deposit}} <view style="font-size: 26rpx;">{{'(全款￥'+(class_info.unitprice?class_info.unitprice:'--')+')'}} </view></view>
         </view>
-        <view class="buy-btn" style="float: right" wx:if="{{!from}}">
+        <view class="buy-btn" style="float: right" wx:if="{{!from && class_info.can_sign}}">
             <view class="buy-btn-btn"  bindtap="buy">立即报名</view>
         </view>
 

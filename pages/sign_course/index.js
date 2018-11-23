@@ -12,10 +12,13 @@ Page({
         course_list:'',
         stage:'',
         loading_course_list:true,
-        stage_id:1
+        stage_id:0
 
     },
-    onLoad(){
+    onLoad(option){
+        this.setData({
+            stage_id:option.id?option.id:0
+        })
         //获取学生列表
         this.get_sign_course_student_list().then(function(){
             //获取当前学生的可报名班级

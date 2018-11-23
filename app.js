@@ -20,7 +20,8 @@ App({
           examine:true,
           mine:true,
       },
-      sign_course_current_student:{}
+      sign_course_current_student:{},
+      sign_course_stage:null
 
   },
   get_common_request_data:function () {

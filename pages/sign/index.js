@@ -8,10 +8,12 @@ Page({
 
         ],
         swiper_info:'',
+        app:app
     },
     onLoad(){
         this.setData({
-            ready:false
+            ready:false,
+            app:app
         })
         this.get_course_list(true).then(function(){
             this.setData({

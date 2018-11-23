@@ -34,6 +34,7 @@
 
 
 </view>
+<include src="../../common/sign_stage.wxml"/>
 <yxs_loading ready="{{ready}}"></yxs_loading>
 
 <include src="../../common/bottom_pull_info.wxml"/>

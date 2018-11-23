@@ -19,6 +19,7 @@ Page({
         birthday:'请选择生日',
         inputremark:'',
         inputclass:'',
+        disabled_name:false
     },
     onLoad(option){
         //console.log(option.student);
@@ -35,6 +36,11 @@ Page({
             });
         }
         if (!this.data.from && this.data.is_new) {//如果是新生，则设置头像显示
+            if (this.data.student.name != '*新生*') {
+                this.setData({
+                    disabled_name:true
+                })
+            }
             this.setData({
                 current_cut_img:this.data.student.avatar ? this.data.student.avatar : ''
             });
@@ -317,6 +323,12 @@ Page({
                     'paySign': res.data.data.sign,
                     'success':function(ret){
                         common.show_toast('支付成功');
+                        //轮询状态
+                        _this.setData({
+                            order_id:order_id,
+                            from:'order'
+                        })
+                        _this.check_pay_status(_this);
                     },
                     'fail':function(ret){
                     }
@@ -326,7 +338,17 @@ Page({
                 common.show_modal(res.data.msg);
             }
         }.bind(this));
-    }
+    },
+    check_pay_status(_this){
+        wx.showLoading({
+            title: '查询报名状态中。。。',
+        })
+
+        setTimeout(function(){
+            _this.get_class_info();
+            wx.hideLoading();
+        },3000)
+    },
 
 
 });

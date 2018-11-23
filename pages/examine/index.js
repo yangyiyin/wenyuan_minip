@@ -7,10 +7,14 @@ Page({
             // {title:'综合实验班招考',label:'已报名',time:'2018/08/16 08:30',desc:'新生入学测试,新幼儿园大班(幼小衔接)...',cate:1,is_over:false},
             // {title:'五年级学期晋级考(下)',label:'',time:'2018/08/16 08:30',desc:'新生入学测试,新幼儿园大班(幼小衔接)...',cate:2,is_over:false},
             // {title:'五年级学期晋级考(上)',label:'',time:'2018/08/16 08:30',desc:'新生入学测试,新幼儿园大班(幼小衔接)...',cate:1,is_over:true},
-        ]
+        ],
+        app:app
     },
 
     onLoad(){
+        this.setData({
+            app:app
+        })
         // this.get_list(true).then(function(){
         //     this.setData({
         //         examinations:this.data.list.get_student_examinations.list,

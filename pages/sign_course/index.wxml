@@ -14,7 +14,7 @@
 
             </view>
             <view class="avatars" style="margin-bottom: 50rpx;">
-                <view bindtap="choose_student" data-li="binds" data-student="{{item}}" data-index="{{index}}" wx:for="{{student_list.binds}}" wx:key="index" class="avatar-li {{item.active ? 'avatar-active':''}}">
+                <view bindtap="choose_student" data-li="binds" data-student="{{item}}" data-index="{{index}}" wx:for="{{student_list.binds}}" wx:key="index" class="avatar-li {{(item.active===true) ? 'avatar-active':''}}">
                     <image class="avatar" mode="aspectFill" src="{{item.student_info.avatar?item.student_info.avatar:'http://wenyuanjiaoyu-qiniu.yixsu.com/%E6%96%B0%E7%94%9F@2x.png'}}"/>
                     <image class="gou" mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E9%80%89%E6%8B%A9@3x.png" style="width: 28rpx;height:28rpx"/>
                     <image class="name-bg-active" mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E7%9F%A9%E5%BD%A2%201066%20%E6%8B%B7%E8%B4%9D%2022@3x.png" style="width: 120rpx;height:38rpx;"/>
@@ -23,7 +23,7 @@
                     <view class="name">{{item.student_info.name}}</view>
                 </view>
 
-                <view bindtap="choose_student" data-li="news" data-student="{{item}}" data-index="{{index}}" wx:for="{{student_list.news}}" wx:key="index" class="avatar-li {{item.active ? 'avatar-active':''}}">
+                <view bindtap="choose_student" data-li="news" data-student="{{item}}" data-index="{{index}}" wx:for="{{student_list.news}}" wx:key="index" class="avatar-li {{(item.active===true) ? 'avatar-active':''}}">
                     <image class="avatar" mode="aspectFill" src="{{item.avatar?item.avatar:'http://wenyuanjiaoyu-qiniu.yixsu.com/%E6%96%B0%E7%94%9F@2x.png'}}"/>
                     <image class="gou" mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E9%80%89%E6%8B%A9@3x.png" style="width: 28rpx;height:28rpx"/>
                     <image class="name-bg-active" mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E7%9F%A9%E5%BD%A2%201066%20%E6%8B%B7%E8%B4%9D%2022@3x.png" style="width: 120rpx;height:38rpx;"/>

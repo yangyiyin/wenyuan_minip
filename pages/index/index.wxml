@@ -110,6 +110,5 @@
         </view>
     </view>
 </view>
-<image bindtap="goto_sign_course" mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E5%BC%80%E5%A7%8B%E9%80%89%E8%AF%BE%E5%95%A6%21@3x.png" style="width: 184rpx;height:186rpx;position: fixed;bottom: 30rpx;right: 30rpx;"/>
-
+<include src="../../common/sign_stage.wxml"/>
 <yxs_loading ready="{{ready}}"></yxs_loading>

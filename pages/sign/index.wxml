@@ -1,9 +1,9 @@
 
-<view class="container" style="background: #12CE87;height:400rpx;position: absolute;width: 750rpx;">
+<view class="container2" style="background: #12CE87;width: 750rpx;height:400rpx;position: absolute;">
     <view style="font-size: 44rpx;color: #fff;width: 690rpx;margin: 20rpx 0;padding: 0 30rpx;">精品课程</view>
     <view style="font-size:24rpx;color: #fff;width: 690rpx;margin-bottom: 20rpx;padding: 0 30rpx;">全新打造可预约式精品课程，根据需求可选上课时间，更人性化体验。</view>
 </view>
-<image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E7%9F%A9%E5%BD%A2%20782@3x.png" class="slide-image" style="width: 750rpx;height: 100rpx;position: absolute;top: 400rpx;"/>
+<image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E7%9F%A9%E5%BD%A2%20782@3x.png" class="slide-image" style="width: 750rpx;height: 100rpx;position: absolute;top: 400rpx;"/>
 
 <view style="height: 200rpx;"></view>
 <!--<view style="position: absolute;top: 200rpx;left:30rpx;width: 690rpx;height: 428rpx;box-shadow: 0 10rpx 20rpx #35D384;border-radius: 10rpx;overflow: hidden"></view>-->
@@ -47,6 +47,6 @@
     </view>
 
 </view>
-
+<include src="../../common/sign_stage.wxml"/>
 <yxs_loading ready="{{ready}}"></yxs_loading>
 <include src="../../common/bottom_pull_info.wxml"/>
