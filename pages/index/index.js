@@ -117,9 +117,16 @@ Page({
             var link = config.base_url_h5+'/apps/wenyuanjiaoyu/h5/news_info.php?id='+event.currentTarget.dataset.id;
         }
 
-        wx.navigateTo({
-            url: '/pages/webview/index?link='+encodeURIComponent(link)
-        })
+        if (link.indexOf('https://') == -1) {
+            wx.navigateTo({
+                url: link
+            })
+        } else {
+            wx.navigateTo({
+                url: '/pages/webview/index?link='+encodeURIComponent(link)
+            })
+        }
+
     },
     goto_sign_course(){
         wx.navigateTo({
