@@ -8,14 +8,14 @@
 
         <view style="margin-top: 82rpx;padding-bottom: 40rpx;border-bottom: 1rpx dashed #ddd">
             <view class="line-li">
-                <view class="item-li" style="float: left">
+                <view class="item-li" style="float: left;" >
                     <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E8%80%81%E5%B8%88@3x.png" style="width:64rpx;height: 64rpx;"/>
-                    <view class="text-info">
-                        <view class="mini-info">老师：</view>
-                        <view class="normal-info">{{class_info.teachername}}</view>
+                    <view class="text-info" style="width: 200rpx;">
+                        <view class="mini-info">上课规律：</view>
+                        <view class="normal-info">{{class_info.timerule}}</view>
                     </view>
                 </view>
-                <view class="item-li" style="float: right">
+                <view class="item-li" style="float: right;">
                     <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/已报@3x.png" style="width:64rpx;height: 64rpx;"/>
                     <view class="text-info">
                         <view class="mini-info">已报：</view>
@@ -29,9 +29,9 @@
             <view class="line-li">
                 <view class="item-li" style="float: left">
                     <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/学校@3x.png" style="width:64rpx;height: 64rpx;"/>
-                    <view class="text-info">
+                    <view class="text-info" style="width: 200rpx">
                         <view class="mini-info">校区：</view>
-                        <view class="normal-info">{{class_info.schoolname}}</view>
+                        <view class="normal-info">{{class_info.schoolname}}(地址：{{class_info.school_info.address}})</view>
                     </view>
                 </view>
                 <view class="item-li" style="float: right">

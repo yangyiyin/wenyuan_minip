@@ -324,11 +324,14 @@ Page({
                     'success':function(ret){
                         common.show_toast('支付成功');
                         //轮询状态
-                        _this.setData({
-                            order_id:order_id,
-                            from:'order'
+                        // _this.setData({
+                        //     order_id:order_id,
+                        //     from:'order'
+                        // })
+                        // _this.check_pay_status(_this);
+                        wx.redirectTo({
+                            url: '/pages/pay_success_sign_course/index?id='+order_id
                         })
-                        _this.check_pay_status(_this);
                     },
                     'fail':function(ret){
                     }

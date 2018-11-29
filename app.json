@@ -18,6 +18,8 @@
     "pages/course_detail/index",
     "pages/order_detail/index",
     "pages/pay_success/index",
+    "pages/pay_success_sign_examine/index",
+    "pages/pay_success_sign_course/index",
     "pages/my_orders/index",
     "pages/sign_course/index",
     "pages/sign_course_detail/index"

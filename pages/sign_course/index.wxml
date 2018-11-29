@@ -51,7 +51,7 @@
                         </view>
                         <view style="clear: both"></view>
                     </view>
-                    <view class="info-li"><text style="color: #999">老师：</text>{{item.content.teachername}}</view>
+                    <view class="info-li"><text style="color: #999">上课规律：</text>{{item.content.timerule}}</view>
                     <view class="info-li"><text style="color: #999">校区：</text>{{item.content.schoolname}} </view>
                     <view class="info-li"><text style="color: #999">状态：</text>{{item.member_status ? item.member_status : item.status_desc}}</view>
                     <view class="info-li"><text style="color: #999">时间：</text><view style="display:inline-block;vertical-align:top;font-size: 24rpx;width: 400rpx;">{{item.time_info}}</view> </view>

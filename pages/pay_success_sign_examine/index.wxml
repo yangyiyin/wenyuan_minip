@@ -1,0 +1,14 @@
+<view class="container" style="height: 100%;background: #fff">
+    <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/img@3x.png" style="width: 412rpx;height:220rpx;margin-top:172rpx;"/>
+
+
+    <view style="font-size: 40rpx;margin-top:50rpx;">报名成功!</view>
+    <view style="margin: 10rpx auto;width: 600rpx;">恭喜你报名考试成功，请再次确认考试详情页上方的报名信息是否正确，如遇问题请咨询官方客服</view>
+
+    <view style="margin-top: 50rpx;">
+        <!--<view  class="_btn" style="border: 1rpx solid #ddd;background: none;color: #333" bindtap="goto_detail">查看详情</view>-->
+        <view  class="_btn" style="border: 1rpx solid #ddd;background: none;color: #333" bindtap="goto_detail">查看详情</view>
+        <view  class="_btn" bindtap="goto_index">返回首页</view>
+    </view>
+
+</view>

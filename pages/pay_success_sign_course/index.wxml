@@ -1,0 +1,14 @@
+<view class="container" style="height: 100%;background: #fff">
+    <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/img@3x.png" style="width: 412rpx;height:220rpx;margin-top:172rpx;"/>
+
+
+    <view style="font-size: 40rpx;margin-top:50rpx;">支付成功!</view>
+
+    <view style="margin: 10rpx auto;width: 600rpx;">恭喜你支付成功，预报班进度可在"我的>我报名的课程"中查看，如遇问题，请咨询官方客服</view>
+
+    <view style="margin-top: 50rpx;">
+        <view  class="_btn" style="border: 1rpx solid #ddd;background: none;color: #333" bindtap="goto_detail">查看报班进度</view>
+        <view  class="_btn" bindtap="goto_index">返回首页</view>
+    </view>
+
+</view>

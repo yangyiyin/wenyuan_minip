@@ -40,7 +40,8 @@ Page({
         current_student:{},
         step:1,
         is_need_upload_avatar:false,
-        has_base:0
+        has_base:0,
+        has_open_ticket:false
     },
     onLoad(option){
         this.setData({
@@ -587,12 +588,14 @@ Page({
         } else {//直接报名,不支付的
             common.request('post','examination_sign',data,function (res) {
                 if (res.data.code == common.constant.return_code_success) {
-                    common.show_toast('恭喜你,报名成功!');
-                    this.get_examination_detail();
+                    //common.show_toast('恭喜你,报名成功!');
+                    //this.get_examination_detail();
                     this.setData({
                         visible:false
                     })
-
+                    wx.redirectTo({
+                        url: '/pages/pay_success_sign_examine/index?id='+this.data.id
+                    })
                 } else {
                     common.show_modal(res.data.msg);
                 }
@@ -620,12 +623,14 @@ Page({
                 if (res.data.code == common.constant.return_code_success) {
                     wx.hideLoading();
                     clearInterval(int_ins);
-                    common.show_toast('恭喜你,报名成功!');
-                    _this.get_examination_detail();
+                    // common.show_toast('恭喜你,报名成功!');
+                    // _this.get_examination_detail();
                     _this.setData({
                         visible:false
                     })
-
+                    wx.redirectTo({
+                        url: '/pages/pay_success_sign_examine/index?id='+_this.data.id
+                    })
                 } else {
                     //common.show_modal(res.data.msg);
                 }
@@ -653,9 +658,26 @@ Page({
     show_ticket(event){
         var ticket = event.currentTarget.dataset.ticket;
         if (ticket) {
-            wx.previewImage({
-                urls: [ticket] // 需要预览的图片http链接列表
-            });
+            if (!this.data.has_open_ticket) {
+                //获取图片地址，因人数过多的时候，需要排队
+                common.request('post','check_can_open_ticket',{},function (res) {
+                    if (res.data.code == common.constant.return_code_success) {
+                        this.setData({
+                            has_open_ticket:true
+                        })
+                        wx.previewImage({
+                            urls: [ticket] // 需要预览的图片http链接列表
+                        });
+                    } else {
+                        common.show_modal(res.data.msg);
+                    }
+                }.bind(this));
+            } else {
+                wx.previewImage({
+                    urls: [ticket] // 需要预览的图片http链接列表
+                });
+            }
+
         } else {
             common.show_modal('图片不存在,请联系官方客服');
         }

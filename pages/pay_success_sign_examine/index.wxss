@@ -1,0 +1,3 @@
+._btn{
+    width: 210rpx;height:70rpx;line-height:70rpx;margin:25rpx 10rpx;border-radius:100rpx;text-align:center;display:inline-block;background: #41CA84;color: #fff
+}
