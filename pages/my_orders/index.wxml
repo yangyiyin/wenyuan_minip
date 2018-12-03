@@ -26,7 +26,7 @@
 
                 <view wx:if="{{item.price_type==1}}"style="font-size: 32rpx;color: red">￥{{item.deposit}}<text wx:if="{{item.price-item.payed_money > 0}}">(未付:￥{{item.price-item.payed_money}})</text></view>
                 <view wx:if="{{item.price_type==2}}"style="font-size: 32rpx;color: red">￥{{item.price}}</view>
-                <view wx:if="{{item.type==2}}"style="font-size: 26rpx;color: #000">状态：{{item.status_desc}}</view>
+                <view wx:if="{{item.type==2}}"style="font-size: 26rpx;font-weight: bold">状态说明：{{item.status_desc == '等待付款'?'等待付款(2分钟后失效)':item.status_desc}}</view>
             </view>
         </view>
         <view style="padding: 20rpx;padding-top: 0" wx:if="{{item.type==1}}">

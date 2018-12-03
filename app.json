@@ -22,7 +22,8 @@
     "pages/pay_success_sign_course/index",
     "pages/my_orders/index",
     "pages/sign_course/index",
-    "pages/sign_course_detail/index"
+    "pages/sign_course_detail/index",
+    "pages/order_wait/index"
   ],
   "window":{
     "navigationBarBackgroundColor": "#ffffff",

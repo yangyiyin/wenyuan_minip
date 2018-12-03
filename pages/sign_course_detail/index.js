@@ -56,6 +56,14 @@ Page({
         // this.get_goods_comment_list(true);
     },
     onShow(){
+        if (app.globalData.sign_course_order_success && app.globalData.sign_course_order_id) {//如果下单成功标示,则跳转成功页
+
+            wx.redirectTo({
+                url: '/pages/pay_success_sign_course/index?id='+app.globalData.sign_course_order_id
+            })
+        }
+
+
         if (app.globalData.current_cut_img) {
             this.setData({
                 current_cut_img:app.globalData.current_cut_img
@@ -295,11 +303,21 @@ Page({
         common.request('post','add_order_sign_course',data,function (res) {
             wx.hideLoading();
             if (res.data.code == common.constant.return_code_success) {
-                this.setData({
-                    order_id:res.data.data
-                })
-                //创建支付
-                this.pay();
+                //判断是否等待
+                if(res.data.data.is_wait) {
+                    app.globalData.sign_course_order_data = data;
+                    app.globalData.sign_course_order_id = null;
+                    app.globalData.sign_course_order_success = false;
+                    wx.navigateTo({
+                        url: '/pages/order_wait/index'
+                    })
+                } else {
+                    this.setData({
+                        order_id:res.data.data
+                    })
+                    //创建支付
+                    this.pay();
+                }
             } else {
                 common.show_modal(res.data.msg);
             }

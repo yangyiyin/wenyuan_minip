@@ -49,7 +49,7 @@
                     <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/状态@3x.png" style="width:64rpx;height: 64rpx;"/>
                     <view class="text-info">
                         <view class="mini-info">状态：</view>
-                        <view class="normal-info" style="width: 384rpx;">{{class_info.member_status ? class_info.member_status : class_info.status_desc}}</view>
+                        <view class="normal-info" style="width: 384rpx;color:red">{{class_info.member_status ? class_info.member_status : class_info.status_desc}}</view>
                     </view>
                 </view>
                 <view style="clear: both"></view>
