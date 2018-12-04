@@ -45,6 +45,7 @@ var urls = {
     get_class_info:base_url+'/wenyuanjiaoyu/sign_course/get_class_info',
     get_sign_course_stage:base_url+'/wenyuanjiaoyu/sign_stage/get_active_one',
     check_can_open_ticket:base_url+'/wenyuanjiaoyu/examination_signs/check_can_open_ticket',
+    quit_queue:base_url+'/wenyuanjiaoyu/order/quit_queue',
 }
 
 module.exports = {

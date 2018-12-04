@@ -5,24 +5,42 @@ const app = getApp()
 
 Page({
     data:{
-        order_id:0
+        order_id:0,
+        class_id:0,
+        int_ins:null,
+        wait_data:{
+            no:'-',
+            wait_count:'-',
+            wait_time:'-'
+        },
+        class_plancount:0
     },
     onLoad(option){
-
+        this.setData({
+            class_id:option.class_id,
+            class_plancount:option.class_plancount
+        })
         if (!app.globalData.sign_course_order_data) {
             common.show_modal('请求数据有误,请返回');
         } else {
 
+            //轮询回调支付状态
+            this.int_ins = setInterval(function(){
+                this.submit();
+            }.bind(this), 3000);
         }
 
     },
-    _submit(data){
+    submit(){
         common.request('post','add_order_sign_course',app.globalData.sign_course_order_data,function (res) {
             if (res.data.code == common.constant.return_code_success) {
                 //判断是否等待
                 if(res.data.data.is_wait) {
-
+                    this.setData({
+                        wait_data:res.data.data
+                    })
                 } else {
+                    clearInterval(this.int_ins);
                     this.setData({
                         order_id:res.data.data
                     })
@@ -66,6 +84,12 @@ Page({
             } else {
                 common.show_modal(res.data.msg);
             }
+        }.bind(this));
+    },
+    onUnload(){
+        clearInterval(this.int_ins);
+        common.request('post','quit_queue',{class_id:this.data.class_id},function (res) {
+
         }.bind(this));
     }
 });

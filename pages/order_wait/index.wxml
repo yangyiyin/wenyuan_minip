@@ -11,23 +11,23 @@
             <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/bg1.png" style="width: 710rpx;height:100%;position: absolute;top:0;left:0"/>
             <view style="color: #333;position: relative;text-align: center;padding-top:80rpx;">
                 <view style="font-size: 40rpx;">您的排队序号是</view>
-                <view style="font-size: 100rpx;margin-top: 40rpx;">49号</view>
+                <view style="font-size: 100rpx;margin-top: 40rpx;">{{wait_data.no}}号</view>
             </view>
 
             <view style="color: #333;position: absolute;text-align: center;left: 110rpx;bottom: 100rpx;">
-                <view style="font-size: 40rpx;color: red">25人</view>
+                <view style="font-size: 40rpx;color: red">{{wait_data.wait_count}}人</view>
                 <view style="font-size: 30rpx;margin-top: 20rpx;">当前等待人数</view>
             </view>
 
             <view style="color: #333;position: absolute;text-align: center;right: 110rpx;bottom: 100rpx;">
-                <view style="font-size: 40rpx;color: red">2分钟</view>
+                <view style="font-size: 40rpx;color: red">{{wait_data.wait_time}}</view>
                 <view style="font-size: 30rpx;margin-top: 20rpx;">预计等待时间</view>
             </view>
 
         </view>
         <view style="width: 670rpx;color: #000;margin: 0 auto;margin-top: 30rpx;">
             <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E6%8F%90%E7%A4%BAicon@3x.png" style="width: 30rpx;height:30rpx;"/>
-            当前班级限额 30 人，请根据您的队列号灵活判断是否需要继续等待。
+            当前班级限额 {{class_plancount}} 人，请根据您的队列号灵活判断是否需要继续等待。
         </view>
 
     </view>

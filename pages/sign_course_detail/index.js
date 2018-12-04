@@ -270,7 +270,7 @@ Page({
         if (!data){
             return;
         }
-        console.log(data);
+        //console.log(data);
         //return;
         //上传图片
         if (this.data.is_need_upload_avatar) {
@@ -309,7 +309,7 @@ Page({
                     app.globalData.sign_course_order_id = null;
                     app.globalData.sign_course_order_success = false;
                     wx.navigateTo({
-                        url: '/pages/order_wait/index'
+                        url: '/pages/order_wait/index?class_plancount='+data.class_info.plancount+'&class_id='+data.class_info.class_id
                     })
                 } else {
                     this.setData({
