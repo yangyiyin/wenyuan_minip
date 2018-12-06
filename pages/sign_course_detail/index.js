@@ -105,7 +105,11 @@ Page({
                             })
                         }
 
-
+                    }
+                    if (res.data.data.order_id) {
+                        this.setData({
+                            order_id:res.data.data.order_id
+                        });
                     }
                 } else {
                     common.show_modal(res.data.msg);
@@ -325,11 +329,15 @@ Page({
     },
 
     pay(){
+        wx.showLoading({
+            title: '创建支付中。。。',
+        });
         var order_id = this.data.order_id
         var data = {
             id:order_id
         };
         common.request('post','pay_create_sign_course_order',data,function (res) {
+            wx.hideLoading();
             if (res.data.code == common.constant.return_code_success) {
                 //调起支付
                 var _this = this;
@@ -352,6 +360,10 @@ Page({
                         })
                     },
                     'fail':function(ret){
+                        // common.show_modal('下单已成功,2分钟内请支付');
+                        wx.navigateBack({
+                            delta: 1
+                        })
                     }
                 })
 

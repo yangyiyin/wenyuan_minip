@@ -50,7 +50,8 @@
                     <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/状态@3x.png" style="width:64rpx;height: 64rpx;"/>
                     <view class="text-info">
                         <view class="mini-info">状态：</view>
-                        <view class="normal-info" style="width: 384rpx;color:red">{{class_info.member_status ? class_info.member_status : class_info.status_desc}}</view>
+                        <view wx:if="{{class_info.order_status == 1}}" class="normal-info" style="width: 384rpx;color:red">等待付款(2分钟后失效)</view>
+                        <view wx:if="{{class_info.order_status != 1}}" class="normal-info" style="width: 384rpx;color:red">{{class_info.member_status ? class_info.member_status : class_info.status_desc}}</view>
                     </view>
                 </view>
                 <view style="clear: both"></view>
