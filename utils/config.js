@@ -1,7 +1,7 @@
- var base_url = 'https://api.yixsu.com/index.php';
- var base_url_h5 = 'https://api.yixsu.com';
-// var base_url = 'http://www.myweb.com/git-res/earth_php/index.php';
-// var base_url_h5 = 'http://www.myweb.com/git-res/earth_php';
+ // var base_url = 'https://api.yixsu.com/index.php';
+ // var base_url_h5 = 'https://api.yixsu.com';
+var base_url = 'http://www.myweb.com/git-res/earth_php/index.php';
+var base_url_h5 = 'http://www.myweb.com/git-res/earth_php';
 
 var urls = {
     login:base_url+'/wenyuanjiaoyu/auth/login',
