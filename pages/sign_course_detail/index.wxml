@@ -18,9 +18,9 @@
                 <view class="item-li" style="float: right;">
                     <image mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/已报@3x.png" style="width:64rpx;height: 64rpx;"/>
                     <view class="text-info">
-                        <view class="mini-info">报名：</view>
+                        <view class="mini-info">报名开始：</view>
                         <!--<view class="normal-info"  wx:if="{{!from}}">{{class_info.stucount}}/{{class_info.plancount}}</view>-->
-                        <view class="normal-info">火热报名中</view>
+                        <view class="normal-info" style="width: 200rpx">{{class_info.sign_start_time}}</view>
                         <!--<view class="normal-info"  wx:if="{{from=='order'}}">请关注报名页</view>-->
                     </view>
                 </view>
