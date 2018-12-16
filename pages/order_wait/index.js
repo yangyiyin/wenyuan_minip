@@ -32,7 +32,11 @@ Page({
 
     },
     submit(){
+        wx.showLoading({
+            title: '刷新队列中。。。',
+        });
         common.request('post','add_order_sign_course',app.globalData.sign_course_order_data,function (res) {
+            wx.hideLoading();
             if (res.data.code == common.constant.return_code_success) {
                 //判断是否等待
                 if(res.data.data.is_wait) {
@@ -58,7 +62,11 @@ Page({
         var data = {
             id:order_id
         };
+        wx.showLoading({
+            title: '创建支付中。。。',
+        });
         common.request('post','pay_create_sign_course_order',data,function (res) {
+            wx.hideLoading();
             if (res.data.code == common.constant.return_code_success) {
                 //调起支付
                 var _this = this;
@@ -78,6 +86,9 @@ Page({
                         })
                     },
                     'fail':function(ret){
+                        wx.navigateBack({
+                            delta: 2
+                        })
                     }
                 })
 

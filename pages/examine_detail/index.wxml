@@ -94,10 +94,18 @@
                     </view>
                     <view style="height: 40px;float: left;line-height:40px;text-align: center;margin-right: 5px;color: red">*</view>
 
-                    是否有基础
-                    <checkbox-group bindchange="change_has_base" style="vertical-align: middle;float: right" >
-                        <checkbox  value="1" checked="{{has_base}}"/>
+                    <view style="font-size: 22rpx;float: left">是否有基础:</view>
+
+
+                    <checkbox-group bindchange="change_has_base" style="vertical-align: middle;float: right;font-size: 22rpx;" >
+                        语文<checkbox  value="1" />
+                        数学<checkbox  value="2" />
+                        英语 <checkbox  value="3" />
                     </checkbox-group>
+
+                    <!--<checkbox-group bindchange="change_has_base" style="vertical-align: middle;float: right" >-->
+                        <!--<checkbox  value="1" checked="{{has_base}}"/>-->
+                    <!--</checkbox-group>-->
                     <!--<i-checkbox i-class="checkbox_base" checked="{{has_base}}"></i-checkbox>-->
                 </view>
                 <view style="position: relative;" class="input-item">
@@ -105,7 +113,7 @@
 
                 </view>
                 <view style="position: relative;" class="input-item">
-                    <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_168.png" placeholder="主要联系电话" bindchange="bindinputphone1" error_info="{{inputphone1_error}}"></yxs_input>
+                    <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_168.png" placeholder="主要联系电话" bindchange="bindinputphone1" value="{{inputphone1}}" error_info="{{inputphone1_error}}"></yxs_input>
                 </view>
                 <view style="position: relative;" class="input-item">
                     <yxs_input no_border="{{true}}" width="600" height="80" maxlength="20" must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_168.png" placeholder="备用联系电话" bindchange="bindinputphone2" error_info="{{inputphone2_error}}"></yxs_input>

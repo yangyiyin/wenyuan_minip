@@ -41,13 +41,20 @@ Page({
         step:1,
         is_need_upload_avatar:false,
         has_base:0,
-        has_open_ticket:false
+        has_base_detail:[],
+        has_open_ticket:false,
+        inputphone1:''
     },
     onLoad(option){
         this.setData({
             id:option.id
         })
-
+        // this.setData({
+        //     current_main_phone:app.globalData.userInfo.user_tel
+        // })
+        this.setData({
+            inputphone1:app.globalData.userInfo.user_tel
+        })
         this.get_examination_detail();
     },
     onShow: function() {
@@ -95,7 +102,7 @@ Page({
             select_options_lession:[],
             select_options_address:[],
             select_options_student:[],
-            inputphone1:'',
+            // inputphone1:'',
             inputphone2:'',
             options_lession:this.data.options_lession,
             step:1,
@@ -112,11 +119,13 @@ Page({
     change_has_base(e){
         if (e.detail.value.length) {
             this.setData({
-                has_base:true
+                has_base:true,
+                has_base_detail:e.detail.value
             })
         } else {
             this.setData({
-                has_base:false
+                has_base:false,
+                has_base_detail:[]
             })
         }
     },
@@ -334,7 +343,8 @@ Page({
                 father_tel:this.data.inputphone1,
                 mother_tel:this.data.inputphone2,
                 avatar:'',
-                has_base:this.data.has_base?1:0
+                has_base:this.data.has_base?1:0,
+                has_base_detail:this.data.has_base_detail
             }
         }
 
@@ -640,7 +650,8 @@ Page({
         }, 500);
     },
     get_bind_students() {
-        common.request('post','get_bind_students',{},function (res) {
+
+        common.request('post','get_bind_students',{examine_id:this.data.id},function (res) {
             if (res.data.code == common.constant.return_code_success) {
                 if(this.data.info.type != 3) {
                     res.data.data.push({id:-1,name:'新增学生'});
@@ -649,6 +660,7 @@ Page({
                 this.setData({
                     options_student:res.data.data
                 });
+
 
             } else {
                 common.show_modal(res.data.msg);
