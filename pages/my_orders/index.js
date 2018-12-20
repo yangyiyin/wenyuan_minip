@@ -110,6 +110,7 @@ Page({
 
                     },
                     'fail':function(ret){
+                        common.request('post','cancel_pay',{id:id},function (res) {});
                     }
                 })
 

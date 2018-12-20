@@ -361,6 +361,7 @@ Page({
                     },
                     'fail':function(ret){
                         // common.show_modal('下单已成功,2分钟内请支付');
+                        common.request('post','cancel_pay',{id:order_id},function (res) {});
                         wx.navigateBack({
                             delta: 1
                         })

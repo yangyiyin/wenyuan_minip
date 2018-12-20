@@ -86,6 +86,7 @@ Page({
                         })
                     },
                     'fail':function(ret){
+                        common.request('post','cancel_pay',{id:order_id},function (res) {});
                         wx.navigateBack({
                             delta: 2
                         })
