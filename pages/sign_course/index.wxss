@@ -98,3 +98,8 @@ page{
     border-radius: 100rpx;
     text-align: center;
 }
+.option{
+    padding: 10rpx 20rpx;
+    font-size: 30rpx;
+    display: inline-block;
+}

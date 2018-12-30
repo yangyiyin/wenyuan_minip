@@ -12,8 +12,14 @@ Page({
         course_list:'',
         stage:'',
         loading_course_list:true,
-        stage_id:0
-
+        stage_id:0,
+        options_grade: [{label:'全部年级',value:'-1'},{label:'一年级',value:'一'},{label:'二年级',value:'二'},{label:'三年级',value:'三'},{label:'四年级',value:'四'},{label:'五年级',value:'五'},{label:'六年级',value:'六'}],
+        options_subject: [{label:'语/数/外',value:'-1'},{label:'语文',value:'语文'},{label:'数学',value:'数学'},{label:'英语',value:'英语'}],
+        options_level: [{label:'基础/提高/加强/全部',value:'-1'},{label:'基础',value:'基础'},{label:'提高',value:'提高'},{label:'加强',value:'加强'}],
+        options_week: [{label:'周五至周日',value:'-1'},{label:'周五',value:'五'},{label:'周六',value:'六'},{label:'周日',value:'日'}],
+        options_day: [{label:'上午/下午/晚上',value:'-1'},{label:'上午',value:'上午'},{label:'下午',value:'下午'},{label:'晚上',value:'晚上'}],
+        menuTop:0,
+        option_index:{grade:0,subject:0,level:0,week:0,day:0,}
     },
     onLoad(option){
         this.setData({
@@ -30,7 +36,46 @@ Page({
     onShow(){
 
     },
+    init_menu_top(){
+        var that = this;
+
+        var query = wx.createSelectorQuery()//创建节点查询器 query
+
+        query.select('#affix').boundingClientRect()//这段代码的意思是选择Id= the - id的节点，获取节点位置信息的查询请求
+
+        query.exec(function (res) {
+
+            console.log(res[0].top); // #affix节点的上边界坐
+
+            that.setData({
+
+                menuTop: res[0].top
+
+            })
+
+        });
+    },
+    onPageScroll: function (e) {
+
+// console.log(e.scrollTop);
+        var that = this;
+// 3.当页面滚动距离scrollTop > menuTop菜单栏距离文档顶部的距离时，菜单栏固定定位
+        if ((e.scrollTop-50) > that.data.menuTop) {
+            that.setData({
+                menuFixed: true
+            })
+        } else {
+            that.setData({
+                menuFixed: false
+            })
+
+        }
+    },
+
     get_sign_course_student_list(){
+        this.setData({
+            option_index:{grade:0,subject:0,level:0,week:0,day:0}
+        })
         return new Promise(function(resolve,reject){
             this.setData({
                 loading_student_list:true
@@ -53,6 +98,7 @@ Page({
                         loading_student_list:false,
                         current_student:current_student
                     });
+                    this.init_menu_top();
                     resolve();
                 } else {
                     common.show_modal(res.data.msg);
@@ -68,7 +114,12 @@ Page({
         return new Promise(function(resolve,reject){
             var data = {
                 student:this.data.current_student,
-                stage_id:this.data.stage_id
+                stage_id:this.data.stage_id,
+                option_grade:this.data.options_grade[this.data.option_index.grade].value,
+                option_subject:this.data.options_subject[this.data.option_index.subject].value,
+                option_level:this.data.options_level[this.data.option_index.level].value,
+                option_week:this.data.options_week[this.data.option_index.week].value,
+                option_day:this.data.options_day[this.data.option_index.day].value,
             }
             this.setData({
                 loading_course_list:true
@@ -113,7 +164,9 @@ Page({
         });
     },
     choose_student(event){
-
+        this.setData({
+            option_index:{grade:0,subject:0,level:0,week:0,day:0}
+        })
         var student = event.currentTarget.dataset.student;
         var index = event.currentTarget.dataset.index;
         var li = event.currentTarget.dataset.li;
@@ -135,5 +188,14 @@ Page({
             student_list:this.data.student_list
         });
         this.get_sign_class_list();
-    }
+    },
+    bindPickerChange(e) {
+        var option = e.currentTarget.dataset.option;
+        this.data.option_index[option] = e.detail.value;
+        this.setData({
+            option_index: this.data.option_index
+        });
+        //获取当前学生的可报名班级
+        this.get_sign_class_list();
+    },
 });

@@ -35,31 +35,66 @@
         </view>
 
         <view class="block-box" style="position: relative">
-            <i-spin fix wx:if="{{loading_course_list}}"></i-spin>
+
             <view class="title-box">
                 <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/02@3x.png" style="width: 64rpx;height:42rpx;"/>
                 <text style="margin-left: 20rpx;">选择可选班级</text>
                 <image mode="aspectFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/%E5%8F%AF%E9%80%89%E7%8F%AD%E7%BA%A7@3x.png" style="width: 160rpx;height:74rpx;float: right;margin-right: -50rpx;"/>
 
-
-                <view class="class-li" wx:for="{{course_list}}" wx:key="index" >
-                    <view>
-                        <text style="font-size: 36rpx;">{{item.content.classname}}</text>
-                        <view style="float: right">
-                            <!--<view style="color: red">{{item.stucount}}/{{item.plancount}}</view>-->
-                            <view style="color: #999;font-size: 24rpx;">押金:{{item.course_info.deposit}}元</view>
+                <view id="affix" style="font-size:26rpx;margin-top: 30rpx;color:#04b00f;width:650rpx;border-bottom: 1rpx solid #ddd;background: #fff;{{menuFixed?'position:fixed;top:0;left:0;padding:10rpx 50rpx;margin-top:0;z-index:9':''}}">
+                    筛选:
+                    <picker class="option" bindchange="bindPickerChange" data-option="grade" range="{{options_grade}}" range-key="label">
+                        <view>
+                            {{options_grade[option_index.grade].label}}
+                            <image style="width: 20rpx;vertical-align:middle;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_185.png"></image>
                         </view>
-                        <view style="clear: both"></view>
-                    </view>
-                    <view class="info-li"><text style="color: #999">上课规律：</text>{{item.content.timerule}}</view>
-                    <view class="info-li"><text style="color: #999">校区：</text>{{item.content.schoolname}} </view>
-                    <view class="info-li" style="color: red"><text style="color: red">状态：</text>{{item.member_status ? item.member_status : item.status_desc}}</view>
-                    <view class="info-li"><text style="color: #999">报名时间：</text><text decode="{{true}}" style="display:inline-block;vertical-align:top;font-size: 24rpx;width: 400rpx;">{{item.time_info}}</text> </view>
-                    <view wx:if="{{item.can_sign}}" class="btn-sign" bindtap="goto_detail" data-id="{{item.id}}">去报名</view>
-                    <view wx:if="{{!item.can_sign}}" class="btn-sign" style="background: #ccc">去报名</view>
+                    </picker>
+                    <picker class="option" bindchange="bindPickerChange" data-option="subject" range="{{options_subject}}" range-key="label">
+                        <view>
+                            {{options_subject[option_index.subject].label}}
+                            <image style="width: 20rpx;vertical-align:middle;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_185.png"></image>
+                        </view>
+                    </picker>
+                    <picker class="option" bindchange="bindPickerChange" data-option="level" range="{{options_level}}" range-key="label">
+                        <view>
+                            {{options_level[option_index.level].label}}
+                            <image style="width: 20rpx;vertical-align:middle;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_185.png"></image>
+                        </view>
+                    </picker>
+                    <picker class="option" bindchange="bindPickerChange" data-option="week" range="{{options_week}}" range-key="label">
+                        <view >
+                            {{options_week[option_index.week].label}}
+                            <image style="width: 20rpx;vertical-align:middle;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_185.png"></image>
+                        </view>
+                    </picker>
+                    <picker class="option" bindchange="bindPickerChange" data-option="day" range="{{options_day}}" range-key="label">
+                        <view>
+                            {{options_day[option_index.day].label}}
+                            <image style="width: 20rpx;vertical-align:middle;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_185.png"></image>
+                        </view>
+                    </picker>
                 </view>
 
 
+                <view style="position: relative">
+                    <i-spin fix wx:if="{{loading_course_list}}"></i-spin>
+                    <view class="class-li" wx:for="{{course_list}}" wx:key="index" >
+                        <view>
+                            <text style="font-size: 36rpx;">{{item.content.classname}}</text>
+                            <view style="float: right">
+                                <!--<view style="color: red">{{item.stucount}}/{{item.plancount}}</view>-->
+                                <view style="color: #999;font-size: 24rpx;">押金:{{item.course_info.deposit}}元</view>
+                            </view>
+                            <view style="clear: both"></view>
+                        </view>
+                        <view class="info-li"><text style="color: #999">上课规律：</text>{{item.content.timerule}}</view>
+                        <view class="info-li"><text style="color: #999">校区：</text>{{item.content.schoolname}} </view>
+                        <view class="info-li" style="color: red"><text style="color: red">状态：</text>{{item.member_status ? item.member_status : item.status_desc}}</view>
+                        <view class="info-li"><text style="color: #999">报名时间：</text><text decode="{{true}}" style="display:inline-block;vertical-align:top;font-size: 24rpx;width: 400rpx;">{{item.time_info}}</text> </view>
+                        <view wx:if="{{item.can_sign}}" class="btn-sign" bindtap="goto_detail" data-id="{{item.id}}">去报名</view>
+                        <view wx:if="{{!item.can_sign}}" class="btn-sign" style="background: #ccc">去报名</view>
+                    </view>
+                </view>
 
             </view>
         </view>
