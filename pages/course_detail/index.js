@@ -280,17 +280,25 @@ Page({
 
         var index = event.currentTarget.dataset.index;
         var index2 = event.currentTarget.dataset.index2;
-        this.data.detail.content.checked_options[index].children.forEach(function(val){
-            val.active = false;
 
-        });
+        if (this.data.detail.content.checked_options[index].children[index2].active) {
+            this.data.detail.content.checked_options[index].children[index2].active = false;
+        } else {
+            this.data.detail.content.checked_options[index].children.forEach(function(val){
+                val.active = false;
 
-        this.data.detail.content.checked_options[index].children[index2].active = true;
+            });
+
+            this.data.detail.content.checked_options[index].children[index2].active = true;
+        }
+
+
 
         // this.setData({
         //     detail:this.data.detail
         // });
         var attr_str = this.get_attr();
+        // console.log(attr_str);
         //检测剩余项目是否可选
         this.set_disable_options(attr_str);
 
@@ -367,10 +375,20 @@ Page({
                     if (val2.id || val2.index) {
                         attr[i1] = val2.id ? val2.id : 'x'+val2.index;
                         var sku = this.get_current_sku(attr.join('-'));
+                         // console.log(attr);
+                        // console.log(attr.join('-'));
                         if (sku) {
                             val2.disable = sku.disable;
                         } else {
-                            val2.disable = false;
+
+                            if (attr.indexOf("") == -1) {//选的只剩一个的时候,可以辨别是否可选
+                                // console.log(attr);
+                                val2.disable = true;
+                            } else {
+                                val2.disable = false;
+                            }
+
+
                         }
                     } else {
                         val2.disable = true;
