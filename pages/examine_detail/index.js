@@ -654,7 +654,7 @@ Page({
         common.request('post','get_bind_students',{examine_id:this.data.id},function (res) {
             if (res.data.code == common.constant.return_code_success) {
                 if(this.data.info.type != 3) {
-                    res.data.data.push({id:-1,name:'新增学生'});
+                    // res.data.data.push({id:-1,name:'新增学生'});
                 }
 
                 this.setData({
