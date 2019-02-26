@@ -1,0 +1,78 @@
+<view class="container" >
+    <image style="width: 750rpx;height:360rpx" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/topimg@3x.png" />
+    <view style="width: 750rpx;height:634rpx;">
+        <image style="width: 750rpx;height:634rpx;position: absolute;z-index: 0" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/bg@3x.png" />
+
+        <view style="width: 750rpx;height:140rpx;line-height: 140rpx;text-align: center;font-size: 36rpx;z-index: 1;position: relative;color: #fff;text-shadow: 2px 2px 3px #FF3333;">18暑初一英语培优1班</view>
+        <view style="width: 750rpx;height:100rpx;line-height: 100rpx;text-align: center;font-size: 24rpx;z-index: 1;position: relative;color: #87500C;">
+            作业完成率:<text>90%</text>
+            <image style="width: 148rpx;height:50rpx;margin-right:-168rpx;margin-left:20rpx;vertical-align: middle" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/炫耀一下@3x.png" />
+
+        </view>
+        <view style="width: 750rpx;text-align: center;position: relative;z-index: 1">
+            <image style="width: 40rpx;height:6rpx;vertical-align: middle;margin-right: 50rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/矩形 1271@3x.png" />
+            <image style="width: 106rpx;height:106rpx;vertical-align: middle" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/多边形 1268 拷贝@3x.png" />
+            <image style="width: 106rpx;height:106rpx;vertical-align: middle" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/多边形 1268 拷贝@3x.png" />
+            <image style="width: 106rpx;height:106rpx;vertical-align: middle" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/多边形 1268@3x.png" />
+            <image style="width: 40rpx;height:6rpx;vertical-align: middle;margin-left: 50rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/矩形 1271@3x.png" />
+
+
+        </view>
+        <view style="width: 750rpx;z-index: 1;position: relative;color: #fff;text-align: center;margin-top: 50rpx;">
+            <image style="width: 180rpx;height:36rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/矩形 676 拷贝 6@3x.png" />
+
+            <view style="position: absolute;top:0;text-align: center;line-height: 36rpx;width: 100%;font-size: 22rpx;">有课程待学习</view>
+
+
+        </view>
+        <view style="width: 750rpx;text-align: center;font-size: 36rpx;z-index: 1;position: relative;color: #fff;">
+            <image style="width: 444rpx;height:114rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/矩形 676 拷贝 3@3x.png" />
+
+            <view style="position: absolute;top:0;text-align: center;width: 100%;font-size: 30rpx;line-height: 100rpx;color: #FEA43B">
+                去学习 <image style="width: 28rpx;height:28rpx;position:relative;top:2rpx;margin-right: -28rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/矩形 1027@3x.png" />
+            </view>
+
+        </view>
+
+    </view>
+
+    <view style="width: 750rpx;height:634rpx;">
+        <image style="width: 750rpx;height:634rpx;position: absolute;z-index: 0" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/bg@3x.png" />
+
+        <view style="width: 750rpx;height:140rpx;line-height: 140rpx;text-align: center;font-size: 36rpx;z-index: 1;position: relative;color: #fff;text-shadow: 2px 2px 3px #FF3333;">18暑初一英语培优1班</view>
+        <view style="width: 750rpx;height:100rpx;line-height: 100rpx;text-align: center;font-size: 24rpx;z-index: 1;position: relative;color: #87500C;">
+            作业完成率:<text>90%</text>
+            <image style="width: 148rpx;height:50rpx;margin-right:-168rpx;margin-left:20rpx;vertical-align: middle" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/炫耀一下@3x.png" />
+
+        </view>
+        <view style="width: 750rpx;text-align: center;position: relative;z-index: 1">
+            <image style="width: 40rpx;height:6rpx;vertical-align: middle;margin-right: 50rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/矩形 1271@3x.png" />
+            <image style="width: 106rpx;height:106rpx;vertical-align: middle" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/多边形 1268 拷贝@3x.png" />
+            <image style="width: 106rpx;height:106rpx;vertical-align: middle" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/多边形 1268 拷贝@3x.png" />
+            <image style="width: 106rpx;height:106rpx;vertical-align: middle" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/多边形 1268@3x.png" />
+            <image style="width: 40rpx;height:6rpx;vertical-align: middle;margin-left: 50rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/矩形 1271@3x.png" />
+
+
+        </view>
+        <view style="width: 750rpx;z-index: 1;position: relative;color: #fff;text-align: center;margin-top: 50rpx;">
+            <image style="width: 180rpx;height:36rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/矩形 676 拷贝 6@3x.png" />
+
+            <view style="position: absolute;top:0;text-align: center;line-height: 36rpx;width: 100%;font-size: 22rpx;">有课程待学习</view>
+
+
+        </view>
+        <view style="width: 750rpx;text-align: center;font-size: 36rpx;z-index: 1;position: relative;color: #fff;">
+            <image style="width: 444rpx;height:114rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/矩形 676 拷贝 3@3x.png" />
+
+            <view style="position: absolute;top:0;text-align: center;width: 100%;font-size: 30rpx;line-height: 100rpx;color: #FEA43B">
+                去学习 <image style="width: 28rpx;height:28rpx;position:relative;top:2rpx;margin-right: -28rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/矩形 1027@3x.png" />
+            </view>
+
+        </view>
+
+    </view>
+
+
+
+</view>
+<include src="../../common/bottom_pull_info.wxml"/>

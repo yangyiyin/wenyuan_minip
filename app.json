@@ -1,5 +1,8 @@
 {
   "pages":[
+    "pages/homework_detail/index",
+    "pages/homework_list/index",
+    "pages/homework_index/index",
     "pages/index_pre/index",
     "pages/login/index",
     "pages/index/index",
@@ -24,6 +27,7 @@
     "pages/sign_course/index",
     "pages/sign_course_detail/index",
     "pages/order_wait/index"
+
   ],
   "window":{
     "navigationBarBackgroundColor": "#ffffff",

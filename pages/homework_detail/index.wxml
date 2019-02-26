@@ -1,0 +1,223 @@
+<view class="container" style="background: #eee">
+    <view style="width: 750rpx;height: 180rpx;background: #fff">
+
+        <view style="display: inline-block;margin: 30rpx;vertical-align: middle">
+
+            <view style="width: 110rpx;height:110rpx;border-radius:110rpx;overflow: hidden;position: relative;top:-10rpx;">
+                <image style="width: 110rpx;height:110rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/006d3a78539d2a7d864b7e1330c0fc46" />
+
+            </view>
+        </view>
+
+        <view style="display: inline-block;margin: 30rpx;vertical-align: middle">
+
+            <view style="line-height: 40rpx;">本次作业成绩</view>
+            <view style="line-height: 60rpx;color: #DA3A3A;text-align: center">95</view>
+        </view>
+
+        <view style="display: inline-block;height:88rpx;width:1rpx;background:#ddd;vertical-align: middle">
+
+
+        </view>
+        <view style="display: inline-block;vertical-align: middle;margin: 30rpx;">
+            <view style="line-height: 40rpx;">作业完成率</view>
+            <view style="line-height: 60rpx;text-align: center">90%</view>
+        </view>
+
+        <view style="display: inline-block;vertical-align: middle;margin: 30rpx;margin-left: 0;">
+            <view style="line-height: 40rpx;">星级评分</view>
+            <view style="line-height: 50rpx;margin-top: 10rpx;">
+                <image style="width: 34rpx;height:34rpx;margin-right: 5rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/多边形 1268 拷贝@3x2.png" />
+                <image style="width: 34rpx;height:34rpx;margin-right: 5rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/多边形 1268 拷贝@3x2.png" />
+                <image style="width: 34rpx;height:34rpx;margin-right: 5rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/多边形 1268@3x2.png" />
+
+            </view>
+        </view>
+
+    </view>
+
+    <view style="width: 750rpx;height: 110rpx;margin-top: 20rpx;background: #fff">
+        <view  class="option active">学习内容</view>
+        <view class="option">材料下载</view>
+        <view class="option">课后作业</view>
+        <view  class="option">老师反馈</view>
+    </view>
+    <view style="background:#fff;width: 750rpx;">
+
+        <block wx:if="{{0}}">
+            <view style="width: 650rpx;padding: 50rpx;font-size: 40rpx;text-align: center;">
+                <text style="background: rgb(240,240,220);padding: 2rpx 10rpx;border-radius: 15rpx;">英语堂第3次课程学习</text>
+            </view>
+            <view>123</view>
+        </block>
+        <block wx:if="{{0}}">
+            <view style="width: 670rpx;padding: 20rpx;margin: 20rpx;margin-bottom:0;border-bottom: 1rpx solid #eee">
+                <view style="display: inline-block;width: 570rpx;">
+                    <view style="font-size: 30rpx;line-height: 50rpx;">英语堂第三次课程学习材料1</view>
+                    <text style="font-size: 22rpx;border: 1rpx solid #F07B2D;color: #F07B2D;padding: 3rpx 15rpx;border-radius: 8rpx;">ppt文档</text>
+                </view>
+
+                <view style="display: inline-block;width: 70rpx;padding: 15rpx;">
+                    <image style="width: 70rpx;height:70rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/点击下载@3x.png" />
+                </view>
+            </view>
+
+            <view style="width: 670rpx;padding: 20rpx;margin: 20rpx;margin-bottom:0;border-bottom: 1rpx solid #eee">
+                <view style="display: inline-block;width: 570rpx;">
+                    <view style="font-size: 30rpx;line-height: 50rpx;">英语堂第三次课程学习材料1</view>
+                    <text style="font-size: 22rpx;border: 1rpx solid #F07B2D;color: #F07B2D;padding: 3rpx 15rpx;border-radius: 8rpx;">ppt文档</text>
+                </view>
+
+                <view style="display: inline-block;width: 70rpx;padding: 15rpx;">
+                    <image style="width: 70rpx;height:70rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/点击下载@3x.png" />
+                </view>
+            </view>
+
+            <view style="width: 670rpx;padding: 20rpx;margin: 20rpx;margin-bottom:0;border-bottom: 1rpx solid #eee">
+                <view style="display: inline-block;width: 570rpx;">
+                    <view style="font-size: 30rpx;line-height: 50rpx;">英语堂第三次课程学习材料1</view>
+                    <text style="font-size: 22rpx;border: 1rpx solid #F07B2D;color: #F07B2D;padding: 3rpx 15rpx;border-radius: 8rpx;">ppt文档</text>
+                </view>
+
+                <view style="display: inline-block;width: 70rpx;padding: 15rpx;">
+                    <image style="width: 70rpx;height:70rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/点击查看@3x.png" />
+                </view>
+            </view>
+
+        </block>
+
+
+        <block wx:if="{{0}}">
+            <view style="padding: 40rpx;font-size: 26rpx;">
+
+                <view class="question-block-title block">一、把不同类的单词找出来（8分）</view>
+                <view class="question-single-select block">
+                    <view style="display: inline-block;margin-bottom: 10rpx;">1.时代峰峻是的罚款上岛咖啡就</view>
+
+                    <radio-group class="radio-group" bindchange="radioChange">
+                        <label class="radio" wx:for="{{items}}">
+                            <radio value="{{item.name}}" checked="{{item.checked}}" />
+                            A.{{item.value}}
+                        </label>
+                    </radio-group>
+                </view>
+
+                <view class="question-single-select block">
+                    <view style="display: inline-block;margin-bottom: 10rpx;">2.但是开话费速度快发货闪电发货</view>
+
+                    <radio-group class="radio-group" bindchange="radioChange">
+                        <label class="radio" wx:for="{{items}}">
+                            <radio value="{{item.name}}" checked="{{item.checked}}" />
+                            A.{{item.value}}
+                        </label>
+                    </radio-group>
+                </view>
+
+                <view class="question-block-title block">二、把不同类的单词找出来（8分）</view>
+                <view class="question-single-select block">
+                    <view style="display: inline-block;margin-bottom: 10rpx;">1.但是开话费速度快发货闪电发货</view>
+                    <view style="margin-bottom: 10rpx;">
+                        <view>
+                            第1处填空<yxs_input style="display: inline-block;vertical-align: top" width="600" height="80" maxlength="500" bindchange="bindinput"></yxs_input>
+                        </view>
+                        <view>
+                            第2处填空<yxs_input style="display: inline-block;vertical-align: top" width="600" height="80" maxlength="500" bindchange="bindinput"></yxs_input>
+                        </view>
+                    </view>
+
+                </view>
+
+                <view class="question-block-title block">三、简答（8分）</view>
+                <view class="question-single-select block">
+                    <view style="display: inline-block;margin-bottom: 10rpx;">1.但是开话费速度快发货闪电发货</view>
+                    <view style="margin-bottom: 10rpx;">
+                        <textarea style="border: 1rpx solid #ddd;height:200rpx;width: 600rpx;" bindblur="bindTextAreaBlur" />
+                    </view>
+
+                </view>
+
+            </view>
+
+        </block>
+
+        <block wx:if="{{1}}">
+           <view style="padding: 20rpx 40rpx;font-size: 30rpx;">
+               本次作业为线下作业，请点击以下链接下载作业（pdf
+               ），打印出来，线下完成。
+               完成以后请拍照上传作业照片，老师将在收到照片后进
+               行审阅。请保证照片清晰哦！
+           </view>
+
+            <view style="background: #FFF7D6;border: 1rpx solid #F3E7B6;width: 650rpx;margin: 20rpx auto;border-radius: 6rpx;overflow: hidden">
+                <image style="width: 100rpx;height:100rpx;display: inline-block;margin: 16rpx 34rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/作业@3x.png" />
+                <view style="display: inline-block;vertical-align: top;width: 450rpx;margin-left: 20rpx;">
+                    <view style="font-size: 36rpx;margin-top: 20rpx;">点击下载</view>
+                    <view style="text-decoration: underline;line-height: 50rpx;">英语堂第三次课程课后作业.pdf</view>
+                </view>
+            </view>
+
+            <view style="background: #DDFAEF;border: 1rpx solid #CAEDE0;width: 650rpx;margin: 20rpx auto;border-radius: 6rpx;overflow: hidden">
+                <image style="width: 100rpx;height:100rpx;display: inline-block;margin: 16rpx 34rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/相机@3x.png" />
+                <view style="display: inline-block;vertical-align: top;width: 450rpx;margin-left: 20rpx;">
+                    <view style="font-size: 36rpx;margin-top: 20rpx;">上传作业(图片)</view>
+                    <view style="line-height: 50rpx;">拍照上传，请保证图片清晰哦</view>
+                </view>
+
+                <view style="margin: 15rpx;margin-top:0;border-top:1rpx solid #ddd;width: 620rpx;margin-top: 30rpx;">
+                    <view style="width:130rpx;height:130rpx;display: inline-block;position: relative;margin: 20rpx 12rpx;">
+                        <view style="width:130rpx;height:130rpx;border-radius: 10rpx;overflow: hidden;border: 1rpx solid #ddd;">
+                            <image style="width: 130rpx;height:130rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/相机@3x.png" />
+                        </view>
+
+                        <view style="border: 1rpx solid #39CB82;padding: 5rpx 10rpx;border-radius: 30rpx;font-size: 20rpx;width: 100rpx;text-align: center;margin: 10rpx auto">重新上传</view>
+                        <image style="width: 32rpx;height:32rpx;position: absolute;right: -16rpx;top:-16rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/删除@3x.png" />
+                    </view>
+
+                    <view style="width:130rpx;height:130rpx;display: inline-block;position: relative;margin: 20rpx 12rpx;">
+                        <view style="width:130rpx;height:130rpx;border-radius: 10rpx;overflow: hidden;border: 1rpx solid #ddd;">
+                            <image style="width: 130rpx;height:130rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/相机@3x.png" />
+                        </view>
+
+                        <view style="border: 1rpx solid #39CB82;padding: 5rpx 10rpx;border-radius: 30rpx;font-size: 20rpx;width: 100rpx;text-align: center;margin: 10rpx auto">重新上传</view>
+                        <image style="width: 32rpx;height:32rpx;position: absolute;right: -16rpx;top:-16rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/删除@3x.png" />
+                    </view>
+
+                    <view style="width:130rpx;height:130rpx;display: inline-block;position: relative;margin: 20rpx 12rpx;">
+                        <view style="width:130rpx;height:130rpx;border-radius: 10rpx;overflow: hidden;border: 1rpx solid #ddd;">
+                            <image style="width: 130rpx;height:130rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/相机@3x.png" />
+                        </view>
+
+                        <view style="border: 1rpx solid #39CB82;padding: 5rpx 10rpx;border-radius: 30rpx;font-size: 20rpx;width: 100rpx;text-align: center;margin: 10rpx auto">重新上传</view>
+                        <image style="width: 32rpx;height:32rpx;position: absolute;right: -16rpx;top:-16rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/删除@3x.png" />
+                    </view>
+
+                    <view style="width:130rpx;height:130rpx;display: inline-block;position: relative;margin: 20rpx 12rpx;">
+                        <view style="width:130rpx;height:130rpx;border-radius: 10rpx;overflow: hidden;border: 1rpx solid #ddd;">
+                            <image style="width: 130rpx;height:130rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/增加@3x.png" />
+                        </view>
+
+                        <view style="border: 1rpx solid #39CB82;padding: 5rpx 10rpx;border-radius: 30rpx;font-size: 20rpx;width: 100rpx;text-align: center;margin: 10rpx auto">上传</view>
+                    </view>
+
+                </view>
+                <view style="padding: 15rpx 30rpx;color: #EC4444;font-size: 22rpx;text-align: center;margin-top: 30rpx;">
+                    <view style="background: #39CB82;color: #fff;padding: 20rpx 35rpx;border-radius: 40rpx;width: 240rpx;text-align: center;margin: 0 auto;font-size: 28rpx;">
+                        确认提交
+                    </view>
+                    <text>请仔细检查哦，确认提交后作业就不能修改了！</text>
+                </view>
+
+            </view>
+
+        </block>
+
+        <block wx:if="{{0}}">
+            <view style="padding: 30rpx;">123</view>
+
+        </block>
+
+    </view>
+
+
+</view>
+<include src="../../common/bottom_pull_info.wxml"/>

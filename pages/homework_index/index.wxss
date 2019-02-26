@@ -1,0 +1,12 @@
+.item{
+    padding: 30rpx;border-top: 1rpx solid #eee;width: 690rpx;background: #fff
+}
+.left{
+    display: inline-block;font-size: 32rpx;
+}
+.right{
+    display: inline-block;float: right;color: #999
+}
+page{
+    background: #F8D564;
+}

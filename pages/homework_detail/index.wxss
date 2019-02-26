@@ -1,0 +1,35 @@
+.item{
+    padding: 30rpx;border-top: 1rpx solid #eee;width: 690rpx;background: #fff
+}
+.left{
+    display: inline-block;font-size: 32rpx;
+}
+.right{
+    display: inline-block;float: right;color: #999
+}
+.option{
+    display: inline-block;
+    width: 187.5rpx;
+    line-height: 110rpx;
+    text-align: center;
+    font-size: 30rpx;
+
+}
+.option.active{
+    color: #F07B2D;
+}
+.radio-group{
+    margin-left: 10rpx;display: inline-block;
+    width: 650rpx;vertical-align: top;
+}
+.radio{
+    width: 300rpx;
+    display: inline-block;
+    margin-left: 15rpx;
+    margin-bottom: 15rpx;
+
+}
+.block {
+    margin-top: 10rpx;
+    border-bottom: 1rpx solid #eee;
+}
