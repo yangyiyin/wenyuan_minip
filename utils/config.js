@@ -1,5 +1,5 @@
- var base_url = 'https://api.yixsu.com/index.php';
- var base_url_h5 = 'https://api.yixsu.com';
+var base_url = 'https://api.yixsu.com/index.php';
+var base_url_h5 = 'https://api.yixsu.com';
 // var base_url = 'http://www.myweb.com/git-res/earth_php/index.php';
 // var base_url_h5 = 'http://www.myweb.com/git-res/earth_php';
 
@@ -47,6 +47,13 @@ var urls = {
     check_can_open_ticket:base_url+'/wenyuanjiaoyu/examination_signs/check_can_open_ticket',
     quit_queue:base_url+'/wenyuanjiaoyu/order/quit_queue',
     cancel_pay:base_url+'/wenyuanjiaoyu/pay/cancel_pay',
+    homework_class_list:base_url+'/wenyuanjiaoyu/student/homework_class_list',
+    class_homework_list:base_url+'/wenyuanjiaoyu/homework_class/index',
+    my_home_work_detail:base_url+'/wenyuanjiaoyu/homework_class/my_home_work_detail',
+    homework_upload_docs:base_url+'/wenyuanjiaoyu/student_homework_result/upload_docs',
+    submit_result:base_url+'/wenyuanjiaoyu/question_student_result/submit_result',
+    reckon_result:base_url+'/wenyuanjiaoyu/student_homework_result/reckon_result',
+    gen_homework_result_share:base_url+'/wenyuanjiaoyu/homework_class/gen_homework_result_share',
 }
 
 module.exports = {

@@ -50,6 +50,9 @@
             <view bindtap="goto_change_student" class="edit-icon" >
                 <image style="width: 40rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_182.png" />
             </view>
+            <view style="right: 10rpx;bottom: 10rpx;font-size: 26rpx;position: absolute;background: #B5DBAF;border: 1rpx solid #6AC82F;border-radius: 8rpx;" bindtap="goto_homework">
+                进入课程学习
+            </view>
         </view>
         <view class="empty-box" wx:if="{{!student_info}}" >
             <view class="empty-desc" >暂无学生信息。如果您有学生已在文远参加培训,可点击下方按钮设置信息绑定。</view>

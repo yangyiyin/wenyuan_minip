@@ -2,36 +2,42 @@ const common = require('../../utils/common.js');
 const config = require('../../utils/config.js');
 Page({
     data:{
-        news_list:[],
-        list_pull_info:''
+        class_homework_list:[],
+        list_pull_info:'',
+        classid:0,
+        classname:'',
     },
 
-    onLoad(){
-        // this.get_news_list(true).then(function(){
-        //     this.setData({
-        //         news_list:this.data.list.news_list.list,
-        //         list_pull_info:this.data.list.news_list.has_more ? '上拉加载更多' : '没有更多了'
-        //     });
-        // }.bind(this)).catch(function(){})
+    onLoad(option){
+        this.setData({
+            classid:option.classid,
+            classname:option.classname,
+        });
+        this.get_class_homework_list(true).then(function(){
+            this.setData({
+                class_homework_list:this.data.list.class_homework_list.list,
+                list_pull_info:this.data.list.class_homework_list.has_more ? '上拉加载更多' : '没有更多了'
+            });
+        }.bind(this)).catch(function(){})
     },
 
-    get_news_list(init){
-        return common.getlist('news_list', {status:1}, 20, this, init);
+    get_class_homework_list(init){
+        return common.getlist('class_homework_list', {classid:this.data.classid}, 20, this, init);
     },
     onPullDownRefresh(){
-        this.get_news_list(true).then(function(){
+        this.get_class_homework_list(true).then(function(){
             wx.stopPullDownRefresh()
             this.setData({
-                news_list:this.data.list.news_list.list,
-                list_pull_info:this.data.list.news_list.has_more ? '上拉加载更多' : '没有更多了'
+                class_homework_list:this.data.list.class_homework_list.list,
+                list_pull_info:this.data.list.class_homework_list.has_more ? '上拉加载更多' : '没有更多了'
             });
         }.bind(this)).catch(function(){})
     },
     onReachBottom(){
-        this.get_news_list().then(function(){
+        this.get_class_homework_list().then(function(){
             this.setData({
-                news_list:this.data.list.news_list.list,
-                list_pull_info:this.data.list.news_list.has_more ? '上拉加载更多' : '没有更多了'
+                class_homework_list:this.data.list.class_homework_list.list,
+                list_pull_info:this.data.list.class_homework_list.has_more ? '上拉加载更多' : '没有更多了'
             });
         }.bind(this)).catch(function(){})
     },
@@ -45,5 +51,12 @@ Page({
         // wx.navigateTo({
         //     url: '/pages/webview/index?link='+encodeURIComponent(link)
         // })
-    }
+    },
+    goto_homework_detail(event){
+
+        var id = event.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: '/pages/homework_detail/index?id='+id
+        });
+    },
 });

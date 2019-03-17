@@ -133,4 +133,9 @@ Page({
             url: '/pages/sign_course/index'
         })
     },
+    goto_homework(){
+        wx.navigateTo({
+            url: '/pages/homework_index/index'
+        })
+    },
 });

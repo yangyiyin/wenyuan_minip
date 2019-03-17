@@ -4,7 +4,7 @@
         <view style="display: inline-block;margin: 30rpx;vertical-align: middle">
 
             <view style="width: 110rpx;height:110rpx;border-radius:110rpx;overflow: hidden;position: relative;top:-10rpx;">
-                <image style="width: 110rpx;height:110rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/006d3a78539d2a7d864b7e1330c0fc46" />
+                <image style="width: 110rpx;height:110rpx;" mode="widthFix" src="{{info.student.avatar ? info.student.avatar : 'http://wenyuanjiaoyu-qiniu.yixsu.com/WX20190227-205243 (1).png'}}" />
 
             </view>
         </view>
@@ -12,7 +12,7 @@
         <view style="display: inline-block;margin: 30rpx;vertical-align: middle">
 
             <view style="line-height: 40rpx;">本次作业成绩</view>
-            <view style="line-height: 60rpx;color: #DA3A3A;text-align: center">95</view>
+            <view style="line-height: 60rpx;color: #DA3A3A;text-align: center">{{info.homework_result.total_score ? info.homework_result.total_score : '-'}}</view>
         </view>
 
         <view style="display: inline-block;height:88rpx;width:1rpx;background:#ddd;vertical-align: middle">
@@ -21,15 +21,31 @@
         </view>
         <view style="display: inline-block;vertical-align: middle;margin: 30rpx;">
             <view style="line-height: 40rpx;">作业完成率</view>
-            <view style="line-height: 60rpx;text-align: center">90%</view>
+            <view style="line-height: 60rpx;text-align: center">{{info.homework_result.homework_complete_rate ? info.homework_result.homework_complete_rate : '-'}}%</view>
         </view>
 
         <view style="display: inline-block;vertical-align: middle;margin: 30rpx;margin-left: 0;">
             <view style="line-height: 40rpx;">星级评分</view>
-            <view style="line-height: 50rpx;margin-top: 10rpx;">
-                <image style="width: 34rpx;height:34rpx;margin-right: 5rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/多边形 1268 拷贝@3x2.png" />
-                <image style="width: 34rpx;height:34rpx;margin-right: 5rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/多边形 1268 拷贝@3x2.png" />
-                <image style="width: 34rpx;height:34rpx;margin-right: 5rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/多边形 1268@3x2.png" />
+            <view style="line-height: 20rpx;height:50rpx;margin-top: 10rpx;width: 110rpx;">
+                <!--<block wx:if="{{info.homework_result.stars.length < 3}}">-->
+                    <!--<image wx:for="{{info.homework_result.stars}}" wx:key="index" style="width: 34rpx;height:34rpx;margin-right: 5rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/多边形 1268 拷贝@3x2.png" />-->
+
+                <!--</block>-->
+                <!--<block wx:if="{{info.homework_result.stars.length >= 3  }}">-->
+                    <!--<image wx:for="{{info.homework_result.stars}}" wx:key="index" style="width: 17rpx;height:17rpx;margin-right: 2rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/多边形 1268 拷贝@3x2.png" />-->
+
+                <!--</block>-->
+
+
+                <!--<image wx:if="{{info.homework_result.star_half && info.homework_result.stars.length < 3}}" style="width: 34rpx;height:34rpx;margin-right: 5rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/多边形 1268@3x2.png" />-->
+                <!--<image wx:if="{{info.homework_result.star_half && info.homework_result.stars.length >= 3 }}" style="width: 17rpx;height:17rpx;margin-right: 2rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/多边形 1268@3x2.png" />-->
+
+                <image wx:for="{{info.homework_result.stars_info.stars625_arr}}" wx:key="index"  style="width: 32rpx;height:32rpx;margin-right: 5rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/5@3x.png" />
+                <image wx:for="{{info.homework_result.stars_info.stars125_arr}}" wx:key="index"  style="width: 32rpx;height:32rpx;margin-right: 5rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/4@3x.png" />
+                <image wx:for="{{info.homework_result.stars_info.stars25_arr}}" wx:key="index"  style="width: 34rpx;height:32rpx;margin-right: 5rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/3@3x.png" />
+                <image wx:for="{{info.homework_result.stars_info.stars5_arr}}" wx:key="index"  style="width: 32rpx;height:32rpx;margin-right: 5rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/2@3x.png" />
+                <image wx:for="{{info.homework_result.stars_info.stars2_arr}}" wx:key="index"  style="width: 32rpx;height:32rpx;margin-right: 5rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/1@3x.png" />
+                <image wx:for="{{info.homework_result.stars_info.half_arr}}" wx:key="index"  style="width: 32rpx;height:32rpx;margin-right: 5rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/多边形 1268@3x.png" />
 
             </view>
         </view>
@@ -37,182 +53,202 @@
     </view>
 
     <view style="width: 750rpx;height: 110rpx;margin-top: 20rpx;background: #fff">
-        <view  class="option active">学习内容</view>
-        <view class="option">材料下载</view>
-        <view class="option">课后作业</view>
-        <view  class="option">老师反馈</view>
+        <view  class="option {{active == 1 ? 'active' : ''}}" bindtap="change_active" data-active_id="1">学习内容</view>
+        <view class="option {{active == 2 ? 'active' : ''}}" bindtap="change_active" data-active_id="2">材料下载</view>
+        <view class="option {{active == 3 ? 'active' : ''}}" bindtap="change_active" data-active_id="3">课后作业</view>
+        <view  class="option {{active == 4 ? 'active' : ''}}" bindtap="change_active" data-active_id="4">老师反馈</view>
     </view>
     <view style="background:#fff;width: 750rpx;">
 
-        <block wx:if="{{0}}">
+        <block wx:if="{{active == 1}}">
             <view style="width: 650rpx;padding: 50rpx;font-size: 40rpx;text-align: center;">
-                <text style="background: rgb(240,240,220);padding: 2rpx 10rpx;border-radius: 15rpx;">英语堂第3次课程学习</text>
+                <text style="background: rgb(240,240,220);padding: 2rpx 10rpx;border-radius: 15rpx;">{{info.homework_info.name}}</text>
             </view>
-            <view>123</view>
+            <view style="padding: 30rpx;"><rich-text nodes="{{info.homework_info.content}}"></rich-text></view>
         </block>
-        <block wx:if="{{0}}">
-            <view style="width: 670rpx;padding: 20rpx;margin: 20rpx;margin-bottom:0;border-bottom: 1rpx solid #eee">
-                <view style="display: inline-block;width: 570rpx;">
-                    <view style="font-size: 30rpx;line-height: 50rpx;">英语堂第三次课程学习材料1</view>
-                    <text style="font-size: 22rpx;border: 1rpx solid #F07B2D;color: #F07B2D;padding: 3rpx 15rpx;border-radius: 8rpx;">ppt文档</text>
+        <block wx:if="{{active == 2}}">
+            <view wx:for="{{info.homework_info.other_downloads}}" wx:key="index" style="width: 670rpx;padding: 20rpx;margin: 20rpx;margin-bottom:0;border-bottom: 1rpx solid #eee">
+                <view style="display: inline-block;width: 550rpx;">
+                    <view style="font-size: 30rpx;line-height: 50rpx;">{{item.name}}</view>
+                    <text style="font-size: 22rpx;border: 1rpx solid #F07B2D;color: #F07B2D;padding: 3rpx 15rpx;border-radius: 8rpx;">{{item.ext}}文档</text>
                 </view>
 
-                <view style="display: inline-block;width: 70rpx;padding: 15rpx;">
-                    <image style="width: 70rpx;height:70rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/点击下载@3x.png" />
+                <view style="display: inline-block;width: 90rpx;padding: 15rpx;">
+                    <image bindtap="download_file" data-item="{{item}}" data-index="{{index}}" style="width: 70rpx;height:70rpx;margin: 0 auto" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/点击下载@3x.png" />
+                    <view style="font-size: 22rpx;">{{item.download_info ? item.download_info : ''}}</view>
                 </view>
             </view>
 
-            <view style="width: 670rpx;padding: 20rpx;margin: 20rpx;margin-bottom:0;border-bottom: 1rpx solid #eee">
-                <view style="display: inline-block;width: 570rpx;">
-                    <view style="font-size: 30rpx;line-height: 50rpx;">英语堂第三次课程学习材料1</view>
-                    <text style="font-size: 22rpx;border: 1rpx solid #F07B2D;color: #F07B2D;padding: 3rpx 15rpx;border-radius: 8rpx;">ppt文档</text>
-                </view>
-
-                <view style="display: inline-block;width: 70rpx;padding: 15rpx;">
-                    <image style="width: 70rpx;height:70rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/点击下载@3x.png" />
-                </view>
-            </view>
-
-            <view style="width: 670rpx;padding: 20rpx;margin: 20rpx;margin-bottom:0;border-bottom: 1rpx solid #eee">
-                <view style="display: inline-block;width: 570rpx;">
-                    <view style="font-size: 30rpx;line-height: 50rpx;">英语堂第三次课程学习材料1</view>
-                    <text style="font-size: 22rpx;border: 1rpx solid #F07B2D;color: #F07B2D;padding: 3rpx 15rpx;border-radius: 8rpx;">ppt文档</text>
-                </view>
-
-                <view style="display: inline-block;width: 70rpx;padding: 15rpx;">
-                    <image style="width: 70rpx;height:70rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/点击查看@3x.png" />
-                </view>
-            </view>
 
         </block>
 
 
-        <block wx:if="{{0}}">
+        <block wx:if="{{active == 3 && info.homework_info.response_type == 1}}">
             <view style="padding: 40rpx;font-size: 26rpx;">
 
-                <view class="question-block-title block">一、把不同类的单词找出来（8分）</view>
-                <view class="question-single-select block">
-                    <view style="display: inline-block;margin-bottom: 10rpx;">1.时代峰峻是的罚款上岛咖啡就</view>
+                <block wx:for="{{info.homework_info.questions}}" wx:key="index">
+                    <view class="question-block-title block">{{item.title}}</view>
+                    <view  wx:for="{{item.questions}}" wx:key="index" class="question-single-select block">
+                        <view style="display: inline-block;margin-bottom: 10rpx;">{{index+1}}.{{item.title}}</view>
 
-                    <radio-group class="radio-group" bindchange="radioChange">
-                        <label class="radio" wx:for="{{items}}">
-                            <radio value="{{item.name}}" checked="{{item.checked}}" />
-                            A.{{item.value}}
-                        </label>
-                    </radio-group>
-                </view>
+                        <block wx:if="{{item.type == 1}}">
+                            <radio-group class="radio-group" bindchange="radioChange" data-qid="{{item.id}}" >
+                                <label class="radio" wx:key="index" wx:for-item="item2" wx:for="{{item.question_answer.answer_options}}">
+                                    <radio checked="{{item2.label == answer_reply[item.id].answer}}" value="{{item2.label}}" disabled="{{info.homework_result.is_submit ==1}}" />
+                                    {{item2.label}}.{{item2.text}}
+                                </label>
+                            </radio-group>
+                            <view wx:if="{{info.homework_result.is_submit == 1}}" style="background: #B5DBAF;padding: 10rpx;border-radius: 8rpx;">
+                                答案:{{item.question_answer.answer}}<br/>
+                                <rich-text nodes="答案解析:{{item.question_answer.answer_parse}}"></rich-text>
+                            </view>
+                        </block>
 
-                <view class="question-single-select block">
-                    <view style="display: inline-block;margin-bottom: 10rpx;">2.但是开话费速度快发货闪电发货</view>
+                        <block wx:if="{{item.type == 2}}">
+                            <radio-group class="radio-group" bindchange="radioChange" data-qid="{{item.id}}" disabled="{{info.homework_result.is_submit ==1}}">
+                                <label class="radio" wx:key="index"  wx:for-item="item2"  wx:for="{{item.question_answer.answer_options2}}">
+                                    <radio checked="{{item2.label == answer_reply[item.id].answer}}" value="{{item2.label}}" disabled="{{info.homework_result.is_submit ==1}}" />
+                                    {{item2.label}}.{{item2.text}}
+                                </label>
+                            </radio-group>
+                            <view wx:if="{{info.homework_result.is_submit == 1}}" style="background: #B5DBAF;padding: 10rpx;border-radius: 8rpx;">
+                                答案:{{item.question_answer.answer}}<br/>
+                                <rich-text nodes="答案解析:{{item.question_answer.answer_parse}}"></rich-text>
+                            </view>
+                        </block>
 
-                    <radio-group class="radio-group" bindchange="radioChange">
-                        <label class="radio" wx:for="{{items}}">
-                            <radio value="{{item.name}}" checked="{{item.checked}}" />
-                            A.{{item.value}}
-                        </label>
-                    </radio-group>
-                </view>
-
-                <view class="question-block-title block">二、把不同类的单词找出来（8分）</view>
-                <view class="question-single-select block">
-                    <view style="display: inline-block;margin-bottom: 10rpx;">1.但是开话费速度快发货闪电发货</view>
-                    <view style="margin-bottom: 10rpx;">
-                        <view>
-                            第1处填空<yxs_input style="display: inline-block;vertical-align: top" width="600" height="80" maxlength="500" bindchange="bindinput"></yxs_input>
-                        </view>
-                        <view>
-                            第2处填空<yxs_input style="display: inline-block;vertical-align: top" width="600" height="80" maxlength="500" bindchange="bindinput"></yxs_input>
-                        </view>
+                        <block wx:if="{{item.type == 3}}">
+                            <view style="margin-bottom: 10rpx;">
+                                <view wx:for="{{item.question_answer.answer}}" wx:key="index" wx:for-item="item2">
+                                    第{{index+1}}处填空<yxs_input value="{{answer_reply[item.id].answer[index+1]}}" disabled="{{info.homework_result.is_submit ==1}}" style="display: inline-block;vertical-align: top" width="600" height="80" maxlength="500" bindchange="bindinput" data-qid="{{item.id}}" data-blank_index="{{index+1}}"></yxs_input>
+                                </view>
+                            </view>
+                            <view wx:if="{{info.homework_result.is_submit == 1}}" style="background: #B5DBAF;padding: 10rpx;border-radius: 8rpx;">
+                                答案:<text style="margin-right: 40rpx;" wx:for="{{item.question_answer.answer}}" wx:key="index">{{index+1}}处:{{item.text}}</text><br/>
+                                <rich-text nodes="答案解析:{{item.question_answer.answer_parse}}"></rich-text>
+                            </view>
+                        </block>
+                        <block wx:if="{{item.type == 4}}">
+                            <view style="margin-bottom: 10rpx;">
+                                <textarea value="{{answer_reply[item.id].answer}}" disabled="{{info.homework_result.is_submit == 1}}" style="border: 1rpx solid #ddd;height:200rpx;width: 600rpx;" bindblur="bindTextAreaBlur" bindinput="bindinput" data-qid="{{item.id}}" />
+                            </view>
+                            <view wx:if="{{info.homework_result.is_submit == 1}}" style="background: #B5DBAF;padding: 10rpx;border-radius: 8rpx;">
+                                答案:<rich-text nodes="{{item.question_answer.answer}}" ></rich-text><br/>
+                                <rich-text nodes="答案解析:{{item.question_answer.answer_parse}}"></rich-text>
+                            </view>
+                        </block>
                     </view>
+                </block>
 
+                <view wx:if="{{info.homework_result.is_submit != 1}}" style="background: #39CB82;color: #fff;padding: 20rpx 35rpx;margin-top:20rpx;border-radius: 40rpx;width: 600rpx;text-align: center;font-size: 28rpx;" bindtap="submit">
+                    确认提交
                 </view>
-
-                <view class="question-block-title block">三、简答（8分）</view>
-                <view class="question-single-select block">
-                    <view style="display: inline-block;margin-bottom: 10rpx;">1.但是开话费速度快发货闪电发货</view>
-                    <view style="margin-bottom: 10rpx;">
-                        <textarea style="border: 1rpx solid #ddd;height:200rpx;width: 600rpx;" bindblur="bindTextAreaBlur" />
-                    </view>
-
-                </view>
-
             </view>
 
         </block>
 
-        <block wx:if="{{1}}">
-           <view style="padding: 20rpx 40rpx;font-size: 30rpx;">
-               本次作业为线下作业，请点击以下链接下载作业（pdf
-               ），打印出来，线下完成。
+        <block wx:if="{{active == 3 && info.homework_info.response_type == 2}}">
+           <view wx:if="{{!info.homework_info.content_extra}}" style="padding: 20rpx 40rpx;font-size: 30rpx;">
+               本次作业为线下作业，请点击以下链接下载作业，打印出来，线下完成。
                完成以后请拍照上传作业照片，老师将在收到照片后进
                行审阅。请保证照片清晰哦！
            </view>
-
-            <view style="background: #FFF7D6;border: 1rpx solid #F3E7B6;width: 650rpx;margin: 20rpx auto;border-radius: 6rpx;overflow: hidden">
+            <view wx:if="{{info.homework_info.content_extra}}" style="padding: 20rpx 40rpx;font-size: 30rpx;">
+                <rich-text nodes="{{info.homework_info.content_extra}}"></rich-text>
+            </view>
+            <view style="background: #FFF7D6;border: 1rpx solid #F3E7B6;width: 650rpx;margin: 20rpx auto;border-radius: 6rpx;overflow: hidden" wx:if="{{info.homework_info.homework_downloads.length > 0 || info.homework_info.homework_downloads_objs.length}}">
                 <image style="width: 100rpx;height:100rpx;display: inline-block;margin: 16rpx 34rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/作业@3x.png" />
-                <view style="display: inline-block;vertical-align: top;width: 450rpx;margin-left: 20rpx;">
+                <view style="display: inline-block;vertical-align: top;width: 450rpx;margin-left: 20rpx;" wx:if="{{info.homework_info.homework_downloads.length > 0}}">
                     <view style="font-size: 36rpx;margin-top: 20rpx;">点击下载</view>
-                    <view style="text-decoration: underline;line-height: 50rpx;">英语堂第三次课程课后作业.pdf</view>
+                    <view bindtap="download_file" data-item="{{item}}"  data-index="-1" style="text-decoration: underline;line-height: 50rpx;" wx:key="index" wx:for="{{info.homework_info.homework_downloads}}" data-url="{{item.url}}">{{item.name}}</view>
+                </view>
+                <view style="vertical-align: top;margin-left: 20rpx;" wx:if="{{info.homework_info.homework_downloads_objs.length > 0}}">
+
+                    <view style="width: 550rpx;background: #95E4A1;padding: 30rpx;border-radius: 10rpx;margin: 10rpx;" wx:key="index" wx:for="{{info.homework_info.homework_downloads_objs}}">
+                        <view wx:if="{{!item.isPlaying}}" bindtap="playAudio" data-index="{{index}}" style="display: inline-block;width: 80rpx;height:80rpx;border-radius: 80rpx;background: #fff;color: #333;font-size: 20rpx;line-height: 80rpx;text-align: center;">播放</view>
+                        <view wx:if="{{item.isPlaying}}" bindtap="pauseAudio" data-index="{{index}}" style="display: inline-block;width: 80rpx;height:80rpx;border-radius: 80rpx;background: #fff;color: #333;font-size: 20rpx;line-height: 80rpx;text-align: center;">暂停</view>
+                        <view style="display: inline-block;width: 50%;margin-left: 30rpx;vertical-align: middle;" >
+                            <view style="color: #000;font-size: 20rpx;margin-left: 30rpx;">{{item.name}}</view>
+                            <slider value="{{item.step}}" style="margin: 0;" block-size="12" bindchanging="seeking" bindchange="seekAudio" data-index="{{index}}" min="0" max="100" />
+                        </view>
+                        <text style="margin-left: 30rpx;font-size: 20rpx;">{{item.playtime}}</text>
+                    </view>
+
                 </view>
             </view>
 
             <view style="background: #DDFAEF;border: 1rpx solid #CAEDE0;width: 650rpx;margin: 20rpx auto;border-radius: 6rpx;overflow: hidden">
-                <image style="width: 100rpx;height:100rpx;display: inline-block;margin: 16rpx 34rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/相机@3x.png" />
-                <view style="display: inline-block;vertical-align: top;width: 450rpx;margin-left: 20rpx;">
-                    <view style="font-size: 36rpx;margin-top: 20rpx;">上传作业(图片)</view>
-                    <view style="line-height: 50rpx;">拍照上传，请保证图片清晰哦</view>
-                </view>
+                <block wx:if="{{!info.homework_result.is_submit}}">
+                    <image style="width: 100rpx;height:100rpx;display: inline-block;margin: 16rpx 34rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/相机@3x.png" />
+                    <view style="display: inline-block;vertical-align: top;width: 450rpx;margin-left: 20rpx;">
+                        <view style="font-size: 36rpx;margin-top: 20rpx;">上传作业(图片)</view>
+                        <view style="line-height: 50rpx;">拍照上传，请保证图片清晰哦</view>
+                    </view>
 
-                <view style="margin: 15rpx;margin-top:0;border-top:1rpx solid #ddd;width: 620rpx;margin-top: 30rpx;">
-                    <view style="width:130rpx;height:130rpx;display: inline-block;position: relative;margin: 20rpx 12rpx;">
-                        <view style="width:130rpx;height:130rpx;border-radius: 10rpx;overflow: hidden;border: 1rpx solid #ddd;">
-                            <image style="width: 130rpx;height:130rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/相机@3x.png" />
+                    <view style="margin: 15rpx;margin-top:0;border-top:1rpx solid #ddd;width: 620rpx;margin-top: 30rpx;">
+                        <view style="width:130rpx;height:130rpx;display: inline-block;position: relative;margin: 20rpx 12rpx;" wx:for="{{upload_imgs}}" wx:key="index">
+                            <view style="width:130rpx;height:130rpx;border-radius: 10rpx;overflow: hidden;border: 1rpx solid #ddd;">
+                                <image style="width: 130rpx;height:130rpx;" mode="widthFix" src="{{item}}" />
+                            </view>
+
+                            <view style="border: 1rpx solid #39CB82;padding: 5rpx 10rpx;border-radius: 30rpx;font-size: 20rpx;width: 100rpx;text-align: center;margin: 10rpx auto" bindtap="uploadimg" data-index="{{index}}">重新上传</view>
+                            <image style="width: 32rpx;height:32rpx;position: absolute;right: -16rpx;top:-16rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/删除@3x.png" bindtap="delimg" data-index="{{index}}"/>
                         </view>
 
-                        <view style="border: 1rpx solid #39CB82;padding: 5rpx 10rpx;border-radius: 30rpx;font-size: 20rpx;width: 100rpx;text-align: center;margin: 10rpx auto">重新上传</view>
-                        <image style="width: 32rpx;height:32rpx;position: absolute;right: -16rpx;top:-16rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/删除@3x.png" />
-                    </view>
 
-                    <view style="width:130rpx;height:130rpx;display: inline-block;position: relative;margin: 20rpx 12rpx;">
-                        <view style="width:130rpx;height:130rpx;border-radius: 10rpx;overflow: hidden;border: 1rpx solid #ddd;">
-                            <image style="width: 130rpx;height:130rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/相机@3x.png" />
+                        <view style="width:130rpx;height:130rpx;display: inline-block;position: relative;margin: 20rpx 12rpx;" wx:if="{{upload_imgs.length < 4}}" bindtap="uploadimg" data-index="{{upload_imgs.length}}">
+                            <view style="width:130rpx;height:130rpx;border-radius: 10rpx;overflow: hidden;border: 1rpx solid #ddd;">
+                                <image style="width: 130rpx;height:130rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/增加@3x.png" />
+                            </view>
+
+                            <view style="border: 1rpx solid #39CB82;padding: 5rpx 10rpx;border-radius: 30rpx;font-size: 20rpx;width: 100rpx;text-align: center;margin: 10rpx auto">上传</view>
                         </view>
 
-                        <view style="border: 1rpx solid #39CB82;padding: 5rpx 10rpx;border-radius: 30rpx;font-size: 20rpx;width: 100rpx;text-align: center;margin: 10rpx auto">重新上传</view>
-                        <image style="width: 32rpx;height:32rpx;position: absolute;right: -16rpx;top:-16rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/删除@3x.png" />
                     </view>
 
-                    <view style="width:130rpx;height:130rpx;display: inline-block;position: relative;margin: 20rpx 12rpx;">
-                        <view style="width:130rpx;height:130rpx;border-radius: 10rpx;overflow: hidden;border: 1rpx solid #ddd;">
-                            <image style="width: 130rpx;height:130rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/相机@3x.png" />
+                    <view wx:if="{{info.homework_info.need_record_voice == 1}}" style="width: 620rpx;background: #95E4A1;border-radius: 10rpx;margin: 10rpx;overflow: hidden">
+                        <view style="width: 65%;display: inline-block;margin-top: 25rpx;vertical-align:middle;">
+                            <view style="margin-left: 30rpx;display: inline-block">
+                                <view style="font-size: 50rpx;color: #fff">{{record_currentTime}}</view>
+                                <view style="font-size: 24rpx;color: #409053">注意最长录制10分钟哦</view>
+                            </view>
+                        </view>
+                        <view wx:if="{{!recording}}" bindtap="startRecord" style="float: right;margin-right:30rpx;margin-top:25rpx;vertical-align:middle;text-align:center;width: 100rpx;height: 100rpx;line-height:100rpx;font-size:20rpx;color:#fff;background: #39CB82;border-radius: 100rpx;">
+                            <text wx:if="{{!record_file}}">开始录音</text>
+                            <text wx:if="{{record_file}}">重新录音</text>
                         </view>
 
-                        <view style="border: 1rpx solid #39CB82;padding: 5rpx 10rpx;border-radius: 30rpx;font-size: 20rpx;width: 100rpx;text-align: center;margin: 10rpx auto">重新上传</view>
-                        <image style="width: 32rpx;height:32rpx;position: absolute;right: -16rpx;top:-16rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/删除@3x.png" />
-                    </view>
-
-                    <view style="width:130rpx;height:130rpx;display: inline-block;position: relative;margin: 20rpx 12rpx;">
-                        <view style="width:130rpx;height:130rpx;border-radius: 10rpx;overflow: hidden;border: 1rpx solid #ddd;">
-                            <image style="width: 130rpx;height:130rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/增加@3x.png" />
+                        <view wx:if="{{recording}}" bindtap="stopRecord" style="float: right;margin-right:30rpx;margin-top:25rpx;vertical-align:middle;text-align:center;width: 100rpx;height: 100rpx;line-height:100rpx;font-size:20rpx;color:#fff;background: #F5511B;border-radius: 10rpx;">
+                            结束录音
                         </view>
 
-                        <view style="border: 1rpx solid #39CB82;padding: 5rpx 10rpx;border-radius: 30rpx;font-size: 20rpx;width: 100rpx;text-align: center;margin: 10rpx auto">上传</view>
-                    </view>
+                        <view style="clear: both" style="height:10rpx;"></view>
+                        <view wx:if="{{record_file}}" style="width: 580rpx;margin-left: 30rpx;margin-bottom: 10rpx;">
+                            <view wx:if="{{!is_playing_record}}" bindtap="playAudio_record" style="display: inline-block;width: 80rpx;height:80rpx;border-radius: 80rpx;background: #fff;color: #333;font-size: 20rpx;line-height: 80rpx;text-align: center;">播放</view>
+                            <view wx:if="{{is_playing_record}}" bindtap="pauseAudio_record" style="display: inline-block;width: 80rpx;height:80rpx;border-radius: 80rpx;background: #fff;color: #333;font-size: 20rpx;line-height: 80rpx;text-align: center;">暂停</view>
+                            <view style="display: inline-block;width: 50%;margin-left: 30rpx;vertical-align: middle;" >
+                                <slider value="{{record_step}}" style="margin: 0;" block-size="12" bindchanging="seeking_record" bindchange="seekAudio_record" min="0" max="100" />
+                            </view>
+                            <text bindtap="del_record_file" style="margin-left: 40rpx;font-size: 24rpx;padding: 30rpx;color: red;">删除</text>
+                        </view>
 
-                </view>
-                <view style="padding: 15rpx 30rpx;color: #EC4444;font-size: 22rpx;text-align: center;margin-top: 30rpx;">
-                    <view style="background: #39CB82;color: #fff;padding: 20rpx 35rpx;border-radius: 40rpx;width: 240rpx;text-align: center;margin: 0 auto;font-size: 28rpx;">
-                        确认提交
                     </view>
-                    <text>请仔细检查哦，确认提交后作业就不能修改了！</text>
-                </view>
-
+                    <view style="padding: 15rpx 30rpx;color: #EC4444;font-size: 22rpx;text-align: center;margin-top: 30rpx;">
+                        <view style="background: #39CB82;color: #fff;padding: 20rpx 35rpx;border-radius: 40rpx;width: 240rpx;text-align: center;margin: 0 auto;font-size: 28rpx;" bindtap="upload_record">
+                            确认提交
+                        </view>
+                        <text>请仔细检查哦，确认提交后作业就不能修改了！</text>
+                    </view>
+                </block>
+                <block wx:else>
+                    <view style="text-align: center;margin: 30rpx 0;font-size: 32rpx;">作业已提交！</view>
+                </block>
             </view>
 
         </block>
 
-        <block wx:if="{{0}}">
-            <view style="padding: 30rpx;">123</view>
+        <block wx:if="{{active == 4}}">
+            <view style="padding: 30rpx;">{{info.homework_result.teacher_suggest ? info.homework_result.teacher_suggest : '老师还没有录入反馈'}}</view>
 
         </block>
 
@@ -220,4 +256,3 @@
 
 
 </view>
-<include src="../../common/bottom_pull_info.wxml"/>

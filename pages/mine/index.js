@@ -24,6 +24,11 @@ Page({
             app.globalData.to_refresh.mine = false;
         }
     },
+    goto_homework(){
+        wx.navigateTo({
+            url: '/pages/homework_index/index'
+        })
+    },
     goto_timetable(){
         wx.navigateTo({
             url: '/pages/timetable/index'

@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "课程学习",
-  "enablePullDownRefresh":true,
+  "enablePullDownRefresh":false,
   "usingComponents": {
     "yxs_input":"../../yixsu_component/yxs_input/index"
   }

@@ -21,6 +21,10 @@
     </view>
 
 
+    <view wx:if="{{info.id}}" style="border-bottom: 1rpx solid #eee" bindtap="goto_homework">
+        <yxs_menu_item height="120" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/学习@3x.png" title="课程学习"></yxs_menu_item>
+    </view>
+
     <view wx:if="{{info.id}}" style="border-bottom: 1rpx solid #eee" bindtap="goto_timetable">
         <yxs_menu_item height="120" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/%E8%AF%BE%E8%A1%A8%E5%AE%89%E6%8E%92@3x.png" title="我的课表"></yxs_menu_item>
     </view>

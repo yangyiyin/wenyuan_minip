@@ -1,42 +1,24 @@
 <view class="container" >
-    <image style="width: 750rpx;height:156rpx;margin-top: 16rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/topimg@3x (1).png" />
-    <view style="position: absolute;top:85rpx;text-align: center;width: 750rpx;font-size: 36rpx;color: #fff">18暑初一英语培优1班</view>
+    <image style="width: 750rpx;height:156rpx;margin-top: 16rpx;position: absolute" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/topimg@3x (1).png" />
+    <div style="height:156rpx;position: relative;z-index: 1">
+        <view style="margin-top:85rpx;text-align: center;width: 750rpx;font-size: 36rpx;color: #fff">{{classname}}</view>
+    </div>
+
 
     <view style="width: 710rpx;margin: 0 auto;background: #fff;border-radius: 10rpx;position: relative;top:-10rpx;">
-        <view style="padding: 50rpx;width: 610rpx;border-bottom: 1rpx solid #eee">
-            <view style="font-size: 34rpx;">英语堂第3次课程学习</view>
+        <view style="padding: 50rpx;width: 610rpx;border-bottom: 1rpx solid #eee" wx:for="{{class_homework_list}}" wx:key="index" bindtap="goto_homework_detail" data-id="{{item.id}}">
+            <view style="font-size: 34rpx;">{{item.homework.name}} <text style="color: #2BBD73;font-size: 22rpx">进入学习</text></view>
             <view style="margin-top: 40rpx;">
-                <view style="font-size: 26rpx;display: inline-block">
-                    作业方式:<text style="color: #2BBD73">线上答题</text>
+                <view style="font-size: 26rpx;display: inline-block" wx:if="{{item.homework.response_type == 1}}">
+                    作业方式:<text  style="color: #2BBD73">线上答题</text>
+
+                </view>
+                <view style="font-size: 26rpx;display: inline-block" wx:else>
+
+                    作业方式:<text  style="color: #2BBD73">线下答题</text>
                 </view>
                 <view style="font-size: 24rpx;display: inline-block;float:right;color: #999">
-                    2019.2.14
-                </view>
-            </view>
-
-        </view>
-
-        <view style="padding: 50rpx;width: 610rpx;border-bottom: 1rpx solid #eee">
-            <view style="font-size: 34rpx;">英语堂第3次课程学习</view>
-            <view style="margin-top: 40rpx;">
-                <view style="font-size: 26rpx;display: inline-block">
-                    作业方式:<text style="color: #2BBD73">线上答题</text>
-                </view>
-                <view style="font-size: 24rpx;display: inline-block;float:right;color: #999">
-                    2019.2.14
-                </view>
-            </view>
-
-        </view>
-
-        <view style="padding: 50rpx;width: 610rpx;border-bottom: 1rpx solid #eee">
-            <view style="font-size: 34rpx;">英语堂第3次课程学习</view>
-            <view style="margin-top: 40rpx;">
-                <view style="font-size: 26rpx;display: inline-block">
-                    作业方式:<text style="color: #2BBD73">线上答题</text>
-                </view>
-                <view style="font-size: 24rpx;display: inline-block;float:right;color: #999">
-                    2019.2.14
+                    {{item.homework.create_time_short}}
                 </view>
             </view>
 
@@ -46,4 +28,3 @@
 
 
 </view>
-<include src="../../common/bottom_pull_info.wxml"/>
