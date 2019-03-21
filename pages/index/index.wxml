@@ -50,7 +50,7 @@
             <view bindtap="goto_change_student" class="edit-icon" >
                 <image style="width: 40rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_182.png" />
             </view>
-            <view style="right: 10rpx;bottom: 10rpx;font-size: 26rpx;position: absolute;background: #FFFCF2;border: 1rpx solid #B5DBAF;border-radius: 8rpx;" bindtap="goto_homework">
+            <view style="right: 10rpx;bottom: 10rpx;font-size: 26rpx;position: absolute;background: #FFFCF2;padding:0 10rpx;border-radius: 8rpx;" bindtap="goto_homework">
                 进入课程学习
             </view>
         </view>

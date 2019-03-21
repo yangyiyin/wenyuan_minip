@@ -77,6 +77,8 @@ Page({
 
                 this.setData({
                     info:res.data.data,
+                    record_file:res.data.data.homework_uploads.objs ? res.data.data.homework_uploads.objs[0] : '',
+                    upload_imgs:res.data.data.homework_uploads.uploads ? res.data.data.homework_uploads.uploads : [],
                     answer_reply:res.data.data.homework_question_reply
                 });
             } else {
@@ -205,18 +207,25 @@ Page({
             wx.hideLoading();
             if (res.data.code == common.constant.return_code_success) {
                 common.show_modal('计算成功,您可在本页最上方看到计算结果');
-                this.get_home_work_detail();
+                // this.get_home_work_detail();
             } else {
                 common.show_modal(res.data.msg);
             }
+            this.get_home_work_detail();
         }.bind(this));
     },
 
     upload_record(){
-        if (!this.data.upload_imgs.length && !this.data.record_file) {
-            common.show_toast('请上传作业文件');
+
+        if (this.data.info.homework_info.need_record_voice && !this.data.record_file) {
+            common.show_toast('请上传录音');
             return;
         }
+        if (this.data.info.homework_info.need_upload_img && !this.data.upload_imgs.length) {
+            common.show_toast('请上传作业图片');
+            return;
+        }
+
 
         if (this.data.record_file) {
             wx.showLoading({
@@ -383,6 +392,27 @@ Page({
 
     },
 
+    initRecordAudioContenx(){
+        this.data.RecordAudioContext = wx.createInnerAudioContext();
+        this.data.RecordAudioContext.onPlay(()=>{
+                    this.data.RecordAudioContext.onTimeUpdate(() => {
+
+                        var left = this.data.RecordAudioContext.duration - this.data.RecordAudioContext.currentTime;
+                        var min = parseInt(left / 60);
+                        var sec = parseInt(left - min * 60);
+
+                        if (!this.data.RecordAudioContext.is_seeking) {
+
+                            var record_step = parseInt(this.data.RecordAudioContext.currentTime * 100 / this.data.RecordAudioContext.duration);
+                            //console.log(record_step);
+                            this.setData({
+                                record_step:record_step
+                            });
+                        }
+
+            })
+        });
+    },
     startRecord(){
         if (!this.data.RecorderManager) {
             this.data.RecorderManager = wx.getRecorderManager();
@@ -393,33 +423,33 @@ Page({
                 });
 
                 if (!this.data.RecordAudioContext) {
-                    this.data.RecordAudioContext = wx.createInnerAudioContext();
-                    this.data.RecordAudioContext.onPlay(()=>{
-                        this.data.RecordAudioContext.onTimeUpdate(() => {
 
-                            var left = this.data.RecordAudioContext.duration - this.data.RecordAudioContext.currentTime;
-                            var min = parseInt(left / 60);
-                            var sec = parseInt(left - min * 60);
+                    this.initRecordAudioContenx();
+                }
 
-                            if (!this.data.RecordAudioContext.is_seeking) {
+                if (this.interval) {
+                    clearInterval(this.interval);
+                    this.interval = null;
+                }
 
-                                var record_step = parseInt(this.data.RecordAudioContext.currentTime * 100 / this.data.RecordAudioContext.duration);
-                                //console.log(record_step);
-                                this.setData({
-                                    record_step:record_step
-                                });
-                            }
-
-                        })
-                    });
+                if (this.data.RecordAudioContext) {
+                    this.data.RecordAudioContext.stop();
 
                 }
+                this.setData({
+                    record_step:0,
+                    is_playing_record:false,
+                    recording:false
+                })
                 this.data.RecordAudioContext.src = this.data.record_file;
 
             })
         }
         if (!this.interval) {
             var record_currentTime = 0;
+            this.setData({
+                record_currentTime:0 + ':' + 0
+            })
             this.interval = setInterval(() => {
                     record_currentTime ++;
                     var min = parseInt(record_currentTime / 60);
@@ -429,16 +459,17 @@ Page({
                     })
                 },1000);
         }
-        if (this.data.RecordAudioContext) {
-            this.data.RecordAudioContext.stop();
-            this.setData({
-                record_step:0,
-                is_playing_record:false
-            })
-        }
+        // if (this.data.RecordAudioContext) {
+        //     this.data.RecordAudioContext.stop();
+        //     this.setData({
+        //         record_step:0,
+        //         is_playing_record:false
+        //     })
+        // }
 
         this.data.RecorderManager.start({
-            format:'mp3'
+            format:'mp3',
+            // duration:3000
         });
         this.setData({
             recording:true
@@ -446,14 +477,10 @@ Page({
 
     },
     stopRecord(){
-        this.setData({
-            recording:false
-        });
+        // this.setData({
+        //     recording:false
+        // });
 
-        if (this.interval) {
-            clearInterval(this.interval);
-            this.interval = null;
-        }
         if (!this.data.RecorderManager) {
             return;
         }
@@ -468,7 +495,10 @@ Page({
         this.data.RecordAudioContext = null;
     },
     playAudio_record(){
-
+        if (!this.data.RecordAudioContext) {
+            this.initRecordAudioContenx();
+            this.data.RecordAudioContext.src = this.data.record_file;
+        }
 
         this.data.RecordAudioContext.play();
 
@@ -496,6 +526,11 @@ Page({
         this.data.RecordAudioContext.is_seeking = true;
 
     },
-
+    showimg(event){
+        var img = event.currentTarget.dataset.src;
+        wx.previewImage({
+            urls: [img]
+        });
+    }
 
 });
