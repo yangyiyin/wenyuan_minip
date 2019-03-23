@@ -217,38 +217,47 @@ Page({
 
     upload_record(){
 
-        if (this.data.info.homework_info.need_record_voice && !this.data.record_file) {
+        if (this.data.info.homework_info.need_record_voice == 1 && !this.data.record_file) {
             common.show_toast('请上传录音');
             return;
         }
-        if (this.data.info.homework_info.need_upload_img && !this.data.upload_imgs.length) {
+        if (this.data.info.homework_info.need_upload_pic == 1 && !this.data.upload_imgs.length) {
             common.show_toast('请上传作业图片');
             return;
         }
 
 
         if (this.data.record_file) {
-            wx.showLoading({
-                title: '上传录音中。。。',
-            })
-            var _this = this;
-            wx.uploadFile({
-                url: config.urls.upload+'?bucket=wenyuanjiaoyu',
-                filePath: this.data.record_file,
-                name: 'img',
-                formData:{
-                    'user_session':app.globalData.user_session
-                },
-                success: function(res){
-                    wx.hideLoading();
-                    res.data = JSON.parse(res.data);
-                    _this.data.record_file_qiniu = res.data.data[0]
-                    _this.setData({
-                        record_file_qiniu:res.data.data[0]
-                    })
-                    _this.submit_imgs();
-                }.bind(this)
-            });
+            if (this.data.record_file.indexOf('http://') != -1) {
+                this.setData({
+                    record_file_qiniu:this.data.record_file
+                });
+                this.submit_imgs();
+            } else {
+                wx.showLoading({
+                    title: '上传录音中。。。',
+                })
+                var _this = this;
+                wx.uploadFile({
+                    url: config.urls.upload+'?bucket=wenyuanjiaoyu',
+                    filePath: this.data.record_file,
+                    name: 'img',
+                    formData:{
+                        'user_session':app.globalData.user_session
+                    },
+                    success: function(res){
+                        wx.hideLoading();
+                        res.data = JSON.parse(res.data);
+                        _this.data.record_file_qiniu = res.data.data[0]
+                        _this.setData({
+                            record_file_qiniu:res.data.data[0]
+                        })
+                        _this.submit_imgs();
+                    }.bind(this)
+                });
+            }
+        } else {
+            this.submit_imgs();
         }
     },
     submit_imgs(){
@@ -495,11 +504,12 @@ Page({
         this.data.RecordAudioContext = null;
     },
     playAudio_record(){
+
         if (!this.data.RecordAudioContext) {
             this.initRecordAudioContenx();
             this.data.RecordAudioContext.src = this.data.record_file;
         }
-
+        common.show_toast('加载中...');
         this.data.RecordAudioContext.play();
 
         this.setData({
