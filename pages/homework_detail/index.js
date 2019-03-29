@@ -478,7 +478,7 @@ Page({
 
         this.data.RecorderManager.start({
             format:'mp3',
-            // duration:3000
+             duration:600000
         });
         this.setData({
             recording:true

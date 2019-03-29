@@ -199,7 +199,7 @@
                         </view>
 
                         <block wx:if="{{info.homework_result.is_submit_offline != 1}}">
-                            <view style="width:130rpx;height:130rpx;display: inline-block;position: relative;margin: 20rpx 12rpx;" wx:if="{{upload_imgs.length < 4}}" bindtap="uploadimg" data-index="{{upload_imgs.length}}">
+                            <view style="width:130rpx;height:130rpx;display: inline-block;position: relative;margin: 20rpx 12rpx;" wx:if="{{upload_imgs.length < 8}}" bindtap="uploadimg" data-index="{{upload_imgs.length}}">
                                 <view style="width:130rpx;height:130rpx;border-radius: 10rpx;overflow: hidden;border: 1rpx solid #ddd;">
                                     <image style="width: 130rpx;height:130rpx;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/增加@3x.png" />
                                 </view>
