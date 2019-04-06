@@ -33,3 +33,6 @@ page{
 .cut-off-block{
   width: 750rpx;height: 20rpx;background: #eee;
 }
+.kfformula {
+  vertical-align: middle;
+}

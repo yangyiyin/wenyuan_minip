@@ -13,7 +13,8 @@ Page({
         record_step:0,
         record_currentTime:'0:0',
         RecordAudioContext:null,
-        is_playing_record:false
+        is_playing_record:false,
+        RecorderManager:null,
 
     },
 
@@ -77,7 +78,7 @@ Page({
 
                 this.setData({
                     info:res.data.data,
-                    record_file:res.data.data.homework_uploads.objs ? res.data.data.homework_uploads.objs[0] : '',
+                    record_file:(res.data.data.homework_uploads.objs && res.data.data.homework_uploads.objs[0]) ? res.data.data.homework_uploads.objs[0] : '',
                     upload_imgs:res.data.data.homework_uploads.uploads ? res.data.data.homework_uploads.uploads : [],
                     answer_reply:res.data.data.homework_question_reply
                 });
@@ -87,7 +88,7 @@ Page({
         }.bind(this));
     },
     onUnload(){
-        if (this.data.info.homework_info.homework_downloads_objs && this.data.info.homework_info.homework_downloads_objs.length > 0) {
+        if (this.data.info.homework_info && this.data.info.homework_info.homework_downloads_objs && this.data.info.homework_info.homework_downloads_objs.length > 0) {
             this.data.info.homework_info.homework_downloads_objs.forEach(function(val){
                 if (val.InnerAudioContext) {
                     val.InnerAudioContext.destroy();
@@ -452,7 +453,14 @@ Page({
                 })
                 this.data.RecordAudioContext.src = this.data.record_file;
 
+            });
+            this.data.RecorderManager.onError((errMsg)=>{
+                common.show_modal('录音错误异常:'+errMsg);
             })
+        }
+        if (!this.data.RecorderManager) {
+            common.show_modal('录音器打开失败,请重进当前页面再试');
+            return ;
         }
         if (!this.interval) {
             var record_currentTime = 0;
@@ -491,6 +499,7 @@ Page({
         // });
 
         if (!this.data.RecorderManager) {
+            common.show_modal('录音器获取失败,无法停止录音,请退出当前页面');
             return;
         }
         this.data.RecorderManager.stop();

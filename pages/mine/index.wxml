@@ -49,6 +49,9 @@
     <view style="color: #999;text-align: left;width: 690rpx;margin: 0 auto;margin-top: 20rpx;font-size: 24rpx;">
         当前注册手机号:{{userinfo.user_tel}}
     </view>
+    <view style="color: #999;text-align: left;width: 690rpx;margin: 0 auto;margin-top: 20rpx;font-size: 24rpx;">
+        当前版本:v3.0.6
+    </view>
     <yxs_modal visible="{{visible}}" success_btn="{{false}}" >
 
         <view slot="content" style="width: 400rpx;">

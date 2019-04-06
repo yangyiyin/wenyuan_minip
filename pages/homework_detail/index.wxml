@@ -89,7 +89,10 @@
                 <block wx:for="{{info.homework_info.questions}}" wx:key="index">
                     <view class="question-block-title block">{{item.title}}</view>
                     <view  wx:for="{{item.questions}}" wx:key="index" class="question-single-select block">
-                        <view style="display: inline-block;margin-bottom: 10rpx;">{{index+1}}.{{item.title}}</view>
+                        <view style="width:650rpx;margin-bottom: 10rpx;">
+                            <rich-text nodes="{{item.question_content.content}}"></rich-text>
+
+                        </view>
 
                         <block wx:if="{{item.type == 1}}">
                             <radio-group class="radio-group" bindchange="radioChange" data-qid="{{item.id}}" >
