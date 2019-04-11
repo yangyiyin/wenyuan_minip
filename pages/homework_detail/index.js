@@ -424,6 +424,31 @@ Page({
         });
     },
     startRecord(){
+        // this._startRecord();
+        // return;
+        wx.getSetting({
+            success:(res) => {
+                if (!res.authSetting['scope.record']) {
+                    wx.authorize({
+                        scope: 'scope.record',
+                        success:()=> {
+                            // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+                            this._startRecord();
+                        },
+                        fail:()=> {
+
+                            common.show_modal('录音未授权,请到右上角设置中,打开慈溪文远教育>右上角设置>启用麦克风');
+                        }
+                    })
+                } else {
+                    this._startRecord();
+                }
+            }
+        });
+    },
+    _startRecord(){
+
+
         if (!this.data.RecorderManager) {
             this.data.RecorderManager = wx.getRecorderManager();
             this.data.RecorderManager.onStop((res) => {
@@ -454,8 +479,8 @@ Page({
                 this.data.RecordAudioContext.src = this.data.record_file;
 
             });
-            this.data.RecorderManager.onError((errMsg)=>{
-                common.show_modal('录音错误异常:'+errMsg);
+            this.data.RecorderManager.onError((res)=>{
+                common.show_modal('录音错误异常:'+res.errMsg);
             })
         }
         if (!this.data.RecorderManager) {

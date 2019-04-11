@@ -10,7 +10,8 @@ Page({
         },
         userinfo:app.globalData.userInfo,
         visible:false,
-        current_cut_img:''
+        current_cut_img:'',
+        app_version:config.app_version
     },
     onShow: function() {
         this.setData({

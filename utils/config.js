@@ -1,3 +1,5 @@
+var app_version = 'v3.0.8';
+
 var base_url = 'https://api.yixsu.com/index.php';
 var base_url_h5 = 'https://api.yixsu.com';
 // var base_url = 'http://www.myweb.com/git-res/earth_php/index.php';
@@ -59,5 +61,6 @@ var urls = {
 module.exports = {
     base_url:base_url,
     base_url_h5:base_url_h5,
-    urls: urls
+    urls: urls,
+    app_version:app_version
 }
