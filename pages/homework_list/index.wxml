@@ -28,7 +28,7 @@
     </view>
 
 
-    <view wx:if="{{!class_homework_list.length}}">
+    <view wx:if="{{class_homework_list.length > 0}}">
         <image  class="avatar" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_204.png"></image>
         <view class="name" style="color: #B07F27;font-size: 26rpx;">您没有课程待学习</view>
     </view>
