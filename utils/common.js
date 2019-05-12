@@ -149,6 +149,22 @@ var show_toast = function (msg, icon) {
     });
 }
 
+var getQueryVariable = function (url, variable = '')
+{
+    var url_arr = url.split('?');
+    var query = url_arr[1] ? url_arr[1] : '';
+    if (query) {
+        var vars = query.split("&");
+        var pairs = {};
+        for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split("=");
+            if(variable && pair[0] == variable){return pair[1];}
+            pairs[pair[0]] = pair[1];
+        }
+        return pairs;
+    }
+    return false;
+}
 
 module.exports = {
     request_callback: request_callback,
@@ -157,5 +173,6 @@ module.exports = {
     constant:constant,
     show_modal:show_modal,
     show_toast:show_toast,
-    getlist:getlist
+    getlist:getlist,
+    getQueryVariable:getQueryVariable
 }

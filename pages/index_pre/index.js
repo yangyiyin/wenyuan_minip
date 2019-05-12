@@ -5,14 +5,36 @@ Page({
     data:{
         ready:false
     },
-    onLoad() {
+    onLoad(options) {
+         if (options.q) {
+             var url = decodeURIComponent(options.q);//url
+             var query = common.getQueryVariable(url);//url后的参数
+             if (query.page) {
+                 var param = [];
+                 for(var i in query) {
+                     if (i != 'page') {
+                         param.push(i + '=' +query[i]);
+                     }
+                 }
+                 app.globalData.page_url = param.length ? query.page + '?' + param.join('&') : query.page;
+             }
+         }
+
+         // console.log(app.globalData.page_url);
         //登录
         app.login().then(function(is_old){
             if (is_old) {
                 app.get_userinfo().then(function(has_reg){
 
                     if (has_reg) {
-                        this.goto_index();
+                        if (app.globalData.page_url) {
+                            wx.redirectTo({
+                                url: app.globalData.page_url
+                            })
+                        } else {
+                            this.goto_index();
+                        }
+
                     } else {
                         this.goto_login();
                     }
@@ -23,7 +45,14 @@ Page({
             } else {
                 app.get_userinfo().then(function(has_reg){
                     if (has_reg) {
-                        this.goto_index();
+                        if (app.globalData.page_url) {
+                            wx.redirectTo({
+                                url: app.globalData.page_url
+                            })
+                        } else {
+                            this.goto_index();
+                        }
+                        //this.goto_index();
                     } else {
                         this.setData({
                             ready:true

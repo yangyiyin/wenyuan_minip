@@ -1,4 +1,4 @@
-var app_version = 'v3.0.8';
+var app_version = 'v3.0.9';
 
 var base_url = 'https://api.yixsu.com/index.php';
 var base_url_h5 = 'https://api.yixsu.com';

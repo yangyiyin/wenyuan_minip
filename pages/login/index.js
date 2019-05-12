@@ -75,7 +75,16 @@ Page({
                 common.request('post','bind_tel',data,function (res) {
                     if (res.data.code == common.constant.return_code_success) {
                         common.show_toast('恭喜你,登录成功!');
-                        this.goto_index();
+
+                        if (app.globalData.page_url) {
+                            wx.redirectTo({
+                                url: app.globalData.page_url
+                            })
+                        } else {
+                            this.goto_index();
+                        }
+
+                        // this.goto_index();
                     } else {
                         common.show_modal(res.data.msg);
                     }

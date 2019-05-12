@@ -44,7 +44,8 @@ App({
           mine:true,
       },
       sign_course_current_student:{},
-      sign_course_stage:null
+      sign_course_stage:null,
+      page_url:''
 
   },
   get_common_request_data:function () {
