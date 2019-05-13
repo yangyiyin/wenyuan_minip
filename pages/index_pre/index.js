@@ -18,6 +18,8 @@ Page({
                  }
                  app.globalData.page_url = param.length ? query.page + '?' + param.join('&') : query.page;
              }
+         } else {
+             app.globalData.page_url = '';
          }
 
          // console.log(app.globalData.page_url);
