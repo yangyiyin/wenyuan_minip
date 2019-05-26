@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/index_pre/index",
     "pages/login/index",
     "pages/index/index",
@@ -26,40 +26,47 @@
     "pages/order_wait/index",
     "pages/homework_detail/index",
     "pages/homework_list/index",
-    "pages/homework_index/index"
-
+    "pages/homework_index/index",
+    "pages/sign_course_agreement/index",
+    "pages/sign_course_agreement_list/index"
   ],
-  "window":{
+  "window": {
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "文远教育",
-    "backgroundTextStyle":"dark",
-    "backgroundColor":"#eeeeee"
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#eeeeee"
   },
   "tabBar": {
-    "color":"#000000",
-    "selectedColor":"#3DC370",
-    "backgroundColor":"#ffffff",
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath":"./assets/切图_87-2.png",
-      "selectedIconPath":"./assets/切图_103-2.png"
-    }, {
-      "pagePath": "pages/sign/index",
-      "text": "报名",
-      "iconPath":"./assets/报名.png",
-      "selectedIconPath":"./assets/报名选中.png"
-    }, {
-      "pagePath": "pages/examine/index",
-      "text": "考试",
-      "iconPath":"./assets/切图_90-2.png",
-      "selectedIconPath":"./assets/切图_104-2.png"
-    }, {
-      "pagePath": "pages/mine/index",
-      "text": "我的",
-      "iconPath":"./assets/切图_92-2.png",
-      "selectedIconPath":"./assets/切图_105-2.png"
-    }]
-  }
+    "color": "#000000",
+    "selectedColor": "#3DC370",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./assets/切图_87-2.png",
+        "selectedIconPath": "./assets/切图_103-2.png"
+      },
+      {
+        "pagePath": "pages/sign/index",
+        "text": "报名",
+        "iconPath": "./assets/报名.png",
+        "selectedIconPath": "./assets/报名选中.png"
+      },
+      {
+        "pagePath": "pages/examine/index",
+        "text": "考试",
+        "iconPath": "./assets/切图_90-2.png",
+        "selectedIconPath": "./assets/切图_104-2.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "./assets/切图_92-2.png",
+        "selectedIconPath": "./assets/切图_105-2.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
 }

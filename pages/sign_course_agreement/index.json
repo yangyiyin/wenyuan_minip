@@ -1,0 +1,7 @@
+{
+  "backgroundColor":"#ffffff",
+  "usingComponents": {
+    "yxs_input":"../../yixsu_component/yxs_input/index",
+    "yxs_select":"../../yixsu_component/yxs_select/index"
+  }
+}

@@ -40,6 +40,11 @@
     <view wx:if="{{info.id}}" style="border-bottom: 1rpx solid #eee" bindtap="goto_words">
         <yxs_menu_item height="120" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_117.png" title="教师评语"></yxs_menu_item>
     </view>
+
+    <view bindtap="goto_sign_course_agreement" style="text-decoration:underline;color: #999;text-align: left;width: 690rpx;margin: 0 auto;margin-top: 20rpx;margin-right:20rpx;font-size: 24rpx;">
+        我的报名须知
+    </view>
+
     <view style="color: #999;text-align: left;width: 690rpx;margin: 0 auto;margin-top: 20rpx;font-size: 24rpx;">
         官方电话:63930922
     </view>

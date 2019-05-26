@@ -160,7 +160,7 @@ Page({
         var id = event.currentTarget.dataset.id;
         app.globalData.sign_course_current_student = this.data.current_student;
         wx.navigateTo({
-            url: '/pages/sign_course_detail/index?id='+id
+            url: '/pages/sign_course_detail/index?id='+id+'&stage_id='+this.data.stage_id
         });
     },
     choose_student(event){

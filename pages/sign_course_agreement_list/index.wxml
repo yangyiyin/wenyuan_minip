@@ -1,0 +1,22 @@
+
+
+
+<view class="container" style="height: auto;padding: 20rpx;">
+    <block wx:if="{{list && list.length > 0}}">
+        <view wx:for="{{list}}" wx:key="index" style="font-size: 28rpx;width: 600rpx;word-wrap:break-word;padding: 20rpx 0;border-bottom: 1rpx solid #ddd">
+            <text>
+                {{item.notice_content_short}}...
+            </text>
+            <view bindtap="goto_detail" data-item="{{item}}" class="btn" style="height: 40rpx;line-height: 40rpx;width: 100rpx;padding: 0;">查看</view>
+        </view>
+    </block>
+
+    <block wx:else>
+        <view style="text-align: center;">暂无数据~</view>
+    </block>
+
+
+
+</view>
+
+

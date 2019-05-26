@@ -55,6 +55,11 @@ Page({
             url: '/pages/words/index'
         })
     },
+    goto_sign_course_agreement(){
+        wx.navigateTo({
+            url: '/pages/sign_course_agreement_list/index'
+        })
+    },
     show_change_avatar(){
         this.setData({
             info:this.data.info,

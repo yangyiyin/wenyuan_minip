@@ -5,6 +5,7 @@ const app = getApp()
 Page({
     data:{
         id:0,
+        stage_id:0,
         order_id:0,
         student:{},
         class_info:{},
@@ -19,13 +20,16 @@ Page({
         birthday:'请选择生日',
         inputremark:'',
         inputclass:'',
-        disabled_name:false
+        disabled_name:false,
+        show_agreement:false,
+        stage_notice:''
     },
     onLoad(option){
         //console.log(option.student);
         this.setData({
             ready:false,
             id:option.id ? option.id : '',
+            stage_id:option.stage_id ? option.stage_id : '',
             order_id:option.order_id ? option.order_id : '',
             from:option.from ? option.from : (option.order_id ? 'order':''),
             is_new:app.globalData.sign_course_current_student.student_info ? false : true
@@ -266,14 +270,90 @@ Page({
         }
         return data;
     },
-    buy(){
+    agree(is_ok){
+        if (is_ok) {
+            var data = {
+                student_name:this.data.student.name,
+                notice:this.data.stage_notice,
+                notice_type:1,
+                notice_id:this.data.stage_id
+            }
+            common.request('post','user_notice_agreement_edit',data,function (res) {
+                wx.hideLoading();
+                if (res.data.code == common.constant.return_code_success) {
+                    this.buy(true);
+
+                } else {
+                    common.show_modal(res.data.msg);
+                }
+            }.bind(this));
+
+        } else {
+            // this.setData({
+            //     show_agreement: false
+            // })
+        }
+    },
+    buy(agree){
 
         //检测学生信息
         var data = this.check_submit_data();
-       // console.log(data);
+        // console.log(data);
         if (!data){
             return;
         }
+
+        //弹出同意协议
+        if (agree !== true) {
+
+
+            var _this = this;
+            if (!this.data.stage_notice) {
+                wx.showLoading({
+                    title: '获取报名须知',
+                });
+                common.request('post','stage_info',{id:this.data.stage_id},function (res) {
+                    wx.hideLoading();
+                    if (res.data.code == common.constant.return_code_success) {
+                        this.setData({
+                            stage_notice:res.data.data.notice
+                        });
+                        wx.showModal({
+                            title: '报名须知',
+                            content: this.data.stage_notice,
+                            confirmText:'同意',
+                            cancelColor:'#bbbbbb',
+                            success(res) {
+                                if (res.confirm) {
+                                    _this.agree(true)
+                                } else if (res.cancel) {
+                                    // console.log('用户点击取消')
+                                }
+                            }
+                        })
+
+                    } else {
+                        common.show_modal(res.data.msg);
+                    }
+                }.bind(this));
+            } else {
+                wx.showModal({
+                    title: '报名须知',
+                    content: this.data.stage_notice,
+                    success(res) {
+                        if (res.confirm) {
+                            _this.agree(true)
+                        } else if (res.cancel) {
+                            //console.log('用户点击取消')
+                        }
+                    }
+                })
+            }
+
+            return ;
+        }
+
+
         //console.log(data);
         //return;
         //上传图片

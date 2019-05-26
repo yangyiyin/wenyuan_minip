@@ -22,6 +22,10 @@ Page({
     },
     onLoad(){
 
+        // wx.navigateTo({
+        //     url: '/pages/sign_course_agreement/index'
+        // })
+
         if (wx.getUpdateManager) {
             const updateManager = wx.getUpdateManager()
 

@@ -1,0 +1,41 @@
+
+
+
+<view class="container" style="height: auto;padding: 20rpx;">
+    <view style="font-size: 34rpx">报名须知:</view>
+
+    <block v-if="{{show_agreement}}">
+        <text style="padding: 20rpx;font-size: 28rpx">{{stage_notice}}</text>
+
+        <view>
+            <block wx:if="{{!is_agree}}">
+
+                <view style="margin-bottom: 20rpx">报名的学生:</view>
+                <block wx:if="{{options_student && options_student.length}}">
+                    <yxs_select placeholder="请选择学生" options="{{options_student}}" select_options="{{select_options_student}}" bindchange="select_student" width="600" height="80"  must="{{true}}" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_167.png" error_info="{{inputname_error}}"></yxs_select>
+                </block>
+                <block wx:else>
+                    <yxs_input width="600" height="80" maxlength="20"  placeholder="" bindchange="bindinputstudentname" ></yxs_input>
+                </block>
+            </block>
+            <block wx:else>
+                <view style="margin-bottom: 20rpx">报名的学生:{{select_options_student[0].name}}</view>
+
+            </block>
+        </view>
+
+        <view style="width: 100%;text-align: center" wx:if="{{!show_goto_index && !is_show_only}}">
+            <view bindtap="agree" data-is_ok="0" class="btn" style="width: 30%;background: #bbb;display: inline-block">取消</view>
+            <view bindtap="agree" data-is_ok="1" class="btn" style="width: 30%;display: inline-block;margin-left: 60rpx;">同意</view>
+        </view>
+        <view wx:if="{{is_agree}}" style="width: 30%;position:absolute;top:100rpx;right:50rpx;transform: rotate(30deg);border: 1px solid red;color: red;padding: 10rpx;text-align: center">已同意</view>
+        <view style="width: 100%;text-align: center" wx:if="{{show_goto_index}}">
+            <view bindtap="goto_index" class="btn" style="width: 30%;display: inline-block;">返回首页</view>
+        </view>
+
+    </block>
+
+
+</view>
+
+

@@ -1,0 +1,8 @@
+page{
+    background: #fff;
+}
+.container{
+    height: auto;
+    min-height: auto;
+    background: #fff;
+}

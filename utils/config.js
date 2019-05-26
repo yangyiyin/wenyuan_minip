@@ -1,4 +1,4 @@
-var app_version = 'v3.0.9';
+var app_version = 'v3.1.0';
 
 var base_url = 'https://api.yixsu.com/index.php';
 var base_url_h5 = 'https://api.yixsu.com';
@@ -46,6 +46,10 @@ var urls = {
     get_sign_class_list:base_url+'/wenyuanjiaoyu/sign_course/get_sign_class_list',
     get_class_info:base_url+'/wenyuanjiaoyu/sign_course/get_class_info',
     get_sign_course_stage:base_url+'/wenyuanjiaoyu/sign_stage/get_active_one',
+    stage_info:base_url+'/wenyuanjiaoyu/sign_stage/info',
+    user_notice_agreement_list:base_url+'/wenyuanjiaoyu/user_notice_agreement/get_all',
+    user_notice_agreement_edit:base_url+'/wenyuanjiaoyu/user_notice_agreement/edit',
+    user_notice_agreement_info:base_url+'/wenyuanjiaoyu/user_notice_agreement/info',
     check_can_open_ticket:base_url+'/wenyuanjiaoyu/examination_signs/check_can_open_ticket',
     quit_queue:base_url+'/wenyuanjiaoyu/order/quit_queue',
     cancel_pay:base_url+'/wenyuanjiaoyu/pay/cancel_pay',
