@@ -273,7 +273,7 @@ Page({
     agree(is_ok){
         if (is_ok) {
             var data = {
-                student_name:this.data.student.name,
+                student_name:(this.data.student.student_info && this.data.student.student_info.name) ? this.data.student.student_info.name : this.data.student.name ,
                 notice:this.data.stage_notice,
                 notice_type:1,
                 notice_id:this.data.stage_id
