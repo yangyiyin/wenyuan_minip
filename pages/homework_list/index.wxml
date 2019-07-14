@@ -5,7 +5,34 @@
     </div>
 
 
-    <view style="width: 710rpx;margin: 0 auto;background: #fff;border-radius: 10rpx;position: relative;top:-10rpx;">
+    <!--<view style="width: 710rpx;margin: 0 auto;background: #fff;border-radius: 10rpx;position: relative;top:-10rpx;">-->
+        <!--<view style="padding: 50rpx;width: 610rpx;border-bottom: 1rpx solid #eee" wx:for="{{class_homework_list}}" wx:key="index" bindtap="goto_homework_detail" data-id="{{item.id}}">-->
+            <!--<view style="font-size: 34rpx;">{{item.homework.name}}</view>-->
+            <!--<view style="text-align: right"><text style="color: #2BBD73;font-size: 22rpx">进入学习></text></view>-->
+            <!--<view style="margin-top: 40rpx;">-->
+                <!--<view style="font-size: 26rpx;display: inline-block" wx:if="{{item.homework.response_type == 1}}">-->
+                    <!--作业方式:<text  style="color: #2BBD73">线上答题</text>-->
+
+                <!--</view>-->
+                <!--<view style="font-size: 26rpx;display: inline-block" wx:else>-->
+
+                    <!--作业方式:<text  style="color: #2BBD73">线下答题</text>-->
+                <!--</view>-->
+                <!--<view style="font-size: 24rpx;display: inline-block;float:right;color: #999">-->
+                    <!--{{item.homework.create_time_short}}-->
+                <!--</view>-->
+            <!--</view>-->
+
+        <!--</view>-->
+
+    <!--</view>-->
+
+
+    <view wx:if="{{!class_homework_list.length || class_homework_list.length <= 0}}">
+        <image  class="avatar" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_204.png"></image>
+        <view class="name" style="color: #B07F27;font-size: 26rpx;">您没有课程待学习</view>
+    </view>
+    <view wx:else style="width: 710rpx;margin: 0 auto;background: #fff;border-radius: 10rpx;position: relative;top:-10rpx;">
         <view style="padding: 50rpx;width: 610rpx;border-bottom: 1rpx solid #eee" wx:for="{{class_homework_list}}" wx:key="index" bindtap="goto_homework_detail" data-id="{{item.id}}">
             <view style="font-size: 34rpx;">{{item.homework.name}}</view>
             <view style="text-align: right"><text style="color: #2BBD73;font-size: 22rpx">进入学习></text></view>
@@ -25,11 +52,5 @@
 
         </view>
 
-    </view>
-
-
-    <view wx:if="{{class_homework_list.length > 0}}">
-        <image  class="avatar" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_204.png"></image>
-        <view class="name" style="color: #B07F27;font-size: 26rpx;">您没有课程待学习</view>
     </view>
 </view>
