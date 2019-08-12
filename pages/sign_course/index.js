@@ -13,7 +13,7 @@ Page({
         stage:'',
         loading_course_list:true,
         stage_id:0,
-        options_grade: [{label:'全部年级',value:'-1'},{label:'一年级',value:'一'},{label:'二年级',value:'二'},{label:'三年级',value:'三'},{label:'四年级',value:'四'},{label:'五年级',value:'五'},{label:'六年级',value:'六'}],
+        options_grade: [{label:'全部年级',value:'-1'},{label:'一年级',value:'一'},{label:'二年级',value:'二'},{label:'三年级',value:'三'},{label:'四年级',value:'四'},{label:'五年级',value:'五'},{label:'六年级',value:'六'},{label:'初一',value:'初一'}],
         options_subject: [{label:'语/数/外',value:'-1'},{label:'语文',value:'语文'},{label:'数学',value:'数学'},{label:'英语',value:'英语'}],
         options_level: [{label:'基础/提高/加强/全部',value:'-1'},{label:'基础',value:'基础'},{label:'提高',value:'提高'},{label:'加强',value:'加强'}],
         options_week: [{label:'周五至周日',value:'-1'},{label:'周五',value:'五'},{label:'周六',value:'六'},{label:'周日',value:'日'}],
