@@ -24,6 +24,10 @@ Page({
         options_grade:[
             //{id:1,name:'一年级'},{id:2,name:'二年级'},{id:3,name:'三年级'}
         ],
+        examine_sign_times:[],
+        examine_sign_times_fucong:[
+            {id:1,name:'是'},{id:2,name:'否'}
+        ],
         options_lession:[
            // {id:1,name:'数学'},{id:2,name:'英语唐'},{id:3,name:'语文'}
         ],
@@ -37,6 +41,9 @@ Page({
         select_options_lession:[],
         select_options_address:[],
         select_options_student:[],
+        select_options_examine_sign_times_fucong:[],
+        select_options_examine_sign_times1:[],
+        select_options_examine_sign_times2:[],
         current_student:{},
         step:1,
         is_need_upload_avatar:false,
@@ -102,6 +109,9 @@ Page({
             select_options_lession:[],
             select_options_address:[],
             select_options_student:[],
+            select_options_examine_sign_times_fucong:[],
+            select_options_examine_sign_times1:[],
+            select_options_examine_sign_times2:[],
             // inputphone1:'',
             inputphone2:'',
             options_lession:this.data.options_lession,
@@ -133,6 +143,12 @@ Page({
         var id = this.data.id;
         common.request('post','get_examination_detail',{id:id},function (res) {
             if (res.data.code == common.constant.return_code_success) {
+                var examine_sign_times = [];
+                if (res.data.data.info.extra && res.data.data.info.extra.length > 0) {
+                    res.data.data.info.extra.forEach((val,index)=>{
+                        examine_sign_times.push({'id':val, 'name':val});
+                    })
+                }
                 this.setData({
                     info:res.data.data.info,
                     current_student:res.data.data.current_student,
@@ -140,6 +156,7 @@ Page({
                     options_lession:res.data.data.options.options_lession,
                     options_address:res.data.data.options.options_address,
                     options_student:res.data.data.options.options_student,
+                    examine_sign_times:examine_sign_times,
                 });
                 this.get_bind_students();
             } else {
@@ -167,6 +184,36 @@ Page({
         if (e.detail.select_options) {
             this.setData({
                 inputgrade_error:''
+            })
+        }
+    },
+    select_examine_sign_times1(e){
+        this.setData({
+            select_options_examine_sign_times1:e.detail.select_options
+        });
+        if (e.detail.select_options) {
+            this.setData({
+                inputexamine_sign_times1_error:''
+            })
+        }
+    },
+    select_examine_sign_times2(e){
+        this.setData({
+            select_options_examine_sign_times2:e.detail.select_options
+        });
+        if (e.detail.select_options) {
+            this.setData({
+                inputexamine_sign_times2_error:''
+            })
+        }
+    },
+    select_examine_sign_times_fucong(e){
+        this.setData({
+            select_options_examine_sign_times_fucong:e.detail.select_options
+        });
+        if (e.detail.select_options) {
+            this.setData({
+                inputexamine_sign_times_fucong_error:''
             })
         }
     },
@@ -338,6 +385,9 @@ Page({
                 school_before:this.data.inputschool_before,
                 prise_before:this.data.inputprise_before,
                 grade:'',
+                examine_sign_times1:'',
+                examine_sign_times2:'',
+                examine_sign_times_fucong:'',
                 lession:'',
                 address:'',
                 father_tel:this.data.inputphone1,
@@ -351,6 +401,16 @@ Page({
         if (this.data.select_options_grade[0]) {
             data.content.grade = this.data.select_options_grade[0].name
         }
+         if (this.data.select_options_examine_sign_times1[0]) {
+            data.content.examine_sign_times1 = this.data.select_options_examine_sign_times1[0].name
+        }
+        if (this.data.select_options_examine_sign_times2[0]) {
+            data.content.examine_sign_times2 = this.data.select_options_examine_sign_times2[0].name
+        }
+        if (this.data.select_options_examine_sign_times_fucong[0]) {
+            data.content.examine_sign_times_fucong = this.data.select_options_examine_sign_times_fucong[0].name
+        }
+
         if (this.data.select_options_lession[0]) {
             this.data.select_options_lession.forEach(function(e){
                 data.content.lession += e.name+';';
@@ -418,6 +478,29 @@ Page({
                 inputaddress_error:'培训地点不能为空'
             })
             return false;
+        }
+        if (this.data.examine_sign_times.length > 0) {
+            if (!data.content.examine_sign_times1 && data.is_new) {
+                common.show_modal('请选择上课时间');
+                this.setData({
+                    inputexamine_sign_times1_error:'请选择上课时间'
+                })
+                return false;
+            }
+            if (!data.content.examine_sign_times2 && data.is_new) {
+                common.show_modal('请选择上课时间');
+                this.setData({
+                    inputexamine_sign_times2_error:'请选择上课时间'
+                })
+                return false;
+            }
+            if (!data.content.examine_sign_times_fucong && data.is_new) {
+                common.show_modal('请选择上课时间');
+                this.setData({
+                    inputexamine_sign_times_fucong_error:'请选择上课时间'
+                })
+                return false;
+            }
         }
         if (!data.content.father_tel && data.is_new) {
             common.show_modal('主要手机号不能为空');

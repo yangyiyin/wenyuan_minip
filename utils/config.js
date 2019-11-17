@@ -1,10 +1,11 @@
-var app_version = 'v3.1.0';
+var app_version = 'v3.1.4';
 
 var base_url = 'https://api.yixsu.com/index.php';
 var base_url_h5 = 'https://api.yixsu.com';
 // var base_url = 'http://www.myweb.com/git-res/earth_php/index.php';
 // var base_url_h5 = 'http://www.myweb.com/git-res/earth_php';
-
+// var base_url = 'https://api.88plus.net/index.php';
+// var base_url_h5 = 'https://api.88plus.net';
 var urls = {
     login:base_url+'/wenyuanjiaoyu/auth/login',
     userinfo:base_url+'/wenyuanjiaoyu/users/info',
