@@ -74,7 +74,8 @@
                         </view>
                     </picker>
                 </view>
-
+                <view style="margin-top: 30rpx;width:650rpx;height:207rpx;{{menuFixed?'':'display:none'}}">
+                </view>
 
                 <view style="position: relative">
                     <i-spin fix wx:if="{{loading_course_list}}"></i-spin>
