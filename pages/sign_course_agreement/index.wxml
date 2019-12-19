@@ -20,6 +20,7 @@
             </block>
             <block wx:else>
                 <view style="margin-bottom: 20rpx">报名的学生:{{select_options_student[0].name}}</view>
+                <view style="margin-bottom: 20rpx">{{create_time}}</view>
 
             </block>
         </view>

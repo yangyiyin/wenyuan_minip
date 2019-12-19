@@ -26,6 +26,7 @@ Page({
         show_goto_index:false,
         is_agree:false,
         options_student:[],
+        create_time:'',
         select_options_student:[],
         inputstudent_error:'',
         is_show_only:false
@@ -56,6 +57,7 @@ Page({
                 if (res.data.code == common.constant.return_code_success) {
                     this.setData({
                         stage_notice:res.data.data.notice_content,
+                        create_time:res.data.data.create_time,
                         show_agreement:true
                     });
 

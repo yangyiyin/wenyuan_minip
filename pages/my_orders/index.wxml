@@ -48,7 +48,7 @@
 
         <view style="width: 690rpx;margin: 0 auto">
             <view class="buy-btn" style="float: right">
-                <view wx:if="{{item.status==1 && item.type==1}}" class="_btn" style="border: 1rpx solid #ddd;background: none;color: #333" catchtap="cancel_order" data-id="{{item.id}}" data-index="{{index}}">取消订单</view>
+                <view wx:if="{{item.status==1 && item.type==1 && item.pay_confim != 1}}" class="_btn" style="border: 1rpx solid #ddd;background: none;color: #333" catchtap="cancel_order" data-id="{{item.id}}" data-index="{{index}}">取消订单</view>
                 <view wx:if="{{item.status==1 && item.type==2}}" class="_btn" style="border: 1rpx solid #ddd;background: none;color: #333" catchtap="cancel_order_simple" data-id="{{item.id}}" data-index="{{index}}">取消订单</view>
                 <view wx:if="{{item.status==1 && item.type==1}}" class="_btn" catchtap="pay" data-id="{{item.id}}" data-index="{{index}}">立即支付</view>
                 <view wx:if="{{item.status==1 && item.type==2}}" class="_btn" catchtap="pay_sign_course" data-id="{{item.id}}" data-index="{{index}}">立即支付</view>
