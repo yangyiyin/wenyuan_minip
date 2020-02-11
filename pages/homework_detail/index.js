@@ -1,5 +1,6 @@
 const common = require('../../utils/common.js');
 const config = require('../../utils/config.js');
+const utils = require('../../utils/util.js');
 const app = getApp();
 Page({
     data:{
@@ -76,6 +77,11 @@ Page({
                     })
                 }
 
+                if (res.data.data.homework_info.questions2.length) {
+                    res.data.data.homework_info.questions2.forEach((val)=>{
+                        val.question_answer.answer_parse = utils.formatRichText( val.question_answer.answer_parse);
+                    })
+                }
                 this.setData({
                     info:res.data.data,
                     record_file:(res.data.data.homework_uploads.objs && res.data.data.homework_uploads.objs[0]) ? res.data.data.homework_uploads.objs[0] : '',
