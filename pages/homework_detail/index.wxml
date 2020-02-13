@@ -251,6 +251,16 @@
                     </view>
                 </block>
 
+
+                <block wx:if="{{info.homework_result.answer_comment}}">
+
+                    <view style="background: #ddd;padding: 10rpx;border-radius: 8rpx;color:#000;font-weight: bolder">
+                        <view>教师点拨:</view>
+                        <rich-text nodes="{{info.homework_result.answer_comment}}"></rich-text>
+                    </view>
+
+                </block>
+
                 <block wx:if="{{info.homework_result.is_submit_offline == 1&&info.homework_info.questions2&&info.homework_info.questions2.length}}">
 
                     <view style="background: #eee;padding: 10rpx;border-radius: 8rpx;">
@@ -260,14 +270,6 @@
 
                 </block>
 
-                <block wx:if="{{info.homework_result.answer_comment}}">
-
-                    <view style="background: #eee;padding: 10rpx;border-radius: 8rpx;">
-                        <view>教师点拨:</view>
-                        <rich-text nodes="{{info.homework_result.answer_comment}}"></rich-text>
-                    </view>
-
-                </block>
                 <block wx:if="{{info.homework_result.is_submit_offline == 1}}">
                     <!--<view wx:if="{{info.homework_result.total_score}}" style="text-align: center;margin: 30rpx 0;font-size: 32rpx;">作业提交成功,等待老师审阅！</view>-->
                     <view wx:if="{{!info.homework_result.total_score}}" style="text-align: center;margin: 30rpx 0;font-size: 32rpx;">作业提交成功,等待老师审阅！</view>

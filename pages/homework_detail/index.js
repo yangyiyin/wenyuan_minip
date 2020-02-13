@@ -292,7 +292,7 @@ Page({
         wx.setClipboardData({
             data: event.currentTarget.dataset.item.url,
             success(res) {
-                common.show_modal('复制链接成功,建议发送链接到电脑后打开下载(由于微信限制,无法在小程序内下载文件)');
+                common.show_modal('复制链接成功,可通过外部浏览器打开');
             }
         })
 
