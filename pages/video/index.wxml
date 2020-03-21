@@ -1,0 +1,71 @@
+<!--<view class="container" style="background: #fff">-->
+
+    <!--&lt;!&ndash;<view class="item" wx:for="{{news_list}}" wx:key="index" bindtap="goto_news_detail" data-id="{{item.id}}" data-link="{{item.link}}">&ndash;&gt;-->
+        <!--&lt;!&ndash;<view class="left">{{item.title}}</view>&ndash;&gt;-->
+        <!--&lt;!&ndash;<view class="right">{{item.create_time}}</view>&ndash;&gt;-->
+    <!--&lt;!&ndash;</view>&ndash;&gt;-->
+    <!---->
+
+<!--</view>-->
+<!--<include src="../../common/bottom_pull_info.wxml"/>-->
+
+
+<view class="top-container" >
+    <swiper indicator-dots="{{false}}"
+            autoplay="{{true}}" interval="{{3000}}" bindchange="swiper_change" duration="{{500}}" style="width: 750rpx;height: 400rpx;">
+        <swiper-item wx:for="{{news_list}}" wx:key="index" bindtap="goto_news_detail" data-id="{{item.id}}" data-link="{{item.link}}">
+            <image mode="aspectFill" src="{{item.img}}" class="slide-image" style="width: 750rpx;height:400rpx"/>
+        </swiper-item>
+
+    </swiper>
+
+    <view class="top-container-text-box">
+        <view class="top-container-text-info" >{{swiper_info}}</view>
+        <view class="top-container-points-box">
+            <view class="top-container-point" wx:for="{{news_list}}" wx:key="index" style="background: {{item.active ? '#48D27D' : '#fff'}};"></view>
+            <view style="clear: both"></view>
+        </view>
+        <view style="clear: both"></view>
+    </view>
+</view>
+
+<view id="affix" style="display:flex;font-size:26rpx;background:#fff;padding:40rpx 0;color:#04b00f;width:750rpx;{{menuFixed?'position:fixed;top:0;left:0;margin-top:0;z-index:9':''}}">
+    <view style="flex: 1;text-align: center">筛选:</view>
+    <picker style="flex: 2;text-align: center" class="option" bindchange="bindPickerChange" data-option="grade" range="{{options_grade}}" range-key="label">
+        <view>
+            {{options_grade[option_index.grade].label}}
+            <image style="width: 20rpx;vertical-align:middle;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_185.png"></image>
+        </view>
+    </picker>
+    <picker style="flex: 2;text-align: center" class="option" bindchange="bindPickerChange" data-option="subject" range="{{options_subject}}" range-key="label">
+        <view>
+            {{options_subject[option_index.subject].label}}
+            <image style="width: 20rpx;vertical-align:middle;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_185.png"></image>
+        </view>
+    </picker>
+</view>
+
+<view style="height:80rpx;line-height:80rpx;font-size: 30rpx;">
+    <div style="display: inline-block;vertical-align:middle;width: 10rpx;height: 40rpx;background:#12CE87;border-radius: 20rpx;margin:0 20rpx;"></div>
+    <div style="display: inline-block">课程视频</div>
+</view>
+
+<view style="margin: 20rpx;width:710rpx;border-radius: 10rpx;background: #fff;">
+    <view style="display: inline-block;width: 240rpx;height: 120rpx;vertical-align: top">
+        <image style="width: 240rpx;height: 120rpx;vertical-align:middle;" mode="scaleToFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/img_loading_bg2.png"></image>
+    </view>
+    <view style="display: inline-block;width: 470rpx;font-size: 24rpx">
+        <view style="display: flex">
+            <view style="flex: 1">标题</view>
+            <view>简介简介简介简介简介简介简介简介</view>
+        </view>
+        <view>
+            简介简介简介简介简介简介简介简介
+        </view>
+        <view>
+            <view class="label">123</view>
+            <view class="label">33</view>
+            <view class="label">44</view>
+        </view>
+    </view>
+</view>

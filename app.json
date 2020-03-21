@@ -4,6 +4,7 @@
     "pages/login/index",
     "pages/index/index",
     "pages/change_student/index",
+    "pages/video/index",
     "pages/examine/index",
     "pages/examine_detail/index",
     "pages/examine_log/index",
@@ -53,6 +54,12 @@
         "text": "报名",
         "iconPath": "./assets/报名.png",
         "selectedIconPath": "./assets/报名选中.png"
+      },
+      {
+        "pagePath": "pages/video/index",
+        "text": "小视频",
+        "iconPath": "./assets/video.png",
+        "selectedIconPath": "./assets/video2.png"
       },
       {
         "pagePath": "pages/examine/index",
