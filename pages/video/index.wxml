@@ -50,19 +50,65 @@
     <div style="display: inline-block">课程视频</div>
 </view>
 
-<view style="margin: 20rpx;width:710rpx;border-radius: 10rpx;background: #fff;">
-    <view style="display: inline-block;width: 240rpx;height: 120rpx;vertical-align: top">
-        <image style="width: 240rpx;height: 120rpx;vertical-align:middle;" mode="scaleToFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/img_loading_bg2.png"></image>
+<view style="margin:20rpx;width:710rpx;border-radius: 10rpx;background: #fff;overflow: hidden">
+    <view style="display: inline-block;width: 240rpx;height: 160rpx;vertical-align: top">
+        <image style="width: 240rpx;height: 160rpx;vertical-align:middle;" mode="scaleToFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/img_loading_bg2.png"></image>
     </view>
-    <view style="display: inline-block;width: 470rpx;font-size: 24rpx">
+    <view style="display: inline-block;width: 440rpx;font-size: 24rpx;padding: 15rpx;">
         <view style="display: flex">
-            <view style="flex: 1">标题</view>
-            <view>简介简介简介简介简介简介简介简介</view>
+            <view style="flex: 5;font-size: 30rpx">标题标题标题标题标题</view>
+            <view style="flex: 2;display: flex">
+                <view style="padding: 4rpx 6rpx" class="btn">购买¥1</view>
+            </view>
         </view>
-        <view>
+        <view style="margin-top: 10rpx;">
             简介简介简介简介简介简介简介简介
         </view>
-        <view>
+        <view style="margin-top: 10rpx;">
+            <view class="label">123</view>
+            <view class="label">33</view>
+            <view class="label">44</view>
+        </view>
+    </view>
+</view>
+
+<view style="margin:20rpx;width:710rpx;border-radius: 10rpx;background: #fff;overflow: hidden">
+    <view style="display: inline-block;width: 240rpx;height: 160rpx;vertical-align: top">
+        <image style="width: 240rpx;height: 160rpx;vertical-align:middle;" mode="scaleToFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/img_loading_bg2.png"></image>
+    </view>
+    <view style="display: inline-block;width: 440rpx;font-size: 24rpx;padding: 15rpx;">
+        <view style="display: flex">
+            <view style="flex: 5;font-size: 30rpx">标题标题标题标题标题</view>
+            <view style="flex: 2;display: flex">
+                <view style="padding: 4rpx 6rpx" class="btn">购买¥1</view>
+            </view>
+        </view>
+        <view style="margin-top: 10rpx;">
+            简介简介简介简介简介简介简介简介
+        </view>
+        <view style="margin-top: 10rpx;">
+            <view class="label">123</view>
+            <view class="label">33</view>
+            <view class="label">44</view>
+        </view>
+    </view>
+</view>
+
+<view style="margin:20rpx;width:710rpx;border-radius: 10rpx;background: #fff;overflow: hidden">
+    <view style="display: inline-block;width: 240rpx;height: 160rpx;vertical-align: top">
+        <image style="width: 240rpx;height: 160rpx;vertical-align:middle;" mode="scaleToFill" src="http://wenyuanjiaoyu-qiniu.yixsu.com/img_loading_bg2.png"></image>
+    </view>
+    <view style="display: inline-block;width: 440rpx;font-size: 24rpx;padding: 15rpx;">
+        <view style="display: flex">
+            <view style="flex: 5;font-size: 30rpx">标题标题标题标题标题</view>
+            <view style="flex: 2;display: flex">
+                <view style="padding: 4rpx 6rpx" class="btn">购买¥1</view>
+            </view>
+        </view>
+        <view style="margin-top: 10rpx;">
+            简介简介简介简介简介简介简介简介
+        </view>
+        <view style="margin-top: 10rpx;">
             <view class="label">123</view>
             <view class="label">33</view>
             <view class="label">44</view>

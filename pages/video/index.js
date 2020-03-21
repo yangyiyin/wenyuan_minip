@@ -38,7 +38,7 @@ Page({
     },
     onPageScroll: function (e) {
 
-// console.log(e.scrollTop);
+ console.log(e.scrollTop);
         var that = this;
 // 3.当页面滚动距离scrollTop > menuTop菜单栏距离文档顶部的距离时，菜单栏固定定位
         if ((e.scrollTop-50) > that.data.menuTop) {
