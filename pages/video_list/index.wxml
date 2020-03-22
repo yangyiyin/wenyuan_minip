@@ -10,26 +10,6 @@
 <!--<include src="../../common/bottom_pull_info.wxml"/>-->
 
 
-<view class="top-container" >
-    <swiper indicator-dots="{{false}}"
-            autoplay="{{true}}" interval="{{3000}}" bindchange="swiper_change" duration="{{500}}" style="width: 750rpx;height: 400rpx;">
-        <swiper-item wx:for="{{news_list_top}}" wx:key="index" bindtap="goto_detail" data-item="{{item}}" data-id="{{item.id}}">
-            <image mode="aspectFill" src="{{item.img}}" class="slide-image" style="width: 750rpx;height:400rpx"/>
-            <view style="padding: 4rpx 6rpx;position: absolute;right: 20rpx;top:20rpx;width: auto" class="btn">购买¥{{item.price}}/年</view>
-        </swiper-item>
-
-    </swiper>
-
-    <view class="top-container-text-box">
-        <view class="top-container-text-info" >{{swiper_info}}</view>
-        <view class="top-container-points-box">
-            <view class="top-container-point" wx:for="{{news_list}}" wx:key="index" style="background: {{item.active ? '#48D27D' : '#fff'}};"></view>
-            <view style="clear: both"></view>
-        </view>
-        <view style="clear: both"></view>
-    </view>
-</view>
-
 <view id="affix" style="display:flex;font-size:26rpx;background:#fff;padding:30rpx 0;color:#04b00f;width:750rpx;{{menuFixed?'position:fixed;top:0;left:0;margin-top:0;z-index:9':''}}">
     <view style="flex: 1;text-align: center">筛选:</view>
     <picker style="flex: 2;text-align: center" class="option" bindchange="bindPickerChange" data-option="grade" range="{{options_grade}}" range-key="label">
@@ -50,7 +30,7 @@
 
 <view style="height:70rpx;line-height:70rpx;font-size: 30rpx;">
     <div style="display: inline-block;vertical-align:middle;width: 10rpx;height: 40rpx;background:#12CE87;border-radius: 20rpx;margin:0 20rpx;"></div>
-    <div style="display: inline-block">课程视频</div>
+    <div style="display: inline-block">{{type=='buy'?'我购买的视频':'我收藏的视频'}}</div>
 </view>
 
 <view wx:for="{{news_list}}" wx:key="index" bindtap="goto_detail" data-id="{{item.id}}" data-item="{{item}}"  style="margin:0 20rpx;margin-top:20rpx;width:710rpx;border-radius: 10rpx;background: #fff;overflow: hidden">

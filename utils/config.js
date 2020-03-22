@@ -1,4 +1,4 @@
-var app_version = 'v3.2.0';
+var app_version = 'v3.2.5';
 
 var base_url = 'https://api.yixsu.com/index.php';
 var base_url_h5 = 'https://api.yixsu.com';
@@ -18,6 +18,7 @@ var urls = {
     change_avatar:base_url+'/wenyuanjiaoyu/student/change_avatar',
     upload:base_url+'/waibao/common/qiniu_upload',
     pay_create:base_url+'/wenyuanjiaoyu/pay/wechat_pay_create',
+    pay_create_video:base_url+'/wenyuanjiaoyu/pay/wechat_pay_create_video',
     pay_create_course_order:base_url+'/wenyuanjiaoyu/pay/wechat_pay_create_course_order',
     pay_create_sign_course_order:base_url+'/wenyuanjiaoyu/pay/wechat_pay_create_sign_course_order',
     change_active_student:base_url+'/wenyuanjiaoyu/student/change_active_student',
@@ -61,6 +62,9 @@ var urls = {
     submit_result:base_url+'/wenyuanjiaoyu/question_student_result/submit_result',
     reckon_result:base_url+'/wenyuanjiaoyu/student_homework_result/reckon_result',
     gen_homework_result_share:base_url+'/wenyuanjiaoyu/homework_class/gen_homework_result_share',
+    video_list:base_url+'/wenyuanjiaoyu/video/list_front',
+    video_url:base_url+'/wenyuanjiaoyu/video/video_url',
+    user_video_collect:base_url+'/wenyuanjiaoyu/user_video_collect/collect',
 }
 
 module.exports = {

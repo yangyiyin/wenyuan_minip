@@ -55,6 +55,16 @@ Page({
             url: '/pages/words/index'
         })
     },
+    goto_video_buy(){
+        wx.navigateTo({
+            url: '/pages/video_list/index?type=buy'
+        })
+    },
+    goto_video_collect(){
+        wx.navigateTo({
+            url: '/pages/video_list/index?type=collect'
+        })
+    },
     goto_sign_course_agreement(){
         wx.navigateTo({
             url: '/pages/sign_course_agreement_list/index'

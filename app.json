@@ -5,6 +5,8 @@
     "pages/index/index",
     "pages/change_student/index",
     "pages/video/index",
+    "pages/video_detail/index",
+    "pages/video_list/index",
     "pages/examine/index",
     "pages/examine_detail/index",
     "pages/examine_log/index",

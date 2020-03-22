@@ -2,6 +2,7 @@ const common = require('../../utils/common.js');
 const config = require('../../utils/config.js');
 Page({
     data:{
+        type:'',
         news_list:[
             // {img:'http://wenyuanjiaoyu-qiniu.yixsu.com/img_loading_bg2.png','title':'速度快发货的时刻发挥第三方客户1'},
             // {img:'http://wenyuanjiaoyu-qiniu.yixsu.com/img_loading_bg2.png','title':'速度快发货的时刻发挥第三方客户2'},
@@ -49,7 +50,7 @@ Page({
  // console.log(e.scrollTop);
         var that = this;
 // 3.当页面滚动距离scrollTop > menuTop菜单栏距离文档顶部的距离时，菜单栏固定定位
-        if ((e.scrollTop-250) > that.data.menuTop) {
+        if ((e.scrollTop-50) > that.data.menuTop) {
             that.setData({
                 menuFixed: true
             })
@@ -60,7 +61,10 @@ Page({
 
         }
     },
-    onLoad(){
+    onLoad(options){
+        this.setData({
+            type:options.type
+        })
         this.get_news_list(true).then(function(){
             this.setData({
                 news_list_top:this.data.list.video_list.list.slice(0,5),
@@ -72,7 +76,7 @@ Page({
 
     get_news_list(init){
 
-        return common.getlist('video_list', this.data.option_index, 10, this, init);
+        return common.getlist('video_list', {...this.data.option_index,type:this.data.type}, 10, this, init);
     },
     onPullDownRefresh(){
         this.get_news_list(true).then(function(){

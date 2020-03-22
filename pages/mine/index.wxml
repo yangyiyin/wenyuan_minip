@@ -31,6 +31,15 @@
     <view style="border-bottom: 1rpx solid #eee" bindtap="goto_my_orders">
         <yxs_menu_item height="120" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/%E8%AE%A2%E5%8D%95@3x.png" title="我报名的课程"></yxs_menu_item>
     </view>
+
+    <view style="border-bottom: 1rpx solid #eee" bindtap="goto_video_buy">
+        <yxs_menu_item height="120" icon="../../assets/bug.png" title="我购买的小视频"></yxs_menu_item>
+    </view>
+
+    <view style="border-bottom: 1rpx solid #eee" bindtap="goto_video_collect">
+        <yxs_menu_item height="120" icon="../../assets/aixin2.png" title="我收藏的小视频"></yxs_menu_item>
+    </view>
+
     <view wx:if="{{info.id}}" style="border-bottom: 1rpx solid #eee" bindtap="goto_examine_log">
         <yxs_menu_item height="120" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_115.png" title="考试成绩"></yxs_menu_item>
     </view>
@@ -40,6 +49,7 @@
     <view wx:if="{{info.id}}" style="border-bottom: 1rpx solid #eee" bindtap="goto_words">
         <yxs_menu_item height="120" icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_117.png" title="教师评语"></yxs_menu_item>
     </view>
+
 
     <view bindtap="goto_sign_course_agreement" style="text-decoration:underline;color: #999;text-align: left;width: 690rpx;margin: 0 auto;margin-top: 20rpx;margin-right:20rpx;font-size: 24rpx;">
         我的报名须知
