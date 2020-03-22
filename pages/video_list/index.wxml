@@ -50,7 +50,7 @@
         </view>
         <view style="margin-top: 20rpx;">
             <view wx:for="{{item.grade}}" wx:for-item="i" wx:key="index" class="label">{{i.label}}</view>
-            <view wx:for="{{item.labels}}" wx:for-item="i" wx:key="index" class="label">{{i.name}}</view>
+            <view wx:for="{{item.knowledges}}" wx:for-item="i" wx:key="index" class="label">{{i.name}}</view>
         </view>
 
         <view wx:if="{{item.is_buy}}" style="font-size: 20rpx;color: #999;text-align: right">

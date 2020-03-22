@@ -16,19 +16,16 @@
     <view style="position: absolute;padding:20rpx;border-radius:10rpx;top:40%;left:50%;margin-left:-100rpx;width:200rpx;text-align:center;z-index: 10;color: #ffffff;background: #000000;opacity: 0.7" wx:if="{{loading}}">缓冲中...</view>
     <view style="position: absolute;top: 0;left: 0">
         <view style="margin:30rpx auto;">
-            <view class="label">
-                <view style="position: relative;z-index: 1">33</view>
+            <view  wx:for="{{video.grade}}" class="label">
+                <view style="position: relative;z-index: 1">{{item.label}}</view>
                 <view style="border-radius: 10rpx;" class="bg"></view>
             </view>
 
-            <view class="label">
-                <view style="position: relative;z-index: 1">33</view>
+            <view  wx:for="{{video.knowledges}}" class="label">
+                <view style="position: relative;z-index: 1">{{item.name}}</view>
                 <view style="border-radius: 10rpx;" class="bg"></view>
             </view>
-            <view class="label">
-                <view style="position: relative;z-index: 1">33</view>
-                <view style="border-radius: 10rpx;" class="bg"></view>
-            </view>
+
         </view>
     </view>
 

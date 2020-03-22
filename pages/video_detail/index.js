@@ -32,6 +32,8 @@ Page({
             if (res.data.code == common.constant.return_code_success) {
                 _this.data.video.is_collect = res.data.data;
                 _this.setData({video:_this.data.video})
+            } else {
+                common.show_modal(res.data.msg);
             }
         });
     }

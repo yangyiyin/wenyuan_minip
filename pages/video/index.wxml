@@ -15,7 +15,8 @@
             autoplay="{{true}}" interval="{{3000}}" bindchange="swiper_change" duration="{{500}}" style="width: 750rpx;height: 400rpx;">
         <swiper-item wx:for="{{news_list_top}}" wx:key="index" bindtap="goto_detail" data-item="{{item}}" data-id="{{item.id}}">
             <image mode="aspectFill" src="{{item.img}}" class="slide-image" style="width: 750rpx;height:400rpx"/>
-            <view style="padding: 4rpx 6rpx;position: absolute;right: 20rpx;top:20rpx;width: auto" class="btn">购买¥{{item.price}}/年</view>
+            <view wx:if="{{!item.is_buy}}" style="padding: 4rpx 6rpx;position: absolute;right: 20rpx;top:20rpx;width: auto" class="btn">购买¥{{item.price}}/年</view>
+            <view wx:if="{{item.is_buy}}"style="padding: 4rpx 6rpx;position: absolute;right: 20rpx;top:20rpx;width: auto;background: #999;color:#ffffff;border-radius: 10rpx;">已购买</view>
         </swiper-item>
 
     </swiper>
@@ -50,8 +51,10 @@
 
 <view style="height:70rpx;line-height:70rpx;font-size: 30rpx;">
     <div style="display: inline-block;vertical-align:middle;width: 10rpx;height: 40rpx;background:#12CE87;border-radius: 20rpx;margin:0 20rpx;"></div>
-    <div style="display: inline-block">课程视频</div>
+    <div style="display: inline-block">课程视频
+    </div>
 </view>
+<div style="line-height:26rpx;text-align:right;font-size: 20rpx;padding: 0 20rpx;text-align: right">视频版权归慈溪文远教育所有，未经授权抄袭或传播，将追究法律责任</div>
 
 <view wx:for="{{news_list}}" wx:key="index" bindtap="goto_detail" data-id="{{item.id}}" data-item="{{item}}"  style="margin:0 20rpx;margin-top:20rpx;width:710rpx;border-radius: 10rpx;background: #fff;overflow: hidden">
     <view style="display: inline-block;width: 200rpx;vertical-align: top;padding: 20rpx">
@@ -70,7 +73,7 @@
         </view>
         <view style="margin-top: 20rpx;">
             <view wx:for="{{item.grade}}" wx:for-item="i" wx:key="index" class="label">{{i.label}}</view>
-            <view wx:for="{{item.labels}}" wx:for-item="i" wx:key="index" class="label">{{i.name}}</view>
+            <view wx:for="{{item.knowledges}}" wx:for-item="i" wx:key="index" class="label">{{i.name}}</view>
         </view>
 
         <view wx:if="{{item.is_buy}}" style="font-size: 20rpx;color: #999;text-align: right">
