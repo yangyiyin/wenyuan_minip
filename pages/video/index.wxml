@@ -12,9 +12,9 @@
 
 <view class="top-container" >
     <swiper indicator-dots="{{false}}"
-            autoplay="{{true}}" interval="{{3000}}" bindchange="swiper_change" duration="{{500}}" style="width: 750rpx;height: 400rpx;">
+            autoplay="{{true}}" interval="{{3000}}" bindchange="swiper_change" duration="{{500}}" style="width: 750rpx;height: 500rpx;">
         <swiper-item wx:for="{{news_list_top}}" wx:key="index" bindtap="goto_detail" data-item="{{item}}" data-id="{{item.id}}">
-            <image mode="aspectFill" src="{{item.img}}" class="slide-image" style="width: 750rpx;height:400rpx"/>
+            <image mode="aspectFill" src="{{item.img}}" class="slide-image" style="width: 750rpx;height:500rpx"/>
             <view wx:if="{{!item.is_buy}}" style="padding: 4rpx 6rpx;position: absolute;right: 20rpx;top:20rpx;width: auto" class="btn">购买¥{{item.price}}/年</view>
             <view wx:if="{{item.is_buy}}"style="padding: 4rpx 6rpx;position: absolute;right: 20rpx;top:20rpx;width: auto;background: #999;color:#ffffff;border-radius: 10rpx;">已购买</view>
         </swiper-item>
@@ -74,6 +74,10 @@
         <view style="margin-top: 20rpx;">
             <view wx:for="{{item.grade}}" wx:for-item="i" wx:key="index" class="label">{{i.label}}</view>
             <view wx:for="{{item.knowledges}}" wx:for-item="i" wx:key="index" class="label">{{i.name}}</view>
+        </view>
+
+        <view style="font-size: 20rpx;color: #999;text-align: right">
+            已购买{{item.video_counts.buy_count_show ? item.video_counts.buy_count_show : 0}}人
         </view>
 
         <view wx:if="{{item.is_buy}}" style="font-size: 20rpx;color: #999;text-align: right">

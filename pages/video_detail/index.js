@@ -3,7 +3,7 @@ const config = require('../../utils/config.js');
 Page({
     data:{
         url:'',
-        loading:false,
+        loading:true,
         id:0,
         video:{}
     },
@@ -17,9 +17,9 @@ Page({
         });
     },
     bindwaiting(){
-        this.setData({loading:true})
+        //this.setData({loading:true})
     },
-    bindwaiting(){
+    bindplay(){
         this.setData({loading:false})
     },
     collect(){
