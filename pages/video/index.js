@@ -109,6 +109,9 @@ Page({
                 url: '/pages/video_detail/index?id='+event.currentTarget.dataset.id
             })
         } else {
+            if (this.data.platform == 'ios') {
+                return;
+            }
             var _this = this;
             wx.showModal({
                 title: '确认购买',
