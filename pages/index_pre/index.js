@@ -30,9 +30,15 @@ Page({
 
                     if (has_reg) {
                         if (app.globalData.page_url) {
-                            wx.redirectTo({
-                                url: app.globalData.page_url
-                            })
+                            if (app.globalData.page_url == '/pages/video/index') {
+                                wx.switchTab({
+                                    url: app.globalData.page_url
+                                })
+                            } else {
+                                wx.redirectTo({
+                                    url: app.globalData.page_url
+                                })
+                            }
                         } else {
                             this.goto_index();
                         }
@@ -48,9 +54,15 @@ Page({
                 app.get_userinfo().then(function(has_reg){
                     if (has_reg) {
                         if (app.globalData.page_url) {
-                            wx.redirectTo({
-                                url: app.globalData.page_url
-                            })
+                            if (app.globalData.page_url == '/pages/video/index') {
+                                wx.switchTab({
+                                    url: app.globalData.page_url
+                                })
+                            } else {
+                                wx.redirectTo({
+                                    url: app.globalData.page_url
+                                })
+                            }
                         } else {
                             this.goto_index();
                         }

@@ -45,7 +45,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -72,6 +72,13 @@
 					"id": -1,
 					"name": "pages/video_detail/index",
 					"pathName": "pages/video_detail/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/video/index",
+					"pathName": "pages/video/index",
 					"query": "",
 					"scene": null
 				},

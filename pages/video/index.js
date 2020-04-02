@@ -10,6 +10,7 @@ Page({
             // {img:'http://wenyuanjiaoyu-qiniu.yixsu.com/img_loading_bg2.png','title':'速度快发货的时刻发挥第三方客户5'},
 
         ],
+        platform:'',
         new_list_top:[],
         swiper_info:'',
         list_pull_info:'',
@@ -61,6 +62,15 @@ Page({
         }
     },
     onLoad(){
+        wx.getSystemInfo({
+            success : (res) => {
+                // console.log(res.platform);
+                this.setData({
+                    platform:res.platform
+                })
+            }
+        })
+
         this.get_news_list(true).then(function(){
             this.setData({
                 news_list_top:this.data.list.video_list.list.slice(0,5),

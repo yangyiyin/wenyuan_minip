@@ -75,11 +75,19 @@ Page({
                 common.request('post','bind_tel',data,function (res) {
                     if (res.data.code == common.constant.return_code_success) {
                         common.show_toast('恭喜你,登录成功!');
+                        app.globalData.user_session = res.data.data;
+                        wx.setStorageSync('user_session', res.data.data);
 
                         if (app.globalData.page_url) {
-                            wx.redirectTo({
-                                url: app.globalData.page_url
-                            })
+                            if (app.globalData.page_url == '/pages/video/index') {
+                                wx.switchTab({
+                                    url: app.globalData.page_url
+                                })
+                            } else {
+                                wx.redirectTo({
+                                    url: app.globalData.page_url
+                                })
+                            }
                         } else {
                             this.goto_index();
                         }
