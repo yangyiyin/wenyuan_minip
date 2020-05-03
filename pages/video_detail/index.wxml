@@ -8,8 +8,12 @@
 
 <!--</view>-->
 <!--<include src="../../common/bottom_pull_info.wxml"/>-->
-<view  class="container" style="background: #fff;height: 100%;overflow: hidden">
-    <video bindplay="bindplay" bindwaiting="bindwaiting" autoplay="{{true}}" style="width: 100%;height: 100%;" src="{{video.url}}">
+<view class="container" style="background: #fff;height: 100%;overflow: hidden">
+    <video wx:if="{{video.has_buy}}" bindplay="bindplay" bindwaiting="bindwaiting" autoplay="{{true}}" style="width: 100%;height: 100%;" src="{{video.url}}">
+
+    </video>
+
+    <video wx:if="{{!video.has_buy}}" bindplay="bindplay_preview"  autoplay="{{true}}" style="width: 100%;height: 100%;" src="{{video.preview_url}}">
 
     </video>
 
@@ -29,7 +33,7 @@
         </view>
     </view>
 
-    <view style="position: absolute;top: 20rpx;right: 20rpx;">
+    <view wx:if="{{video.has_buy}}" style="position: absolute;top: 20rpx;right: 20rpx;">
         <view bindtap="collect" style="padding: 20rpx;display: flex;line-height: 40rpx;position: relative">
             <image wx:if="{{video.is_collect!=1}}" style="position:relative;z-index:1;width: 40rpx;height:40rpx;vertical-align:middle;" mode="scaleToFill" src="../../assets/aixin.png"></image>
             <image wx:if="{{video.is_collect>0}}" style="position:relative;z-index:1;width:40rpx;height:40rpx;vertical-align: middle" mode="scaleToFill" src="../../assets/aixin2.png"></image>
@@ -39,4 +43,34 @@
             <view style="border-radius: 40rpx;" class="bg"></view>
         </view>
     </view>
+
+    <view  style="position: absolute;top: 120rpx;right: 20rpx;">
+        <view style="padding: 20rpx;display: flex;line-height: 40rpx;position: relative">
+           <view  style="position:relative;z-index:1;font-size: 40rpx;color: #ffffff;line-height: 40rpx;">
+               <button style="background: none;color: #fff;padding: 0;font-size: 40rpx;line-height: 40rpx;" open-type="share">分享</button>
+           </view>
+            <view style="border-radius: 40rpx;" class="bg"></view>
+        </view>
+    </view>
+
+    <view style="position: absolute;bottom: 20rpx;right: 20rpx;">
+        <view style="padding: 20rpx;display: flex;line-height: 40rpx;position: relative">
+            <view bindtap="pay" data-item="{{video}}" wx:if="{{platform != 'ios' && !video.has_buy}}" style="position:relative;z-index:1;font-size: 40rpx;color: #ffffff;line-height: 40rpx;">点击购买</view>
+            <view wx:if="{{platform == 'ios' && !video.has_buy}}" style="position:relative;z-index:1;font-size: 40rpx;color: #ffffff;line-height: 40rpx;">Ios暂不支持，请尝试安卓系统</view>
+            <view style="border-radius: 40rpx;" class="bg"></view>
+        </view>
+    </view>
+
+
+    <view wx:if="{{!video.has_buy&& video.preview_url}}" style="position: absolute;bottom: 20rpx;left: 20rpx;">
+        <view style="padding: 20rpx;display: flex;line-height: 40rpx;position: relative">
+            <view  style="position:relative;z-index:1;font-size: 40rpx;color: #ffffff;line-height: 40rpx;">当前预览模式</view>
+            <view style="border-radius: 40rpx;" class="bg"></view>
+        </view>
+    </view>
+</view>
+
+<!--介绍-->
+<view wx:if="{{video.question}}">
+    <view>关联题目:{{video.question.title}}</view>
 </view>

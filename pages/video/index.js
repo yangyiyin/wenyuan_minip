@@ -103,6 +103,10 @@ Page({
         }.bind(this)).catch(function(){})
     },
     goto_detail(event){
+        wx.navigateTo({
+            url: '/pages/video_detail/index?id='+event.currentTarget.dataset.id
+        })
+        return;
         //检测是否已购买
         if (event.currentTarget.dataset.item.is_buy) {
             wx.navigateTo({
