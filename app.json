@@ -59,7 +59,7 @@
       },
       {
         "pagePath": "pages/video/index",
-        "text": "小视频",
+        "text": "微课",
         "iconPath": "./assets/video.png",
         "selectedIconPath": "./assets/video2.png"
       },
