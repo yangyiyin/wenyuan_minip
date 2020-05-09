@@ -8,7 +8,9 @@ Page({
     onLoad(options) {
          if (options.q) {
              var url = decodeURIComponent(options.q);//url
+
              var query = common.getQueryVariable(url);//url后的参数
+             // console.log(query)
              if (query.page) {
                  var param = [];
                  for(var i in query) {

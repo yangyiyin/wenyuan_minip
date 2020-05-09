@@ -44,6 +44,10 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 5,
 			"list": [
@@ -55,17 +59,17 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "test",
-					"pathName": "pages/index/index",
-					"query": "",
+					"id": 1,
+					"name": "/pages/index_pre/index",
+					"pathName": "pages/index_pre/index",
+					"query": "q=%3Fpage%3D%2Fpages%2Fvideo_detail%2Findex%26id%3D23",
 					"scene": null
 				},
 				{
 					"id": 2,
-					"name": "243",
-					"pathName": "pages/index_pre/index",
-					"query": "page=/pages/examine_detail/index&id=1",
+					"name": "/pages/video_detail/index",
+					"pathName": "/pages/video_detail/index",
+					"query": "",
 					"scene": null
 				},
 				{
@@ -86,6 +90,7 @@
 					"id": -1,
 					"name": "pages/video/index",
 					"pathName": "pages/video/index",
+					"query": "",
 					"scene": null
 				}
 			]

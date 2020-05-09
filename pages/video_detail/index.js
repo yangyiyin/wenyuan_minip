@@ -54,7 +54,7 @@ Page({
 
         return {
             title: this.data.video.title,
-            path: '/pages/video_detail/index?id='+this.data.video.id
+            path: '/pages/index_pre/index?q='+encodeURIComponent('?page=/pages/video_detail/index&id='+this.data.video.id)
         }
     },
     pay(event){
