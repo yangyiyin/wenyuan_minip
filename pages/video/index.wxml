@@ -15,10 +15,10 @@
             autoplay="{{true}}" interval="{{3000}}" bindchange="swiper_change" duration="{{500}}" style="width: 750rpx;height: 500rpx;">
         <swiper-item wx:for="{{news_list_top}}" wx:key="index" bindtap="goto_detail" data-item="{{item}}" data-id="{{item.id}}">
             <image mode="aspectFill" src="{{item.img}}" class="slide-image" style="width: 750rpx;height:500rpx"/>
-            <view wx:if="{{platform != 'ios' && !item.is_buy}}" style="padding: 4rpx 6rpx;position: absolute;right: 20rpx;top:20rpx;width: auto" class="btn">购买¥{{item.price}}/年</view>
-            <view wx:if="{{platform == 'ios' && !item.is_buy}}" style="padding: 4rpx 6rpx;position: absolute;right: 20rpx;top:20rpx;width: auto;background: #999;color:#ffffff;border-radius: 10rpx;">Ios暂不支持，请尝试安卓系统</view>
+            <!--<view wx:if="{{platform != 'ios' && !item.is_buy}}" style="padding: 4rpx 6rpx;position: absolute;right: 20rpx;top:20rpx;width: auto" class="btn">购买¥{{item.price}}/年</view>-->
+            <!--<view wx:if="{{platform == 'ios' && !item.is_buy}}" style="padding: 4rpx 6rpx;position: absolute;right: 20rpx;top:20rpx;width: auto;background: #999;color:#ffffff;border-radius: 10rpx;">Ios暂不支持，请尝试安卓系统</view>-->
 
-            <view wx:if="{{item.is_buy}}"style="padding: 4rpx 6rpx;position: absolute;right: 20rpx;top:20rpx;width: auto;background: #999;color:#ffffff;border-radius: 10rpx;">已购买</view>
+            <!--<view wx:if="{{item.is_buy}}"style="padding: 4rpx 6rpx;position: absolute;right: 20rpx;top:20rpx;width: auto;background: #999;color:#ffffff;border-radius: 10rpx;">已购买</view>-->
         </swiper-item>
 
     </swiper>
@@ -69,11 +69,13 @@
         <view style="display: flex">
             <view style="flex: 5;font-size: 30rpx">{{item.title_short}}</view>
             <view style="flex: 3;display: flex">
-                <!--<view wx:if="{{platform != 'ios' && !item.is_buy}}" style="padding: 4rpx 6rpx" class="btn">购买¥{{item.price}}/年</view>-->
-                <view wx:if="{{platform != 'ios' && !item.is_buy}}" style="padding: 4rpx 6rpx" class="btn">点击预览</view>
-                <view wx:if="{{platform == 'ios' && !item.is_buy}}" style="padding: 4rpx 6rpx;background: #999;color:#ffffff;border-radius: 10rpx;">Ios暂不支持，请尝试安卓系统</view>
+                <!--<view wx:if="{{platform != 'ios' && !item.is_buy}}" style="padding: 4rpx 6rpx" class="btn">点击预览</view>-->
+                <!--<view wx:if="{{platform == 'ios' && !item.is_buy}}" style="padding: 4rpx 6rpx;background: #999;color:#ffffff;border-radius: 10rpx;">Ios暂不支持，请尝试安卓系统</view>-->
 
-                <view wx:if="{{item.is_buy}}" style="padding: 4rpx 6rpx;background: #999;color:#ffffff;border-radius: 10rpx;">已购买</view>
+                <!--<view wx:if="{{item.is_buy}}" style="padding: 4rpx 6rpx;background: #999;color:#ffffff;border-radius: 10rpx;">已购买</view>-->
+
+                <view style="padding: 4rpx 6rpx" class="btn">立即观看</view>
+
             </view>
         </view>
         <view style="margin-top: 20rpx;">
