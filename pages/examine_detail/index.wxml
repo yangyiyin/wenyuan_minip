@@ -98,7 +98,7 @@
 
 
                     <checkbox-group bindchange="change_has_base" style="vertical-align: middle;float: right;font-size: 22rpx;" >
-                        语文<checkbox  value="1" />
+                        编程<checkbox  value="4" />
                         数学<checkbox  value="2" />
                         英语 <checkbox  value="3" />
                     </checkbox-group>
