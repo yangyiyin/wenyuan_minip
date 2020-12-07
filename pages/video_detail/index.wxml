@@ -56,7 +56,7 @@
     <view style="position: absolute;bottom: 20rpx;right: 20rpx;">
         <view style="padding: 20rpx;display: flex;line-height: 40rpx;position: relative">
             <view bindtap="pay" data-item="{{video}}" wx:if="{{platform != 'ios' && !video.has_buy}}" style="position:relative;z-index:1;font-size: 40rpx;color: #ffffff;line-height: 40rpx;">点击购买</view>
-            <view wx:if="{{platform == 'ios' && !video.has_buy}}" style="position:relative;z-index:1;font-size: 40rpx;color: #ffffff;line-height: 40rpx;">Ios暂不支持，请尝试安卓系统</view>
+            <!--<view wx:if="{{platform == 'ios' && !video.has_buy}}" style="position:relative;z-index:1;font-size: 40rpx;color: #ffffff;line-height: 40rpx;">Ios暂不支持，请尝试安卓系统</view>-->
             <view style="border-radius: 40rpx;" class="bg"></view>
         </view>
     </view>

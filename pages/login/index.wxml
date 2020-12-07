@@ -1,6 +1,6 @@
 <view class="container" style="background: #fff">
 
-    <image style="width: 100%;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/img_login_topbg.png"></image>
+    <image style="width: 100%;" mode="widthFix" src="http://wenyuanjiaoyu-qiniu.yixsu.com/DE07BD10-6E33-4728-9B09-30E664294059.png"></image>
     <view style="height:40rpx;"></view>
     <yxs_input icon="http://wenyuanjiaoyu-qiniu.yixsu.com/切图_207.png" width="600" height="100" maxlength="20" placeholder="家长手机号码" bindchange="bindinputtel" error_info="{{inputtel_error}}"></yxs_input>
     <view style="position: relative;top:-1rpx">
